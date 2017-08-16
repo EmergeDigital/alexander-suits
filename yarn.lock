@@ -10,9 +10,15 @@
     source-map "^0.5.6"
     typescript "^2.3.3"
 
-"@angular/animations@^4.2.4":
+"@angular/animations@^4.3.4":
   version "4.3.4"
   resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-4.3.4.tgz#02c726b3b70ae3d2e155704c8c60e9baf01547ef"
+  dependencies:
+    tslib "^1.7.1"
+
+"@angular/cdk@angular/cdk-builds":
+  version "2.0.0-beta.8-9ba5d84"
+  resolved "https://codeload.github.com/angular/cdk-builds/tar.gz/4e9318a831567b5794b90973b07688a25ddd7073"
   dependencies:
     tslib "^1.7.1"
 
@@ -126,6 +132,12 @@
 "@angular/language-service@^4.2.4":
   version "4.3.4"
   resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-4.3.4.tgz#3a44a227a2256941eb328057e3c1372868a8516f"
+
+"@angular/material@angular/material2-builds":
+  version "2.0.0-beta.8-9ba5d84"
+  resolved "https://codeload.github.com/angular/material2-builds/tar.gz/3c6774d18acccbfd14691dbbbdaa2be8d1815ea7"
+  dependencies:
+    tslib "^1.7.1"
 
 "@angular/platform-browser-dynamic@^4.2.4":
   version "4.3.4"
@@ -2133,6 +2145,10 @@ graceful-fs@^4.1.2, graceful-fs@^4.1.6:
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
 
+hammerjs@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/hammerjs/-/hammerjs-2.0.8.tgz#04ef77862cff2bb79d30f7692095930222bf60f1"
+
 handle-thing@^1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/handle-thing/-/handle-thing-1.2.5.tgz#fd7aad726bf1a5fd16dfc29b2f7a6601d27139c4"
@@ -3252,6 +3268,10 @@ mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkd
   dependencies:
     minimist "0.0.8"
 
+moment@2.18.1:
+  version "2.18.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
+
 ms@0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.1.tgz#9cd13c03adbff25b65effde7ce864ee952017098"
@@ -3292,6 +3312,12 @@ ncname@1.0.x:
 negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
+
+ngx-bootstrap@^1.8.1:
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/ngx-bootstrap/-/ngx-bootstrap-1.8.1.tgz#317c0fecf0a88248031b3f6102466ebf86658dfd"
+  dependencies:
+    moment "2.18.1"
 
 no-case@^2.2.0:
   version "2.3.1"
