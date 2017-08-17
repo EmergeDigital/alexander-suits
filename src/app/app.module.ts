@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 // import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { OwlModule } from 'ng2-owl-carousel';
 import 'hammerjs';
 
 
@@ -26,7 +27,16 @@ import { AppRoutingModule } from './app-routing.module';
     NavbarComponent
   ],
   imports: [
-    BrowserModule, BrowserAnimationsModule, FormsModule, HttpModule, AppRoutingModule, MdButtonModule, MdCheckboxModule, MdToolbarModule, MdIconModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpModule,
+    AppRoutingModule,
+    MdButtonModule,
+    MdCheckboxModule,
+    MdToolbarModule,
+    MdIconModule, 
+    OwlModule
   ],
   providers: [],
   bootstrap: [AppComponent]

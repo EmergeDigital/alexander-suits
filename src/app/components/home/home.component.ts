@@ -12,4 +12,5 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  images = ["../assets/alex-logo.png", "../assets/alex-logo.png", "../assets/alex-logo.png"];
 }
