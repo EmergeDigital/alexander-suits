@@ -1,55 +1,15 @@
 //MAIN STYLES FOR ALEXANDER SUITS
+@import url('https://fonts.googleapis.com/css?family=Lato');
 
 html, body {
   margin: 0px;
 }
 
-h1, h2, h3, h4, h5, h6, p, span {  
-  font-family:  Roboto,"Helvetica Neue",sans-serif;
+h1, h2, h3, h4, h5, h6, p, span {
+  font-family: 'Lato', sans-serif;
 }
 
 
-.toolbar-right {
-  // This fills the remaining space, by using flexbox.
-  // Every toolbar row uses a flexbox row layout.
-  flex: 1 1 auto;
-}
-
-.toolbar-centered {
-  flex: 1 1 auto;
-  text-align: center;
-}
-
-.alex-header {
-  // height: 100px;
-  color: #a28750;
-  width: 100%;
-  text-align: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
-
-
-  .call-text {
-    padding-top: 10px;
-    .material-icons, span {
-      vertical-align: middle;
-    }
-  }
-
-  .social-icons {
-    button {
-      border: 2px solid #a28750;
-    }
-    .mat-icon-button .mat-icon, .mat-icon-button i {
-        line-height: 20px;
-    }
-  }
-}
-
-.mat-toolbar.mat-primary {
-  background: #383435 !important;
-  border-bottom: 5px solid #830024;
-}
 
 .img-responsive {
   width: 100%;
