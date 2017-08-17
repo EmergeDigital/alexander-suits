@@ -7,13 +7,16 @@
 
   <owl-carousel
        [options]="{items: 3, dots: false, navigation: false}"
-
        [items]="images"
-
        [carouselClasses]="['owl-theme', 'row', 'sliding']">
-       <div class="item" *ngFor="let image of images;">
-           <div class="thumbnail-image" [ngStyle]="{'background': 'url(image) no-repeat scroll center center / 80px 80px'}"></div>
-       </div>
+        <!--You can't put stuff in here unless it has an outlet, scrub. Things don't work this way in angular-->
    </owl-carousel>
+
+    <!--This proves that the images actually work-->
+    <div class="item" *ngFor="let image of images;">
+        <div class="thumbnail-image" [ngStyle]="{'background': 'url(' + image + ') no-repeat scroll center center / 80px 80px'}"></div>
+        <img src="{{image}}">
+        <!--<div class="thumbnail-image" [ngStyle]="giefImages(image)"></div>-->
+    </div>
 
 </div>
