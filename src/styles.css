@@ -2,3 +2,6 @@
 @import 'styles/main.min.css';
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@import "~owl.carousel/dist/assets/owl.carousel.css";
+@import "~owl.carousel/dist/assets/owl.theme.default.css";

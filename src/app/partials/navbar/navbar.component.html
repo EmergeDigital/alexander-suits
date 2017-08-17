@@ -21,13 +21,19 @@
 </div>
 <md-toolbar color="primary" class="unselectable">
   <!-- TODO: hide on mobile -->
-  <div class="toolbar-centered">
+  <div class="toolbar-centered hideOnMobile">
 
     <button md-button>HOME</button>
     <button md-button>ABOUT</button>
     <button md-button>SUITS</button>
     <button md-button>ACCESSORIES</button>
     <button md-button>CONTACT US</button>
+  </div>
+
+  <div class="showOnMobile">
+    <button md-icon-button [mdMenuTriggerFor]="appMenu">
+       <md-icon>more_vert</md-icon>
+    </button>
   </div>
 
   <!-- TODO: Sidenav or Menu to contain navigation for mobile -->
@@ -38,3 +44,11 @@
 
   <!-- <span>Right Aligned Text</span> -->
 </md-toolbar>
+
+<md-menu #appMenu="mdMenu">
+  <button md-menu-item> Home </button>
+  <button md-menu-item> About </button>
+  <button md-menu-item> Suits </button>
+  <button md-menu-item> Accessories </button>
+  <button md-menu-item> Contact Us </button>
+</md-menu>

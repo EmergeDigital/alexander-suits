@@ -3,6 +3,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MdButtonModule, MdCheckboxModule} from '@angular/material';
 import {MdToolbarModule} from '@angular/material';
 import {MdIconModule} from '@angular/material';
+import {MdMenuModule} from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 // import { RouterModule } from '@angular/router';
@@ -35,7 +36,8 @@ import { AppRoutingModule } from './app-routing.module';
     MdButtonModule,
     MdCheckboxModule,
     MdToolbarModule,
-    MdIconModule, 
+    MdIconModule,
+    MdMenuModule,
     OwlModule
   ],
   providers: [],

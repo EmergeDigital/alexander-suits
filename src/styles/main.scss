@@ -1,7 +1,11 @@
 //MAIN STYLES FOR ALEXANDER SUITS
 
-body {
+html, body {
   margin: 0px;
+}
+
+h1, h2, h3, h4, h5, h6, p, span {  
+  font-family:  Roboto,"Helvetica Neue",sans-serif;
 }
 
 
@@ -66,4 +70,17 @@ button:focus{
     -khtml-user-select: none;
     -webkit-user-select: none;
     -o-user-select: none;
+}
+
+.showOnMobile {
+  display: none;
+}
+
+@media (max-width:575px) { /* mobile size */
+  .hideOnMobile {
+    display: none
+  }
+  .showOnMobile {
+    display: block;
+  }
 }
