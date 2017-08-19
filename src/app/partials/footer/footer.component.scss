@@ -5,7 +5,7 @@
   border-top: 5px solid #830024;
 }
 
-.footer-image {  
+.footer-image {
   background-image: url('http://placehold.it/550x200');
   background-size: cover;
   height: 200px;
@@ -23,17 +23,23 @@
 }
 
 .call-us {
+  margin-top: 50px;
   padding-top: 15px;
   padding-bottom: 15px;
   margin-top: 6  0px;
   margin-bottom: 40px;
   border-top: 1px solid #919191;
   border-bottom: 1px solid #919191;
-  font-size: 24px;
+  font-size: 20px;
   color: #919191;
   b{
     color: #725d3d;
   }
+}
+
+.footer-logo-box{
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .copyright {
