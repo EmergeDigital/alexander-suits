@@ -9,6 +9,7 @@ export class HomeComponent implements OnInit {
 
     images: string[];
     testimonials: object[];
+    testimonialOptions: object;
 
     constructor() {
         this.images = ["../assets/accessories.jpg", "../assets/business.jpg", "../assets/suit-up.jpg"];
@@ -34,6 +35,22 @@ export class HomeComponent implements OnInit {
             text: "The best wares in all of Hobbiton"
           }
         ];
+        this.testimonialOptions = {
+          dots: true,
+          navigation: true,
+          autoplay: true,
+          loop: true,
+          autoplayTimeout:5500,
+          responsiveClass:true,
+          responsive: {
+            0 : {
+              items: 1
+            },
+            1000 : {
+              items: 3
+            }
+          }
+        };
     }
 
     ngOnInit() {

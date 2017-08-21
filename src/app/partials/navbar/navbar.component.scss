@@ -11,7 +11,7 @@
 }
 
 .alex-header {
-  max-height: 233px;
+  height: 200px;
   color: #a28750;
   width: 100%;
   text-align: center;
@@ -32,6 +32,16 @@
     }
   }
 }
+
+
+.alex-logo {
+  max-width: 200px;
+}
+
+.mat-toolbar {
+  height: 69px;
+}
+
 
 .mat-toolbar.mat-primary {
   background: #232323 !important;
