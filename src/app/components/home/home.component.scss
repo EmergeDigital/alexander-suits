@@ -1,12 +1,8 @@
 
-.owl-theme .item img{
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
 .owl-slide-custom{
-  height: 700px;
+  height: -moz-calc(100vh - (69px + 233px));
+  height: -webkit-calc(100vh - (69px + 233px));
+  height: calc(100vh - (69px + 233px));
   width: 100%;
   background-attachment: center center;
   background-repeat: no-repeat;
