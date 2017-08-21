@@ -1,11 +1,13 @@
 <div style="text-align:center">
     <owl-carousel
-       [options]="{items: 1, dots: false, navigation: false, autoPlay: true, goToFirst: true}"
+       [options]="{items: 1, dots: true, navigation: true, autoplay: true, loop: true, autoplayTimeout:4000}"
        [items]="images"
        [carouselClasses]="['owl-theme', 'sliding']">
        <div class="item" *ngFor="let image of images;">
-           <!-- <div class="thumbnail-image" [ngStyle]=giefImages(image) class="owl-custom-item"></div> -->
-           <img src="{{image}}" />
+           <div class="owl-slide-custom" [ngStyle]=giefImages(image)>
+
+           </div>
+           <!-- <img src="{{image}}" /> -->
        </div>
    </owl-carousel>
 
@@ -69,6 +71,21 @@
        </div>
      </div>
 
+   </div>
+
+   <div class="home-more-info">
+     <div class="container">
+       <div class="row">
+         <div class="col-sm-8">
+           <h2>Only The Highest Quality that is Available on Market</h2><br /><br />
+           <div class="col-sm-7">
+             <p>
+               Etiam in augue. Nulla facilisi. Morbi felis tincidunt eget, faucibus orci nec erat a quam placerat vehicula neque. Etiam vehicula sit amet.
+             </p>
+           </div>
+         </div>
+       </div>
+     </div>
    </div>
 
 

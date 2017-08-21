@@ -3,6 +3,16 @@
   padding-bottom: 50px;
   background: #232323 !important;
   border-top: 5px solid #830024;
+  .form-control {
+    border: 1px solid rgba(255, 255, 255, 255);
+    background: rgba(0,0,0,0);
+    color: #ddd;
+  }
+
+  .btn {
+    background-color: rgba(255, 255, 255, 0.3);;
+    color: white;
+  }
 }
 
 .footer-image {

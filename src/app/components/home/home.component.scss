@@ -5,6 +5,13 @@
     height: auto;
 }
 
+.owl-slide-custom{
+  height: 700px;
+  width: 100%;
+  background-attachment: center center;
+  background-repeat: no-repeat;
+}
+
 .welcome {
   padding-top: 80px;
   padding-bottom: 100px;
@@ -109,9 +116,32 @@
   }
 
   .mat-icon {
-    color: #ffc107;
+    color: #830024;
   }
   button.mat-menu-item {
     color: white;
+  }
+}
+
+
+.home-more-info {
+  background: url('/assets/test.jpg') center center;
+  background-attachment: fixed;
+  background-color: white;
+  padding-top: 100px;
+  padding-bottom: 80px;
+  h2 {
+    text-align: left;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: 38px;
+    border-left: 4px solid #830024;
+  }
+
+  p {
+    padding-left: 30px;
+    text-align: left;
+    font-size: 18px;
+    color: #A6A6AD;
   }
 }
