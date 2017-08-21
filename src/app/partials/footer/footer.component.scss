@@ -34,16 +34,19 @@
 
 .call-us {
   margin-top: 50px;
-  padding-top: 15px;
+  padding-top: 20px;
   padding-bottom: 15px;
   margin-top: 6  0px;
   margin-bottom: 40px;
   border-top: 1px solid #919191;
   border-bottom: 1px solid #919191;
   font-size: 20px;
-  color: #919191;
+  color: #919191 !important;
   b{
     color: #725d3d;
+  }
+  button.mat-button {
+    transform: translateY(-5px);
   }
 }
 

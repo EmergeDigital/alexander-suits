@@ -4,6 +4,7 @@ import {MdButtonModule, MdCheckboxModule} from '@angular/material';
 import {MdToolbarModule} from '@angular/material';
 import {MdIconModule} from '@angular/material';
 import {MdMenuModule} from '@angular/material';
+import {MdCardModule} from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';
@@ -41,6 +42,7 @@ import { FooterComponent } from './partials/footer/footer.component';
     MdToolbarModule,
     MdIconModule,
     MdMenuModule,
+    MdCardModule,
     OwlModule,
     AngularFontAwesomeModule
   ],

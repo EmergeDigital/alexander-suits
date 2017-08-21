@@ -145,3 +145,26 @@
     color: #A6A6AD;
   }
 }
+
+.get-started-inner {
+  text-align: left;
+  // background-color: #830024;
+  background: url('/assets/suit-wall.jpg') center center;
+  // border-top: 5px solid #830024;
+  padding-top: 40px;
+  padding-bottom: 80px;
+  hr {
+    border-top: 2px dashed white;
+  }
+  h2 {
+    text-align: center;
+    color: white;
+    font-size: 42px;
+    text-transform: uppercase;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .mat-card-actions{
+    text-align: center;
+  }
+}
