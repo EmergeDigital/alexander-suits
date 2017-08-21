@@ -146,6 +146,13 @@
   }
 }
 
+.get-started {
+  position: relative;
+  border-top: 3px solid #232323;
+  border-bottom: 3px solid #232323;
+
+}
+
 .get-started-inner {
   text-align: left;
   // background-color: #830024;
@@ -168,3 +175,37 @@
     text-align: center;
   }
 }
+
+.item-outer{
+  padding: 5px;
+}
+
+.testimonials {
+  background: white;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  color: #232323;
+
+  hr {
+    border-top: 2px dashed #232323;
+  }
+}
+
+.t-card {
+  text-align: left;
+  .t-p {
+    text-align: center;
+    font-size: 18px;
+  }
+}
+
+
+md-card.t-card.mat-card {
+  padding-bottom: 50px;
+  height: 230px;
+}
+
+// .owl-slide-testimonial{
+//   border: 2px solid grey;
+//   height: 300px;
+// }
