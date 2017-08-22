@@ -25,8 +25,6 @@ import { NavbarComponent } from './partials/navbar/navbar.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FooterComponent } from './partials/footer/footer.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { Secrets } from './../../secrets/secrets';
-let secrets = new Secrets();
 
 @NgModule({
   declarations: [
@@ -51,7 +49,7 @@ let secrets = new Secrets();
     MdInputModule,
     OwlModule,
     AngularFontAwesomeModule,
-    NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key='+secrets.getCredentials().maps})
+    NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyAm3PebcIYpXrXY5k7xA5_9JWnqIjWKlU4'})
   ],
   providers: [],
   bootstrap: [AppComponent]
