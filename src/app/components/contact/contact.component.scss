@@ -16,10 +16,7 @@
 
 .contact-info-inner {
   text-align: center;
-  // color: white;
-  // background-color: #830024;
-  background: url('/assets/contact.jpg') center center;
-  // border-top: 5px solid #830024;
+  background: url('/assets/contact.jpg') center center fixed;
   padding-top: 100px;
   padding-bottom: 120px;
   hr {
@@ -27,20 +24,19 @@
   }
   h2 {
     text-align: center;
-    // color: white;
     font-size: 42px;
-    // text-transform: uppercase;
     padding-top: 10px;
     padding-bottom: 10px;
   }
+  span {
+    color: rgba(0,0,0,.54);
+  }
+  .contact-form {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
 
-  // .mat-raised-button {
-  //   background: #830024;
-  //   color: white;
-  // }
-  //
-  // .mat-focused.mat-input-placeholder {
-  //   color: #830024;
-  // }
-
+  .mat-card-actions{
+    padding-bottom: 40px;
+  }
 }

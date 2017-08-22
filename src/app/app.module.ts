@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { ScrollStoreModule } from 'scrollstore';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MdButtonModule, MdCheckboxModule} from '@angular/material';
 import {MdToolbarModule} from '@angular/material';
@@ -6,6 +7,7 @@ import {MdIconModule} from '@angular/material';
 import {MdMenuModule} from '@angular/material';
 import {MdCardModule} from '@angular/material';
 import {MdInputModule} from '@angular/material';
+import {MdSnackBarModule} from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';
@@ -13,6 +15,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awes
 // import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { OwlModule } from 'ng2-owl-carousel';
+import { ClipboardModule } from 'ngx-clipboard';
 import 'hammerjs';
 
 
@@ -35,6 +38,7 @@ import { ContactComponent } from './components/contact/contact.component';
     ContactComponent
   ],
   imports: [
+    ScrollStoreModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -47,8 +51,10 @@ import { ContactComponent } from './components/contact/contact.component';
     MdMenuModule,
     MdCardModule,
     MdInputModule,
+    MdSnackBarModule,
     OwlModule,
     AngularFontAwesomeModule,
+    ClipboardModule,
     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyAm3PebcIYpXrXY5k7xA5_9JWnqIjWKlU4'})
   ],
   providers: [],

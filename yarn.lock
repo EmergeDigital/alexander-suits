@@ -3354,6 +3354,16 @@ ngx-bootstrap@^1.8.1:
   dependencies:
     moment "2.18.1"
 
+ngx-clipboard@^8.0.4:
+  version "8.0.4"
+  resolved "https://registry.yarnpkg.com/ngx-clipboard/-/ngx-clipboard-8.0.4.tgz#97cda30d788e7dc1d280e36a7728f86600c455fd"
+  dependencies:
+    ngx-window-token "0.0.2"
+
+ngx-window-token@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/ngx-window-token/-/ngx-window-token-0.0.2.tgz#680ee986bbe6f95d07daadf154c0ecf35e589920"
+
 no-case@^2.2.0:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/no-case/-/no-case-2.3.1.tgz#7aeba1c73a52184265554b7dc03baf720df80081"
@@ -4580,6 +4590,10 @@ script-loader@^0.7.0:
   resolved "https://registry.yarnpkg.com/script-loader/-/script-loader-0.7.0.tgz#685dc7e7069e0dee7a92674f0ebc5b0f55baa5ec"
   dependencies:
     raw-loader "~0.5.1"
+
+scrollstore@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/scrollstore/-/scrollstore-1.0.1.tgz#3f4e39f117f0c22b9c7651f91991007139804374"
 
 scss-tokenizer@^0.2.3:
   version "0.2.3"
