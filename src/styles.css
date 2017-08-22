@@ -1,7 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'styles/main.min.css';
+@import 'styles/theme.min.css';
 
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/*@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";*/
 
 @import "~owl.carousel/dist/assets/owl.carousel.css";
 @import "~owl.carousel/dist/assets/owl.theme.default.css";

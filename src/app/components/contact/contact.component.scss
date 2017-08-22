@@ -1,0 +1,46 @@
+.map {
+  height: 500px;
+}
+
+.contact-location {
+  border-bottom: 3px solid #232323;
+  border-top: 3px solid #232323;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  text-align: center;
+}
+
+.contact-info {
+  position: relative;
+}
+
+.contact-info-inner {
+  text-align: center;
+  // color: white;
+  // background-color: #830024;
+  background: url('/assets/contact.jpg') center center;
+  // border-top: 5px solid #830024;
+  padding-top: 100px;
+  padding-bottom: 120px;
+  hr {
+    border-top: 2px dashed white;
+  }
+  h2 {
+    text-align: center;
+    // color: white;
+    font-size: 42px;
+    // text-transform: uppercase;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  // .mat-raised-button {
+  //   background: #830024;
+  //   color: white;
+  // }
+  //
+  // .mat-focused.mat-input-placeholder {
+  //   color: #830024;
+  // }
+
+}

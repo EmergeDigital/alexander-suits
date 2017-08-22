@@ -175,6 +175,16 @@
     magic-string "^0.22.3"
     source-map "^0.5.6"
 
+"@ngui/map@^0.18.4":
+  version "0.18.4"
+  resolved "https://registry.yarnpkg.com/@ngui/map/-/map-0.18.4.tgz#5a983f6ea3f0fffd39ec91ca96e7b0129e97fbd7"
+  dependencies:
+    tslib "^1.7.1"
+
+"@types/googlemaps@^3.26.20":
+  version "3.26.20"
+  resolved "https://registry.yarnpkg.com/@types/googlemaps/-/googlemaps-3.26.20.tgz#b8e06aeaad861eb6ed9dd30534cc04f328b1ad87"
+
 "@types/jasmine@*", "@types/jasmine@~2.5.53":
   version "2.5.53"
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.5.53.tgz#4e0cefad09df5ec48c8dd40433512f84b1568d61"
@@ -3326,6 +3336,10 @@ ncname@1.0.x:
 negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
+
+ng2-animate-on-scroll@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/ng2-animate-on-scroll/-/ng2-animate-on-scroll-1.0.3.tgz#0c53480823f52736433b8f96b63df2e5db4e6e2c"
 
 ng2-owl-carousel@^0.1.15:
   version "0.1.15"
