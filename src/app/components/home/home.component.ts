@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
             text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum magna at mauris dignissim consectetur."
           },
           {
-            name: "James Williams",
+            name: "Hawthorn Williams",
             text: "I would buy a suit every day of the week"
           },
           {
@@ -27,12 +27,12 @@ export class HomeComponent implements OnInit {
             text: "Que? No hablo Anglais"
           },
           {
-            name: "Quigon Jin",
-            text: "Do you know which sector we are in?"
+            name: "Quagmire Peter",
+            text: "You can never go wrong"
           },
           {
-            name: "Brodo Faggins",
-            text: "The best wares in all of Hobbiton"
+            name: "Lorem Ipsum",
+            text: "This is placeholder text"
           }
         ];
         this.testimonialOptions = {
