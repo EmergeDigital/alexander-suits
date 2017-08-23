@@ -56,7 +56,7 @@ const routes: Routes = [
 
 // Use hash in location routes, for hosting on heroku
 const routeSettings = {
-    useHash: false
+    useHash: true
 };
 
 @NgModule({
