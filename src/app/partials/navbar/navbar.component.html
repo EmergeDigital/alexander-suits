@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-sm-4 hideOnMobile">
           <div class="call-text ">
-            <i class="material-icons">phone</i>   <span><b>CALL CENTRE:</b> <button md-button>011 492 33604</button></span>
+            <i class="material-icons">phone</i>   <span><b>CALL CENTRE:</b> <button md-button (cbOnSuccess)="copied()" ngxClipboard [cbContent]="cell">011 492 33604</button></span>
           </div>
         </div>
         <div class="col-sm-4">
@@ -25,8 +25,8 @@
 
     <button md-button routerLink="home">HOME</button>
     <button md-button routerLink="about">ABOUT</button>
-    <button md-button>SUITS</button>
-    <button md-button>ACCESSORIES</button>
+    <button md-button routerLink="suits">SUITS</button>
+    <button md-button routerLink="accessories">ACCESSORIES</button>
     <button md-button routerLink="contact">CONTACT US</button>
   </div>
 

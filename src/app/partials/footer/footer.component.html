@@ -10,9 +10,9 @@
         <p class="footer-title">
           How may we be of service?
         </p>
-        <button md-menu-item> Disclaimer </button>
-        <button md-menu-item> T&amp;C's </button>
-        <button md-menu-item> Privacy </button>
+        <button md-menu-item routerLink="disclaimer"> Disclaimer </button>
+        <button md-menu-item routerLink="terms-and-conditions"> T&amp;C's </button>
+        <button md-menu-item routerLink="privacy"> Privacy </button>
         <button md-menu-item routerLink="contact"> Contact Us </button>
       </div>
       <div class="col-md-3 col-sm-6">
@@ -21,8 +21,8 @@
         </p>
           <button md-menu-item routerLink="home"> Home </button>
           <button md-menu-item routerLink="about"> About </button>
-          <button md-menu-item> Suits </button>
-          <button md-menu-item> Accessories </button>
+          <button md-menu-item routerLink="suits"> Suits </button>
+          <button md-menu-item routerLink="accessories"> Accessories </button>
       </div>
       <div class="col-md-3 col-sm-6">
         <p class="footer-title">
@@ -32,14 +32,14 @@
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Enter email...">
           <span class="input-group-btn">
-            <button class="btn btn-secondary" type="button">></button>
+            <button class="btn btn-secondary" type="button" (click)="doesNothing()">></button>
           </span>
         </div>
       </div>
     </div>
 
     <div class="call-us container">
-        <span><b>CONTACT CENTRE:</b></span> <button md-button><span style="font-size: 20px ">011 492 33604</span></button>
+        <span><b>CONTACT CENTRE:</b></span> <button md-button (cbOnSuccess)="copied()" ngxClipboard [cbContent]="cell"><span style="font-size: 20px ">011 492 33604</span></button>
     </div>
 
     <div class="copyright">

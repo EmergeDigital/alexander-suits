@@ -6,6 +6,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
+import { SuitsComponent } from './components/suits/suits.component';
+import { AccessoriesComponent } from './components/accessories/accessories.component';
+import { PrivacyComponent } from './components/privacy/privacy.component';
+import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
+import { DisclaimerComponent } from './components/disclaimer/disclaimer.component';
 
 
 const routes: Routes = [
@@ -26,6 +31,26 @@ const routes: Routes = [
     {
         path: 'about',
         component: AboutComponent
+    },
+    {
+        path: 'suits',
+        component: SuitsComponent
+    },
+    {
+        path: 'accessories',
+        component: AccessoriesComponent
+    },
+    {
+        path: 'privacy',
+        component: PrivacyComponent
+    },
+    {
+        path: 'terms-and-conditions',
+        component: TermsAndConditionsComponent
+    },
+    {
+        path: 'disclaimer',
+        component: DisclaimerComponent
     }
 ];
 

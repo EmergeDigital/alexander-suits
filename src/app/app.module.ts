@@ -29,6 +29,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { FooterComponent } from './partials/footer/footer.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
+import { SuitsComponent } from './components/suits/suits.component';
+import { AccessoriesComponent } from './components/accessories/accessories.component';
+import { PrivacyComponent } from './components/privacy/privacy.component';
+import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
+import { DisclaimerComponent } from './components/disclaimer/disclaimer.component';
+import { ComingSoonComponent } from './partials/coming-soon/coming-soon.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +43,13 @@ import { AboutComponent } from './components/about/about.component';
     NavbarComponent,
     FooterComponent,
     ContactComponent,
-    AboutComponent
+    AboutComponent,
+    SuitsComponent,
+    AccessoriesComponent,
+    PrivacyComponent,
+    TermsAndConditionsComponent,
+    DisclaimerComponent,
+    ComingSoonComponent
   ],
   imports: [
     ScrollStoreModule,

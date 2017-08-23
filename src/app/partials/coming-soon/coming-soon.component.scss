@@ -1,0 +1,13 @@
+@import '../../../styles/colours.scss';
+
+.coming-soon {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  text-align: center;
+  h1{
+    text-transform: uppercase;
+  }
+  p {
+    color: $c-grey-lite;
+  }
+}
