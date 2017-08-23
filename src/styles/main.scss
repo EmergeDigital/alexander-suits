@@ -1,5 +1,17 @@
 //MAIN STYLES FOR ALEXANDER SUITS
 @import url('https://fonts.googleapis.com/css?family=Lato');
+@import 'colours.scss';
+@import 'theme.scss';
+
+$c-accent: #a28750;
+$c-main: #830024;
+$c-grey-lite: #919191;
+$c-grey: #232323;
+
+/*@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";*/
+
+@import "~owl.carousel/dist/assets/owl.carousel.css";
+@import "~owl.carousel/dist/assets/owl.theme.default.css";
 
 html, body {
   margin: 0px;
@@ -14,6 +26,28 @@ h1, h2, h3, h4, h5, h6, p, span {
   background-color: rgba(0,0,0,0.3);
   width: 100%;
   height: 100%;
+  &.darken {
+    background-color: rgba(0,0,0,0.42);
+  }
+}
+
+.overlay-accent {
+  position: absolute;
+  background-color: rgba(131,0,36,0.5);
+  width: 100%;
+  height: 100%;
+}
+
+.call-to-action {
+  text-align: center;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  border-top: 3px solid $c-grey;
+  h3{
+    font-size: 1.85rem;
+    font-weight: 500;
+    color: $c-grey;
+  }
 }
 
 .img-responsive {

@@ -1,10 +1,12 @@
+@import '../../../styles/colours.scss';
+
 .map {
   height: 500px;
 }
 
 .contact-location {
-  border-bottom: 3px solid #232323;
-  border-top: 3px solid #232323;
+  border-bottom: 3px solid $c-grey;
+  border-top: 3px solid $c-grey;
   padding-top: 80px;
   padding-bottom: 80px;
   text-align: center;

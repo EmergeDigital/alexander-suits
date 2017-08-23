@@ -24,7 +24,7 @@
   <div class="toolbar-centered hideOnMobile">
 
     <button md-button routerLink="home">HOME</button>
-    <button md-button>ABOUT</button>
+    <button md-button routerLink="about">ABOUT</button>
     <button md-button>SUITS</button>
     <button md-button>ACCESSORIES</button>
     <button md-button routerLink="contact">CONTACT US</button>
@@ -46,9 +46,9 @@
 </md-toolbar>
 
 <md-menu #appMenu="mdMenu">
-  <button md-menu-item> Home </button>
-  <button md-menu-item> About </button>
+  <button md-menu-item routerLink="home"> Home </button>
+  <button md-menu-item routerLink="about"> About </button>
   <button md-menu-item> Suits </button>
   <button md-menu-item> Accessories </button>
-  <button md-menu-item> Contact Us </button>
+  <button md-menu-item routerLink="contact"> Contact Us </button>
 </md-menu>

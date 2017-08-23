@@ -22,3 +22,11 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($candy-app-theme);
+
+
+//CUSTOM COLOURS:
+
+$c-color-accent: #725d3d;
+$c-color-main: #830024;
+$c-color-grey-lite: #919191;
+$c-color-grey: #232323;

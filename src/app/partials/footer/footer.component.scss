@@ -1,8 +1,10 @@
+@import '../../../styles/colours.scss';
+
 .footer {
   padding-top: 80px;
   padding-bottom: 50px;
-  background: #232323 !important;
-  border-top: 5px solid #830024;
+  background: $c-grey !important;
+  border-top: 5px solid $c-main;
   .form-control {
     border: 1px solid rgba(255, 255, 255, 255);
     background: rgba(0,0,0,0);
@@ -29,7 +31,7 @@
 
 
 .mat-menu-item {
-  color: #919191;
+  color: $c-grey-lite;
 }
 
 .call-us {
@@ -38,12 +40,12 @@
   padding-bottom: 15px;
   margin-top: 6  0px;
   margin-bottom: 40px;
-  border-top: 1px solid #919191;
-  border-bottom: 1px solid #919191;
+  border-top: 1px solid $c-grey-lite;
+  border-bottom: 1px solid $c-grey-lite;
   font-size: 20px;
-  color: #919191 !important;
+  color: $c-grey-lite !important;
   b{
-    color: #725d3d;
+    color: $c-accent;
   }
   button.mat-button {
     transform: translateY(-5px);
@@ -57,6 +59,6 @@
 
 .copyright {
   text-align: center;
-  color: #919191;
+  color: $c-grey-lite;
 
 }

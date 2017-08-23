@@ -28,6 +28,7 @@ import { NavbarComponent } from './partials/navbar/navbar.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FooterComponent } from './partials/footer/footer.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ContactComponent } from './components/contact/contact.component';
     HomeComponent,
     NavbarComponent,
     FooterComponent,
-    ContactComponent
+    ContactComponent,
+    AboutComponent
   ],
   imports: [
     ScrollStoreModule,

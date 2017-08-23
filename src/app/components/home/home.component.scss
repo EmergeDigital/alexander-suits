@@ -1,3 +1,4 @@
+@import '../../../styles/colours.scss';
 
 .owl-slide-custom{
   height: -moz-calc(100vh - (69px + 200px));
@@ -112,7 +113,7 @@
   }
 
   .mat-icon {
-    color: #830024;
+    color: $c-main;
   }
   button.mat-menu-item {
     color: white;
@@ -131,7 +132,7 @@
     padding-left: 40px;
     padding-right: 40px;
     font-size: 38px;
-    border-left: 4px solid #830024;
+    border-left: 4px solid $c-main;
   }
 
   p {
@@ -144,16 +145,16 @@
 
 .get-started {
   position: relative;
-  border-top: 3px solid #232323;
-  border-bottom: 3px solid #232323;
+  border-top: 3px solid $c-grey;
+  border-bottom: 3px solid $c-grey;
 
 }
 
 .get-started-inner {
   text-align: left;
-  // background-color: #830024;
+  // background-color: $c-main;
   background: url('/assets/suit-wall.jpg') center center;
-  // border-top: 5px solid #830024;
+  // border-top: 5px solid $c-main;
   padding-top: 40px;
   padding-bottom: 80px;
   hr {
@@ -183,10 +184,10 @@
   background: white;
   padding-top: 80px;
   padding-bottom: 80px;
-  color: #232323;
+  color: $c-grey;
 
   hr {
-    border-top: 2px dashed #232323;
+    border-top: 2px dashed $c-grey;
   }
 }
 
