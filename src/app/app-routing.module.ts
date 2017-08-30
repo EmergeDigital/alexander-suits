@@ -11,6 +11,7 @@ import { AccessoriesComponent } from './components/accessories/accessories.compo
 import { PrivacyComponent } from './components/privacy/privacy.component';
 import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
 import { DisclaimerComponent } from './components/disclaimer/disclaimer.component';
+import { SuitBuilderComponent } from './components/suit-builder/suit-builder.component';
 
 
 const routes: Routes = [
@@ -34,7 +35,7 @@ const routes: Routes = [
     },
     {
         path: 'suits',
-        component: SuitsComponent
+        component: SuitBuilderComponent
     },
     {
         path: 'accessories',
@@ -52,6 +53,7 @@ const routes: Routes = [
         path: 'disclaimer',
         component: DisclaimerComponent
     }
+
 ];
 
 // Use hash in location routes, for hosting on heroku

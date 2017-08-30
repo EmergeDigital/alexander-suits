@@ -18,6 +18,7 @@ import { OwlModule } from 'ng2-owl-carousel';
 import { ClipboardModule } from 'ngx-clipboard';
 import 'hammerjs';
 
+import {TabsService} from "./services/tabs.service";
 
 /*============================================================================
  Route Imports
@@ -35,6 +36,20 @@ import { PrivacyComponent } from './components/privacy/privacy.component';
 import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
 import { DisclaimerComponent } from './components/disclaimer/disclaimer.component';
 import { ComingSoonComponent } from './partials/coming-soon/coming-soon.component';
+import { FabricComponent } from './components/suit-builder/fabric/fabric.component';
+import { TypeComponent } from './components/suit-builder/fabric/type/type.component';
+import { TabsComponent } from './components/suit-builder/tabs/tabs.component';
+import { SuitBuilderComponent } from './components/suit-builder/suit-builder.component';
+import { SelectFabricComponent } from './components/suit-builder/fabric/select-fabric/select-fabric.component';
+import { CustomizeComponent } from './components/suit-builder/customize/customize.component';
+import { CustomizeInnerComponent } from './components/suit-builder/customize/customize-inner/customize-inner.component';
+import { FabricInnerComponent } from './components/suit-builder/fabric/fabric-inner/fabric-inner.component';
+import { MeasurementsComponent } from './components/suit-builder/measurements/measurements.component';
+import { MeasurementsInnerComponent } from './components/suit-builder/measurements/measurements-inner/measurements-inner.component';
+import { CheckoutComponent } from './components/suit-builder/checkout/checkout.component';
+import { CheckoutInnerComponent } from './components/suit-builder/checkout/checkout-inner/checkout-inner.component';
+
+
 
 @NgModule({
   declarations: [
@@ -49,7 +64,19 @@ import { ComingSoonComponent } from './partials/coming-soon/coming-soon.componen
     PrivacyComponent,
     TermsAndConditionsComponent,
     DisclaimerComponent,
-    ComingSoonComponent
+    ComingSoonComponent,
+    FabricComponent,
+    TypeComponent,
+    TabsComponent,
+    SuitBuilderComponent,
+    SelectFabricComponent,
+    CustomizeComponent,
+    CustomizeInnerComponent,
+    FabricInnerComponent,
+    MeasurementsComponent,
+    MeasurementsInnerComponent,
+    CheckoutComponent,
+    CheckoutInnerComponent
   ],
   imports: [
     ScrollStoreModule,
@@ -71,7 +98,7 @@ import { ComingSoonComponent } from './partials/coming-soon/coming-soon.componen
     ClipboardModule,
     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyAm3PebcIYpXrXY5k7xA5_9JWnqIjWKlU4'})
   ],
-  providers: [],
+  providers: [TabsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

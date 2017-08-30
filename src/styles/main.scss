@@ -1,5 +1,6 @@
 //MAIN STYLES FOR ALEXANDER SUITS
 @import url('https://fonts.googleapis.com/css?family=Lato');
+// @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 @import 'colours.scss';
 @import 'theme.scss';
 
@@ -19,6 +20,7 @@ html, body {
 
 h1, h2, h3, h4, h5, h6, p, span {
   font-family: 'Lato', sans-serif;
+  // font-family: 'Roboto Condensed', sans-serif;
 }
 
 .overlay {
@@ -55,8 +57,29 @@ h1, h2, h3, h4, h5, h6, p, span {
   height: auto;
 }
 
+hr.style-three {
+    border: 0;
+    border-bottom: 3px dashed $c-accent;
+}
+
 button:focus{
   outline: none;
+}
+
+.mat-raised-button.mat-accent, .mat-fab.mat-accent, .mat-mini-fab.mat-accent {
+  background-color: $c-accent;
+  color: white;
+}
+
+.big-icon {
+  i{
+    font-size: 40px;
+    line-height: 49px;
+  }
+  .mat-fab {
+    width: 80px;
+    height: 80px;
+  }
 }
 
 .unselectable{
@@ -69,6 +92,55 @@ button:focus{
 
 .showOnMobile {
   display: none;
+}
+.suits-banner-inner {
+  padding-top: 20vh;
+  position: relative;
+  height: -moz-calc(100vh - (69px + 200px));
+  height: -webkit-calc(100vh - (69px + 200px));
+  height: calc(100vh - (69px + 200px));
+  text-align: center;
+  h1 {
+    padding-top: 20px;
+    font-size: 60px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 100;
+  }
+
+}
+
+@media (max-width:1400px) { /* large size */
+  .suits-banner-inner {
+    padding-top: 15vh;
+    h1 {
+      font-size: 35px;
+    }
+  }
+}
+
+@media (max-width:1000px) { /* med size */
+  .suits-banner-inner {
+    padding-top: 100px;
+    h1 {
+      font-size: 30px;
+    }
+  }
+}
+
+
+@media (max-width:700px) { /* small size */
+  .big-icon {
+    i{
+      font-size: 24px;
+      line-height: 1;
+    }
+    .mat-fab {
+      width: 56px;
+      height: 56px;
+    }
+  }
 }
 
 @media (max-width:575px) { /* mobile size */
