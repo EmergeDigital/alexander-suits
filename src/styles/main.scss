@@ -111,6 +111,11 @@ button:focus{
 
 }
 
+.img-hr{
+  height: auto;
+  width: 65%;
+}
+
 @media (max-width:1400px) { /* large size */
   .suits-banner-inner {
     padding-top: 15vh;
@@ -127,6 +132,9 @@ button:focus{
       font-size: 30px;
     }
   }
+  .img-hr{
+    width: 80%;
+  }
 }
 
 
@@ -140,6 +148,9 @@ button:focus{
       width: 56px;
       height: 56px;
     }
+  }
+  .img-hr{
+    width: 95%;
   }
 }
 
