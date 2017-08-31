@@ -44,4 +44,18 @@ export class TabsService {
     this.tabs = tabs;
   }
 
+  changeTab(tab){
+    let tabs = this.tabs;
+    for (let t in tabs){
+      if(tabs[t].name == tab){
+        tabs[t].isSelected = true;
+        tabs[t].isVisited = true;
+      } else {
+        tabs[t].isSelected = false;
+        tabs[t].isVisited = false;
+      }
+    }
+    this.tabs = tabs;
+  }
+
 }
