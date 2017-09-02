@@ -16,6 +16,7 @@ import {NguiMapModule} from '@ngui/map';
 import {NgModule} from '@angular/core';
 import {OwlModule} from 'ng2-owl-carousel';
 import {ClipboardModule} from 'ngx-clipboard';
+import {DataService} from "./services/data.service";
 import 'hammerjs';
 
 import {TabsService} from "./services/tabs.service";
@@ -97,7 +98,7 @@ import {CheckoutInnerComponent} from './components/suit-builder/checkout/checkou
         ClipboardModule,
         NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyAm3PebcIYpXrXY5k7xA5_9JWnqIjWKlU4'})
     ],
-    providers: [TabsService],
+    providers: [TabsService, DataService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
