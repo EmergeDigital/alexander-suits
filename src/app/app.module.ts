@@ -20,6 +20,7 @@ import {DataService} from "./services/data.service";
 import 'hammerjs';
 
 import {TabsService} from "./services/tabs.service";
+import {AuthService} from "./services/auth.service";
 
 /*============================================================================
  Route Imports
@@ -98,7 +99,7 @@ import {CheckoutInnerComponent} from './components/suit-builder/checkout/checkou
         ClipboardModule,
         NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyAm3PebcIYpXrXY5k7xA5_9JWnqIjWKlU4'})
     ],
-    providers: [TabsService, DataService],
+    providers: [TabsService, DataService, AuthService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
