@@ -9,7 +9,7 @@ import {MdCardModule} from '@angular/material';
 import {MdInputModule} from '@angular/material';
 import {MdSnackBarModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
-import {Http, Headers, HttpModule} from '@angular/http';
+import {Http, Headers, HttpModule, RequestOptions} from '@angular/http';
 import {AngularFontAwesomeModule} from 'angular-font-awesome/angular-font-awesome';
 import {NguiMapModule} from '@ngui/map';
 // import { RouterModule } from '@angular/router';
@@ -17,6 +17,7 @@ import {NgModule} from '@angular/core';
 import {OwlModule} from 'ng2-owl-carousel';
 import {ClipboardModule} from 'ngx-clipboard';
 import {DataService} from "./services/data.service";
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import 'hammerjs';
 
 import {TabsService} from "./services/tabs.service";
@@ -50,6 +51,13 @@ import {MeasurementsComponent} from './components/suit-builder/measurements/meas
 import {MeasurementsInnerComponent} from './components/suit-builder/measurements/measurements-inner/measurements-inner.component';
 import {CheckoutComponent} from './components/suit-builder/checkout/checkout.component';
 import {CheckoutInnerComponent} from './components/suit-builder/checkout/checkout-inner/checkout-inner.component';
+import { CallbackComponent } from './components/callback/callback.component';
+
+export function authHttpServiceFactory(http: Http, options: RequestOptions) {
+  return new AuthHttp(new AuthConfig({
+    tokenGetter: (() => localStorage.getItem('access_token'))
+  }), http, options);
+}
 
 
 @NgModule({
@@ -77,7 +85,8 @@ import {CheckoutInnerComponent} from './components/suit-builder/checkout/checkou
         MeasurementsComponent,
         MeasurementsInnerComponent,
         CheckoutComponent,
-        CheckoutInnerComponent
+        CheckoutInnerComponent,
+        CallbackComponent
     ],
     imports: [
         ScrollStoreModule,
@@ -99,7 +108,12 @@ import {CheckoutInnerComponent} from './components/suit-builder/checkout/checkou
         ClipboardModule,
         NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyAm3PebcIYpXrXY5k7xA5_9JWnqIjWKlU4'})
     ],
-    providers: [TabsService, DataService, AuthService],
+    providers: [TabsService, DataService, AuthService,
+    {
+      provide: AuthHttp,
+      useFactory: authHttpServiceFactory,
+      deps: [Http, RequestOptions]
+    }],
     bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,6 +1,8 @@
 import {Injectable, EventEmitter} from '@angular/core';
 import {Http, Headers, HttpModule} from '@angular/http';
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import {RequestOptions, Request, RequestMethod} from '@angular/http';
+import {AuthService} from './auth.service';
 import 'rxjs/add/operator/toPromise';
 
 import {User} from "../models/user";
@@ -13,13 +15,18 @@ export class DataService {
 
     current_user: User;
     product_list: Product[];
+    user_id: string;
 
-    constructor(public http: Http) {
-        this.API_URL = "http://127.0.0.1:1337";
+    constructor(public auth: AuthService, public http: Http, public authHttp: AuthHttp) {
+        this.API_URL = "http://localhost:1337";
     }
 
     setupDatabase(): void {
 
+    }
+
+    setUser(id) {
+      this.user_id = id;
     }
 
     getProducts(): Promise<Product[]> {
@@ -27,7 +34,10 @@ export class DataService {
             if (!!this.product_list) {
                 resolve(this.product_list);
             } else {
-                this.http.get(this.API_URL + "/api/products/all").toPromise().then(products => {
+                console.log(localStorage.getItem('access_token'));
+                console.log(localStorage.getItem('id_token'));
+                console.log(localStorage.getItem('expires_at'));
+                this.authHttp.get(this.API_URL + "/api/products/all").toPromise().then(products => {
                     const got_products = products.json();
                     const temp_arr = [];
                     for (const product of got_products) {

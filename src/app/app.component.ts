@@ -12,6 +12,7 @@ export class AppComponent {
   app_name = 'Alexander Suits';
 
   constructor(public auth: AuthService) {
+        auth.handleAuthentication();
 
         // if (environment.useAuth) {
         //     if (!auth.isAuthenticated()) {

@@ -12,6 +12,7 @@ import { PrivacyComponent } from './components/privacy/privacy.component';
 import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
 import { DisclaimerComponent } from './components/disclaimer/disclaimer.component';
 import { SuitBuilderComponent } from './components/suit-builder/suit-builder.component';
+import { CallbackComponent } from './components/callback/callback.component';
 
 
 const routes: Routes = [
@@ -52,6 +53,10 @@ const routes: Routes = [
     {
         path: 'disclaimer',
         component: DisclaimerComponent
+    },
+    {
+        path: 'callback',
+        component: CallbackComponent
     }
 
 ];
