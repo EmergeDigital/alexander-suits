@@ -1,15 +1,15 @@
 <div class="alex-header unselectable">
   <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-4 hideOnMobile">
+        <div class="col-4">
           <div class="call-text ">
             <i class="material-icons">phone</i>   <span><b>CALL CENTRE:</b> <button md-button (cbOnSuccess)="copied()" ngxClipboard [cbContent]="cell">011 492 33604</button></span>
           </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-4">
           <img class="img-responsive alex-logo" src="assets/alex-logo.png" />
         </div>
-        <div class="col-sm-4 hideOnMobile">
+        <div class="col-4">
           <div class="social-icons">
             <button md-icon-button (click)="login()"><fa name="facebook" size="2x"></fa></button>&nbsp;
             <button md-icon-button (click)="logout()"><fa name="twitter" size="2x"></fa></button>&nbsp;
@@ -21,17 +21,18 @@
 </div>
 <md-toolbar color="primary" class="unselectable">
   <!-- TODO: hide on mobile -->
-  <div class="toolbar-centered hideOnMobile">
+  <div class="toolbar-centered">
 
     <button md-button routerLink="home">HOME</button>
     <button md-button routerLink="about">ABOUT</button>
-    <button md-button routerLink="suits">SUITS</button>
-    <button md-button routerLink="accessories">ACCESSORIES</button>
+    <button md-button routerLink="SHOP" [mdMenuTriggerFor]="shopMenu">SHOP</button>
+    <!-- <button md-button routerLink="accessories">ACCESSORIES</button> -->
     <button md-button routerLink="contact">CONTACT US</button>
+    <button md-button>LOG IN</button>
   </div>
 
   <div class="showOnMobile">
-    <button md-icon-button [mdMenuTriggerFor]="appMenu">
+    <button md-icon-button  (click)="sidenav.open()">
        <md-icon>more_vert</md-icon>
     </button>
   </div>
@@ -45,10 +46,17 @@
   <!-- <span>Right Aligned Text</span> -->
 </md-toolbar>
 
-<md-menu #appMenu="mdMenu">
+<md-menu #shopMenu="mdMenu">
+  <button md-menu-item routerLink="suits"> Suits </button>
+  <button md-menu-item> Shirts </button>
+  <button md-menu-item> Pants </button>
+  <button md-menu-item> Accessories </button>
+</md-menu>
+
+<!-- <md-menu #appMenu="mdMenu">
   <button md-menu-item routerLink="home"> Home </button>
   <button md-menu-item routerLink="about"> About </button>
   <button md-menu-item> Suits </button>
   <button md-menu-item> Accessories </button>
   <button md-menu-item routerLink="contact"> Contact Us </button>
-</md-menu>
+</md-menu> -->

@@ -1,11 +1,33 @@
-<app-navbar [appTitle]=app_name>
 
-</app-navbar>
-<div class="nav-padder">
-    <router-outlet>
+<md-sidenav-container>
+  <md-sidenav mode="over" #sidenav class="my-sidenav"><app-navbar-sm></app-navbar-sm></md-sidenav>
 
-    </router-outlet>
-</div>
-<app-footer [appTitle]=app_name>
+  <div class="my-content">
+    <div class="hideOnMobile">
+      <app-navbar [appTitle]=app_name>
 
-</app-footer>
+      </app-navbar>
+    </div>
+    <div class="showOnMobile">
+      <md-toolbar color="primary" class="unselectable">
+        <div class="alex-navbar-inner">
+          <button md-icon-button class="navbar-icon" (click)="sidenav.open()">
+             <md-icon>more_vert</md-icon>
+          </button>
+          <div class="alex-navbar-button">
+            <button md-button style="centered">ALEXANDER SUITS</button>
+          </div>
+        </div>
+      </md-toolbar>
+    </div>
+    <div class="nav-padder">
+        <router-outlet>
+
+        </router-outlet>
+    </div>
+    <app-footer [appTitle]=app_name>
+
+    </app-footer>
+  </div>
+
+</md-sidenav-container>

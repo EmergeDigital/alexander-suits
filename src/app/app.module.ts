@@ -8,6 +8,7 @@ import {MdMenuModule} from '@angular/material';
 import {MdCardModule} from '@angular/material';
 import {MdInputModule} from '@angular/material';
 import {MdSnackBarModule} from '@angular/material';
+import {MdSidenavModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {Http, Headers, HttpModule, RequestOptions} from '@angular/http';
 import {AngularFontAwesomeModule} from 'angular-font-awesome/angular-font-awesome';
@@ -52,6 +53,7 @@ import {MeasurementsInnerComponent} from './components/suit-builder/measurements
 import {CheckoutComponent} from './components/suit-builder/checkout/checkout.component';
 import {CheckoutInnerComponent} from './components/suit-builder/checkout/checkout-inner/checkout-inner.component';
 import { CallbackComponent } from './components/callback/callback.component';
+import { NavbarSmComponent } from './partials/navbar-sm/navbar-sm.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
@@ -86,7 +88,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         MeasurementsInnerComponent,
         CheckoutComponent,
         CheckoutInnerComponent,
-        CallbackComponent
+        CallbackComponent,
+        NavbarSmComponent
     ],
     imports: [
         ScrollStoreModule,
@@ -103,6 +106,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         MdCardModule,
         MdInputModule,
         MdSnackBarModule,
+        MdSidenavModule,
         OwlModule,
         AngularFontAwesomeModule,
         ClipboardModule,

@@ -62,6 +62,18 @@ hr.style-three {
     border-bottom: 3px dashed $c-accent;
 }
 
+
+.mat-toolbar {
+  height: 69px;
+}
+
+
+.mat-toolbar.mat-primary {
+  background: $c-grey !important;
+  border-bottom: 5px solid $c-main;
+}
+
+
 button:focus{
   outline: none;
 }

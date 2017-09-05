@@ -17,8 +17,8 @@
   width: 100%;
   text-align: center;
   padding-top: 20px;
-  padding-bottom: 20px;
-
+  padding-bottom: 20px;  
+  background: #fff;
 
 
 
@@ -37,16 +37,6 @@
 
 .alex-logo {
   max-width: 200px;
-}
-
-.mat-toolbar {
-  height: 69px;
-}
-
-
-.mat-toolbar.mat-primary {
-  background: $c-grey !important;
-  border-bottom: 5px solid $c-main;
 }
 
 .call-text {
