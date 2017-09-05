@@ -19,6 +19,7 @@ import {NguiMapModule} from '@ngui/map';
 import {NgModule} from '@angular/core';
 import {OwlModule} from 'ng2-owl-carousel';
 import {ClipboardModule} from 'ngx-clipboard';
+import {ToastyModule} from 'ng2-toasty';
 import {DataService} from "./services/data.service";
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import 'hammerjs';
@@ -108,6 +109,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         FormsModule,
         HttpModule,
         AppRoutingModule,
+        ToastyModule.forRoot(),
         MdButtonModule,
         MdCheckboxModule,
         MdToolbarModule,

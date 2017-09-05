@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import {AuthService} from './services/auth.service';
 import {environment} from '../environments/environment';
+import {DataService} from './services/data.service';
+import { Router } from '@angular/router';
+import {ToastyService, ToastyConfig, ToastOptions, ToastData} from 'ng2-toasty';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +13,13 @@ import {environment} from '../environments/environment';
 export class AppComponent {
   title = 'app';
   app_name = 'Alexander Suits';
+  isAuthenticated: boolean;
+  user: any;
+  hasRun: boolean;
+  loadingToast: any;
 
-  constructor(public auth: AuthService) {
+
+  constructor(public auth: AuthService, public data: DataService, private toastyService:ToastyService, private toastyConfig: ToastyConfig, public router: Router) {
         auth.handleAuthentication();
 
         // if (environment.useAuth) {
@@ -27,6 +35,28 @@ export class AppComponent {
 
         this.title = 'app works!';
         this.app_name = 'Angularifier';
+        this.toastyConfig.theme = 'material';
+        this.hasRun = false;
+
+
+        this.isAuthenticated = auth.isAuthenticated();
+
+        if(this.isAuthenticated) {
+          auth.getCurrentUser(null).then(u => {
+            this.user = u;
+            this.checkAuth();
+          });
+        }
+
+        auth._authenticated.subscribe(isAuthenticated => {
+          this.isAuthenticated = isAuthenticated;
+          if(this.isAuthenticated) {
+            auth.getCurrentUser(null).then(u => {
+              this.user = u;
+              this.checkAuth();
+            });
+          }
+        });
     }
 
     logout(): void {
@@ -35,5 +65,71 @@ export class AppComponent {
 
     login(): void {
         this.auth.login();
+    }
+
+    checkAuth() {
+      if(!!this.user && !this.hasRun){
+        this.hasRun = true;
+        this.data.getUser(this.user.id).then((user)=>{
+          if(user !== "does_not_exist") {
+            //Do stuff
+            // console.log(user);
+            //Restore session etc?
+
+            var toastOptions:ToastOptions = {
+              title: "Logged In",
+              msg: "Session is being restored",
+              timeout: 60000,
+              showClose: false,
+              onAdd: (toast: ToastData) => {
+                this.loadingToast = toast.id;
+              }
+            };
+
+            this.toastyService.wait(toastOptions);
+
+           setTimeout( () => this.finishLoading() , 3000 );
+          } else {
+            // console.log(this.user);
+            console.log("CREATING ACCOUNT");
+            this.data.createUser(this.user.id, this.user.email).then(response=>{
+              // console.log(response);
+              //Restore session etc?
+
+              var toastOptions:ToastOptions = {
+                title: "Account Created",
+                msg: "Session is being restored",
+                timeout: 60000,
+                showClose: false,
+                onAdd: (toast: ToastData) => {
+                  this.loadingToast = toast.id;
+                }
+              };
+
+              this.toastyService.wait(toastOptions);
+              //For now, do not rebuild session
+
+              setTimeout( () => this.finishLoading() , 3000 );
+            });
+          }
+        }, (err) => {
+          console.log("Error getting user: " + err);
+        });
+      }
+      return;
+    }
+
+    finishLoading() {
+       this.toastyService.clear(this.loadingToast);
+       this.loadingToast = null;
+
+       var toastOptions:ToastOptions = {
+         title: "Session Restored",
+         msg: "Navigating you now"
+       };
+
+       this.toastyService.success(toastOptions);
+       //For now, do not rebuild session
+       this.router.navigate(['/']);
     }
 }
