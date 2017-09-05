@@ -13,6 +13,10 @@ import { TermsAndConditionsComponent } from './components/terms-and-conditions/t
 import { DisclaimerComponent } from './components/disclaimer/disclaimer.component';
 import { SuitBuilderComponent } from './components/suit-builder/suit-builder.component';
 import { CallbackComponent } from './components/callback/callback.component';
+import { AccountComponent } from './components/account/account.component';
+import { OrdersComponent } from './components/account/orders/orders.component';
+import { SettingsComponent } from './components/account/settings/settings.component';
+import { CartComponent } from './components/account/cart/cart.component';
 
 
 const routes: Routes = [
@@ -57,7 +61,31 @@ const routes: Routes = [
     {
         path: 'callback',
         component: CallbackComponent
-    }
+    },
+    {
+        path: 'account',
+        component: AccountComponent
+    },
+    {
+        path: 'account/orders',
+        component: OrdersComponent
+    },
+    {
+        path: 'account/settings',
+        component: SettingsComponent
+    },
+    // {
+    //     path: 'account/measurements',
+    //     component: AccountComponent
+    // },
+    {
+        path: 'cart',
+        component: CartComponent
+    },
+    // {
+    //     path: 'checkout',
+    //     component: AccountComponent
+    // }
 
 ];
 

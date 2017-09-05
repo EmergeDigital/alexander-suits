@@ -11,8 +11,8 @@
         </div>
         <div class="col-4">
           <div class="social-icons">
-            <button md-icon-button (click)="login()"><fa name="facebook" size="2x"></fa></button>&nbsp;
-            <button md-icon-button (click)="logout()"><fa name="twitter" size="2x"></fa></button>&nbsp;
+            <button md-icon-button><fa name="facebook" size="2x"></fa></button>&nbsp;
+            <button md-icon-button><fa name="twitter" size="2x"></fa></button>&nbsp;
             <button md-icon-button><fa name="instagram" size="2x"></fa></button>
           </div>
         </div>
@@ -28,7 +28,8 @@
     <button md-button routerLink="SHOP" [mdMenuTriggerFor]="shopMenu">SHOP</button>
     <!-- <button md-button routerLink="accessories">ACCESSORIES</button> -->
     <button md-button routerLink="contact">CONTACT US</button>
-    <button md-button>LOG IN</button>
+    <button md-button *ngIf="!isAuthenticated" (click)="login()">LOG IN</button>
+    <button md-button routerLink="account" *ngIf="isAuthenticated">ACCOUNT</button>
   </div>
 
   <div class="showOnMobile">

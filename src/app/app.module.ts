@@ -9,6 +9,8 @@ import {MdCardModule} from '@angular/material';
 import {MdInputModule} from '@angular/material';
 import {MdSnackBarModule} from '@angular/material';
 import {MdSidenavModule} from '@angular/material';
+import {MdGridListModule} from '@angular/material';
+import {MdProgressSpinnerModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {Http, Headers, HttpModule, RequestOptions} from '@angular/http';
 import {AngularFontAwesomeModule} from 'angular-font-awesome/angular-font-awesome';
@@ -54,6 +56,10 @@ import {CheckoutComponent} from './components/suit-builder/checkout/checkout.com
 import {CheckoutInnerComponent} from './components/suit-builder/checkout/checkout-inner/checkout-inner.component';
 import { CallbackComponent } from './components/callback/callback.component';
 import { NavbarSmComponent } from './partials/navbar-sm/navbar-sm.component';
+import { AccountComponent } from './components/account/account.component';
+import { OrdersComponent } from './components/account/orders/orders.component';
+import { SettingsComponent } from './components/account/settings/settings.component';
+import { CartComponent } from './components/account/cart/cart.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
@@ -89,7 +95,11 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         CheckoutComponent,
         CheckoutInnerComponent,
         CallbackComponent,
-        NavbarSmComponent
+        NavbarSmComponent,
+        AccountComponent,
+        OrdersComponent,
+        SettingsComponent,
+        CartComponent
     ],
     imports: [
         ScrollStoreModule,
@@ -107,6 +117,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         MdInputModule,
         MdSnackBarModule,
         MdSidenavModule,
+        MdGridListModule,
+        MdProgressSpinnerModule,
         OwlModule,
         AngularFontAwesomeModule,
         ClipboardModule,

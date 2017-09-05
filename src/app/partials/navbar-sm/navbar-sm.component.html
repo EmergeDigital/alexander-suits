@@ -5,4 +5,6 @@
 <button md-menu-item>PANTS</button>
 <button md-menu-item routerLink="accessories">ACCESSORIES</button>
 <button md-menu-item routerLink="contact">CONTACT US</button>
-<button md-menu-item>LOG IN</button>
+<button md-menu-item *ngIf="!isAuthenticated" (click)="login()">LOG IN</button>
+<button md-menu-item *ngIf="isAuthenticated" routerLink="account">ACCOUNT</button>
+<button md-menu-item *ngIf="isAuthenticated" (click)="logout()">LOG OUT</button>

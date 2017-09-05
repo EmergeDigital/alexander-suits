@@ -14,12 +14,20 @@ export class NavbarComponent implements OnInit {
 
     @Input('appTitle') appTitle: string;
     cell: string;
+    isAuthenticated: boolean;
 
     constructor(public snackBar: MdSnackBar, public auth: AuthService) {
         if (this.appTitle === undefined) {
             this.appTitle = 'Unspecified';
         }
         this.cell = "011 492 33604";
+        this.isAuthenticated = auth.isAuthenticated();
+        console.log(this.isAuthenticated);
+
+        auth._authenticated.subscribe(isAuthenticated => {
+          console.log(isAuthenticated);
+          this.isAuthenticated = isAuthenticated;
+        });
     }
 
     ngOnInit() {
