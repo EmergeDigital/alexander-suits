@@ -7,6 +7,7 @@ import 'rxjs/add/operator/toPromise';
 
 import {User} from "../models/user";
 import {Product} from "../models/product";
+import {Cart} from "../models/cart";
 
 @Injectable()
 export class DataService {
@@ -14,6 +15,7 @@ export class DataService {
     API_URL: string;
 
     current_user: User;
+    current_cart: Cart;
     product_list: Product[];
     user_id: string;
     user_loaded: EventEmitter<User> = new EventEmitter();
@@ -31,6 +33,9 @@ export class DataService {
     hasLoaded() {
       return this.has_loaded;
     }
+
+
+    /* ==============  USER  ============== */
 
     setCurrentUser(id) {
       this.user_id = id;
@@ -90,6 +95,9 @@ export class DataService {
       });
     }
 
+
+    /* ==============  PRODUCTS  ============== */
+
     getProducts(): Promise<Product[]> {
         return new Promise((resolve, reject) => {
             if (!!this.product_list) {
@@ -112,6 +120,71 @@ export class DataService {
                     console.log("Something went wrong fetching the products.", ex);
                 });
             }
+        });
+    }
+
+
+    /* ==============  CARTS  ============== */
+
+    getCart(): Promise<Cart> {
+        return new Promise((resolve, reject) => {
+          if (!!this.current_cart) {
+              resolve(this.current_cart);
+          } else {
+            let params = {
+              user_id: this.getCurrentUser()
+            };
+            this.authHttp.get(this.API_URL + "/api/cart", {params: params}).toPromise().then(cart => {
+                const _cart = cart.json();
+                this.current_cart = _cart;
+                // this.user_loaded.emit(_cart);
+                resolve(_cart);
+            }).catch(ex => {
+                reject(ex);
+            });
+          }
+        });
+    }
+
+    addToCart(products): Promise<Cart> {
+        return new Promise((resolve, reject) => {
+          if (!!this.current_cart) {
+            let body = {
+              user_id: this.getCurrentUser(),
+              products: products
+            };
+            this.authHttp.post(this.API_URL + "/api/cart/update", body).toPromise().then(cart => {
+                const _cart = cart.json();
+                this.current_cart = _cart;
+                // this.user_loaded.emit(_cart);
+                resolve(_cart);
+            }).catch(ex => {
+                reject(ex);
+            });
+          } else {
+            reject("NO CART YET");
+            // LOCAL CART
+          }
+        });
+    }
+
+    deleteCart(): Promise<string> {
+        return new Promise((resolve, reject) => {
+          // if (!!this.current_cart) {
+            let params = {
+              user_id: this.getCurrentUser()
+            };
+            this.authHttp.delete(this.API_URL + "/api/cart/delete", {params: params}).toPromise().then(reponse => {
+                const _response = reponse.json();
+                // this.user_loaded.emit(_cart);
+                resolve(_response);
+            }).catch(ex => {
+                reject(ex);
+            });
+          // } else {
+            // reject("NO CART YET");
+            // LOCAL CART
+          // }
         });
     }
 
