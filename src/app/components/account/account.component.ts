@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {AuthService} from '../../services/auth.service';
+import {DataService} from '../../services/data.service';
+import {User} from "../../models/user";
 
 @Component({
   selector: 'app-account',
@@ -10,8 +12,9 @@ import {AuthService} from '../../services/auth.service';
 export class AccountComponent implements OnInit {
 
   tiles: any[];
+  current_user: User;
 
-  constructor(public router: Router, public auth: AuthService) {
+  constructor(public router: Router, public auth: AuthService, data: DataService) {
     this.tiles = [
       {
         color: "#ff7961",
@@ -38,6 +41,21 @@ export class AccountComponent implements OnInit {
         text: "Log Out"
       },
     ];
+    if(auth.isAuthenticated()){
+      if(data.hasLoaded()) {
+        let id = data.getCurrentUser;
+        data.getUser(id).then((user)=>{
+          this.current_user = user;
+        });
+      } else {
+        data.user_loaded.subscribe(user => {
+          this.current_user = user;
+        });
+      }
+
+    } else {
+      this.router.navigate(['/']);
+    }
   }
 
   ngOnInit() {

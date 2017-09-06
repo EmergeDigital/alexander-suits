@@ -4,6 +4,7 @@ import {environment} from '../environments/environment';
 import {DataService} from './services/data.service';
 import { Router } from '@angular/router';
 import {ToastyService, ToastyConfig, ToastOptions, ToastData} from 'ng2-toasty';
+import {User} from "./models/user";
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ export class AppComponent {
   app_name = 'Alexander Suits';
   isAuthenticated: boolean;
   user: any;
+  current_user: User;
   hasRun: boolean;
   loadingToast: any;
 
@@ -71,7 +73,7 @@ export class AppComponent {
       if(!!this.user && !this.hasRun){
         this.hasRun = true;
         this.data.getUser(this.user.id).then((user)=>{
-          if(user !== "does_not_exist") {
+          if(user.status !== "does_not_exist") {
             //Do stuff
             // console.log(user);
             //Restore session etc?
@@ -130,6 +132,6 @@ export class AppComponent {
 
        this.toastyService.success(toastOptions);
        //For now, do not rebuild session
-       this.router.navigate(['/']);
+      //  this.router.navigate(['/']);
     }
 }

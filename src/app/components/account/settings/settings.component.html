@@ -1,3 +1,45 @@
-<p>
-  settings works!
-</p>
+<div class="container">
+  <div class="settings-container" *ngIf="!isLoading">
+    <h1>Account Settings</h1>
+    <div class="settings-form">
+      <form class="s-form">
+        <md-form-field class="s-full-width">
+          <input mdInput placeholder="Full Name" value="" [(ngModel)]="current_user.fullname" name="fullname">
+        </md-form-field>
+        <md-form-field class="s-full-width">
+          <input mdInput placeholder="Email Address" value="" [(ngModel)]="current_user.email" name="email" type="email">
+        </md-form-field>
+        <md-form-field class="s-full-width">
+          <input mdInput placeholder="Cellphone" value=""  [(ngModel)]="current_user.contact_mobile" name="contact_mobile" type="tel">
+        </md-form-field>
+        <md-form-field class="s-full-width">
+          <textarea mdInput placeholder="Address" value="" [(ngModel)]="current_user.address" name="address">{{current_user.address}}</textarea>
+        </md-form-field>
+        <md-form-field class="s-full-width">
+          <textarea mdInput placeholder="Address 2" value="" [(ngModel)]="current_user.address2" name="address2">{{current_user.address2}}</textarea>
+        </md-form-field>
+        <md-form-field class="s-full-width">
+          <input mdInput placeholder="City" value="" [(ngModel)]="current_user.city" name="city">
+        </md-form-field>
+        <table class="s-full-width" cellspacing="0"><tr>
+          <td>
+            <md-select class="s-full-width" placeholder="Province" style="padding-top: 0px;" [(ngModel)]="current_user.province" name="province">
+              <md-option *ngFor="let province of provinces" [value]="province.viewValue">
+                {{ province.viewValue }}
+              </md-option>
+            </md-select>
+          </td>
+          <td><md-form-field class="s-full-width" style="padding-top: 6px;">
+            <input mdInput placeholder="Postal Code" [(ngModel)]="current_user.postal_code" name="postal_code">
+          </md-form-field></td>
+        </tr></table>
+        <div class="s-button">
+          <button md-raised-button color="primary" (click)="updateUser()">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="loading" *ngIf="isLoading">
+      <md-spinner></md-spinner>
+  </div>
+</div>

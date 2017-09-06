@@ -146,7 +146,7 @@
 .get-started {
   position: relative;
   border-top: 3px solid $c-grey;
-  border-bottom: 3px solid $c-grey;
+  // border-bottom: 3px solid $c-grey;
 
 }
 
@@ -181,6 +181,7 @@
 }
 
 .testimonials {
+  border-top: 3px solid #232323;
   background: white;
   padding-top: 80px;
   padding-bottom: 80px;

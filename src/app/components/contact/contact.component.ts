@@ -101,9 +101,9 @@ export class ContactComponent implements OnInit {
             }]
         };
 
-        data.getProducts().then(products => {
-            this.current_products = products;
-        });
+        // data.getProducts().then(products => {
+        //     this.current_products = products;
+        // });
 
         this.address = "Alexander Suits (Pty) Ltd., 2nd Floor Tattersalls Building, Albert Street, Johannesburg";
         this.email = "info@alexandersuits.com";

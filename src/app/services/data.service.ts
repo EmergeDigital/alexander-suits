@@ -16,7 +16,9 @@ export class DataService {
     current_user: User;
     product_list: Product[];
     user_id: string;
-    user: any;
+    user_loaded: EventEmitter<User> = new EventEmitter();
+    has_loaded: boolean;
+    // user: any;
 
     constructor(public auth: AuthService, public http: Http, public authHttp: AuthHttp) {
         this.API_URL = "http://localhost:1337";
@@ -26,22 +28,48 @@ export class DataService {
 
     }
 
-    setUser(id) {
+    hasLoaded() {
+      return this.has_loaded;
+    }
+
+    setCurrentUser(id) {
       this.user_id = id;
+    }
+
+    getCurrentUser() {
+      return this.user_id;
     }
 
     getUser(id): Promise<User> {
         return new Promise((resolve, reject) => {
+          if (!!this.current_user) {
+              resolve(this.current_user);
+          } else {
             let params = {
-              id: id
+              user_id: id
             };
             this.authHttp.get(this.API_URL + "/api/user", {params: params}).toPromise().then(user => {
+                const _user = user.json();
+                this.current_user = _user;
+                this.setCurrentUser(id);
+                this.user_loaded.emit(_user);
+                this.has_loaded = true;
+                resolve(_user);
+            }).catch(ex => {
+                reject(ex);
+            });
+          }
+        });
+    }
+
+    setUser(user): Promise<User> {
+        return new Promise((resolve, reject) => {
+            this.authHttp.post(this.API_URL + "/api/users/update", user).toPromise().then(user => {
                 const _user = user.json();
                 resolve(_user);
             }).catch(ex => {
                 reject(ex);
             });
-
         });
     }
 
@@ -53,6 +81,7 @@ export class DataService {
           };
           this.authHttp.post(this.API_URL + "/api/users/create", body).toPromise().then(user => {
               const _user = user.json();
+              this.current_user = _user;
               resolve(_user);
           }).catch(ex => {
               reject(ex);

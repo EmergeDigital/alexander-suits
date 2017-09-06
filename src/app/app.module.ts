@@ -11,6 +11,7 @@ import {MdSnackBarModule} from '@angular/material';
 import {MdSidenavModule} from '@angular/material';
 import {MdGridListModule} from '@angular/material';
 import {MdProgressSpinnerModule} from '@angular/material';
+import {MdSelectModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {Http, Headers, HttpModule, RequestOptions} from '@angular/http';
 import {AngularFontAwesomeModule} from 'angular-font-awesome/angular-font-awesome';
@@ -121,6 +122,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         MdSidenavModule,
         MdGridListModule,
         MdProgressSpinnerModule,
+        MdSelectModule,
         OwlModule,
         AngularFontAwesomeModule,
         ClipboardModule,
