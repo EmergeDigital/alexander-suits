@@ -103,9 +103,9 @@ export class DataService {
             if (!!this.product_list) {
                 resolve(this.product_list);
             } else {
-                console.log(localStorage.getItem('access_token'));
-                console.log(localStorage.getItem('id_token'));
-                console.log(localStorage.getItem('expires_at'));
+                // console.log(localStorage.getItem('access_token'));
+                // console.log(localStorage.getItem('id_token'));
+                // console.log(localStorage.getItem('expires_at'));
                 let options =
                 this.authHttp.get(this.API_URL + "/api/products/all").toPromise().then(products => {
                     const got_products = products.json();
@@ -132,8 +132,9 @@ export class DataService {
               resolve(this.current_cart);
           } else {
             let params = {
-              user_id: this.getCurrentUser()
+              user_id: this.user_id
             };
+            console.log(params);
             this.authHttp.get(this.API_URL + "/api/cart", {params: params}).toPromise().then(cart => {
                 const _cart = cart.json();
                 this.current_cart = _cart;
