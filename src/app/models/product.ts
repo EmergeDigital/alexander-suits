@@ -7,6 +7,7 @@ export class Product {
     extras: any;
     customisation: any;
     image_urls: string[];
+    product_SKU: string;
 
     constructor(init: any) {
         for (const key in init) {

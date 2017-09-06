@@ -148,7 +148,7 @@ export class DataService {
 
     addToCart(products): Promise<Cart> {
         return new Promise((resolve, reject) => {
-          if (!!this.current_cart) {
+          // if (!!this.current_cart) {
             let body = {
               user_id: this.getCurrentUser(),
               products: products
@@ -161,10 +161,10 @@ export class DataService {
             }).catch(ex => {
                 reject(ex);
             });
-          } else {
-            reject("NO CART YET");
+          // } else {
+            // reject("NO CART YET");
             // LOCAL CART
-          }
+          // }
         });
     }
 

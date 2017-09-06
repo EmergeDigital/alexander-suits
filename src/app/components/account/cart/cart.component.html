@@ -1,1 +1,27 @@
-<app-coming-soon [pageTitle]="'Cart'"></app-coming-soon>
+<!-- <app-coming-soon [pageTitle]="'Cart'"></app-coming-soon> -->
+<div class="container" *ngIf="products">
+  <br /><br />
+
+    <div style="padding: 10px;" *ngFor="let product of products">
+      <md-card class="example-card">
+        <md-card-header>
+          <md-card-title>{{product.name}}</md-card-title>
+          <md-card-subtitle>{{product.description}}</md-card-subtitle>
+        </md-card-header>
+        <md-card-content>
+          <p>
+            R{{product.price}}
+          </p>
+          <p>
+            {{product.id}}
+          </p>
+        </md-card-content>
+        <md-card-actions>
+          <button md-button (click)="addCart(product)">Add To Cart</button>
+        </md-card-actions>
+      </md-card>
+    </div><br /><br />
+    <div style="padding: 40px; text-align: center;">
+      <button md-raised-button color="primary"  (click)="deleteCart()">Clear Cart</button>
+    </div>
+</div>
