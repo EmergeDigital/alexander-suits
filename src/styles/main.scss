@@ -19,16 +19,6 @@ html, body {
   margin: 0px;
 }
 
-.cdk-overlay-pane {
-    position: absolute !important;
-    z-index: 1000;
-    width: 60%;
-    height: 60%;
-    top: 20%;
-    left: 20%;
-  }
-
-
 h1, h2, h3, h4, h5, h6, p, span {
   font-family: 'Lato', sans-serif;
   // font-family: 'Roboto Condensed', sans-serif;
@@ -143,11 +133,35 @@ button:focus{
   width: 65%;
 }
 
+.cdk-global-overlay-wrapper {
+  .cdk-overlay-pane {
+      position: absolute !important;
+      z-index: 1000;
+      width: 60%;
+      height: 60%;
+      top: 20%;
+      left: 20%;
+  }
+}
+
+.mat-dialog-container {
+  max-width: 100vw !important;
+}
+
 @media (max-width:1400px) { /* large size */
   .suits-banner-inner {
     padding-top: 15vh;
     h1 {
       font-size: 35px;
+    }
+  }
+
+  .cdk-global-overlay-wrapper {
+    .cdk-overlay-pane {
+      left: 10%;
+      width: 80%;
+      top: 10%;
+      height: 80%;
     }
   }
 }
@@ -161,6 +175,14 @@ button:focus{
   }
   .img-hr{
     width: 80%;
+  }
+  .cdk-global-overlay-wrapper {
+    .cdk-overlay-pane {
+      left: 5%;
+      width: 90%;
+      top: 5%;
+      height: 90%;
+    }
   }
 }
 
@@ -178,6 +200,14 @@ button:focus{
   }
   .img-hr{
     width: 95%;
+  }
+  .cdk-global-overlay-wrapper {
+    .cdk-overlay-pane {
+      left: 2%;
+      width: 96%;
+      top: 2%;
+      height: 96%;
+    }
   }
 }
 

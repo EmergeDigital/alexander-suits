@@ -1,0 +1,23 @@
+@import '../../../styles/colours.scss';
+
+.cart-button {
+  // text-align: left;
+  color: $c-grey;
+  text-align: right;
+  i {
+    padding: 5px 15px 10px 15px;
+    font-size: 30px;
+  }
+}
+
+
+@media (max-width:575px) { /* mobile size */
+  .cart-button {
+    button{
+      .total {
+        display: none;
+      }
+    }
+    color: white;
+  }
+}

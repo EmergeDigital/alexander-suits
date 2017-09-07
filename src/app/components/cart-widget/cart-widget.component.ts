@@ -76,20 +76,27 @@ export class CartWidgetComponent implements OnInit {
         })
 
         data._cartUpdated.subscribe(cart=>{
-          if (cart.status === "does_not_exist") {
-            console.log("No Cart Detected");
-            this.cart = null;
-            this.loadingCart = false;
-          } else {
-            if(!!cart.products) {
-              this.cart = cart;
-              console.log(cart);
+          console.log("UPDATED CART");
+          if(!!cart) {
+            if (cart.status === "does_not_exist") {
+              console.log("No Cart Detected");
+              this.cart = null;
               this.loadingCart = false;
             } else {
-                console.log("No Cart Detected");
-                this.cart = null;
+              if(!!cart.products) {
+                this.cart = cart;
+                console.log(cart);
                 this.loadingCart = false;
+              } else {
+                  console.log("No Cart Detected");
+                  this.cart = null;
+                  this.loadingCart = false;
+              }
             }
+          } else {
+              console.log("Cart has been emptied");
+              this.cart = null;
+              this.loadingCart = false;
           }
         })
       });
@@ -100,7 +107,7 @@ export class CartWidgetComponent implements OnInit {
       // });
   }
 
-  openDialog() {    
+  openDialog() {
     if(this.loadingToast == null && !this.loadingCart) {
       const dialogRef = this.dialog.open(DialogContentCartDialog, {
         data: { cart: this.cart },

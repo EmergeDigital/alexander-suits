@@ -274,6 +274,7 @@ export class DataService {
             this.authHttp.delete(this.API_URL + "/api/cart/delete", {params: params}).toPromise().then(reponse => {
                 const _response = reponse.json();
                 // this.user_loaded.emit(_cart);
+                this._cartUpdated.emit(null);
                 resolve(_response);
             }).catch(ex => {
                 reject(ex);

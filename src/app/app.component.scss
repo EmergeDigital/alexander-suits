@@ -10,7 +10,7 @@ html, body, material-app, md-sidenav-container, .my-content {
   padding: 20px;
 }
 
-.navbar-icon {  
+.navbar-icon {
   z-index: 5;
 }
 
@@ -27,4 +27,25 @@ html, body, material-app, md-sidenav-container, .my-content {
   top: 0;
   width: 100%;
   z-index: 4;
+}
+
+.shopping-cart {
+  position: absolute;
+  top: 140px;
+  left: 78%;
+  z-index: 5;
+}
+
+
+@media (max-width:1400px) { /* lg size */
+  .shopping-cart {
+    left: 75%;
+  }
+}
+
+@media (max-width:575px) { /* mobile size */
+  .shopping-cart {
+    top: 14px;
+    right: 5px;
+  }
 }

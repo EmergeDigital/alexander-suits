@@ -1,11 +1,58 @@
 <div class="dialog">
-  <div style="padding: 40px; text-align: center;" *ngIf="data.cart">
+  <div class="close-dialog">
+    <button md-icon-button [md-dialog-close]="false">
+      <md-icon class="md-24">close</md-icon>
+    </button>
+  </div>
+  <div style="padding: 10px; text-align: center;" *ngIf="data.cart">
     <div style="padding: 20px;">
-      <h3>Total: R{{data.cart.total}}</h3>
+      <!-- <h3>Total: R{{data.cart.total}}</h3> -->
+      <h3>Your Cart</h3>
     </div>
-    <div style="">
+    <div style="padding-top: 20px;">
+      <div class="row">
+        <div class="col-6">
+          <h5 class="prod-title">Product Details</h5>
+        </div>
+        <div class="col-3">
+          <h5>Count</h5>
+        </div>
+        <div class="col-3">
+          <h5>Subtotal</h5>
+        </div>
+      </div>
       <div style="padding: 10px;" *ngFor="let product of data.cart.products">
-        <md-card class="example-card">
+        <div class="mat-card">
+          <div class="row title-padding">
+            <div class="col-6">
+              <div class="product-left">
+                <div class="product-image">
+                    <img class="p-img" src="assets/red.jpg"/>
+                </div>
+                <div class="product-text">
+                  <h6><b>{{product.name}}</b></h6>
+                  <p>{{product.description}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="product-center">
+                <md-select placeholder="Amount" [(ngModel)]="product.count" (change)="onChange(product)">
+                  <md-option *ngFor="let number of numbers" [value]="number">
+                    {{ number }}
+                  </md-option>
+                </md-select>
+                <!-- {{product.count}} -->
+              </div>
+            </div>
+            <div class="col-3">
+                <div class="product-right">
+                  R{{product.price}}
+                </div>
+            </div>
+          </div>
+        </div>
+        <!-- <md-card class="example-card">
           <md-card-header>
             <md-card-title>{{product.name}}</md-card-title>
             <md-card-subtitle>{{product.description}}</md-card-subtitle>
@@ -18,7 +65,7 @@
               {{product.count}}
             </p>
           </md-card-content>
-        </md-card>
+        </md-card> -->
       </div><br /><br /><br />
     </div>
     <!-- <div style="text-align: center">
