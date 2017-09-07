@@ -12,6 +12,7 @@ import {MdSidenavModule} from '@angular/material';
 import {MdGridListModule} from '@angular/material';
 import {MdProgressSpinnerModule} from '@angular/material';
 import {MdSelectModule} from '@angular/material';
+import {MdDialogModule} from '@angular/material'
 import {FormsModule} from '@angular/forms';
 import {Http, Headers, HttpModule, RequestOptions} from '@angular/http';
 import {AngularFontAwesomeModule} from 'angular-font-awesome/angular-font-awesome';
@@ -64,6 +65,8 @@ import { AccountComponent } from './components/account/account.component';
 import { OrdersComponent } from './components/account/orders/orders.component';
 import { SettingsComponent } from './components/account/settings/settings.component';
 import { CartComponent } from './components/account/cart/cart.component';
+import { CartWidgetComponent } from './components/cart-widget/cart-widget.component';
+import { DialogContentCartDialog } from './components/cart-widget/dialog/dialog-content-cart-dialog';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
@@ -103,7 +106,9 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         AccountComponent,
         OrdersComponent,
         SettingsComponent,
-        CartComponent
+        CartComponent,
+        CartWidgetComponent,
+        DialogContentCartDialog
     ],
     imports: [
         ScrollStoreModule,
@@ -125,10 +130,14 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         MdGridListModule,
         MdProgressSpinnerModule,
         MdSelectModule,
+        MdDialogModule,
         OwlModule,
         AngularFontAwesomeModule,
         ClipboardModule,
         NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyAm3PebcIYpXrXY5k7xA5_9JWnqIjWKlU4'})
+    ],
+    entryComponents: [
+      DialogContentCartDialog
     ],
     providers: [TabsService, DataService, SessionService, FunctionsService, AuthService,
     {

@@ -19,6 +19,16 @@ html, body {
   margin: 0px;
 }
 
+.cdk-overlay-pane {
+    position: absolute !important;
+    z-index: 1000;
+    width: 60%;
+    height: 60%;
+    top: 20%;
+    left: 20%;
+  }
+
+
 h1, h2, h3, h4, h5, h6, p, span {
   font-family: 'Lato', sans-serif;
   // font-family: 'Roboto Condensed', sans-serif;

@@ -21,6 +21,8 @@ export class DataService {
     product_list: Product[];
     user_id: string;
     user_loaded: EventEmitter<User> = new EventEmitter();
+    _cartUpdated: EventEmitter<Cart> = new EventEmitter();
+    _cartUpdating: EventEmitter<boolean> = new EventEmitter();
     has_loaded: boolean;
     // user: any;
 
@@ -214,6 +216,7 @@ export class DataService {
 
     addToCart(products): Promise<Cart> {
         return new Promise((resolve, reject) => {
+          this._cartUpdating.emit(true);
           if(this.auth.isAuthenticated()) {
             //TODO Create new products array with just id & count to reduce request size
             let body = {
@@ -224,8 +227,10 @@ export class DataService {
                 const _cart = cart.json();
                 this.current_cart = _cart;
                 // this.user_loaded.emit(_cart);
+                this._cartUpdated.emit(_cart);
                 resolve(_cart);
             }).catch(ex => {
+                this._cartUpdating.emit(false);
                 reject(ex);
             });
           } else {
@@ -252,6 +257,7 @@ export class DataService {
             }
 
             this.session.setLocalCart(cart);
+            this._cartUpdated.emit(cart);
             resolve(cart);
           }
 
@@ -259,6 +265,7 @@ export class DataService {
     }
 
     deleteCart(): Promise<string> {
+      this._cartUpdating.emit(true);
         return new Promise((resolve, reject) => {
           if (this.auth.isAuthenticated()) {
             let params = {
@@ -274,6 +281,7 @@ export class DataService {
           } else {
             // reject("NO CART YET");
             this.session.setLocalCart(null);
+            this._cartUpdated.emit(null);
             resolve("success");
             // LOCAL CART
           }

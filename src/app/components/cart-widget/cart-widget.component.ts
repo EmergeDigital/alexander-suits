@@ -1,24 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import {DataService} from '../../../services/data.service';
-import {AuthService} from '../../../services/auth.service';
+import {DataService} from '../../services/data.service';
+import {AuthService} from '../../services/auth.service';
 import { Router } from '@angular/router';
-import {Product} from "../../../models/product";
-import {Cart} from "../../../models/cart";
+import {Product} from "../../models/product";
+import {Cart} from "../../models/cart";
+import {MdDialog} from '@angular/material';
+import {DialogContentCartDialog} from './dialog/dialog-content-cart-dialog';
 import {ToastyService, ToastyConfig, ToastOptions, ToastData} from 'ng2-toasty';
 
 @Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss']
+  selector: 'app-cart-widget',
+  templateUrl: './cart-widget.component.html',
+  styleUrls: ['./cart-widget.component.scss']
 })
-export class CartComponent implements OnInit {
+export class CartWidgetComponent implements OnInit {
 
   products: Product[];
   cart: Cart;
   loadingToast: any;
   loadingCart: boolean;
 
-  constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig, public data: DataService, public auth: AuthService, public router: Router) {
+  constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig, public data: DataService, public auth: AuthService, public router: Router, public dialog: MdDialog) {
 
     this.loadingToast = null;
     this.loadingCart = true;
@@ -68,11 +70,50 @@ export class CartComponent implements OnInit {
               this.loadingCart = false;
           }
         }
-      })
-      data.getProducts().then((products)=>{
-        this.products = products;
+
+        data._cartUpdating.subscribe(loading=>{
+          this.loadingCart = loading;
+        })
+
+        data._cartUpdated.subscribe(cart=>{
+          if (cart.status === "does_not_exist") {
+            console.log("No Cart Detected");
+            this.cart = null;
+            this.loadingCart = false;
+          } else {
+            if(!!cart.products) {
+              this.cart = cart;
+              console.log(cart);
+              this.loadingCart = false;
+            } else {
+                console.log("No Cart Detected");
+                this.cart = null;
+                this.loadingCart = false;
+            }
+          }
+        })
       });
+
+
+      // data.getProducts().then((products)=>{
+      //   this.products = products;
+      // });
   }
+
+  openDialog() {    
+    if(this.loadingToast == null && !this.loadingCart) {
+      const dialogRef = this.dialog.open(DialogContentCartDialog, {
+        data: { cart: this.cart },
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+      });
+    } else {
+     this.pleaseWait();
+   }
+  }
+
 
   ngOnInit() {
   }
@@ -102,7 +143,7 @@ export class CartComponent implements OnInit {
         count: 1
       };
       this.data.addToCart([_product]).then((cart)=>{
-        this.cart = cart;
+        // this.cart = cart;
         this.updateSuccess("Cart has been updated");
       })
     } else {
@@ -126,7 +167,7 @@ export class CartComponent implements OnInit {
 
       this.data.deleteCart().then((response)=>{
         if(response === "success") {
-          this.cart = null;
+          // this.cart = null;
           this.updateSuccess("Cart has been cleared");
         }
       })
