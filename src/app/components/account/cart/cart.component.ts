@@ -16,42 +16,59 @@ export class CartComponent implements OnInit {
   products: Product[];
   cart: Cart;
   loadingToast: any;
+  loadingCart: boolean;
 
   constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig, public data: DataService, public auth: AuthService, public router: Router) {
 
     this.loadingToast = null;
+    this.loadingCart = true;
 
-    if(auth.isAuthenticated()){
-      if(data.hasLoaded()) {
-        data.getProducts().then((products)=>{
-          this.products = products;
-        });
-        data.getCart().then((cart)=>{
-          if (cart.status === "does_not_exist") {
-
-          } else {
+    // if(auth.isAuthenticated()){
+    //   if(data.hasLoaded()) {
+    //     data.getProducts().then((products)=>{
+    //       this.products = products;
+    //     });
+    //     data.getCart().then((cart)=>{
+    //       if (cart.status === "does_not_exist") {
+    //
+    //       } else {
+    //         this.cart = cart;
+    //       }
+    //     });
+    //   } else {
+    //
+    //     data.user_loaded.subscribe(user => {
+    //       data.getProducts().then((products)=>{
+    //         this.products = products;
+    //       });
+    //       data.getCart().then((cart)=>{
+    //         if (cart.status === "does_not_exist") {
+    //
+    //         } else {
+    //           this.cart = cart;
+    //         }
+    //       });
+    //     });
+    //   }
+    //
+    // } else {
+    //   this.router.navigate(['/']);
+    // }
+      data.findCart().then(cart=> {
+        if (cart.status === "does_not_exist") {
+          console.log("No Cart Detected");
+          this.loadingCart = false;
+        } else {
+          if(!!cart.products) {
             this.cart = cart;
+            console.log(cart);
+            this.loadingCart = false;
+          } else {
+              console.log("No Cart Detected");
+              this.loadingCart = false;
           }
-        });
-      } else {
-
-        data.user_loaded.subscribe(user => {
-          data.getProducts().then((products)=>{
-            this.products = products;
-          });
-          data.getCart().then((cart)=>{
-            if (cart.status === "does_not_exist") {
-
-            } else {
-              this.cart = cart;
-            }
-          });
-        });
-      }
-
-    } else {
-      this.router.navigate(['/']);
-    }
+        }
+      })
       data.getProducts().then((products)=>{
         this.products = products;
       });
@@ -76,6 +93,12 @@ export class CartComponent implements OnInit {
 
       let _product = {
         id: product.id,
+        price: product.price,
+        name: product.name,
+        description: product.description,
+        category: product.category,
+        extras: product.extras,
+        image_urls: product.image_urls,
         count: 1
       };
       this.data.addToCart([_product]).then((cart)=>{

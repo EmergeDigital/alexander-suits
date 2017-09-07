@@ -3,6 +3,8 @@ import {Http, Headers, HttpModule} from '@angular/http';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import {RequestOptions, Request, RequestMethod} from '@angular/http';
 import {AuthService} from './auth.service';
+import {SessionService} from './session.service';
+import {FunctionsService} from './functions.service';
 import 'rxjs/add/operator/toPromise';
 
 import {User} from "../models/user";
@@ -22,8 +24,11 @@ export class DataService {
     has_loaded: boolean;
     // user: any;
 
-    constructor(public auth: AuthService, public http: Http, public authHttp: AuthHttp) {
+    constructor(public auth: AuthService, public http: Http, public authHttp: AuthHttp,  public session: SessionService, public functions: FunctionsService) {
         this.API_URL = "http://localhost:1337";
+        // auth._user.subscribe(user=>{
+        //
+        // })
     }
 
     setupDatabase(): void {
@@ -107,7 +112,7 @@ export class DataService {
                 // console.log(localStorage.getItem('id_token'));
                 // console.log(localStorage.getItem('expires_at'));
                 let options =
-                this.authHttp.get(this.API_URL + "/api/products/all").toPromise().then(products => {
+                this.http.get(this.API_URL + "/api/products/all").toPromise().then(products => {
                     const got_products = products.json();
                     const temp_arr = [];
                     for (const product of got_products) {
@@ -125,6 +130,61 @@ export class DataService {
 
 
     /* ==============  CARTS  ============== */
+
+    findCart(): Promise<Cart> {
+        return new Promise((resolve, reject) => {
+            let local_cart = this.session.getLocalCart();
+
+            if(this.auth.isAuthenticated()) {
+              //Fetch/await user load then get cart from server with merge options
+              if(this.has_loaded) {
+                this.mergeCart(local_cart).then(cart=>{
+                  resolve(cart);
+                });
+              } else {
+                this.user_loaded.subscribe(user=>{
+                  this.mergeCart(local_cart).then(cart=>{
+                    resolve(cart);
+                  });
+                })
+              }
+            } else {
+              if(!!local_cart) {
+                resolve(local_cart);
+              } else {
+                let cart = new Cart({user_id: "visitor"});
+                this.session.setLocalCart(cart);
+                resolve(cart);
+              }
+            }
+        });
+    }
+
+    mergeCart(local_cart): Promise<Cart> {
+      return new Promise((resolve, reject) => {
+        if (!!local_cart) { //LOCAL CART EXISTS
+          let body = {
+            user_id: this.user_id,
+            local_cart: local_cart
+          };
+          // console.log(params);
+          this.authHttp.get(this.API_URL + "/api/cart/merge", body).toPromise().then(cart => {
+              const _cart = cart.json();
+              this.current_cart = _cart;
+              this.session.setLocalCart(null);
+              resolve(_cart);
+          }).catch(ex => {
+              reject(ex);
+          });
+        } else { //DOESNT EXIST
+          this.getCart().then(cart => {
+            resolve(cart);
+          })
+        }
+      });
+    }
+
+
 
     getCart(): Promise<Cart> {
         return new Promise((resolve, reject) => {
@@ -149,7 +209,7 @@ export class DataService {
 
     addToCart(products): Promise<Cart> {
         return new Promise((resolve, reject) => {
-          // if (!!this.current_cart) {
+          if(this.auth.isAuthenticated()) {
             let body = {
               user_id: this.getCurrentUser(),
               products: products
@@ -162,16 +222,39 @@ export class DataService {
             }).catch(ex => {
                 reject(ex);
             });
-          // } else {
-            // reject("NO CART YET");
-            // LOCAL CART
-          // }
+          } else {
+            //update local cart
+            let cart = this.session.getLocalCart();
+
+            if(!(!!cart)) {
+              cart = new Cart({user_id: "visitor"});
+              this.session.setLocalCart(cart);
+            }
+
+            if(!!cart.products) {
+              let _products = cart.products;
+
+              let updated_total = this.functions.updateTotal(_products, products);
+              cart.total = updated_total;
+
+              let merged_products = this.functions.mergeProducts(_products, products);
+              cart.products = merged_products;
+            } else {
+              let total = this.functions.countTotal(products);
+              cart.total = total;
+              cart.products = products;
+            }
+
+            this.session.setLocalCart(cart);
+            resolve(cart);
+          }
+
         });
     }
 
     deleteCart(): Promise<string> {
         return new Promise((resolve, reject) => {
-          // if (!!this.current_cart) {
+          if (this.auth.isAuthenticated()) {
             let params = {
               user_id: this.getCurrentUser()
             };
@@ -182,11 +265,15 @@ export class DataService {
             }).catch(ex => {
                 reject(ex);
             });
-          // } else {
+          } else {
             // reject("NO CART YET");
+            this.session.setLocalCart(null);
+            resolve("success");
             // LOCAL CART
-          // }
+          }
         });
     }
+
+
 
 }

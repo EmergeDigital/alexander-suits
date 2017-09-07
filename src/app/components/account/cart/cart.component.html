@@ -24,7 +24,8 @@
 
     <div style="padding: 40px; text-align: center;" *ngIf="!cart">
       <div style="padding: 20px;">
-        <h3>Cart is empty</h3>
+        <h3 *ngIf="!loadingCart">Cart is empty</h3>
+        <h3 *ngIf="loadingCart">Cart is loading</h3>
       </div>
     </div>
 

@@ -21,12 +21,14 @@ import {NgModule} from '@angular/core';
 import {OwlModule} from 'ng2-owl-carousel';
 import {ClipboardModule} from 'ngx-clipboard';
 import {ToastyModule} from 'ng2-toasty';
-import {DataService} from "./services/data.service";
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import 'hammerjs';
 
 import {TabsService} from "./services/tabs.service";
+import {DataService} from "./services/data.service";
 import {AuthService} from "./services/auth.service";
+import {SessionService} from "./services/session.service";
+import {FunctionsService} from "./services/functions.service";
 
 /*============================================================================
  Route Imports
@@ -128,7 +130,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         ClipboardModule,
         NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyAm3PebcIYpXrXY5k7xA5_9JWnqIjWKlU4'})
     ],
-    providers: [TabsService, DataService, AuthService,
+    providers: [TabsService, DataService, SessionService, FunctionsService, AuthService,
     {
       provide: AuthHttp,
       useFactory: authHttpServiceFactory,
