@@ -138,6 +138,7 @@ export class DataService {
             if(this.auth.isAuthenticated()) {
               //Fetch/await user load then get cart from server with merge options
               if(this.has_loaded) {
+                console.log(this.current_user);
                 this.mergeCart(local_cart).then(cart=>{
                   resolve(cart);
                 });
@@ -162,20 +163,24 @@ export class DataService {
 
     mergeCart(local_cart): Promise<Cart> {
       return new Promise((resolve, reject) => {
-        if (!!local_cart) { //LOCAL CART EXISTS
-          let body = {
-            user_id: this.user_id,
-            local_cart: local_cart
-          };
+        if (!!local_cart && !!local_cart.products) { //LOCAL CART EXISTS
+          // let body = {
+          //   user_id: this.user_id,
+          //   local_cart: local_cart
+          // };
           // console.log(params);
-          this.authHttp.get(this.API_URL + "/api/cart/merge", body).toPromise().then(cart => {
-              const _cart = cart.json();
-              this.current_cart = _cart;
-              this.session.setLocalCart(null);
-              resolve(_cart);
-          }).catch(ex => {
-              reject(ex);
-          });
+          this.addToCart(local_cart.products).then(cart=>{
+            this.session.setLocalCart(null);
+            resolve(cart);
+          })
+          // this.authHttp.get(this.API_URL + "/api/cart/merge", body).toPromise().then(cart => {
+          //     const _cart = cart.json();
+          //     this.current_cart = _cart;
+          //     this.session.setLocalCart(null);
+          //     resolve(_cart);
+          // }).catch(ex => {
+          //     reject(ex);
+          // });
         } else { //DOESNT EXIST
           this.getCart().then(cart => {
             resolve(cart);
@@ -210,6 +215,7 @@ export class DataService {
     addToCart(products): Promise<Cart> {
         return new Promise((resolve, reject) => {
           if(this.auth.isAuthenticated()) {
+            //TODO Create new products array with just id & count to reduce request size
             let body = {
               user_id: this.getCurrentUser(),
               products: products

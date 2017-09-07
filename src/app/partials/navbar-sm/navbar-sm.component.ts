@@ -13,10 +13,10 @@ export class NavbarSmComponent implements OnInit {
   constructor(public auth: AuthService) {
 
       this.isAuthenticated = auth.isAuthenticated();
-      console.log(this.isAuthenticated);
+      // console.log(this.isAuthenticated);
 
       auth._authenticated.subscribe(isAuthenticated => {
-        console.log(isAuthenticated);
+        // console.log(isAuthenticated);
         this.isAuthenticated = isAuthenticated;
       });
   }

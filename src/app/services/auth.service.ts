@@ -16,6 +16,7 @@ export class AuthService {
     scope: 'openid email name'
   });
   _authenticated: EventEmitter<boolean> = new EventEmitter();
+  _authenticating: EventEmitter<boolean> = new EventEmitter();
   user: any;
   _user: EventEmitter<any> = new EventEmitter();
 
@@ -25,27 +26,62 @@ export class AuthService {
     this.auth0.authorize();
   }
 
+  public parseAuth(): Promise<boolean> {
+    return new Promise ((resolve, reject) => {
+      if(this.isAuthenticated()) {
+        let token = localStorage.getItem('access_token');
+        this.getCurrentUser(token).then((user)=>{
+          this._user.emit(this.user);
+          // console.log(this.user);
+        })
+        
+        this._authenticated.emit(true);
+        resolve(true);
+      } else {
+        this.handleAuthentication();
+        this._authenticating.subscribe(authenticating => {
+          if(authenticating) {
+            this._authenticated.subscribe(authenticated => {
+              resolve(authenticated);
+            });
+          } else {
+            resolve(false);
+          }
+        });
+      }
+    });
+  }
+
   public handleAuthentication(): void {
     this.auth0.parseHash((err, authResult) => {
-      if (authResult && authResult.accessToken && authResult.idToken) {
-        window.location.hash = '';
-        this.setSession(authResult);
-        this.router.navigate(['/home']);
-        this.getCurrentUser(authResult.accessToken).then((user)=>{
-          this._user.emit(this.user);
-        })
-        // this.auth0.client.userInfo(authResult.accessToken, (err, user) =>{
-        //   //Do something with user information
-        //   this.user = this.getUserID(user);
-        //
-        //   this._user.emit(this.user);
-        //   // console.log(this.getUserID(user));
-        //   // this.data.setUser(this.getUserID(user));
-        // });
-      } else if (err) {
-        this.router.navigate(['/home']);
-        console.log(err);
+      if(!!authResult) {
+        if (authResult && authResult.accessToken && authResult.idToken) {
+          console.log("HALLO");
+          this._authenticating.emit(true);
+          window.location.hash = '';
+          this.setSession(authResult);
+          this.router.navigate(['/home']);
+          this.getCurrentUser(authResult.accessToken).then((user)=>{
+            this._user.emit(this.user);
+          })
+          // this.auth0.client.userInfo(authResult.accessToken, (err, user) =>{
+          //   //Do something with user information
+          //   this.user = this.getUserID(user);
+          //
+          //   this._user.emit(this.user);
+          //   // console.log(this.getUserID(user));
+          //   // this.data.setUser(this.getUserID(user));
+          // });
+        } else if (err) {
+          this._authenticating.emit(false);
+          this.router.navigate(['/home']);
+          console.log(err);
+        }
+      } else {
+        console.log("cheerio");
+        this._authenticating.emit(false);
       }
+
     });
   }
 

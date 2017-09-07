@@ -22,7 +22,39 @@ export class AppComponent {
 
 
   constructor(public auth: AuthService, public data: DataService, private toastyService:ToastyService, private toastyConfig: ToastyConfig, public router: Router) {
-        auth.handleAuthentication();
+
+        // auth._authenticating.subscribe(authenticating => {
+        //   if(authenticating) {
+        //     console.log("Authing");
+        //     auth._authenticated.subscribe(isAuthenticated => {
+        //       console.log(isAuthenticated);
+        //       this.isAuthenticated = isAuthenticated;
+        //       if(this.isAuthenticated) {
+        //         auth.getCurrentUser(null).then(u => {
+        //           this.user = u;
+        //           this.checkAuth();
+        //         });
+        //       }
+        //     });
+        //   } else {
+        //     console.log("lolno");
+        //     this.isAuthenticated = false;
+        //   }
+        // })
+        auth.parseAuth().then(authenticated => {
+          this.isAuthenticated = authenticated;
+          if(authenticated) {
+            auth._user.subscribe(user => {
+                this.user = user;
+                this.checkAuth();
+            });
+            // auth.getCurrentUser(null).then(u => {
+            //   this.user = u;
+            //   this.checkAuth();
+            // });
+          }
+        });
+        // console.log("IM HERE");
 
         // if (environment.useAuth) {
         //     if (!auth.isAuthenticated()) {
@@ -41,24 +73,24 @@ export class AppComponent {
         this.hasRun = false;
 
 
-        this.isAuthenticated = auth.isAuthenticated();
-
-        if(this.isAuthenticated) {
-          auth.getCurrentUser(null).then(u => {
-            this.user = u;
-            this.checkAuth();
-          });
-        }
-
-        auth._authenticated.subscribe(isAuthenticated => {
-          this.isAuthenticated = isAuthenticated;
-          if(this.isAuthenticated) {
-            auth.getCurrentUser(null).then(u => {
-              this.user = u;
-              this.checkAuth();
-            });
-          }
-        });
+        // this.isAuthenticated = auth.isAuthenticated();
+        //
+        // if(this.isAuthenticated) {
+        //   auth.getCurrentUser(null).then(u => {
+        //     this.user = u;
+        //     this.checkAuth();
+        //   });
+        // }
+        //
+        // auth._authenticated.subscribe(isAuthenticated => {
+        //   this.isAuthenticated = isAuthenticated;
+        //   if(this.isAuthenticated) {
+        //     auth.getCurrentUser(null).then(u => {
+        //       this.user = u;
+        //       this.checkAuth();
+        //     });
+        //   }
+        // });
     }
 
     logout(): void {
@@ -70,8 +102,10 @@ export class AppComponent {
     }
 
     checkAuth() {
+    // console.log(this.user);
       if(!!this.user && !this.hasRun){
         this.hasRun = true;
+        // console.log("LOLWUT");
         this.data.getUser(this.user.id).then((user)=>{
           if(user.status !== "does_not_exist") {
             //Do stuff
