@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { Component, OnInit, Input } from '@angular/core';
 import { RouterModule, Routes,  } from '@angular/router';
 import { AppRoutingModule } from '../../app-routing.module';
-import {MdSnackBar} from '@angular/material';
+import {AuthService} from '../../services/auth.service';
+import {ToastyService, ToastyConfig, ToastOptions, ToastData} from 'ng2-toasty';
 
 @Component({
   selector: 'app-footer',
@@ -13,12 +14,18 @@ export class FooterComponent implements OnInit {
 
   @Input('appTitle') appTitle: string;
   cell: string;
+  isAuthenticated: boolean;
 
-  constructor(public snackBar: MdSnackBar) {
+  constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig, public auth: AuthService) {
       if (this.appTitle === undefined) {
           this.appTitle = 'Unspecified';
       }
       this.cell = "011 492 33604";
+      this.isAuthenticated = auth.isAuthenticated();
+
+      auth._authenticated.subscribe(isAuthenticated => {
+        this.isAuthenticated = isAuthenticated;
+      });
   }
 
   ngOnInit() {
@@ -26,10 +33,18 @@ export class FooterComponent implements OnInit {
 
 
   copied() {
-    this.snackBar.open("Copied to clipboard!", "", {  duration: 2000   });
+    var toastOptions:ToastOptions = {
+      title: "Success",
+      msg: "Copied to clipboard"
+    };
+    this.toastyService.success(toastOptions);
   }
 
-  doesNothing() {
-    this.snackBar.open("This does nothing at the moment!", "", {  duration: 2000   });
+  login(): void {
+      this.auth.login();
   }
+
+  // doesNothing() {
+  //   this.snackBar.open("This does nothing at the moment!", "", {  duration: 2000   });
+  // }
 }

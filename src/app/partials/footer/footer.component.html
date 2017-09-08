@@ -14,6 +14,8 @@
         <button md-menu-item routerLink="terms-and-conditions"> T&amp;C's </button>
         <button md-menu-item routerLink="privacy"> Privacy </button>
         <button md-menu-item routerLink="contact"> Contact Us </button>
+        <button md-menu-item routerLink="account" *ngIf="isAuthenticated"> My Account </button>
+        <button md-menu-item (click)="login()" *ngIf="!isAuthenticated"> Log In </button>
       </div>
       <div class="col-md-3 col-sm-6">
         <p class="footer-title">
@@ -22,6 +24,7 @@
           <button md-menu-item routerLink="home"> Home </button>
           <button md-menu-item routerLink="about"> About </button>
           <button md-menu-item routerLink="suits"> Suits </button>
+          <button md-menu-item> Shirts </button>
           <button md-menu-item routerLink="accessories"> Accessories </button>
       </div>
       <div class="col-md-3 col-sm-6">
