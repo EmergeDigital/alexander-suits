@@ -110,7 +110,10 @@ export class CartWidgetComponent implements OnInit {
   openDialog() {
     if(this.loadingToast == null && !this.loadingCart) {
       const dialogRef = this.dialog.open(DialogContentCartDialog, {
-        data: { cart: this.cart },
+        data: {
+          cart: this.cart,
+          dataService:  this.data
+        },
       });
 
       dialogRef.afterClosed().subscribe(result => {

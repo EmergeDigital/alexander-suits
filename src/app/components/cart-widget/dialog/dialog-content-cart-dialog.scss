@@ -21,7 +21,7 @@
 
 .product-img {
     max-height: 250px;
-    width: auto; 
+    width: auto;
     padding: 10px;
 }
 
@@ -65,3 +65,11 @@
     padding-top: 14px !important;
   }
 }
+
+.mat-card-avatar {
+    height: 50px;
+    width: 50px;
+    border-radius: 0;
+    flex-shrink: 0;
+    margin-right: 5px;
+  }
