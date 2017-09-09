@@ -12,7 +12,7 @@ import {MdSidenavModule} from '@angular/material';
 import {MdGridListModule} from '@angular/material';
 import {MdProgressSpinnerModule} from '@angular/material';
 import {MdSelectModule} from '@angular/material';
-import {MdDialogModule} from '@angular/material'
+import {MdDialogModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {Http, Headers, HttpModule, RequestOptions} from '@angular/http';
 import {AngularFontAwesomeModule} from 'angular-font-awesome/angular-font-awesome';
@@ -22,7 +22,7 @@ import {NgModule} from '@angular/core';
 import {OwlModule} from 'ng2-owl-carousel';
 import {ClipboardModule} from 'ngx-clipboard';
 import {ToastyModule} from 'ng2-toasty';
-import { AuthHttp, AuthConfig } from 'angular2-jwt';
+import {AuthHttp, AuthConfig} from 'angular2-jwt';
 import 'hammerjs';
 
 import {TabsService} from "./services/tabs.service";
@@ -59,20 +59,23 @@ import {MeasurementsComponent} from './components/suit-builder/measurements/meas
 import {MeasurementsInnerComponent} from './components/suit-builder/measurements/measurements-inner/measurements-inner.component';
 import {CheckoutComponent} from './components/suit-builder/checkout/checkout.component';
 import {CheckoutInnerComponent} from './components/suit-builder/checkout/checkout-inner/checkout-inner.component';
-import { CallbackComponent } from './components/callback/callback.component';
-import { NavbarSmComponent } from './partials/navbar-sm/navbar-sm.component';
-import { AccountComponent } from './components/account/account.component';
-import { OrdersComponent } from './components/account/orders/orders.component';
-import { SettingsComponent } from './components/account/settings/settings.component';
-import { CartComponent } from './components/account/cart/cart.component';
-import { CheckoutMainComponent } from './components/account/checkout/checkout.component';
-import { CartWidgetComponent } from './components/cart-widget/cart-widget.component';
-import { DialogContentCartDialog } from './components/cart-widget/dialog/dialog-content-cart-dialog';
+import {CallbackComponent} from './components/callback/callback.component';
+import {NavbarSmComponent} from './partials/navbar-sm/navbar-sm.component';
+import {AccountComponent} from './components/account/account.component';
+import {OrdersComponent} from './components/account/orders/orders.component';
+import {SettingsComponent} from './components/account/settings/settings.component';
+import {CartComponent} from './components/account/cart/cart.component';
+import {CartWidgetComponent} from './components/cart-widget/cart-widget.component';
+import {CheckoutMainComponent} from './components/account/checkout/checkout.component';
+import {DialogContentCartDialog} from './components/cart-widget/dialog/dialog-content-cart-dialog';
+
+// Duplicates
+import {AccountMeasurementsComponent} from "./components/account/measurements/measurements.component";
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
-  return new AuthHttp(new AuthConfig({
-    tokenGetter: (() => localStorage.getItem('access_token'))
-  }), http, options);
+    return new AuthHttp(new AuthConfig({
+        tokenGetter: (() => localStorage.getItem('access_token'))
+    }), http, options);
 }
 
 
@@ -110,7 +113,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         CartComponent,
         CartWidgetComponent,
         CheckoutMainComponent,
-        DialogContentCartDialog
+        DialogContentCartDialog,
+        AccountMeasurementsComponent
     ],
     imports: [
         ScrollStoreModule,
@@ -139,14 +143,14 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyAm3PebcIYpXrXY5k7xA5_9JWnqIjWKlU4'})
     ],
     entryComponents: [
-      DialogContentCartDialog
+        DialogContentCartDialog
     ],
     providers: [TabsService, DataService, SessionService, FunctionsService, AuthService,
-    {
-      provide: AuthHttp,
-      useFactory: authHttpServiceFactory,
-      deps: [Http, RequestOptions]
-    }],
+        {
+            provide: AuthHttp,
+            useFactory: authHttpServiceFactory,
+            deps: [Http, RequestOptions]
+        }],
     bootstrap: [AppComponent]
 })
 export class AppModule {
