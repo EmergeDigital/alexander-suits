@@ -65,6 +65,7 @@ import { AccountComponent } from './components/account/account.component';
 import { OrdersComponent } from './components/account/orders/orders.component';
 import { SettingsComponent } from './components/account/settings/settings.component';
 import { CartComponent } from './components/account/cart/cart.component';
+import { CheckoutMainComponent } from './components/account/checkout/checkout.component';
 import { CartWidgetComponent } from './components/cart-widget/cart-widget.component';
 import { DialogContentCartDialog } from './components/cart-widget/dialog/dialog-content-cart-dialog';
 
@@ -108,6 +109,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         SettingsComponent,
         CartComponent,
         CartWidgetComponent,
+        CheckoutMainComponent,
         DialogContentCartDialog
     ],
     imports: [
