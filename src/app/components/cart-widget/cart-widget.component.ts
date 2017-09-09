@@ -56,55 +56,70 @@ export class CartWidgetComponent implements OnInit {
     // } else {
     //   this.router.navigate(['/']);
     // }
-      data.findCart().then(cart=> {
-        if (cart.status === "does_not_exist") {
-          console.log("No Cart Detected");
-          this.loadingCart = false;
+      this.loadCart();
+
+      auth._authenticated.subscribe(authenticated => {
+        if(authenticated) {
+          console.log("AUTHENTICATED");
+
         } else {
-          if(!!cart.products) {
-            this.cart = cart;
-            console.log(cart);
-            this.loadingCart = false;
-          } else {
-              console.log("No Cart Detected");
-              this.loadingCart = false;
-          }
+          console.log("UNAUTHENTICATED");
+
         }
-
-        data._cartUpdating.subscribe(loading=>{
-          this.loadingCart = loading;
-        })
-
-        data._cartUpdated.subscribe(cart=>{
-          console.log("UPDATED CART");
-          if(!!cart) {
-            if (cart.status === "does_not_exist") {
-              console.log("No Cart Detected");
-              this.cart = null;
-              this.loadingCart = false;
-            } else {
-              if(!!cart.products) {
-                this.cart = cart;
-                console.log(cart);
-                this.loadingCart = false;
-              } else {
-                  console.log("No Cart Detected");
-                  this.cart = null;
-                  this.loadingCart = false;
-              }
-            }
-          } else {
-              console.log("Cart has been emptied");
-              this.cart = null;
-              this.loadingCart = false;
-          }
-        })
-      });
+        this.data.switchCarts(authenticated);
+      })
 
 
       // data.getProducts().then((products)=>{
       //   this.products = products;
       // });
+  }
+
+  loadCart() {
+    this.data.findCart().then(cart=> {
+      if (cart.status === "does_not_exist") {
+        console.log("No Cart Detected");
+        this.loadingCart = false;
+      } else {
+        if(!!cart.products) {
+          this.cart = cart;
+          console.log(cart);
+          this.loadingCart = false;
+        } else {
+            console.log("No Cart Detected");
+            this.loadingCart = false;
+        }
+      }
+
+      this.data._cartUpdating.subscribe(loading=>{
+        this.loadingCart = loading;
+      })
+
+      this.data._cartUpdated.subscribe(cart=>{
+        console.log("UPDATED CART");
+        if(!!cart) {
+          if (cart.status === "does_not_exist") {
+            console.log("No Cart Detected");
+            this.cart = null;
+            this.loadingCart = false;
+          } else {
+            if(!!cart.products) {
+              this.cart = cart;
+              console.log(cart);
+              this.loadingCart = false;
+            } else {
+                console.log("No Cart Detected");
+                this.cart = null;
+                this.loadingCart = false;
+            }
+          }
+        } else {
+            console.log("Cart has been emptied");
+            this.cart = null;
+            this.loadingCart = false;
+        }
+      })
+    });
   }
 
   openDialog() {

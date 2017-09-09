@@ -34,7 +34,7 @@ export class AuthService {
           this._user.emit(this.user);
           // console.log(this.user);
         })
-        
+
         this._authenticated.emit(true);
         resolve(true);
       } else {
@@ -144,11 +144,11 @@ export class AuthService {
 
   private setSession(authResult): void {
     // Set the time that the access token will expire at
-    this._authenticated.emit(true);
     const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', expiresAt);
+    this._authenticated.emit(true);
     // console.log(localStorage.getItem('access_token'));
     // console.log(localStorage.getItem('id_token'));
     // console.log(localStorage.getItem('expires_at'));
@@ -156,12 +156,12 @@ export class AuthService {
 
   public logout(): void {
     // Remove tokens and expiry time from localStorage
-    this._authenticated.emit(false);
     localStorage.removeItem('access_token');
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
     // Go back to the home route
     this.router.navigate(['/']);
+    this._authenticated.emit(false);
   }
 
   public isAuthenticated(): boolean {

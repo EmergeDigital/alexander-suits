@@ -133,6 +133,49 @@ export class DataService {
 
     /* ==============  CARTS  ============== */
 
+    switchCarts(auth): Promise<Cart> {
+        return new Promise((resolve, reject) => {
+
+            if(auth) {
+              //Fetch/await user load then get cart from server with merge options
+              if(!!this.user_id) {
+                // this.getCartUser(this.user_id).then(cart=>{
+                //   resolve(cart);
+                // });
+                this.findCart().then(cart=>{
+                  resolve(cart);
+                })
+              } else {
+                this.user_loaded.subscribe(user=>{
+                  // this.getCartUser(user.user_id).then(cart=>{
+                  //   resolve(cart);
+                  // });
+                  this.findCart().then(cart=>{
+                    resolve(cart);
+                  })
+                });
+                this.findCart().then(cart=>{
+                  resolve(cart);
+                })
+              }
+            } else {
+              let local_cart = this.session.getLocalCart();
+              if(!!local_cart) {
+                this.current_cart = local_cart;
+                this._cartUpdated.emit(local_cart);
+                resolve(local_cart);
+              } else {
+                let cart = new Cart({user_id: "visitor"});
+                this.session.setLocalCart(cart);
+                this.current_cart = cart;
+                this._cartUpdated.emit(cart);
+                resolve(cart);
+              }
+            }
+        });
+    }
+
+
     findCart(): Promise<Cart> {
         return new Promise((resolve, reject) => {
             let local_cart = this.session.getLocalCart();
@@ -198,19 +241,35 @@ export class DataService {
           if (!!this.current_cart) {
               resolve(this.current_cart);
           } else {
-            let params = {
-              user_id: this.user_id
-            };
-            console.log(params);
-            this.authHttp.get(this.API_URL + "/api/cart", {params: params}).toPromise().then(cart => {
-                const _cart = cart.json();
-                this.current_cart = _cart;
-                // this.user_loaded.emit(_cart);
-                resolve(_cart);
-            }).catch(ex => {
-                reject(ex);
-            });
+            if(!!this.user_id) {
+              this.getCartUser(this.user_id).then(cart=>{
+                resolve(cart);
+              });
+            } else {
+              this.user_loaded.subscribe(user=>{
+                this.getCartUser(user.user_id).then(cart=>{
+                  resolve(cart);
+                });
+              });
+            }
+
           }
+        });
+    }
+
+    getCartUser(id): Promise<Cart> {
+        return new Promise((resolve, reject) => {
+          let params = {
+            user_id: id
+          };
+          this.authHttp.get(this.API_URL + "/api/cart", {params: params}).toPromise().then(cart => {
+              const _cart = cart.json();
+              this.current_cart = _cart;
+              this._cartUpdated.emit(_cart);
+              resolve(_cart);
+          }).catch(ex => {
+              reject(ex);
+          });
         });
     }
 
