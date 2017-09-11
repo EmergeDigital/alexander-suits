@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MdSnackBar} from '@angular/material';
 import {DataService} from "../../services/data.service";
 import {Product} from "../../models/product";
-
+import {ToastyService, ToastyConfig, ToastOptions, ToastData} from 'ng2-toasty';
 
 @Component({
     selector: 'app-contact',
@@ -18,7 +18,7 @@ export class ContactComponent implements OnInit {
 
     current_products: Product[];
 
-    constructor(public snackBar: MdSnackBar,
+    constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig,
                 public data: DataService) {
         this.mapOptions = {
             zoom: 15,
@@ -114,15 +114,27 @@ export class ContactComponent implements OnInit {
     }
 
     copyLocation() {
-        this.snackBar.open("Address copied to clipboard!", "", {duration: 2000});
+      var toastOptions:ToastOptions = {
+        title: "Success",
+        msg: "Full address copied to clipboard!"
+      };
+      this.toastyService.success(toastOptions);
     }
 
     copied() {
-        this.snackBar.open("Copied to clipboard!", "", {duration: 2000});
+      var toastOptions:ToastOptions = {
+        title: "Success",
+        msg: "Copied to clipboard!"
+      };
+      this.toastyService.success(toastOptions);
     }
 
     doesNothing() {
-        this.snackBar.open("This does nothing at the moment!", "", {duration: 2000});
+      var toastOptions:ToastOptions = {
+        title: "Success",
+        msg: "This does nothing at the moment!"
+      };
+      this.toastyService.success(toastOptions);
     }
 
 }

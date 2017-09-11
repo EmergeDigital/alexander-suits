@@ -107,7 +107,11 @@ export class DialogContentCartDialog implements OnInit {
         count: count
       };
       this.dataService.addToCart([_product]).then((cart)=>{
-        this.cart = cart;
+        if(!!cart.products && cart.products.length > 0) {
+          this.cart = cart;
+        } else {
+            this.cart = null;
+        }
         this.updateSuccess("Cart has been updated");
       })
 
@@ -162,7 +166,11 @@ export class DialogContentCartDialog implements OnInit {
     };
 
     this.dataService.addToCart([_product]).then((cart)=>{
-      this.cart = cart;
+      if(!!cart.products && cart.products.length > 0) {
+        this.cart = cart;
+      } else {
+          this.cart = null;
+      }
       this.updateSuccess("Cart has been updated");
     })
   }

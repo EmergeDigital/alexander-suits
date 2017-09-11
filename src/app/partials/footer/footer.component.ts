@@ -15,6 +15,8 @@ export class FooterComponent implements OnInit {
   @Input('appTitle') appTitle: string;
   cell: string;
   isAuthenticated: boolean;
+  emailNewsletter: string;
+  showNewsletter: boolean;
 
   constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig, public auth: AuthService) {
       if (this.appTitle === undefined) {
@@ -36,6 +38,16 @@ export class FooterComponent implements OnInit {
     var toastOptions:ToastOptions = {
       title: "Success",
       msg: "Copied to clipboard"
+    };
+    this.toastyService.success(toastOptions);
+  }
+
+  signUpNewsletter() {
+    this.emailNewsletter = "";
+    this.showNewsletter = false;
+    var toastOptions:ToastOptions = {
+      title: "Success",
+      msg: "You will now be eternally spammed"
     };
     this.toastyService.success(toastOptions);
   }

@@ -43,10 +43,10 @@
 
             <div class="signup-inner" *ngIf="showNewsletter">
               <div class="si-left">
-                <input  placeholder="Enter email..." />
+                <input  placeholder="Enter email..." name="email" [(ngModel)]="emailNewsletter"/>
               </div>
               <div class="si-right" style="text-align: right;">
-                <button md-icon-button color="accent">
+                <button md-icon-button color="accent" (click)="signUpNewsletter()">
                   <md-icon class="md-24" aria-label="Example icon-button with a heart icon">send</md-icon>
                 </button>
               </div>

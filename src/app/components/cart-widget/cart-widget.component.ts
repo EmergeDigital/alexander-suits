@@ -81,11 +81,12 @@ export class CartWidgetComponent implements OnInit {
         console.log("No Cart Detected");
         this.loadingCart = false;
       } else {
-        if(!!cart.products) {
+        if(!!cart.products && cart.products.length > 0) {
           this.cart = cart;
           console.log(cart);
           this.loadingCart = false;
         } else {
+            this.cart = null;
             console.log("No Cart Detected");
             this.loadingCart = false;
         }
@@ -103,7 +104,7 @@ export class CartWidgetComponent implements OnInit {
             this.cart = null;
             this.loadingCart = false;
           } else {
-            if(!!cart.products) {
+            if(!!cart.products && cart.products.length > 0) {
               this.cart = cart;
               console.log(cart);
               this.loadingCart = false;

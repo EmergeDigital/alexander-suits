@@ -4,6 +4,8 @@ import { RouterModule, Routes,  } from '@angular/router';
 import { AppRoutingModule } from '../../app-routing.module';
 import {MdSnackBar} from '@angular/material';
 import {AuthService} from '../../services/auth.service';
+import {ToastyService, ToastyConfig, ToastOptions, ToastData} from 'ng2-toasty';
+
 
 @Component({
   selector: 'app-navbar',
@@ -16,7 +18,7 @@ export class NavbarComponent implements OnInit {
     cell: string;
     isAuthenticated: boolean;
 
-    constructor(public snackBar: MdSnackBar, public auth: AuthService) {
+    constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig, public auth: AuthService) {
         if (this.appTitle === undefined) {
             this.appTitle = 'Unspecified';
         }
@@ -35,7 +37,11 @@ export class NavbarComponent implements OnInit {
     }
 
     copied() {
-      this.snackBar.open("Copied to clipboard!", "", {  duration: 2000   });
+      var toastOptions:ToastOptions = {
+        title: "Success",
+        msg: "Copied to clipboard"
+      };
+      this.toastyService.success(toastOptions);
     }
 
     login(): void {
