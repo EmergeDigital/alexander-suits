@@ -1,1 +1,35 @@
-<app-coming-soon pageTitle="Customize"></app-coming-soon>
+<!-- <app-coming-soon pageTitle="Customize"></app-coming-soon> -->
+<div class="container">
+  <div class="stepper-box" [ngClass]="{active: step==='step0' || completed0===true}">
+    <button md-button (click)="changeStep('0')"><div class="circle">1</div>Style</button>
+  </div>
+  <div class="stepper-inner">
+    <div class="contents" [ngStyle]="s0">
+      OHAI
+    </div>
+  </div>
+  <div class="stepper-box" [ngClass]="{active: step==='step1'}">
+    <button md-button (click)="changeStep('1')"><div class="circle">2</div>Coat</button>
+  </div>
+  <div class="stepper-inner">
+    <div class="contents" [ngStyle]="s1">
+      OHAI
+    </div>
+  </div>
+  <div class="stepper-box" [ngClass]="{active: step==='step2'}">
+    <button md-button (click)="changeStep('2')"><div class="circle">3</div>Pants</button>
+  </div>
+  <div class="stepper-inner">
+    <div class="contents" [ngStyle]="s2">
+      OHAI
+    </div>
+  </div>
+  <div class="stepper-box" [ngClass]="{active: step==='step3'}">
+    <button md-button (click)="changeStep('3')"><div class="circle">4</div>Lining</button>
+  </div>
+  <div class="stepper-inner no-border">
+    <div class="contents" [ngStyle]="s3">
+      OHAI
+    </div>
+  </div>
+</div>
