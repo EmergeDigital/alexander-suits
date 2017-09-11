@@ -66,3 +66,52 @@
 .btn {
   cursor: pointer;
 }
+.newsletter-button {
+  text-align: left;
+  // .mat-raised-button {
+  //   width: 90%;
+  //   height: 50px;
+  // }
+}
+
+.signup-inner{
+  .mat-button.mat-accent, .mat-icon-button.mat-accent {
+    color: $c-accent;
+  }
+  padding: 5px;
+  border-radius: 2px;
+  border: 2px solid $c-accent;
+
+  input {
+    outline: none;
+    border: none;
+    background: transparent;
+    color: white;
+    width: 100%;
+  }
+  .si-left {
+    margin-left: 2%;
+    display: inline-block;
+    width: 72%;
+    text-align: left;
+  }
+  .si-right {
+    margin-right: 2%;
+    display: inline-block;
+    width: 22%;
+    text-align: right;
+  }
+}
+.f-form {
+  margin: 0 auto;
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+label.mat-input-placeholder.mat-form-field-placeholder.ng-tns-c11-2.mat-empty.mat-form-field-empty.mat-float.mat-form-field-float {
+    color: rgba(255, 255, 255, 0.87) !important;
+}
+.f-full-width {
+  width: 100%;
+}
