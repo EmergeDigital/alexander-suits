@@ -10,6 +10,7 @@ import 'rxjs/add/operator/toPromise';
 import {User} from "../models/user";
 import {Product} from "../models/product";
 import {Cart} from "../models/cart";
+import {Order} from "../models/order";
 
 @Injectable()
 export class DataService {
@@ -18,11 +19,13 @@ export class DataService {
 
     current_user: User;
     current_cart: Cart;
+    current_order: Order;
     product_list: Product[];
     user_id: string;
     user_loaded: EventEmitter<User> = new EventEmitter();
     _cartUpdated: EventEmitter<Cart> = new EventEmitter();
     _cartUpdating: EventEmitter<boolean> = new EventEmitter();
+    _orderCreated: EventEmitter<Order> = new EventEmitter();
     has_loaded: boolean;
     // user: any;
 
@@ -346,6 +349,34 @@ export class DataService {
             // LOCAL CART
           }
         });
+    }
+
+    checkout(data): Promise<Order> {
+      return new Promise((resolve, reject) => {
+        if(this.auth.isAuthenticated()) {
+          let user = this.current_user;
+
+          let cart_data = {
+            user_id: user.user_id,
+            user_data: data.user_data,
+            delivery_data: data.delivery_data,
+            address_data: data.address_data,
+            contact_number: data.contact_number,
+            contact_email: data.contact_email
+          };
+          this.authHttp.post(this.API_URL + "/api/order/create", cart_data).toPromise().then(reponse => {
+              const _response = reponse.json();
+              // this.user_loaded.emit(_cart);
+              this._orderCreated.emit(null);
+              this.current_order = _response;
+              resolve(_response);
+          }).catch(ex => {
+              reject(ex);
+          });
+        } else {
+          reject("no_auth");
+        }
+      });
     }
 
 

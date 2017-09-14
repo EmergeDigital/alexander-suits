@@ -1,0 +1,38 @@
+.checkout-top{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.s-form {
+  // margin: 0 auto;
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.s-full-width {
+  width: 100%;
+}
+
+.order-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.order-radio-button {
+  margin: 5px;
+}
+
+.order-selected-value {
+  margin: 15px 0;
+}
+
+.slider-margin {
+  margin: 10px;
+}
+
+.contents {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}

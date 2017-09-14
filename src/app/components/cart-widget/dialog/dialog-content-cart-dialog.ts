@@ -189,4 +189,11 @@ export class DialogContentCartDialog implements OnInit {
      //For now, do not rebuild session
     //  this.router.navigate(['/']);
   }
+
+  checkout() {
+    this.router.navigate(['/checkout']);
+  }
+
+//TODO: Replace this with a route change and update accordingly (dataService -> data)
+
 }

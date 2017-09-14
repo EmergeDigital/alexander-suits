@@ -13,6 +13,8 @@ import {MdGridListModule} from '@angular/material';
 import {MdProgressSpinnerModule} from '@angular/material';
 import {MdSelectModule} from '@angular/material';
 import {MdDialogModule} from '@angular/material';
+import {MdRadioModule} from '@angular/material';
+import {MdSlideToggleModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {Http, Headers, HttpModule, RequestOptions} from '@angular/http';
 import {AngularFontAwesomeModule} from 'angular-font-awesome/angular-font-awesome';
@@ -71,6 +73,7 @@ import {DialogContentCartDialog} from './components/cart-widget/dialog/dialog-co
 
 // Duplicates
 import {AccountMeasurementsComponent} from "./components/account/measurements/measurements.component";
+import { PaymentComponent } from './components/payment/payment.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     return new AuthHttp(new AuthConfig({
@@ -114,7 +117,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         CartWidgetComponent,
         CheckoutMainComponent,
         DialogContentCartDialog,
-        AccountMeasurementsComponent
+        AccountMeasurementsComponent,
+        PaymentComponent
     ],
     imports: [
         ScrollStoreModule,
@@ -137,6 +141,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         MdProgressSpinnerModule,
         MdSelectModule,
         MdDialogModule,
+        MdRadioModule,
+        MdSlideToggleModule,
         OwlModule,
         AngularFontAwesomeModule,
         ClipboardModule,

@@ -1,0 +1,9 @@
+<div style="padding: 40px" class="container" *ngIf="!isLoading">
+  <div *ngIf="current_order" style="text-align: center;">
+    <h1>Payment Methods</h1>
+    SHOW PAYMENT GATEWAYS BELOW
+  </div>
+</div>
+<div class="loading" *ngIf="isLoading">
+  <md-spinner></md-spinner>
+</div>

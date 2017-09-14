@@ -10,47 +10,30 @@ import 'rxjs/add/operator/toPromise';
 })
 export class CustomizeInnerComponent implements OnInit {
 
-  s0: any;
-  s1: any;
-  s2: any;
-  s3: any;
-  completed0: boolean;
-  step: string;
+  stepsLength: number;
   steps: any[];
+  completed0: boolean;
 
   constructor() {
-    this.s0 = {
-      'display': 'block'
-    };
-    this.s1 = {
-      'display': 'none'
-    };
-    this.s2 = {
-      'display': 'none'
-    };
-    this.s3 = {
-      'display': 'none'
-    };
+    this.steps = [];
+    this.stepsLength = 4;
+    this.steps.push({display: "block"});
+    for(let i = 1; i < this.stepsLength; i++) {
+      this.steps.push({display: "none"});
+    }
 
-    this.step = "step0";
     this.completed0 = false;
-    this.steps = [this.s0, this.s1, this.s2, this.s3];
   }
 
   ngOnInit() {
   }
 
   changeStep(s){
-    this.s0.display = 'none';
-    this.s1.display = 'none';
-    this.s2.display = 'none';
-    this.s3.display = 'none';
-
-    // let _step = this.steps[s];
-    this.step = "step" + s;
+    for(let step of this.steps) {
+      step.display = "none";
+    }
 
     this.steps[s].display = 'block';
-
   }
 
 

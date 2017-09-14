@@ -17,6 +17,8 @@ import { AccountComponent } from './components/account/account.component';
 import { OrdersComponent } from './components/account/orders/orders.component';
 import { SettingsComponent } from './components/account/settings/settings.component';
 import { CartComponent } from './components/account/cart/cart.component';
+import { CheckoutMainComponent } from './components/account/checkout/checkout.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 
 const routes: Routes = [
@@ -82,10 +84,14 @@ const routes: Routes = [
         path: 'cart',
         component: CartComponent
     },
-    // {
-    //     path: 'checkout',
-    //     component: AccountComponent
-    // }
+    {
+        path: 'checkout',
+        component: CheckoutMainComponent
+    },
+    {
+        path: 'payment',
+        component: PaymentComponent
+    }
 
 ];
 

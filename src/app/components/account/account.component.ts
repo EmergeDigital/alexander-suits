@@ -74,8 +74,8 @@ export class AccountComponent implements OnInit {
         this.router.navigate(['cart']);
         break;
       case "Checkout":
-        console.log("DOES NOTHING");
-        // this.router.navigate(['/checkout']);
+        // console.log("DOES NOTHING");
+        this.router.navigate(['/checkout']);
         break;
       case "Settings":
         this.router.navigate(['/account/settings']);

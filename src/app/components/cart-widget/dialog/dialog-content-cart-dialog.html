@@ -114,6 +114,6 @@
 <div md-dialog-actions *ngIf="cart">
   <div style="text-align: right; width: 100%;">
     <button md-button (click)="deleteCart()"  disabled="{{isLoading}}">Clear Cart</button>
-    <button md-raised-button color="primary"  disabled="{{isLoading}}">Checkout</button>
+    <button md-raised-button color="primary" (click)="checkout()" disabled="{{isLoading}}"  [md-dialog-close]="true">Checkout</button>
   </div>
 </div>

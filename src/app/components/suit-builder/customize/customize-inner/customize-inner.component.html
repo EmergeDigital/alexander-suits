@@ -1,34 +1,34 @@
 <!-- <app-coming-soon pageTitle="Customize"></app-coming-soon> -->
 <div class="container" style="padding-top: 60px; padding-bottom: 60px;">
-  <div class="stepper-box" [ngClass]="{active: step==='step0' || completed0===true}">
+  <div class="stepper-box" [ngClass]="{active: steps[0].display === 'block'|| completed0===true}">
     <button md-button (click)="changeStep('0')"><div class="circle">1</div>Style</button>
   </div>
   <div class="stepper-inner">
-    <div class="contents" [ngStyle]="s0">
+    <div class="contents" [ngStyle]="steps[0]">
       OHAI
     </div>
   </div>
-  <div class="stepper-box" [ngClass]="{active: step==='step1'}">
+  <div class="stepper-box" [ngClass]="{active: steps[1].display === 'block'}">
     <button md-button (click)="changeStep('1')"><div class="circle">2</div>Coat</button>
   </div>
   <div class="stepper-inner">
-    <div class="contents" [ngStyle]="s1">
+    <div class="contents" [ngStyle]="steps[1]">
       OHAI
     </div>
   </div>
-  <div class="stepper-box" [ngClass]="{active: step==='step2'}">
+  <div class="stepper-box" [ngClass]="{active: steps[2].display === 'block'}">
     <button md-button (click)="changeStep('2')"><div class="circle">3</div>Pants</button>
   </div>
   <div class="stepper-inner">
-    <div class="contents" [ngStyle]="s2">
+    <div class="contents" [ngStyle]="steps[2]">
       OHAI
     </div>
   </div>
-  <div class="stepper-box" [ngClass]="{active: step==='step3'}">
+  <div class="stepper-box" [ngClass]="{active: steps[3].display === 'block'}">
     <button md-button (click)="changeStep('3')"><div class="circle">4</div>Lining</button>
   </div>
   <div class="stepper-inner no-border">
-    <div class="contents" [ngStyle]="s3">
+    <div class="contents" [ngStyle]="steps[3]">
       OHAI
     </div>
   </div>
