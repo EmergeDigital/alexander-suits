@@ -1,6 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/filter';
+import { environment } from '../../environments/environment';
 import * as auth0 from 'auth0-js';
 // import {DataService} from "./data.service";
 
@@ -12,7 +13,7 @@ export class AuthService {
     domain: 'bloom.au.auth0.com',
     responseType: 'token id_token',
     audience: 'alexander-suits',
-    redirectUri: 'http://localhost:4200/callback',
+    redirectUri: environment.authCallback,
     scope: 'openid email name'
   });
   _authenticated: EventEmitter<boolean> = new EventEmitter();
