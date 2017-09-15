@@ -6,5 +6,6 @@
 // let secrets = new Secrets();
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: "http://localhost:1337"
 };

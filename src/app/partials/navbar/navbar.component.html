@@ -27,7 +27,7 @@
 
     <button md-button routerLink="home">HOME</button>
     <button md-button routerLink="about">ABOUT</button>
-    <button md-button routerLink="SHOP" [mdMenuTriggerFor]="shopMenu">SHOP</button>
+    <button md-button [mdMenuTriggerFor]="shopMenu">SHOP</button>
     <!-- <button md-button routerLink="accessories">ACCESSORIES</button> -->
     <button md-button routerLink="contact">CONTACT US</button>
     <button md-button *ngIf="!isAuthenticated" (click)="login()">LOG IN</button>

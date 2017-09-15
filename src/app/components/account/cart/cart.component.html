@@ -1,35 +1,37 @@
 <!-- <app-coming-soon [pageTitle]="'Cart'"></app-coming-soon> -->
 <div class="container" *ngIf="products">
-  <br /><br />
+  <div style="padding: 20px; text-align: center;">
+    <h1>Demo Products</h1>
+  </div>
 
-    <div style="padding: 10px;" *ngFor="let product of products">
+  <div class="row">
+    <div class="col-md-4" style="padding: 10px;" *ngFor="let product of products">
       <md-card class="example-card">
         <md-card-header>
           <md-card-title>{{product.name}}</md-card-title>
           <md-card-subtitle>{{product.description}}</md-card-subtitle>
         </md-card-header>
         <md-card-content>
-          <p>
+          <p style="padding-left: 10px;">
             R{{product.price}}
-          </p>
-          <p>
-            {{product.id}}
           </p>
         </md-card-content>
         <md-card-actions>
           <button md-button (click)="addCart(product)">Add To Cart</button>
         </md-card-actions>
       </md-card>
-    </div><br /><br /><hr />
+    </div>
+  </div>
+    <br /><br /><hr />
 
-    <div style="padding: 40px; text-align: center;" *ngIf="!cart">
+    <!-- <div style="padding: 40px; text-align: center;" *ngIf="!cart">
       <div style="padding: 20px;">
         <h3 *ngIf="!loadingCart">Cart is empty</h3>
         <h3 *ngIf="loadingCart">Cart is loading</h3>
       </div>
-    </div>
+    </div> -->
 
-    <div style="padding: 40px; text-align: center;" *ngIf="cart">
+    <!-- <div style="padding: 40px; text-align: center;" *ngIf="cart">
       <div style="padding: 20px;">
         <h3>Total: R{{cart.total}}</h3>
       </div>
@@ -54,5 +56,5 @@
       <div style="text-align: center">
         <button md-raised-button color="primary"  (click)="deleteCart()">Clear Cart</button>
       </div>
-    </div>
+    </div> -->
 </div>

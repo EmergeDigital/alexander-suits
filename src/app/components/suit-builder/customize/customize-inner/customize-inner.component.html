@@ -1,11 +1,14 @@
 <!-- <app-coming-soon pageTitle="Customize"></app-coming-soon> -->
 <div class="container" style="padding-top: 60px; padding-bottom: 60px;">
+  <div class="customize-top">
+    <h1>Suit Customizer</h1>
+  </div>
   <div class="stepper-box" [ngClass]="{active: steps[0].display === 'block'|| completed0===true}">
     <button md-button (click)="changeStep('0')"><div class="circle">1</div>Style</button>
   </div>
   <div class="stepper-inner">
     <div class="contents" [ngStyle]="steps[0]">
-      OHAI
+      Coat style selection goes here
     </div>
   </div>
   <div class="stepper-box" [ngClass]="{active: steps[1].display === 'block'}">
@@ -13,7 +16,7 @@
   </div>
   <div class="stepper-inner">
     <div class="contents" [ngStyle]="steps[1]">
-      OHAI
+      Coat customization goes here
     </div>
   </div>
   <div class="stepper-box" [ngClass]="{active: steps[2].display === 'block'}">
@@ -21,7 +24,7 @@
   </div>
   <div class="stepper-inner">
     <div class="contents" [ngStyle]="steps[2]">
-      OHAI
+      Pants customization goes here
     </div>
   </div>
   <div class="stepper-box" [ngClass]="{active: steps[3].display === 'block'}">
@@ -29,7 +32,7 @@
   </div>
   <div class="stepper-inner no-border">
     <div class="contents" [ngStyle]="steps[3]">
-      OHAI
+      Lining customization goes here
     </div>
   </div>
 </div>

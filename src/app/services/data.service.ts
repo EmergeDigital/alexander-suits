@@ -6,6 +6,7 @@ import {AuthService} from './auth.service';
 import {SessionService} from './session.service';
 import {FunctionsService} from './functions.service';
 import 'rxjs/add/operator/toPromise';
+import { environment } from '../../environments/environment';
 
 import {User} from "../models/user";
 import {Product} from "../models/product";
@@ -30,7 +31,7 @@ export class DataService {
     // user: any;
 
     constructor(public auth: AuthService, public http: Http, public authHttp: AuthHttp,  public session: SessionService, public functions: FunctionsService) {
-        this.API_URL = "http://localhost:1337";
+        this.API_URL = environment.apiUrl;
         // auth._user.subscribe(user=>{
         //
         // })
