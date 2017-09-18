@@ -7,6 +7,6 @@
 
 export const environment = {
   production: false,
-  apiUrl: "https://138.68.109.98:1337",
-  authCallback: "http://localhost/callback"
+  apiUrl: "http://localhost:1337",
+  authCallback: "http://localhost:4200/callback"
 };
