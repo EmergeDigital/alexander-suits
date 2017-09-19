@@ -52,7 +52,11 @@ export class AppComponent {
             //   this.user = u;
             //   this.checkAuth();
             // });
+          } else {
+            console.log("Y U NO WORK?");
           }
+        }).catch(ex => {
+            console.log(ex);
         });
         // console.log("IM HERE");
 
