@@ -39,16 +39,16 @@ export class AuthService {
         this._authenticated.emit(true);
         resolve(true);
       } else {
-        this.handleAuthentication();
         this._authenticating.subscribe(authenticating => {
           if(authenticating) {
             this._authenticated.subscribe(authenticated => {
               resolve(authenticated);
             });
           } else {
-            resolve(false);
+            reject(false);
           }
         });
+        this.handleAuthentication();
       }
     });
   }
@@ -73,14 +73,22 @@ export class AuthService {
           //   // console.log(this.getUserID(user));
           //   // this.data.setUser(this.getUserID(user));
           // });
-        } else if (err) {
+        } else {
           this._authenticating.emit(false);
           this.router.navigate(['/home']);
-          console.log(err);
+          console.log("There was an error");
         }
       } else {
-        console.log("cheerio");
+        // this._authenticating.emit(false);
+        // this.router.navigate(['/home']);
+        // console.log(err);
+      }
+
+      if(err) {
         this._authenticating.emit(false);
+        this.router.navigate(['/home']);
+        console.log(err);
+
       }
 
     });

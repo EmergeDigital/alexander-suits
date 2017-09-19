@@ -53,10 +53,15 @@ export class AppComponent {
             //   this.checkAuth();
             // });
           } else {
-            console.log("Y U NO WORK?");
           }
         }).catch(ex => {
             console.log(ex);
+            var toastOptions:ToastOptions = {
+              title: "Log In Error",
+              msg: "There was an error while logging in, please try again"
+            };
+
+            this.toastyService.error(toastOptions);
         });
         // console.log("IM HERE");
 
@@ -72,7 +77,7 @@ export class AppComponent {
         // }
 
         this.title = 'app works!';
-        this.app_name = 'Angularifier';
+        this.app_name = 'Alexander Suits';
         this.toastyConfig.theme = 'material';
         this.hasRun = false;
 
