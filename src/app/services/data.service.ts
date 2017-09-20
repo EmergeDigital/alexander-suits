@@ -380,6 +380,19 @@ export class DataService {
       });
     }
 
+    getOrders(): Promise<Order[]> {
+        return new Promise((resolve, reject) => {
+          let params = {
+            user_id: this.user_id
+          };
+          this.authHttp.get(this.API_URL + "/api/orders", {params: params}).toPromise().then(orders => {
+              const _orders = orders.json();
+              resolve(_orders);
+          }).catch(ex => {
+              reject(ex);
+          });
+        });
+    }
 
 
 }

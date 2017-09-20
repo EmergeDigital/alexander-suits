@@ -1,5 +1,5 @@
 <!-- <app-coming-soon pageTitle="Customize"></app-coming-soon> -->
-<div class="container" style="padding-top: 60px; padding-bottom: 60px;">
+<div class="container animated fadeIn" style="padding-top: 60px; padding-bottom: 60px;">
   <div class="customize-top">
     <h1>Suit Customizer</h1>
   </div>
@@ -7,7 +7,7 @@
     <button md-button (click)="changeStep('0')"><div class="circle">1</div>Style</button>
   </div>
   <div class="stepper-inner">
-    <div class="contents" [ngStyle]="steps[0]">
+    <div class="contents animated bounceIn" [ngStyle]="steps[0]">
       Coat style selection goes here
     </div>
   </div>
@@ -15,7 +15,7 @@
     <button md-button (click)="changeStep('1')"><div class="circle">2</div>Coat</button>
   </div>
   <div class="stepper-inner">
-    <div class="contents" [ngStyle]="steps[1]">
+    <div class="contents animated bounceIn" [ngStyle]="steps[1]">
       Coat customization goes here
     </div>
   </div>
@@ -23,7 +23,7 @@
     <button md-button (click)="changeStep('2')"><div class="circle">3</div>Pants</button>
   </div>
   <div class="stepper-inner">
-    <div class="contents" [ngStyle]="steps[2]">
+    <div class="contents animated bounceIn" [ngStyle]="steps[2]">
       Pants customization goes here
     </div>
   </div>
@@ -31,7 +31,7 @@
     <button md-button (click)="changeStep('3')"><div class="circle">4</div>Lining</button>
   </div>
   <div class="stepper-inner no-border">
-    <div class="contents" [ngStyle]="steps[3]">
+    <div class="contents animated bounceIn" [ngStyle]="steps[3]">
       Lining customization goes here
     </div>
   </div>

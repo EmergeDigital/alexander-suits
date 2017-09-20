@@ -15,6 +15,7 @@ export class Order {
   total: number;
   status: string;
   completed: string;
+  createdAt: Date;
 
   constructor(init: any) {
       for (const key in init) {

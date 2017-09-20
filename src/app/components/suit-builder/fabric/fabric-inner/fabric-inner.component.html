@@ -1,5 +1,7 @@
-<div *ngIf="selectType"><app-type></app-type></div>
-<div *ngIf="selectFabric"><app-select-fabric></app-select-fabric></div>
-<div class="inner-next">
-    <button *ngIf="selectFabric" md-raised-button (click)="prevSection()">Back</button> <button md-raised-button color="primary" (click)="nextSection()">Next</button>
+<div class="animated fadeIn">
+  <div *ngIf="selectType"><app-type></app-type></div>
+  <div *ngIf="selectFabric"><app-select-fabric></app-select-fabric></div>
+  <div class="inner-next">
+      <button *ngIf="selectFabric" md-raised-button (click)="prevSection()">Back</button> <button md-raised-button color="primary" (click)="nextSection()">Next</button>
+  </div>
 </div>

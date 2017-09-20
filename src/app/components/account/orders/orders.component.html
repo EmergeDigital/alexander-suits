@@ -1,1 +1,34 @@
-<app-coming-soon [pageTitle]="'Orders'"></app-coming-soon>
+<!-- <app-coming-soon [pageTitle]="'Orders'"></app-coming-soon> -->
+<div class="orders-top animated fadeIn">
+  <div class="container">
+    <div class="orders-title">
+      <h1>Your Orders</h1>
+    </div>
+    <div class="orders-inner" *ngIf="orders">
+      <div class="row order-titles hideOnMobile">
+        <div class="col-4">
+          <strong>Order Number</strong>
+        </div>
+        <div class="col-4">
+          <strong>Status</strong>
+        </div>
+        <div class="col-4">
+           <strong>Total</strong>
+        </div>
+      </div>
+      <div class="">
+        <div class="row orders-card" *ngFor="let order of orders">
+           <div class="col-sm-4">
+             <span class="showOnMobileInline"><strong>#:</strong></span> {{order.order_string}}
+           </div>
+           <div class="col-sm-4">
+            <span class="showOnMobileInline"><strong>Status:</strong></span> {{order.status}}
+           </div>
+           <div class="col-sm-4">
+              <span class="showOnMobileInline"><strong>Total:</strong></span> R{{order.total}}
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

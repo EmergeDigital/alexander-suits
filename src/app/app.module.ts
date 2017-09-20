@@ -15,6 +15,8 @@ import {MdSelectModule} from '@angular/material';
 import {MdDialogModule} from '@angular/material';
 import {MdRadioModule} from '@angular/material';
 import {MdSlideToggleModule} from '@angular/material';
+import {MdSortModule} from '@angular/material';
+import {MdTableModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {Http, Headers, HttpModule, RequestOptions} from '@angular/http';
 import {AngularFontAwesomeModule} from 'angular-font-awesome/angular-font-awesome';
@@ -143,6 +145,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         MdDialogModule,
         MdRadioModule,
         MdSlideToggleModule,
+        MdSortModule,
+        MdTableModule,
         OwlModule,
         AngularFontAwesomeModule,
         ClipboardModule,

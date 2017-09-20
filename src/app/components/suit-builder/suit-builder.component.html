@@ -1,13 +1,15 @@
-<div *ngIf="tabs[0].isSelected"><app-fabric></app-fabric></div>
-<div *ngIf="tabs[1].isSelected"><app-customize></app-customize></div>
-<div *ngIf="tabs[2].isSelected"><app-measurements></app-measurements></div>
-<div *ngIf="tabs[3].isSelected"><app-checkout></app-checkout></div>
+<div class="animated fadeIn">  
+  <div *ngIf="tabs[0].isSelected"><app-fabric></app-fabric></div>
+  <div *ngIf="tabs[1].isSelected"><app-customize></app-customize></div>
+  <div *ngIf="tabs[2].isSelected"><app-measurements></app-measurements></div>
+  <div *ngIf="tabs[3].isSelected"><app-checkout></app-checkout></div>
 
 
-<app-tabs></app-tabs>
+  <app-tabs></app-tabs>
 
 
-<div *ngIf="tabs[0].isSelected"><app-fabric-inner></app-fabric-inner></div>
-<div *ngIf="tabs[1].isSelected"><app-customize-inner></app-customize-inner></div>
-<div *ngIf="tabs[2].isSelected"><app-measurements-inner></app-measurements-inner></div>
-<div *ngIf="tabs[3].isSelected"><app-checkout-inner></app-checkout-inner></div>
+  <div *ngIf="tabs[0].isSelected"><app-fabric-inner></app-fabric-inner></div>
+  <div *ngIf="tabs[1].isSelected"><app-customize-inner></app-customize-inner></div>
+  <div *ngIf="tabs[2].isSelected"><app-measurements-inner></app-measurements-inner></div>
+  <div *ngIf="tabs[3].isSelected"><app-checkout-inner></app-checkout-inner></div>
+</div>
