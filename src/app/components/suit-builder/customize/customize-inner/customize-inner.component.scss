@@ -5,3 +5,57 @@
   padding-bottom: 20px;
   text-align: center;
 }
+
+.suit-container {
+  position: relative;
+  img {
+    width: 100%;
+    height: auto;
+  }
+  .suit-base{
+    // position: absolute;
+  }
+  .suit-part{
+    position: absolute;
+    top: 0;
+  }
+}
+
+.suit-parts {
+  text-align: center;
+  .suit-options {
+    width: 150px;
+    height: 150px;
+  }
+  .type-option {
+    padding-top: 20px;
+  }
+  .mat-button {
+    width: 100%;
+    height: 100%;
+  }
+
+  .gold-circle{
+      overflow: hidden;
+      height: 150px;
+      width: 150px;
+      margin: 0 auto;
+      border: 3px solid #eee;
+      border-radius: 50%;
+      transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+      &:hover{
+        cursor: pointer;
+        border: 3px solid $c-accent;
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        transform: scale(1.05);
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+      }
+  }
+}
+
+.type-suit{
+  width: 100%;
+  height: auto;
+}

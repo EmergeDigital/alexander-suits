@@ -8,7 +8,33 @@
   </div>
   <div class="stepper-inner">
     <div class="contents animated bounceIn" [ngStyle]="steps[0]">
-      Coat style selection goes here
+      <div class='row'>
+        <div class='col-md-6'>
+          <div class="suit-container">
+            <img src="assets/suit-builder/suit-base.png" class="suit-base"/>
+            <img src="{{selectedCollar.url}}" class="suit-part"/>
+          </div>
+        </div>
+        <div class='col-md-6'>
+          <div class="suit-parts">
+            <h3><b>Collar</b></h3>
+            <p>
+              Lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet
+            </p>
+            <div class="suit-parts-inner row">
+              <div class="col-sm-6 col-xl-4" *ngFor="let collar of collars">
+                <div class="type-option unselectable">
+                  <div class="gold-circle">
+                    <button md-button (click)="selectCollar(collar)"><div class="circle-inner">
+                      <img class="type-suit" src="{{collar.url}}"/>
+                    </div></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="stepper-box" [ngClass]="{active: steps[1].display === 'block'}">
