@@ -8,9 +8,13 @@
 
 .suit-container {
   position: relative;
+  margin: 15px;
   img {
     width: 100%;
     height: auto;
+  }
+  h4 {
+    text-align: center;
   }
   .suit-base{
     // position: absolute;
@@ -33,6 +37,7 @@
   .mat-button {
     width: 100%;
     height: 100%;
+    border-radius: 50%;
   }
 
   .gold-circle{
@@ -55,7 +60,17 @@
   }
 }
 
-.type-suit{
+.type-suit {
   width: 100%;
   height: auto;
+}
+
+.step-buttons {
+  padding:20px;
+  text-align: center;
+}
+
+.add-pants {
+  padding: 20px;
+  text-align: center;
 }

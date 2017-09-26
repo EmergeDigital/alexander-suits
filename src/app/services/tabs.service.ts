@@ -19,12 +19,12 @@ export class TabsService {
         isVisited: false
       },
       {
-        name: "measurements",
+        name: "contrast",
         isSelected: false,
         isVisited: false
       },
       {
-        name: "checkout",
+        name: "measurements",
         isSelected: false,
         isVisited: false
       }

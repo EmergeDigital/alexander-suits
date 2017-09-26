@@ -14,15 +14,20 @@
             </div></button>
           </div>
           <div class="col-3">
-            <button md-button (click)="changeOnlyPage('measurements')"><div class="col-inner"[ngClass]="{'selected' : pages[2].isSelected}">
-              <i class="material-icons" [ngClass]="{'completed' : pages[2].isVisited}">gesture</i>
+            <button md-button (click)="changeOnlyPage('contrast')"><div class="col-inner"[ngClass]="{'selected' : pages[2].isSelected}">
+              <i class="material-icons" [ngClass]="{'completed' : pages[2].isVisited}">line_style</i>
             </div></button>
           </div>
           <div class="col-3">
+            <button md-button (click)="changeOnlyPage('measurements')"><div class="col-inner"[ngClass]="{'selected' : pages[3].isSelected}">
+              <i class="material-icons" [ngClass]="{'completed' : pages[3].isVisited}">gesture</i>
+            </div></button>
+          </div>
+          <!-- <div class="col-3">
             <button md-button (click)="changeOnlyPage('checkout')"><div class="col-inner" [ngClass]="{'selected' : pages[3].isSelected}">
               <i class="material-icons" [ngClass]="{'completed' : pages[3].isVisited}">local_grocery_store</i>
             </div></button>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

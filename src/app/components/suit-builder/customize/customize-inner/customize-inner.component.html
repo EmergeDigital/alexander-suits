@@ -4,10 +4,10 @@
     <h1>Suit Customizer</h1>
   </div>
   <div class="stepper-box" [ngClass]="{active: steps[0].display === 'block'|| completed0===true}">
-    <button md-button (click)="changeStep('0')"><div class="circle">1</div>Style</button>
+    <button md-button (click)="changeStep('0')"><div class="circle">1</div>Collar</button>
   </div>
   <div class="stepper-inner">
-    <div class="contents animated bounceIn" [ngStyle]="steps[0]">
+    <div class="contents animated zoomIn" [ngStyle]="steps[0]">
       <div class='row'>
         <div class='col-md-6'>
           <div class="suit-container">
@@ -35,30 +35,201 @@
           </div>
         </div>
       </div>
+      <div class="step-buttons">
+        <button md-raised-button color="primary" (click)="changeStep('1')">Next</button>
+      </div>
     </div>
   </div>
   <div class="stepper-box" [ngClass]="{active: steps[1].display === 'block'}">
-    <button md-button (click)="changeStep('1')"><div class="circle">2</div>Coat</button>
+    <button md-button (click)="changeStep('1')"><div class="circle">2</div>Pockets</button>
   </div>
   <div class="stepper-inner">
-    <div class="contents animated bounceIn" [ngStyle]="steps[1]">
-      Coat customization goes here
+    <div class="contents animated zoomIn" [ngStyle]="steps[1]">
+      <div class='row'>
+        <div class='col-md-6'>
+          <div class="suit-container">
+            <img src="assets/suit-builder/pocket-base.png" class="suit-base"/>
+            <img src="{{selectedPocket.url}}" class="suit-part"/>
+          </div>
+        </div>
+        <div class='col-md-6'>
+          <div class="suit-parts">
+            <h3><b>Pockets</b></h3>
+            <p>
+              Lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet
+            </p>
+            <div class="suit-parts-inner row">
+              <div class="col-sm-6 col-xl-4" *ngFor="let pocket of pockets">
+                <div class="type-option unselectable">
+                  <div class="gold-circle">
+                    <button md-button (click)="selectPocket(pocket)"><div class="circle-inner">
+                      <img class="type-suit" src="{{pocket.url}}"/>
+                    </div></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="step-buttons">
+        <button md-raised-button color="primary" (click)="changeStep('2')">Next</button>
+      </div>
     </div>
   </div>
   <div class="stepper-box" [ngClass]="{active: steps[2].display === 'block'}">
-    <button md-button (click)="changeStep('2')"><div class="circle">3</div>Pants</button>
+    <button md-button (click)="changeStep('2')"><div class="circle">3</div>Buttons</button>
   </div>
   <div class="stepper-inner">
-    <div class="contents animated bounceIn" [ngStyle]="steps[2]">
-      Pants customization goes here
+    <div class="contents animated zoomIn" [ngStyle]="steps[2]">
+      <div class='row'>
+        <div class='col-md-6'>
+          <div class="suit-container">
+            <!-- <img src="assets/suit-builder/pocket-base.png" class="suit-base"/> -->
+            <h4>{{selectedButtons.desc}}</h4>
+            <img src="{{selectedButtons.url}}" class="suit-base"/>
+          </div>
+        </div>
+        <div class='col-md-6'>
+          <div class="suit-parts">
+            <h3><b>Buttons</b></h3>
+            <p>
+              Lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet
+            </p>
+            <div class="suit-parts-inner row">
+              <div class="col-sm-6 col-xl-4" *ngFor="let button of buttons">
+                <div class="type-option unselectable">
+                  <div class="gold-circle">
+                    <button md-button (click)="selectButtons(button)"><div class="circle-inner">
+                      <img class="type-suit" src="{{button.url}}"/>
+                    </div></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="step-buttons">
+        <button md-raised-button color="primary" (click)="changeStep('3')">Next</button>
+      </div>
     </div>
   </div>
   <div class="stepper-box" [ngClass]="{active: steps[3].display === 'block'}">
-    <button md-button (click)="changeStep('3')"><div class="circle">4</div>Lining</button>
+    <button md-button (click)="changeStep('3')"><div class="circle">4</div>Tongue</button>
+  </div>
+  <div class="stepper-inner">
+    <div class="contents animated zoomIn" [ngStyle]="steps[3]">
+      <div class='row'>
+        <div class='col-md-6'>
+          <div class="suit-container">
+            <!-- <img src="assets/suit-builder/pocket-base.png" class="suit-base"/> -->
+            <h4>{{selectedTongue.desc}}</h4>
+            <img src="{{selectedTongue.url}}" class="suit-base"/>
+          </div>
+        </div>
+        <div class='col-md-6'>
+          <div class="suit-parts">
+            <h3><b>Tongue</b></h3>
+            <p>
+              Lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet
+            </p>
+            <div class="suit-parts-inner row">
+              <div class="col-sm-6 col-xl-4" *ngFor="let tongue of tongues">
+                <div class="type-option unselectable">
+                  <div class="gold-circle">
+                    <button md-button (click)="selectTongue(tongue)"><div class="circle-inner">
+                      <img class="type-suit" src="{{tongue.url}}"/>
+                    </div></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="step-buttons">
+        <button md-raised-button color="primary" (click)="changeStep('4')">Next</button>
+      </div>
+    </div>
+  </div>
+  <div class="stepper-box" [ngClass]="{active: steps[4].display === 'block'}">
+    <button md-button (click)="changeStep('4')"><div class="circle">5</div>Vents</button>
+  </div>
+  <div class="stepper-inner">
+    <div class="contents animated zoomIn" [ngStyle]="steps[4]">
+      <div class='row'>
+        <div class='col-md-6'>
+          <div class="suit-container">
+            <img src="assets/suit-builder/vents-base.png" class="suit-base"/>
+            <img src="{{selectedVent.url}}" class="suit-part"/>
+          </div>
+        </div>
+        <div class='col-md-6'>
+          <div class="suit-parts">
+            <h3><b>Vents</b></h3>
+            <p>
+              Lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet
+            </p>
+            <div class="suit-parts-inner row">
+              <div class="col-sm-6 col-xl-4" *ngFor="let vent of vents">
+                <div class="type-option unselectable">
+                  <div class="gold-circle">
+                    <button md-button (click)="selectVent(vent)"><div class="circle-inner">
+                      <img class="type-suit" src="{{vent.url}}"/>
+                    </div></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="step-buttons">
+        <button md-raised-button color="primary" (click)="changeStep('5')">Next</button>
+      </div>
+    </div>
+  </div>
+  <div class="stepper-box" [ngClass]="{active: steps[5].display === 'block'}">
+    <button md-button (click)="changeStep('5')"><div class="circle">6</div>Pants</button>
   </div>
   <div class="stepper-inner no-border">
-    <div class="contents animated bounceIn" [ngStyle]="steps[3]">
-      Lining customization goes here
+    <div class="contents animated zoomIn" [ngStyle]="steps[5]">
+
+      <div class="add-pants">
+        <md-slide-toggle [(ngModel)]="addPants" color="primary">Add Matching Pants</md-slide-toggle>
+        <br /><hr />
+      </div>
+      <div class='row' *ngIf="addPants">
+        <div class='col-md-6'>
+          <div class="suit-container">
+            <img src="assets/suit-builder/pants-base.png" class="suit-base"/>
+            <img src="{{selectedPant.url}}" class="suit-part"/>
+          </div>
+        </div>
+        <div class='col-md-6'>
+          <div class="suit-parts">
+            <h3><b>Pants</b></h3>
+            <p>
+              Lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet
+            </p>
+            <div class="suit-parts-inner row">
+              <div class="col-sm-6 col-xl-4" *ngFor="let pant of pants">
+                <div class="type-option unselectable">
+                  <div class="gold-circle">
+                    <button md-button (click)="selectPants(pant)"><div class="circle-inner">
+                      <img class="type-suit" src="{{pant.url}}"/>
+                    </div></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="step-buttons">
+        <button md-raised-button color="primary" (click)="completeSuit()">Add to Cart</button>
+      </div>
     </div>
   </div>
 </div>

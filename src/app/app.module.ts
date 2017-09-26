@@ -76,6 +76,8 @@ import {DialogContentCartDialog} from './components/cart-widget/dialog/dialog-co
 // Duplicates
 import {AccountMeasurementsComponent} from "./components/account/measurements/measurements.component";
 import { PaymentComponent } from './components/payment/payment.component';
+import { ContrastComponent } from './components/suit-builder/contrast/contrast.component';
+import { ContrastInnerComponent } from './components/suit-builder/contrast/contrast-inner/contrast-inner.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     return new AuthHttp(new AuthConfig({
@@ -120,7 +122,9 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         CheckoutMainComponent,
         DialogContentCartDialog,
         AccountMeasurementsComponent,
-        PaymentComponent
+        PaymentComponent,
+        ContrastComponent,
+        ContrastInnerComponent
     ],
     imports: [
         ScrollStoreModule,
