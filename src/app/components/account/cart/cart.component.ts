@@ -158,4 +158,30 @@ export class CartComponent implements OnInit {
     //  this.router.navigate(['/']);
   }
 
+  fetchMethods(){
+    this.data.getPaymentOptions().then(results=>{
+      console.log(results);
+      let _results = JSON.parse(results);
+      for(let r of _results) {
+        console.log(r);
+      }
+
+    }).catch(ex=>{
+      console.log(ex);
+    });
+  }
+
+  createTransaction(){
+    this.data.createTransaction("standard_card", "ORD1").then(results=>{
+      console.log(results);
+      // let _results = JSON.parse(results);
+      // for(let r of _results) {
+      //   console.log(r);
+      // }
+
+    }).catch(ex=>{
+      console.log(ex);
+    });
+  }
+
 }

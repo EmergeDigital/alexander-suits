@@ -19,7 +19,7 @@ export class TabsService {
         isVisited: false
       },
       {
-        name: "contrast",
+        name: "extras",
         isSelected: false,
         isVisited: false
       },

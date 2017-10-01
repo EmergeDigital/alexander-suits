@@ -7,3 +7,38 @@
       margin: 0 auto;
   }
 }
+
+.payment-options{
+  text-align: center;
+  h3 {
+    font-weight: 600;
+  }
+}
+
+.card-1 {
+  padding: 10px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.payment-img {
+  img {
+    height: 180px;
+    width: auto;
+  }
+}
+
+@media (max-width:700px) { /* small size */
+  // .payment-options{
+  //   img {
+  //     height: 35vw;
+  //   }
+  // }
+  .payment-img {
+    img {
+      height: auto;
+      width: 100%;
+    }
+  }
+}

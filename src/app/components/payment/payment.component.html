@@ -1,7 +1,21 @@
-<div style="padding: 40px" class="container" *ngIf="!isLoading">
-  <div *ngIf="current_order" style="text-align: center;">
+<div style="padding-top: 60px; padding-bottom: 60px;" class="container" *ngIf="!isLoading">
+  <div  *ngIf="paymentOptions" style="text-align: center;">
     <h1>Payment Methods</h1>
-    SHOW PAYMENT GATEWAYS BELOW
+    <div class="payment-options">
+      <div class="row">
+        <div class="col-sm-6" *ngFor="let option of paymentOptions">
+          <a (click)="selectOption(option.method)"><div class="card-1">
+            <div class="payment-img ">
+              <img src="{{option.icon}}"/>
+            </div>
+            <h3>{{option.display_name}}</h3>
+            <p>
+              {{option.display_description}}
+            </p>
+          </div></a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <div class="loading" *ngIf="isLoading">

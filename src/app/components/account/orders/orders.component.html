@@ -25,7 +25,7 @@
             <span class="showOnMobileInline"><strong>Status:</strong></span> {{order.status}}
            </div>
            <div class="col-sm-4">
-              <span class="showOnMobileInline"><strong>Total:</strong></span> R{{order.total}}
+              <span class="showOnMobileInline"><strong>Total:</strong></span> {{order.total | currency:'ZAR':true:'1.2-2'}}
            </div>
         </div>
       </div>

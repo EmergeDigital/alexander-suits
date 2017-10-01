@@ -394,5 +394,27 @@ export class DataService {
         });
     }
 
+    getPaymentOptions(): Promise<any> {
+      return new Promise((resolve, reject) => {
+        this.authHttp.get(this.API_URL + "/api/transactions/paymentOptions").toPromise().then(result => {
+            const _result = result.json();
+            resolve(_result);
+        }).catch(ex => {
+            reject(ex);
+        });
+      });
+    }
+
+    createTransaction(method, order_string): Promise<any> {
+      return new Promise((resolve, reject) => {
+        this.authHttp.post(this.API_URL + "/api/transactions/new", {method: method, order_string: order_string}).toPromise().then(result => {
+            const _result = result.json();
+            resolve(_result);
+        }).catch(ex => {
+            reject(ex);
+        });
+      });
+    }
+
 
 }

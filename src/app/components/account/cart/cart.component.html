@@ -24,6 +24,12 @@
   </div>
     <br /><br /><hr />
 
+    <div style="padding: 40px; text-align: center;">
+      <button md-raised-button color="primary" (click)="fetchMethods();">Query AddPay</button><br /><br />
+
+      <button md-raised-button color="primary" (click)="createTransaction();">Make Payment</button>
+    </div>
+
     <!-- <div style="padding: 40px; text-align: center;" *ngIf="!cart">
       <div style="padding: 20px;">
         <h3 *ngIf="!loadingCart">Cart is empty</h3>

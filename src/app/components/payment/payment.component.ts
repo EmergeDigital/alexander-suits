@@ -20,6 +20,7 @@ export class PaymentComponent implements OnInit {
   current_order: Order;
   current_transaction: any;
   isLoading: boolean;
+  paymentOptions: any[];
 
   constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig, public data: DataService, public auth: AuthService, public router: Router, public session: SessionService) {
     // console.log(session.fetchOrder());
@@ -29,6 +30,7 @@ export class PaymentComponent implements OnInit {
       this.current_transaction = session.fetchTransaction();
       if(!!this.current_transaction) {
         console.log("CHECK API FOR TRANSACTION STATUS ETC");
+        console.log(this.current_transaction);
         this.checkStatus();
       } else {
         console.log("FETCH & DISPLAY PAYMENT OPTIONS");
@@ -43,12 +45,35 @@ export class PaymentComponent implements OnInit {
 
   checkStatus() {
     //POLL API FOR TRANSACTION STATUS, AFTER 10 tries, give up?
+    this.session.storeTransaction(null);
     this.completePayment();
   }
 
   fetchPaymentMethods() {
     //FETCH ALL AVAILABLE PAYMENT OPTIONS
-    this.isLoading = false;
+    this.data.getPaymentOptions().then(options=>{
+      this.paymentOptions = JSON.parse(options);
+      this.isLoading = false;
+    }).catch(ex=>{
+      alert("There was a problem, please refresh.");
+      console.log(ex);
+      this.isLoading = false;
+    });
+    // this.isLoading = false;
+  }
+
+  selectOption(method) {
+    this.isLoading = true;
+    this.paymentOptions = null;
+    this.data.createTransaction(method, this.current_order.order_string).then(payment => {
+      console.log(payment);
+      this.session.storeTransaction(payment);
+      window.location.href=payment.link;
+      this.isLoading = false;
+    }).catch(ex=> {
+      console.log(ex);
+      this.fetchPaymentMethods();
+    });
   }
 
   createPayment() {

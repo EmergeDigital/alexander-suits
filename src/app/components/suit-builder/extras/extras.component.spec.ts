@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContrastInnerComponent } from './contrast-inner.component';
+import { ExtrasComponent } from './extras.component';
 
-describe('ContrastInnerComponent', () => {
-  let component: ContrastInnerComponent;
-  let fixture: ComponentFixture<ContrastInnerComponent>;
+describe('ContrastComponent', () => {
+  let component: ExtrasComponent;
+  let fixture: ComponentFixture<ExtrasComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ContrastInnerComponent ]
+      declarations: [ ExtrasComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ContrastInnerComponent);
+    fixture = TestBed.createComponent(ExtrasComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
