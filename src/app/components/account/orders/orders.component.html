@@ -22,10 +22,10 @@
              <span class="showOnMobileInline"><strong>#:</strong></span> {{order.order_string}}
            </div>
            <div class="col-sm-4">
-            <span class="showOnMobileInline"><strong>Status:</strong></span> {{order.status}}
+            <span class="showOnMobileInline"><strong>Status:</strong></span> {{order.status | makeEnglish}}
            </div>
            <div class="col-sm-4">
-              <span class="showOnMobileInline"><strong>Total:</strong></span> {{order.total | currency:'ZAR':true:'1.2-2'}}
+              <span class="showOnMobileInline"><strong>Total:</strong></span> R{{order.total | number:'1.2-2'}}
            </div>
         </div>
       </div>

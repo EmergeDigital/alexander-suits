@@ -1,6 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {ScrollStoreModule} from 'scrollstore';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MakeEnglish } from './pipes/makeEnglish.pipe'; // import our pipe here
 import {MdButtonModule, MdCheckboxModule} from '@angular/material';
 import {MdToolbarModule} from '@angular/material';
 import {MdIconModule} from '@angular/material';
@@ -124,7 +125,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         AccountMeasurementsComponent,
         PaymentComponent,
         ExtrasComponent,
-        ExtrasInnerComponent
+        ExtrasInnerComponent,
+        MakeEnglish
     ],
     imports: [
         ScrollStoreModule,
