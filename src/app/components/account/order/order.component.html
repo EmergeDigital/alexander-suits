@@ -1,0 +1,64 @@
+<div class="order-top animated fadeIn">
+  <div class="container">
+    <div class="order-title">
+      <h1>Order</h1>
+      <div class="order-inner"  *ngIf="!isLoading">
+        <p>{{order.order_string}}</p>
+        <br /><br />
+        <div class="row">
+          <div class="col-sm-6 col-xl-4"  *ngFor="let product of order.products" style="margin-bottom: 15px;">
+            <md-card class="example-card">
+              <md-card-header style="text-align: left;">
+                <div md-card-avatar style="background-image: url('assets/red.jpg'); background-size: cover;"></div>
+                <md-card-title>{{product.name}}</md-card-title>
+                <md-card-subtitle>{{product.description}}</md-card-subtitle>
+              </md-card-header>
+              <img md-card-image src="assets/casual-suit.png" alt="Suit" class="product-img">
+              <md-card-content style="padding-top: 20px;">
+                <div class="row">
+
+                  <div class="col-6">
+                    <md-form-field class="s-full-width">
+                      <input mdInput placeholder="Amount" value="" disabled="true" [(ngModel)]="product.count" name="amount">
+                    </md-form-field>
+                  </div>
+                  <div class="col-6">
+                    <md-form-field class="s-full-width">
+                      <input mdInput placeholder="Subtotal" value="" disabled="true" [ngModel]="product.price*product.count | number:'1.2-2'" (ngModelChange)="product.price=$event" name="price">
+                    </md-form-field>
+                  </div>
+                </div>
+                <div class="row">
+
+                  <div class="col-12">
+                    <md-form-field class="s-full-width" *ngIf="product.status">
+                      <input mdInput placeholder="Status" value="" disabled="true"  (ngModelChange)="product.status=$event" [ngModel]="product.status | makeEnglish" name="status">
+                    </md-form-field>
+                    <md-form-field class="s-full-width" *ngIf="!product.status">
+                      <input mdInput placeholder="Status" value="Processing" disabled="true" name="status2">
+                    </md-form-field>
+                  </div>
+                </div>
+              </md-card-content>
+              <!-- <md-card-actions style="text-align: right;">
+                <button md-button disabled="{{isLoading}}" (click)="removeItem(product)">Remove</button>
+              </md-card-actions> -->
+            </md-card>
+          </div>
+        </div>
+        <!--
+        TODO: delivery details
+        TODO: status of each item
+        -->
+
+        <div class="order-below">
+          <button md-raised-button color="primary" *ngIf="order.status === 'awaiting_payment'" (click)="makePayment()">Make Payment</button>
+        </div>
+
+      </div>
+      <div class="loading" *ngIf="isLoading">
+        <md-spinner></md-spinner>
+      </div>
+    </div>
+  </div>
+</div>

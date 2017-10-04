@@ -11,21 +11,26 @@ import {DataService} from '../../../services/data.service';
 export class OrdersComponent implements OnInit {
 
   orders: Order[];
+  public error: string;
+  public isLoading: boolean;
 
   constructor(auth: AuthService, data: DataService) {
 
+    this.isLoading = true;
     if(auth.isAuthenticated()) {
       console.log(auth.isAuthenticated());
       if(!!data.getCurrentUser()) {
         console.log(data.getCurrentUser());
         data.getOrders().then(orders=> {
           this.orders = orders;
+          this.isLoading = false;
           console.log(orders);
         });
       } else {
         data.user_loaded.subscribe(user=> {
           data.getOrders().then(orders=> {
             this.orders = orders;
+            this.isLoading = false;
 
             console.log(orders);
           });
@@ -37,6 +42,7 @@ export class OrdersComponent implements OnInit {
           data.user_loaded.subscribe(user=> {
             data.getOrders().then(orders=> {
               this.orders = orders;
+              this.isLoading = false;
 
               console.log(orders);
             });

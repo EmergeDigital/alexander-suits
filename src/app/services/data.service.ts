@@ -408,6 +408,20 @@ export class DataService {
         });
     }
 
+    getOrderById(id): Promise<Order> {
+        return new Promise((resolve, reject) => {
+          let params = {
+            id: id
+          };
+          this.authHttp.get(this.API_URL + "/api/order", {params: params}).toPromise().then(order => {
+              const _order = order.json();
+              resolve(_order);
+          }).catch(ex => {
+              reject(ex);
+          });
+        });
+    }
+
     getPaymentOptions(): Promise<any> {
       return new Promise((resolve, reject) => {
         this.authHttp.get(this.API_URL + "/api/transactions/paymentOptions").toPromise().then(result => {

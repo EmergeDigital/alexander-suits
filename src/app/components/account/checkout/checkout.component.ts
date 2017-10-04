@@ -260,8 +260,8 @@ export class CheckoutMainComponent implements OnInit {
       }
 
       userObj = {
-        name: user.fullname,
-        other_data: "MEH"
+        name: user.fullname
+        //measurements go here
       };
 
       let cart_data = {

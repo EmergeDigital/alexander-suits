@@ -19,6 +19,7 @@ import { SettingsComponent } from './components/account/settings/settings.compon
 import { CartComponent } from './components/account/cart/cart.component';
 import { CheckoutMainComponent } from './components/account/checkout/checkout.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { OrderComponent } from './components/account/order/order.component';
 
 
 const routes: Routes = [
@@ -71,6 +72,10 @@ const routes: Routes = [
     {
         path: 'account/orders',
         component: OrdersComponent
+    },
+    {
+        path: 'account/order/:id',
+        component: OrderComponent
     },
     {
         path: 'account/settings',

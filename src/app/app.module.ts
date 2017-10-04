@@ -79,6 +79,7 @@ import {AccountMeasurementsComponent} from "./components/account/measurements/me
 import { PaymentComponent } from './components/payment/payment.component';
 import { ExtrasComponent } from './components/suit-builder/extras/extras.component';
 import { ExtrasInnerComponent } from './components/suit-builder/extras/extras-inner/extras-inner.component';
+import { OrderComponent } from './components/account/order/order.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     return new AuthHttp(new AuthConfig({
@@ -126,7 +127,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         PaymentComponent,
         ExtrasComponent,
         ExtrasInnerComponent,
-        MakeEnglish
+        MakeEnglish,
+        OrderComponent
     ],
     imports: [
         ScrollStoreModule,
