@@ -52,7 +52,7 @@
         -->
 
         <div class="order-below">
-          <button md-raised-button color="primary" *ngIf="order.status === 'awaiting_payment'" (click)="makePayment()">Make Payment</button>
+          <button md-raised-button color="primary" *ngIf="unpaid(order.status)" (click)="makePayment()">Make Payment</button>
         </div>
 
       </div>

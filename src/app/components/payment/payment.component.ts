@@ -55,20 +55,37 @@ export class PaymentComponent implements OnInit {
     this.data.getOrder(this.current_order.order_string).then(order=>{
       console.log(order);
       this.current_order = order;
-      if(order.status === "processed") {
+      if(order.status === "payment_processed") {
         this.completePayment();
-      } else if(order.status === "failed" || order.status === "cancelled" || order.status === "refunded") {
+      } else if(order.status === "failed") {
         this.paymentFailed(order);
+      } else if(order.status === "payment_pending") {
+        this.paymentFailed(order);
+      } else if(order.status === "awaiting_payment") {
+        this.fetchPaymentMethods();
       } else {
         this.paymentUnknown();
       }
     });
   }
 
+  filteredPaymentOptions: any[];
+  eftOption: any;
+
   fetchPaymentMethods() {
     //FETCH ALL AVAILABLE PAYMENT OPTIONS
     this.data.getPaymentOptions().then(options=>{
       this.paymentOptions = JSON.parse(options);
+      let paymentOptions = [];
+      for(let option of this.paymentOptions) {
+        console.log(option);
+        if(option.method === "offline_payment") {
+          this.eftOption = option;
+        } else {
+          paymentOptions.push(option);
+        }
+      }
+      this.filteredPaymentOptions = paymentOptions;
       this.isLoading = false;
     }).catch(ex=>{
       alert("There was a problem, please refresh.");
@@ -84,8 +101,12 @@ export class PaymentComponent implements OnInit {
     this.data.createTransaction(method, this.current_order.order_string).then(payment => {
       console.log(payment);
       this.session.storeTransaction(payment);
-      window.location.href=payment.link;
-      this.isLoading = false;
+      if(payment.method === "offline_payment") {
+        this.awaitEft();
+        //send out email manually?
+      } else {
+        window.location.href=payment.link;
+      }
     }).catch(ex=> {
       console.log(ex);
       this.fetchPaymentMethods();
@@ -110,7 +131,6 @@ export class PaymentComponent implements OnInit {
     this.paymentSubstring = "Your order has been placed, we will contact you to arrange payment";
     this.session.storeOrder(null);
     this.isLoading = false;
-    //Run server query here to change order status etc and send out mails
   }
 
   paymentFailed(order) {
@@ -121,11 +141,31 @@ export class PaymentComponent implements OnInit {
     // this.isLoading = false;
   }
 
+  paymentPending() {
+    this.paymentStatus = "Payment pending confirmation";
+    this.paymentSubstring = "Thank you, your order has been placed and is awaiting further confirmation";
+    this.session.storeOrder(null);
+    this.isLoading = false;
+  }
+
+
   completePayment() {
     //WHEN A TRANSACTION IS SUCCESSFUL, RUN THIS TO DISPLAY COMPLETION
     //CLEAR LOCAL TRANSACTION
     this.paymentStatus = "Payment Successful";
     this.paymentSubstring = "Thank you, please check your email inbox for updates on your order";
+    this.session.storeOrder(null);
+    this.isLoading = false;
+  }
+
+  awaitEft() {
+    //WHEN A TRANSACTION IS SUCCESSFUL, RUN THIS TO DISPLAY COMPLETION
+    //CLEAR LOCAL TRANSACTION
+    this.paymentStatus = "Payment Pending";
+    this.paymentSubstring = "Thank you, please check your email inbox for EFT details and updates on your order";
+    this.filteredPaymentOptions = null;
+    this.paymentOptions = null;
+    this.eftOption = null;
     this.session.storeOrder(null);
     this.isLoading = false;
   }

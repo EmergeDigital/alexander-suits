@@ -1,11 +1,11 @@
 <div style="padding-top: 60px; padding-bottom: 100px;" class="container" *ngIf="!isLoading">
-  <div *ngIf="paymentOptions" style="text-align: center;">
+  <div *ngIf="filteredPaymentOptions" style="text-align: center;">
     <h1>Payment Methods</h1><hr />
     <h4 *ngIf="paymentStatus">{{paymentStatus}}</h4>
     <p *ngIf="paymentSubstring">{{paymentSubstring}}</p>
     <div class="payment-options">
       <div class="row">
-        <div class="col-sm-6" *ngFor="let option of paymentOptions">
+        <div class="col-sm-6" *ngFor="let option of filteredPaymentOptions">
           <a (click)="selectOption(option.method)"><div class="card-1">
             <div class="payment-img ">
               <img src="{{option.icon}}"/>
@@ -17,9 +17,23 @@
           </div></a>
         </div>
       </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <a (click)="selectOption(eftOption.method)"><div class="card-1">
+            <div class="payment-img ">
+              <img src="{{eftOption.icon}}"/>
+            </div>
+            <h3>{{eftOption.display_name}}</h3>
+            <p>
+              {{eftOption.display_description}}
+            </p>
+          </div></a>
+        </div>
+      </div>
     </div>
   </div>
-  <div *ngIf="!paymentOptions" style="text-align: center;">
+  <div *ngIf="!filteredPaymentOptions" style="text-align: center;">
     <h4 *ngIf="paymentStatus">{{paymentStatus}}</h4>
     <p *ngIf="paymentSubstring">{{paymentSubstring}}</p>
   </div>

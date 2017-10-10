@@ -63,6 +63,20 @@ export class OrderComponent implements OnInit {
    });
  }
 
+ unpaidStates: string[] = [
+   "awaiting_payment",
+   "payment_pending",
+   "pending",
+   "failed"
+ ];
+
+ unpaid(status) {
+   if(this.unpaidStates.includes(status) || status === null) {
+     return true;
+   }
+    return false;
+ }
+
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
