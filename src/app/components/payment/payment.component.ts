@@ -7,7 +7,7 @@ import {Product} from "../../models/product";
 import {Order} from "../../models/order";
 import {Cart} from "../../models/cart";
 import {User} from "../../models/user";
-import {MdDialog} from '@angular/material';
+import {MatDialog} from '@angular/material';
 import {ToastyService, ToastyConfig, ToastOptions, ToastData} from 'ng2-toasty';
 
 @Component({

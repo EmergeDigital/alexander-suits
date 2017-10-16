@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {MdSnackBar} from '@angular/material';
 import {DataService} from "../../services/data.service";
 import {Product} from "../../models/product";
 import {ToastyService, ToastyConfig, ToastOptions, ToastData} from 'ng2-toasty';

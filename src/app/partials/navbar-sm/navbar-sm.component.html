@@ -1,10 +1,10 @@
-<button md-menu-item routerLink="home">HOME</button>
-<button md-menu-item routerLink="about">ABOUT</button>
-<button md-menu-item routerLink="suits">SUITS</button>
-<button md-menu-item>SHIRTS</button>
-<button md-menu-item>PANTS</button>
-<button md-menu-item routerLink="accessories">ACCESSORIES</button>
-<button md-menu-item routerLink="contact">CONTACT US</button>
-<button md-menu-item *ngIf="!isAuthenticated" (click)="login()">LOG IN</button>
-<button md-menu-item *ngIf="isAuthenticated" routerLink="account">ACCOUNT</button>
-<button md-menu-item *ngIf="isAuthenticated" (click)="logout()">LOG OUT</button>
+<button mat-menu-item routerLink="home">HOME</button>
+<button mat-menu-item routerLink="about">ABOUT</button>
+<button mat-menu-item routerLink="suits">SUITS</button>
+<button mat-menu-item>SHIRTS</button>
+<button mat-menu-item>PANTS</button>
+<button mat-menu-item routerLink="accessories">ACCESSORIES</button>
+<button mat-menu-item routerLink="contact">CONTACT US</button>
+<button mat-menu-item *ngIf="!isAuthenticated" (click)="login()">LOG IN</button>
+<button mat-menu-item *ngIf="isAuthenticated" routerLink="account">ACCOUNT</button>
+<button mat-menu-item *ngIf="isAuthenticated" (click)="logout()">LOG OUT</button>

@@ -4,27 +4,27 @@
       <div class="col-10">
         <div class="row">
           <div class="col-3">
-            <button md-button (click)="changeOnlyPage('fabric')"><div class="col-inner" [ngClass]="{'selected' : pages[0].isSelected}">
+            <button mat-button (click)="changeOnlyPage('fabric')"><div class="col-inner" [ngClass]="{'selected' : pages[0].isSelected}">
               <i class="material-icons" [ngClass]="{'completed' : pages[0].isVisited}">style</i>
             </div></button>
           </div>
           <div class="col-3">
-            <button md-button (click)="changeOnlyPage('customize')"><div class="col-inner" [ngClass]="{'selected' : pages[1].isSelected}">
+            <button mat-button (click)="changeOnlyPage('customize')"><div class="col-inner" [ngClass]="{'selected' : pages[1].isSelected}">
               <i class="material-icons" [ngClass]="{'completed' : pages[1].isVisited}">content_cut</i>
             </div></button>
           </div>
           <div class="col-3">
-            <button md-button (click)="changeOnlyPage('extras')"><div class="col-inner"[ngClass]="{'selected' : pages[2].isSelected}">
+            <button mat-button (click)="changeOnlyPage('extras')"><div class="col-inner"[ngClass]="{'selected' : pages[2].isSelected}">
               <i class="material-icons" [ngClass]="{'completed' : pages[2].isVisited}">line_style</i>
             </div></button>
           </div>
           <div class="col-3">
-            <button md-button (click)="changeOnlyPage('measurements')"><div class="col-inner"[ngClass]="{'selected' : pages[3].isSelected}">
+            <button mat-button (click)="changeOnlyPage('measurements')"><div class="col-inner"[ngClass]="{'selected' : pages[3].isSelected}">
               <i class="material-icons" [ngClass]="{'completed' : pages[3].isVisited}">gesture</i>
             </div></button>
           </div>
           <!-- <div class="col-3">
-            <button md-button (click)="changeOnlyPage('checkout')"><div class="col-inner" [ngClass]="{'selected' : pages[3].isSelected}">
+            <button mat-button (click)="changeOnlyPage('checkout')"><div class="col-inner" [ngClass]="{'selected' : pages[3].isSelected}">
               <i class="material-icons" [ngClass]="{'completed' : pages[3].isVisited}">local_grocery_store</i>
             </div></button>
           </div> -->

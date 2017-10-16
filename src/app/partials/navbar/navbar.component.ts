@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Component, OnInit, Input } from '@angular/core';
 import { RouterModule, Routes,  } from '@angular/router';
 import { AppRoutingModule } from '../../app-routing.module';
-import {MdSnackBar} from '@angular/material';
 import {AuthService} from '../../services/auth.service';
 import {ToastyService, ToastyConfig, ToastOptions, ToastData} from 'ng2-toasty';
 

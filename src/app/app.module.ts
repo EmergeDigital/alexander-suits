@@ -2,22 +2,22 @@ import {BrowserModule} from '@angular/platform-browser';
 import {ScrollStoreModule} from 'scrollstore';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MakeEnglish } from './pipes/makeEnglish.pipe'; // import our pipe here
-import {MdButtonModule, MdCheckboxModule} from '@angular/material';
-import {MdToolbarModule} from '@angular/material';
-import {MdIconModule} from '@angular/material';
-import {MdMenuModule} from '@angular/material';
-import {MdCardModule} from '@angular/material';
-import {MdInputModule} from '@angular/material';
-import {MdSnackBarModule} from '@angular/material';
-import {MdSidenavModule} from '@angular/material';
-import {MdGridListModule} from '@angular/material';
-import {MdProgressSpinnerModule} from '@angular/material';
-import {MdSelectModule} from '@angular/material';
-import {MdDialogModule} from '@angular/material';
-import {MdRadioModule} from '@angular/material';
-import {MdSlideToggleModule} from '@angular/material';
-import {MdSortModule} from '@angular/material';
-import {MdTableModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatToolbarModule} from '@angular/material';
+import {MatIconModule} from '@angular/material';
+import {MatMenuModule} from '@angular/material';
+import {MatCardModule} from '@angular/material';
+import {MatInputModule} from '@angular/material';
+import {MatSnackBarModule} from '@angular/material';
+import {MatSidenavModule} from '@angular/material';
+import {MatGridListModule} from '@angular/material';
+import {MatProgressSpinnerModule} from '@angular/material';
+import {MatSelectModule} from '@angular/material';
+import {MatDialogModule} from '@angular/material';
+import {MatRadioModule} from '@angular/material';
+import {MatSlideToggleModule} from '@angular/material';
+import {MatSortModule} from '@angular/material';
+import {MatTableModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {Http, Headers, HttpModule, RequestOptions} from '@angular/http';
 import {AngularFontAwesomeModule} from 'angular-font-awesome/angular-font-awesome';
@@ -31,6 +31,8 @@ import { SwiperModule } from 'angular2-useful-swiper';
 import {AuthHttp, AuthConfig} from 'angular2-jwt';
 import 'hammerjs';
 import {Ng2PageScrollModule} from 'ng2-page-scroll';
+import {MATERIAL_COMPATIBILITY_MODE} from '@angular/material';
+
 
 import {TabsService} from "./services/tabs.service";
 import {DataService} from "./services/data.service";
@@ -139,23 +141,23 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         HttpModule,
         AppRoutingModule,
         ToastyModule.forRoot(),
-        MdButtonModule,
-        MdCheckboxModule,
-        MdToolbarModule,
-        MdIconModule,
-        MdMenuModule,
-        MdCardModule,
-        MdInputModule,
-        MdSnackBarModule,
-        MdSidenavModule,
-        MdGridListModule,
-        MdProgressSpinnerModule,
-        MdSelectModule,
-        MdDialogModule,
-        MdRadioModule,
-        MdSlideToggleModule,
-        MdSortModule,
-        MdTableModule,
+        MatButtonModule,
+        MatCheckboxModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatMenuModule,
+        MatCardModule,
+        MatInputModule,
+        MatSnackBarModule,
+        MatSidenavModule,
+        MatGridListModule,
+        MatProgressSpinnerModule,
+        MatSelectModule,
+        MatDialogModule,
+        MatRadioModule,
+        MatSlideToggleModule,
+        MatSortModule,
+        MatTableModule,
         OwlModule,
         AngularFontAwesomeModule,
         ClipboardModule,
@@ -167,6 +169,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         DialogContentCartDialog
     ],
     providers: [TabsService, DataService, SessionService, FunctionsService, AuthService,
+        {provide: MATERIAL_COMPATIBILITY_MODE, useValue: true},
         {
             provide: AuthHttp,
             useFactory: authHttpServiceFactory,

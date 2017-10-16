@@ -25,21 +25,21 @@
          <div class="swiper-button-prev"></div>
        </swiper>
        <div class="confirm-button">
-         <button md-raised-button color="primary" (click)="confirmBodyType()">Confirm</button>
+         <button mat-raised-button color="primary" (click)="confirmBodyType()">Confirm</button>
        </div>
      </div>
      <div *ngIf="!stepperHidden">
         <div class="confirm-button">
-            <button md-raised-button color="primary" (click)="stepperHidden = true">Re-select Body Type</button>
+            <button mat-raised-button color="primary" (click)="stepperHidden = true">Re-select Body Type</button>
         </div>
         <div class="stepper-box" [ngClass]="{active: steps[0].display === 'block'|| completed0===true}" id="stepper1">
-          <button md-button (click)="changeStep('0')"><div class="circle">1</div>Basic Measurements</button>
+          <button mat-button (click)="changeStep('0')"><div class="circle">1</div>Basic Measurements</button>
         </div>
         <div class="stepper-inner">
           <div class="contents animated zoomIn" [ngStyle]="steps[0]">
             <!-- <div class="row"> -->
                <!-- <div class="confirm-button">
-                 <button md-raised-button color="primary">Confirm</button>
+                 <button mat-raised-button color="primary">Confirm</button>
                </div> -->
             <!-- </div> -->
 
@@ -47,43 +47,43 @@
             <img class="swiper-img" src="assets/measurements/Main-Body-Measurements.png" />
             <div class="measurements-form">
               <form class="s-form">
-                <md-form-field class="s-full-width">
-                  <input mdInput placeholder="Height (cm)" value="" [(ngModel)]="measurements.height" name="height">
-                  <md-icon mdSuffix class="hoverIcon" (click)="test('height')">info</md-icon>
-                </md-form-field>
-                <md-form-field class="s-full-width">
-                  <input mdInput placeholder="Chest (cm)" value="" [(ngModel)]="measurements.chest" name="chest">
-                  <md-icon mdSuffix class="hoverIcon" (click)="test('chest')">info</md-icon>
-                </md-form-field>
-                <md-form-field class="s-full-width">
-                  <input mdInput placeholder="1/2 Back (cm)" value=""  [(ngModel)]="measurements.halfback" name="halfback">
-                  <md-icon mdSuffix class="hoverIcon" (click)="test('halfback')">info</md-icon>
-                </md-form-field>
-                <md-form-field class="s-full-width">
-                  <input mdInput placeholder="Biceps (cm)" value="" [(ngModel)]="measurements.biceps" name="biceps">
-                  <md-icon mdSuffix class="hoverIcon" (click)="test('biceps')">info</md-icon>
-                </md-form-field>
-                <md-form-field class="s-full-width">
-                  <input mdInput placeholder="Stopmach (cm)" value="" [(ngModel)]="measurements.stomach" name="stomach">
-                  <md-icon mdSuffix class="hoverIcon" (click)="test('stomach')">info</md-icon>
-                </md-form-field>
-                <md-form-field class="s-full-width">
-                  <input mdInput placeholder="Seat (cm)" value="" [(ngModel)]="measurements.seat" name="seat">
-                  <md-icon mdSuffix class="hoverIcon" (click)="test('seat')">info</md-icon>
-                </md-form-field>
-                <md-form-field class="s-full-width">
-                  <input mdInput placeholder="Thigh (cm)" value="" [(ngModel)]="measurements.thigh" name="thigh">
-                  <md-icon mdSuffix class="hoverIcon" (click)="test('thigh')">info</md-icon>
-                </md-form-field>
+                <mat-form-field class="s-full-width">
+                  <input matInput placeholder="Height (cm)" value="" [(ngModel)]="measurements.height" name="height">
+                  <mat-icon matSuffix class="hoverIcon" (click)="test('height')">info</mat-icon>
+                </mat-form-field>
+                <mat-form-field class="s-full-width">
+                  <input matInput placeholder="Chest (cm)" value="" [(ngModel)]="measurements.chest" name="chest">
+                  <mat-icon matSuffix class="hoverIcon" (click)="test('chest')">info</mat-icon>
+                </mat-form-field>
+                <mat-form-field class="s-full-width">
+                  <input matInput placeholder="1/2 Back (cm)" value=""  [(ngModel)]="measurements.halfback" name="halfback">
+                  <mat-icon matSuffix class="hoverIcon" (click)="test('halfback')">info</mat-icon>
+                </mat-form-field>
+                <mat-form-field class="s-full-width">
+                  <input matInput placeholder="Biceps (cm)" value="" [(ngModel)]="measurements.biceps" name="biceps">
+                  <mat-icon matSuffix class="hoverIcon" (click)="test('biceps')">info</mat-icon>
+                </mat-form-field>
+                <mat-form-field class="s-full-width">
+                  <input matInput placeholder="Stopmach (cm)" value="" [(ngModel)]="measurements.stomach" name="stomach">
+                  <mat-icon matSuffix class="hoverIcon" (click)="test('stomach')">info</mat-icon>
+                </mat-form-field>
+                <mat-form-field class="s-full-width">
+                  <input matInput placeholder="Seat (cm)" value="" [(ngModel)]="measurements.seat" name="seat">
+                  <mat-icon matSuffix class="hoverIcon" (click)="test('seat')">info</mat-icon>
+                </mat-form-field>
+                <mat-form-field class="s-full-width">
+                  <input matInput placeholder="Thigh (cm)" value="" [(ngModel)]="measurements.thigh" name="thigh">
+                  <mat-icon matSuffix class="hoverIcon" (click)="test('thigh')">info</mat-icon>
+                </mat-form-field>
               </form>
             </div>
             <div class="step-buttons">
-              <button md-raised-button color="primary" (click)="changeStep('1')">Next</button>
+              <button mat-raised-button color="primary" (click)="changeStep('1')">Next</button>
             </div>
           </div>
         </div>
         <div class="stepper-box" [ngClass]="{active: steps[1].display === 'block'}" id="stepper2">
-          <button md-button (click)="changeStep('1')"><div class="circle">2</div>Extra Measurements</button>
+          <button mat-button (click)="changeStep('1')"><div class="circle">2</div>Extra Measurements</button>
         </div>
         <div class="stepper-inner">
           <div class="contents animated zoomIn" [ngStyle]="steps[1]">
@@ -92,14 +92,14 @@
               <img class="swiper-img" src="assets/measurements/Jacket.png" />
               <div class="measurements-form">
                 <form class="s-form">
-                  <md-form-field class="s-full-width">
-                    <input mdInput placeholder="Height (cm)" value="" [(ngModel)]="measurements.height" name="height">
-                    <md-icon mdSuffix class="hoverIcon" (click)="test('height')">info</md-icon>
-                  </md-form-field>
-                  <md-form-field class="s-full-width">
-                    <input mdInput placeholder="Chest (cm)" value="" [(ngModel)]="measurements.chest" name="chest">
-                    <md-icon mdSuffix class="hoverIcon" (click)="test('chest')">info</md-icon>
-                  </md-form-field>
+                  <mat-form-field class="s-full-width">
+                    <input matInput placeholder="Height (cm)" value="" [(ngModel)]="measurements.height" name="height">
+                    <mat-icon matSuffix class="hoverIcon" (click)="test('height')">info</mat-icon>
+                  </mat-form-field>
+                  <mat-form-field class="s-full-width">
+                    <input matInput placeholder="Chest (cm)" value="" [(ngModel)]="measurements.chest" name="chest">
+                    <mat-icon matSuffix class="hoverIcon" (click)="test('chest')">info</mat-icon>
+                  </mat-form-field>
                 </form>
               </div>
             </div>
@@ -114,14 +114,14 @@
                 </p>
                 <img class="swiper-img" src="assets/measurements/Trousers-02.png" />
                   <form class="s-form">
-                    <md-form-field class="s-full-width">
-                      <input mdInput placeholder="Height (cm)" value="" [(ngModel)]="measurements.height" name="height">
-                      <md-icon mdSuffix class="hoverIcon" (click)="test('height')">info</md-icon>
-                    </md-form-field>
-                    <md-form-field class="s-full-width">
-                      <input mdInput placeholder="Chest (cm)" value="" [(ngModel)]="measurements.chest" name="chest">
-                      <md-icon mdSuffix class="hoverIcon" (click)="test('chest')">info</md-icon>
-                    </md-form-field>
+                    <mat-form-field class="s-full-width">
+                      <input matInput placeholder="Height (cm)" value="" [(ngModel)]="measurements.height" name="height">
+                      <mat-icon matSuffix class="hoverIcon" (click)="test('height')">info</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field class="s-full-width">
+                      <input matInput placeholder="Chest (cm)" value="" [(ngModel)]="measurements.chest" name="chest">
+                      <mat-icon matSuffix class="hoverIcon" (click)="test('chest')">info</mat-icon>
+                    </mat-form-field>
 
                   </form>
                 </div>
@@ -132,18 +132,18 @@
               <img class="swiper-img" src="assets/measurements/Trousers-01.png" />
               <div class="measurements-form">
                 <form class="s-form">
-                  <md-form-field class="s-full-width">
-                    <input mdInput placeholder="Height (cm)" value="" [(ngModel)]="measurements.height" name="height">
-                    <md-icon mdSuffix class="hoverIcon" (click)="test('height')">info</md-icon>
-                  </md-form-field>
-                  <md-form-field class="s-full-width">
-                    <input mdInput placeholder="Chest (cm)" value="" [(ngModel)]="measurements.chest" name="chest">
-                    <md-icon mdSuffix class="hoverIcon" (click)="test('chest')">info</md-icon>
-                  </md-form-field>
-                  <md-form-field class="s-full-width">
-                    <input mdInput placeholder="Chest (cm)" value="" [(ngModel)]="measurements.chest" name="chest">
-                    <md-icon mdSuffix class="hoverIcon" (click)="test('chest')">info</md-icon>
-                  </md-form-field>
+                  <mat-form-field class="s-full-width">
+                    <input matInput placeholder="Height (cm)" value="" [(ngModel)]="measurements.height" name="height">
+                    <mat-icon matSuffix class="hoverIcon" (click)="test('height')">info</mat-icon>
+                  </mat-form-field>
+                  <mat-form-field class="s-full-width">
+                    <input matInput placeholder="Chest (cm)" value="" [(ngModel)]="measurements.chest" name="chest">
+                    <mat-icon matSuffix class="hoverIcon" (click)="test('chest')">info</mat-icon>
+                  </mat-form-field>
+                  <mat-form-field class="s-full-width">
+                    <input matInput placeholder="Chest (cm)" value="" [(ngModel)]="measurements.chest" name="chest">
+                    <mat-icon matSuffix class="hoverIcon" (click)="test('chest')">info</mat-icon>
+                  </mat-form-field>
 
                 </form>
               </div>
@@ -152,17 +152,17 @@
               <h4>You don't need any additional measurements for your order, proceed to the next step</h4>
             </div>
             <div class="step-buttons">
-              <button md-raised-button color="primary" (click)="changeStep('2')">Next</button>
+              <button mat-raised-button color="primary" (click)="changeStep('2')">Next</button>
             </div>
           </div>
         </div>
         <div class="stepper-box" [ngClass]="{active: steps[2].display === 'block'}" id="stepper3">
-          <button md-button (click)="changeStep('2')"><div class="circle">3</div>Upload Photo</button>
+          <button mat-button (click)="changeStep('2')"><div class="circle">3</div>Upload Photo</button>
         </div>
         <div class="stepper-inner">
           <div class="contents animated zoomIn" [ngStyle]="steps[2]">
             <div class="step-buttons">
-              <button md-raised-button color="primary" (click)="checkout()">Done</button>
+              <button mat-raised-button color="primary" (click)="checkout()">Done</button>
             </div>
           </div>
         </div>

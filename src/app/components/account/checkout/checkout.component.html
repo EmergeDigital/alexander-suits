@@ -3,7 +3,7 @@
     <h1>Checkout</h1>
   </div>
   <div class="stepper-box" [ngClass]="{active: steps[0].display === 'block'|| completedSteps[0] === true}">
-    <button md-button (click)="changeStep('0')"><div class="circle">1</div>Finalize Cart</button>
+    <button mat-button (click)="changeStep('0')"><div class="circle">1</div>Finalize Cart</button>
   </div>
   <div class="stepper-inner">
     <div class="contents" [ngStyle]="steps[0]">
@@ -12,98 +12,98 @@
       <p style="font-size: 11px; padding-left: 30px;">
         Click to edit cart
       </p>
-      <br /><button style="margin-left: 25px" md-raised-button color="primary" (click)="iterateStep('1')">Confirm</button>
+      <br /><button style="margin-left: 25px" mat-raised-button color="primary" (click)="iterateStep('1')">Confirm</button>
     </div>
   </div>
   <div class="stepper-box" [ngClass]="{active: steps[1].display === 'block'|| completedSteps[1] === true}">
-    <button md-button (click)="changeStep('1')"><div class="circle">2</div>Details</button>
+    <button mat-button (click)="changeStep('1')"><div class="circle">2</div>Details</button>
   </div>
   <div class="stepper-inner">
     <div class="contents" [ngStyle]="steps[1]">
       <form class="s-form" *ngIf="current_user">
-        <md-form-field class="s-full-width">
-          <input mdInput placeholder="Full Name" value="" [(ngModel)]="current_user.fullname" name="fullname">
-        </md-form-field>
-        <md-form-field class="s-full-width">
-          <input mdInput placeholder="Email Address" value="" [(ngModel)]="current_user.email" name="email" type="email">
-        </md-form-field>
-        <md-form-field class="s-full-width">
-          <input mdInput placeholder="Cellphone" value=""  [(ngModel)]="current_user.contact_mobile" name="contact_mobile" type="tel">
-        </md-form-field>
-        <md-form-field class="s-full-width">
-          <textarea mdInput placeholder="Address" value="" [(ngModel)]="current_user.address" name="address">{{current_user.address}}</textarea>
-        </md-form-field>
-        <md-form-field class="s-full-width">
-          <textarea mdInput placeholder="Address 2" value="" [(ngModel)]="current_user.address2" name="address2">{{current_user.address2}}</textarea>
-        </md-form-field>
-        <md-form-field class="s-full-width">
-          <input mdInput placeholder="City" value="" [(ngModel)]="current_user.city" name="city">
-        </md-form-field>
+        <mat-form-field class="s-full-width">
+          <input matInput placeholder="Full Name" value="" [(ngModel)]="current_user.fullname" name="fullname">
+        </mat-form-field>
+        <mat-form-field class="s-full-width">
+          <input matInput placeholder="Email Address" value="" [(ngModel)]="current_user.email" name="email" type="email">
+        </mat-form-field>
+        <mat-form-field class="s-full-width">
+          <input matInput placeholder="Cellphone" value=""  [(ngModel)]="current_user.contact_mobile" name="contact_mobile" type="tel">
+        </mat-form-field>
+        <mat-form-field class="s-full-width">
+          <textarea matInput placeholder="Address" value="" [(ngModel)]="current_user.address" name="address">{{current_user.address}}</textarea>
+        </mat-form-field>
+        <mat-form-field class="s-full-width">
+          <textarea matInput placeholder="Address 2" value="" [(ngModel)]="current_user.address2" name="address2">{{current_user.address2}}</textarea>
+        </mat-form-field>
+        <mat-form-field class="s-full-width">
+          <input matInput placeholder="City" value="" [(ngModel)]="current_user.city" name="city">
+        </mat-form-field>
         <table class="s-full-width" cellspacing="0"><tr>
           <td>
-            <md-select class="s-full-width" placeholder="Province" style="padding-top: 0px;" [(ngModel)]="current_user.province" name="province">
-              <md-option *ngFor="let province of provinces" [value]="province.viewValue">
+            <mat-select class="s-full-width" placeholder="Province" style="padding-top: 0px;" [(ngModel)]="current_user.province" name="province">
+              <mat-option *ngFor="let province of provinces" [value]="province.viewValue">
                 {{ province.viewValue }}
-              </md-option>
-            </md-select>
+              </mat-option>
+            </mat-select>
           </td>
-          <td><md-form-field class="s-full-width" style="padding-top: 4px;">
-            <input mdInput placeholder="Postal Code" [(ngModel)]="current_user.postal_code" name="postal_code">
-          </md-form-field></td>
+          <td><mat-form-field class="s-full-width" style="padding-top: 4px;">
+            <input matInput placeholder="Postal Code" [(ngModel)]="current_user.postal_code" name="postal_code">
+          </mat-form-field></td>
         </tr></table>
       </form>
-      <br /><button md-raised-button color="primary" (click)="iterateStep('2')">Next Step</button>
+      <br /><button mat-raised-button color="primary" (click)="iterateStep('2')">Next Step</button>
     </div>
   </div>
   <div class="stepper-box" [ngClass]="{active: steps[2].display === 'block'|| completedSteps[2] === true}">
-    <button md-button (click)="changeStep('2')"><div class="circle">3</div>Delivery</button>
+    <button mat-button (click)="changeStep('2')"><div class="circle">3</div>Delivery</button>
   </div>
   <div class="stepper-inner">
     <div class="contents" [ngStyle]="steps[2]">
       <h3>Select Delivery Method</h3>
       <br />
-      <md-radio-group class="order-radio-group" [(ngModel)]="shippingMethod">
-        <md-radio-button class="order-radio-button" *ngFor="let method of shippingMethods" [value]="method">
+      <mat-radio-group class="order-radio-group" [(ngModel)]="shippingMethod">
+        <mat-radio-button class="order-radio-button" *ngFor="let method of shippingMethods" [value]="method">
           {{method}}
-        </md-radio-button>
-      </md-radio-group>
+        </mat-radio-button>
+      </mat-radio-group>
       <div class="order-selected-value">
         <div *ngIf="shippingMethod===shippingMethods[0]">
           DHL DELIVERY<br /><br />
-          <md-slide-toggle
+          <mat-slide-toggle
             class="slide-margin"
             [color]="primary"
             [(ngModel)]="useAddress">
           <span *ngIf="useAddress">Use current address</span>
           <span *ngIf="!useAddress">Deliver to a different address</span>
-        </md-slide-toggle>
+        </mat-slide-toggle>
         <form class="s-form">
           <div *ngIf="!useAddress">
-            <md-form-field class="s-full-width">
-              <textarea mdInput placeholder="Address" value="" [(ngModel)]="alt_address.address" name="altaddress">{{alt_address.address}}</textarea>
-            </md-form-field>
-            <md-form-field class="s-full-width">
-              <textarea mdInput placeholder="Address 2" value="" [(ngModel)]="alt_address.address2" name="altaddress2">{{alt_address.address2}}</textarea>
-            </md-form-field>
-            <md-form-field class="s-full-width">
-              <input mdInput placeholder="City" value="" [(ngModel)]="alt_address.city" name="altcity">
-            </md-form-field>
+            <mat-form-field class="s-full-width">
+              <textarea matInput placeholder="Address" value="" [(ngModel)]="alt_address.address" name="altaddress">{{alt_address.address}}</textarea>
+            </mat-form-field>
+            <mat-form-field class="s-full-width">
+              <textarea matInput placeholder="Address 2" value="" [(ngModel)]="alt_address.address2" name="altaddress2">{{alt_address.address2}}</textarea>
+            </mat-form-field>
+            <mat-form-field class="s-full-width">
+              <input matInput placeholder="City" value="" [(ngModel)]="alt_address.city" name="altcity">
+            </mat-form-field>
             <table class="s-full-width" cellspacing="0"><tr>
               <td>
-                <md-select class="s-full-width" placeholder="Province" style="padding-top: 0px;" [(ngModel)]="alt_address.province" name="altprovince">
-                  <md-option *ngFor="let province of provinces" [value]="province.viewValue">
+                <mat-select class="s-full-width" placeholder="Province" style="padding-top: 0px;" [(ngModel)]="alt_address.province" name="altprovince">
+                  <mat-option *ngFor="let province of provinces" [value]="province.viewValue">
                     {{ province.viewValue }}
-                  </md-option>
-                </md-select>
+                  </mat-option>
+                </mat-select>
               </td>
-              <td><md-form-field class="s-full-width" style="padding-top: 4px;">
-                <input mdInput placeholder="Postal Code" [(ngModel)]="alt_address.postal_code" name="altpostal_code">
-              </md-form-field></td>
+              <td><mat-form-field class="s-full-width" style="padding-top: 4px;">
+                <input matInput placeholder="Postal Code" [(ngModel)]="alt_address.postal_code" name="altpostal_code">
+              </mat-form-field></td>
             </tr></table>
           </div>
-          <md-form-field class="s-full-width">
-            <textarea mdInput placeholder="Additional Delivery Instructions" value="" [(ngModel)]="delivery_instructions" name="deliveryinstructions">{{delivery_instructions}}</textarea>
-          </md-form-field>
+          <mat-form-field class="s-full-width">
+            <textarea matInput placeholder="Additional Delivery Instructions" value="" [(ngModel)]="delivery_instructions" name="deliveryinstructions">{{delivery_instructions}}</textarea>
+          </mat-form-field>
         </form>
         </div>
         <div *ngIf="shippingMethod===shippingMethods[1]">
@@ -111,17 +111,17 @@
         </div>
         <div *ngIf="shippingMethod===shippingMethods[2]">
           <form class="s-form">
-            <md-form-field class="s-full-width">
-              <textarea mdInput placeholder="Instructions" value="" [(ngModel)]="instructions" name="instructions">{{instructions}}</textarea>
-            </md-form-field>
+            <mat-form-field class="s-full-width">
+              <textarea matInput placeholder="Instructions" value="" [(ngModel)]="instructions" name="instructions">{{instructions}}</textarea>
+            </mat-form-field>
           </form>
         </div>
       </div>
-      <br /><button md-raised-button color="primary" (click)="iterateStep('3')" disabled="{{shippingMethod  === ''}}">Next Step</button>
+      <br /><button mat-raised-button color="primary" (click)="iterateStep('3')" disabled="{{shippingMethod  === ''}}">Next Step</button>
     </div>
   </div>
   <div class="stepper-box" [ngClass]="{active: steps[3].display === 'block'|| completedSteps[3] === true}">
-    <button md-button (click)="changeStep('3')"><div class="circle">4</div>Complete Order</button>
+    <button mat-button (click)="changeStep('3')"><div class="circle">4</div>Complete Order</button>
   </div>
   <div class="stepper-inner no-border">
     <div class="contents" [ngStyle]="steps[3]">
@@ -129,7 +129,7 @@
       <br /><p>
         Confirming will submit your order and take you to payment options
       </p><br />
-      <button md-raised-button color="accent" (click)="checkout()">Confirm</button>
+      <button mat-raised-button color="accent" (click)="checkout()">Confirm</button>
     </div>
   </div>
 </div>

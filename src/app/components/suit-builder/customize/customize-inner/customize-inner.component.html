@@ -4,7 +4,7 @@
     <h1 id="tabTitle">Suit Customizer</h1>
   </div>
   <div class="stepper-box" [ngClass]="{active: steps[0].display === 'block'|| completed0===true}" id="stepper1">
-    <button md-button (click)="changeStep('0')"><div class="circle">1</div>Collar</button>
+    <button mat-button (click)="changeStep('0')"><div class="circle">1</div>Collar</button>
   </div>
   <div class="stepper-inner">
     <div class="contents animated zoomIn" [ngStyle]="steps[0]">
@@ -25,7 +25,7 @@
               <div class="col-sm-6 col-xl-4" *ngFor="let collar of collars">
                 <div class="type-option unselectable">
                   <div class="gold-circle">
-                    <button md-button (click)="selectCollar(collar)"><div class="circle-inner">
+                    <button mat-button (click)="selectCollar(collar)"><div class="circle-inner">
                       <img class="type-suit" src="{{collar.url}}"/>
                     </div></button>
                   </div>
@@ -36,12 +36,12 @@
         </div>
       </div>
       <div class="step-buttons">
-        <button md-raised-button color="primary" (click)="changeStep('1')">Next</button>
+        <button mat-raised-button color="primary" (click)="changeStep('1')">Next</button>
       </div>
     </div>
   </div>
   <div class="stepper-box" [ngClass]="{active: steps[1].display === 'block'}" id="stepper2">
-    <button md-button (click)="changeStep('1')"><div class="circle">2</div>Pockets</button>
+    <button mat-button (click)="changeStep('1')"><div class="circle">2</div>Pockets</button>
   </div>
   <div class="stepper-inner">
     <div class="contents animated zoomIn" [ngStyle]="steps[1]">
@@ -62,7 +62,7 @@
               <div class="col-sm-6 col-xl-4" *ngFor="let pocket of pockets">
                 <div class="type-option unselectable">
                   <div class="gold-circle">
-                    <button md-button (click)="selectPocket(pocket)"><div class="circle-inner">
+                    <button mat-button (click)="selectPocket(pocket)"><div class="circle-inner">
                       <img class="type-suit" src="{{pocket.url}}"/>
                     </div></button>
                   </div>
@@ -73,12 +73,12 @@
         </div>
       </div>
       <div class="step-buttons">
-        <button md-raised-button color="primary" (click)="changeStep('2')">Next</button>
+        <button mat-raised-button color="primary" (click)="changeStep('2')">Next</button>
       </div>
     </div>
   </div>
   <div class="stepper-box" [ngClass]="{active: steps[2].display === 'block'}" id="stepper3">
-    <button md-button (click)="changeStep('2')"><div class="circle">3</div>Buttons</button>
+    <button mat-button (click)="changeStep('2')"><div class="circle">3</div>Buttons</button>
   </div>
   <div class="stepper-inner">
     <div class="contents animated zoomIn" [ngStyle]="steps[2]">
@@ -100,7 +100,7 @@
               <div class="col-sm-6 col-xl-4" *ngFor="let button of buttons">
                 <div class="type-option unselectable">
                   <div class="gold-circle">
-                    <button md-button (click)="selectButtons(button)"><div class="circle-inner">
+                    <button mat-button (click)="selectButtons(button)"><div class="circle-inner">
                       <img class="type-suit" src="{{button.url}}"/>
                     </div></button>
                   </div>
@@ -111,12 +111,12 @@
         </div>
       </div>
       <div class="step-buttons">
-        <button md-raised-button color="primary" (click)="changeStep('3')">Next</button>
+        <button mat-raised-button color="primary" (click)="changeStep('3')">Next</button>
       </div>
     </div>
   </div>
   <div class="stepper-box" [ngClass]="{active: steps[3].display === 'block'}" id="stepper4">
-    <button md-button (click)="changeStep('3')"><div class="circle">4</div>Tongue</button>
+    <button mat-button (click)="changeStep('3')"><div class="circle">4</div>Tongue</button>
   </div>
   <div class="stepper-inner">
     <div class="contents animated zoomIn" [ngStyle]="steps[3]">
@@ -138,7 +138,7 @@
               <div class="col-sm-6 col-xl-4" *ngFor="let tongue of tongues">
                 <div class="type-option unselectable">
                   <div class="gold-circle">
-                    <button md-button (click)="selectTongue(tongue)"><div class="circle-inner">
+                    <button mat-button (click)="selectTongue(tongue)"><div class="circle-inner">
                       <img class="type-suit" src="{{tongue.url}}"/>
                     </div></button>
                   </div>
@@ -149,12 +149,12 @@
         </div>
       </div>
       <div class="step-buttons">
-        <button md-raised-button color="primary" (click)="changeStep('4')">Next</button>
+        <button mat-raised-button color="primary" (click)="changeStep('4')">Next</button>
       </div>
     </div>
   </div>
   <div class="stepper-box" [ngClass]="{active: steps[4].display === 'block'}" id="stepper5">
-    <button md-button (click)="changeStep('4')"><div class="circle">5</div>Vents</button>
+    <button mat-button (click)="changeStep('4')"><div class="circle">5</div>Vents</button>
   </div>
   <div class="stepper-inner">
     <div class="contents animated zoomIn" [ngStyle]="steps[4]">
@@ -175,7 +175,7 @@
               <div class="col-sm-6 col-xl-4" *ngFor="let vent of vents">
                 <div class="type-option unselectable">
                   <div class="gold-circle">
-                    <button md-button (click)="selectVent(vent)"><div class="circle-inner">
+                    <button mat-button (click)="selectVent(vent)"><div class="circle-inner">
                       <img class="type-suit" src="{{vent.url}}"/>
                     </div></button>
                   </div>
@@ -186,18 +186,18 @@
         </div>
       </div>
       <div class="step-buttons">
-        <button md-raised-button color="primary" (click)="changeStep('5')">Next</button>
+        <button mat-raised-button color="primary" (click)="changeStep('5')">Next</button>
       </div>
     </div>
   </div>
   <div class="stepper-box" [ngClass]="{active: steps[5].display === 'block'}" id="stepper6">
-    <button md-button (click)="changeStep('5')"><div class="circle">6</div>Pants</button>
+    <button mat-button (click)="changeStep('5')"><div class="circle">6</div>Pants</button>
   </div>
   <div class="stepper-inner no-border">
     <div class="contents animated zoomIn" [ngStyle]="steps[5]">
 
       <div class="add-pants">
-        <md-slide-toggle [(ngModel)]="addPants" color="primary">Add Matching Pants</md-slide-toggle>
+        <mat-slide-toggle [(ngModel)]="addPants" color="primary">Add Matching Pants</mat-slide-toggle>
         <br /><hr />
       </div>
       <div class='row' *ngIf="addPants">
@@ -217,7 +217,7 @@
               <div class="col-sm-6 col-xl-4" *ngFor="let pant of pants">
                 <div class="type-option unselectable">
                   <div class="gold-circle">
-                    <button md-button (click)="selectPants(pant)"><div class="circle-inner">
+                    <button mat-button (click)="selectPants(pant)"><div class="circle-inner">
                       <img class="type-suit" src="{{pant.url}}"/>
                     </div></button>
                   </div>
@@ -228,7 +228,7 @@
         </div>
       </div>
       <div class="step-buttons">
-        <button md-raised-button color="primary" (click)="completeSuit()">Add to Cart</button>
+        <button mat-raised-button color="primary" (click)="completeSuit()">Add to Cart</button>
       </div>
     </div>
   </div>

@@ -4,7 +4,7 @@ import {AuthService} from '../../services/auth.service';
 import { Router } from '@angular/router';
 import {Product} from "../../models/product";
 import {Cart} from "../../models/cart";
-import {MdDialog} from '@angular/material';
+import {MatDialog} from '@angular/material';
 import {DialogContentCartDialog} from './dialog/dialog-content-cart-dialog';
 import {ToastyService, ToastyConfig, ToastOptions, ToastData} from 'ng2-toasty';
 
@@ -20,7 +20,7 @@ export class CartWidgetComponent implements OnInit {
   loadingToast: any;
   loadingCart: boolean;
 
-  constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig, public data: DataService, public auth: AuthService, public router: Router, public dialog: MdDialog) {
+  constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig, public data: DataService, public auth: AuthService, public router: Router, public dialog: MatDialog) {
 
     this.loadingToast = null;
     this.loadingCart = true;

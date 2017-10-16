@@ -6,28 +6,28 @@
 
   <div class="row">
     <div class="col-md-4" style="padding: 10px;" *ngFor="let product of products">
-      <md-card class="example-card">
-        <md-card-header>
-          <md-card-title>{{product.name}}</md-card-title>
-          <md-card-subtitle>{{product.description}}</md-card-subtitle>
-        </md-card-header>
-        <md-card-content>
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>{{product.name}}</mat-card-title>
+          <mat-card-subtitle>{{product.description}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
           <p style="padding-left: 10px;">
             R{{product.price | number:'1.2-2'}}
           </p>
-        </md-card-content>
-        <md-card-actions>
-          <button md-button (click)="addCart(product)">Add To Cart</button>
-        </md-card-actions>
-      </md-card>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="addCart(product)">Add To Cart</button>
+        </mat-card-actions>
+      </mat-card>
     </div>
   </div>
     <br /><br /><hr />
 
     <div style="padding: 40px; text-align: center;">
-      <button md-raised-button color="primary" (click)="fetchMethods();">Query AddPay</button><br /><br />
+      <button mat-raised-button color="primary" (click)="fetchMethods();">Query AddPay</button><br /><br />
 
-      <button md-raised-button color="primary" (click)="createTransaction();">Make Payment</button>
+      <button mat-raised-button color="primary" (click)="createTransaction();">Make Payment</button>
     </div>
 
     <!-- <div style="padding: 40px; text-align: center;" *ngIf="!cart">
@@ -43,24 +43,24 @@
       </div>
       <div style="">
         <div style="padding: 10px;" *ngFor="let product of cart.products">
-          <md-card class="example-card">
-            <md-card-header>
-              <md-card-title>{{product.name}}</md-card-title>
-              <md-card-subtitle>{{product.description}}</md-card-subtitle>
-            </md-card-header>
-            <md-card-content>
+          <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>{{product.name}}</mat-card-title>
+              <mat-card-subtitle>{{product.description}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
               <p>
                 R{{product.price}}
               </p>
               <p>
                 {{product.count}}
               </p>
-            </md-card-content>
-          </md-card>
+            </mat-card-content>
+          </mat-card>
         </div><br /><br /><br />
       </div>
       <div style="text-align: center">
-        <button md-raised-button color="primary"  (click)="deleteCart()">Clear Cart</button>
+        <button mat-raised-button color="primary"  (click)="deleteCart()">Clear Cart</button>
       </div>
     </div> -->
 </div>

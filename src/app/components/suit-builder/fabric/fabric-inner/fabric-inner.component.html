@@ -2,6 +2,6 @@
   <div *ngIf="selectType"><app-type></app-type></div>
   <div *ngIf="selectFabric"><app-select-fabric></app-select-fabric></div>
   <div class="inner-next">
-      <button *ngIf="selectFabric" md-raised-button (click)="prevSection()">Back</button> <button md-raised-button color="primary" (click)="nextSection()">Next</button>
+      <button *ngIf="selectFabric" mat-raised-button (click)="prevSection()">Back</button> <button mat-raised-button color="primary" (click)="nextSection()">Next</button>
   </div>
 </div>

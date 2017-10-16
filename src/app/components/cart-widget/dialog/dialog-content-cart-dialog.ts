@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import {MD_DIALOG_DATA} from '@angular/material';
+import {MAT_DIALOG_DATA} from '@angular/material';
 import {Cart} from "../../../models/cart";
 import {Product} from "../../../models/product";
 import { Router } from '@angular/router';
@@ -27,7 +27,7 @@ export class DialogContentCartDialog implements OnInit {
   //  -  checkout button (does nothing for now)
   //  -  cart total at bottom of products
 
-  constructor(@Inject(MD_DIALOG_DATA) public data: any, public router: Router, private toastyService:ToastyService, private toastyConfig: ToastyConfig) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public router: Router, private toastyService:ToastyService, private toastyConfig: ToastyConfig) {
     this.isLoading = false;
     let numbers = [];
     for(let i = 1; i < 21; i++) {

@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-4">
           <div class="call-text ">
-            <i class="material-icons">phone</i>   <span><b>CALL CENTRE:</b> <button md-button (cbOnSuccess)="copied()" ngxClipboard [cbContent]="cell">011 492 33604</button></span>
+            <i class="material-icons">phone</i>   <span><b>CALL CENTRE:</b> <button mat-button (cbOnSuccess)="copied()" ngxClipboard [cbContent]="cell">011 492 33604</button></span>
           </div>
         </div>
         <div class="col-4">
@@ -11,9 +11,9 @@
         </div>
         <div class="col-4">
           <div class="social-icons">
-            <button md-icon-button><fa name="facebook" size="2x"></fa></button>&nbsp;
-            <button md-icon-button><fa name="twitter" size="2x"></fa></button>&nbsp;
-            <button md-icon-button><fa name="instagram" size="2x"></fa></button>
+            <button mat-icon-button><fa name="facebook" size="2x"></fa></button>&nbsp;
+            <button mat-icon-button><fa name="twitter" size="2x"></fa></button>&nbsp;
+            <button mat-icon-button><fa name="instagram" size="2x"></fa></button>
           </div>
           <div class="padding-top: 40px">
           </div>
@@ -21,22 +21,22 @@
     </div>
   </div>
 </div>
-<md-toolbar color="primary" class="unselectable">
+<mat-toolbar color="primary" class="unselectable">
   <!-- TODO: hide on mobile -->
   <div class="toolbar-centered">
 
-    <button md-button routerLink="home">HOME</button>
-    <button md-button routerLink="about">ABOUT</button>
-    <button md-button [mdMenuTriggerFor]="shopMenu">SHOP</button>
-    <!-- <button md-button routerLink="accessories">ACCESSORIES</button> -->
-    <button md-button routerLink="contact">CONTACT US</button>
-    <button md-button *ngIf="!isAuthenticated" (click)="login()">LOG IN</button>
-    <button md-button routerLink="account" *ngIf="isAuthenticated">ACCOUNT</button>
+    <button mat-button routerLink="home">HOME</button>
+    <button mat-button routerLink="about">ABOUT</button>
+    <button mat-button [matMenuTriggerFor]="shopMenu">SHOP</button>
+    <!-- <button mat-button routerLink="accessories">ACCESSORIES</button> -->
+    <button mat-button routerLink="contact">CONTACT US</button>
+    <button mat-button *ngIf="!isAuthenticated" (click)="login()">LOG IN</button>
+    <button mat-button routerLink="account" *ngIf="isAuthenticated">ACCOUNT</button>
   </div>
 
   <!-- <div class="showOnMobile">
-    <button md-icon-button  (click)="sidenav.open()">
-       <md-icon>more_vert</md-icon>
+    <button mat-icon-button  (click)="sidenav.open()">
+       <mat-icon>more_vert</mat-icon>
     </button>
   </div> -->
 
@@ -47,19 +47,19 @@
   <!-- <span class="toolbar-right"></span> -->
 
   <!-- <span>Right Aligned Text</span> -->
-</md-toolbar>
+</mat-toolbar>
 
-<md-menu #shopMenu="mdMenu">
-  <button md-menu-item routerLink="suits"> Suits </button>
-  <button md-menu-item> Shirts </button>
-  <button md-menu-item> Pants </button>
-  <button md-menu-item> Accessories </button>
-</md-menu>
+<mat-menu #shopMenu="matMenu">
+  <button mat-menu-item routerLink="suits"> Suits </button>
+  <button mat-menu-item> Shirts </button>
+  <button mat-menu-item> Pants </button>
+  <button mat-menu-item> Accessories </button>
+</mat-menu>
 
-<!-- <md-menu #appMenu="mdMenu">
-  <button md-menu-item routerLink="home"> Home </button>
-  <button md-menu-item routerLink="about"> About </button>
-  <button md-menu-item> Suits </button>
-  <button md-menu-item> Accessories </button>
-  <button md-menu-item routerLink="contact"> Contact Us </button>
-</md-menu> -->
+<!-- <mat-menu #appMenu="matMenu">
+  <button mat-menu-item routerLink="home"> Home </button>
+  <button mat-menu-item routerLink="about"> About </button>
+  <button mat-menu-item> Suits </button>
+  <button mat-menu-item> Accessories </button>
+  <button mat-menu-item routerLink="contact"> Contact Us </button>
+</mat-menu> -->

@@ -1,6 +1,6 @@
 
-<md-sidenav-container>
-  <md-sidenav mode="over" #sidenav class="my-sidenav"><app-navbar-sm></app-navbar-sm></md-sidenav>
+<mat-sidenav-container>
+  <mat-sidenav mode="over" #sidenav class="my-sidenav"><app-navbar-sm></app-navbar-sm></mat-sidenav>
 
   <div class="my-content">
     <div class="shopping-cart">
@@ -12,16 +12,16 @@
       </app-navbar>
     </div>
     <div class="showOnMobile">
-      <md-toolbar color="primary" class="unselectable">
+      <mat-toolbar color="primary" class="unselectable">
         <div class="alex-navbar-inner">
-          <button md-icon-button class="navbar-icon" (click)="sidenav.open()">
-             <md-icon>more_vert</md-icon>
+          <button mat-icon-button class="navbar-icon" (click)="sidenav.open()">
+             <mat-icon>more_vert</mat-icon>
           </button>
           <div class="alex-navbar-button">
-            <button md-button style="centered">ALEXANDER SUITS</button>
+            <button mat-button style="centered">ALEXANDER SUITS</button>
           </div>
         </div>
-      </md-toolbar>
+      </mat-toolbar>
     </div>
     <div class="nav-padder">
         <router-outlet>
@@ -33,5 +33,5 @@
     </app-footer>
   </div>
 
-</md-sidenav-container>
+</mat-sidenav-container>
 <ng2-toasty></ng2-toasty>

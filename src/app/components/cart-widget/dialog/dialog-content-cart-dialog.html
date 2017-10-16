@@ -1,7 +1,7 @@
 <div class="dialog">
   <div class="close-dialog">
-    <button md-icon-button [md-dialog-close]="false">
-      <md-icon class="md-24">close</md-icon>
+    <button mat-icon-button [matDialogClose]="false">
+      <mat-icon class="md-24">close</mat-icon>
     </button>
   </div>
   <div style="padding: 10px; text-align: center;" *ngIf="cart">
@@ -36,11 +36,11 @@
             </div>
             <div class="col-3">
               <div class="product-center">
-                <md-select placeholder="Amount" [(ngModel)]="product.count" (change)="onChange(product)">
-                  <md-option *ngFor="let number of numbers" [value]="number">
+                <mat-select placeholder="Amount" [(ngModel)]="product.count" (change)="onChange(product)">
+                  <mat-option *ngFor="let number of numbers" [value]="number">
                     {{ number }}
-                  </md-option>
-                </md-select>
+                  </mat-option>
+                </mat-select>
               </div>
             </div>
             <div class="col-3">
@@ -54,14 +54,14 @@
       <div class="row">
 
         <div class="col-sm-6 col-xl-4"  *ngFor="let product of cart.products" style="margin-bottom: 15px;">
-          <md-card class="example-card">
-            <md-card-header style="text-align: left;">
-              <div md-card-avatar style="background-image: url('assets/red.jpg'); background-size: cover;"></div>
-              <md-card-title>{{product.name}}</md-card-title>
-              <md-card-subtitle>{{product.description}}</md-card-subtitle>
-            </md-card-header>
-            <img md-card-image src="assets/casual-suit.png" alt="Suit" class="product-img">
-            <md-card-content style="padding-top: 20px;">
+          <mat-card class="example-card">
+            <mat-card-header style="text-align: left;">
+              <div mat-card-avatar style="background-image: url('assets/red.jpg'); background-size: cover;"></div>
+              <mat-card-title>{{product.name}}</mat-card-title>
+              <mat-card-subtitle>{{product.description}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="assets/casual-suit.png" alt="Suit" class="product-img">
+            <mat-card-content style="padding-top: 20px;">
               <!-- <p>
                 R{{product.price}}
               </p>
@@ -70,30 +70,30 @@
               </p> -->
               <div class="row">
                 <div class="col-6">
-                  <md-select placeholder="Amount"  disabled="{{isLoading}}" [(ngModel)]="product.count" (change)="onChange(product)">
-                    <md-option *ngFor="let number of numbers" [value]="number">
+                  <mat-select placeholder="Amount"  disabled="{{isLoading}}" [(ngModel)]="product.count" (change)="onChange(product)">
+                    <mat-option *ngFor="let number of numbers" [value]="number">
                       {{ number }}
-                    </md-option>
-                  </md-select>
+                    </mat-option>
+                  </mat-select>
                 </div>
                 <div class="col-6">
-                  <md-form-field class="s-full-width">
-                    <input mdInput placeholder="Subtotal" value="" disabled="true" [ngModel]="product.price*product.count | number:'1.2-2'" (ngModelChange)="product.price=$event" name="price" style="padding-top: 8px;">
-                  </md-form-field>
+                  <mat-form-field class="s-full-width">
+                    <input matInput placeholder="Subtotal" value="" disabled="true" [ngModel]="product.price*product.count | number:'1.2-2'" (ngModelChange)="product.price=$event" name="price" style="padding-top: 8px;">
+                  </mat-form-field>
                 </div>
               </div>
-            </md-card-content>
+            </mat-card-content>
               <!-- <div class="text-align: center">
-                <md-select placeholder="Amount" [(ngModel)]="product.count" (change)="onChange(product)">
-                  <md-option *ngFor="let number of numbers" [value]="number">
+                <mat-select placeholder="Amount" [(ngModel)]="product.count" (change)="onChange(product)">
+                  <mat-option *ngFor="let number of numbers" [value]="number">
                     {{ number }}
-                  </md-option>
-                </md-select>
+                  </mat-option>
+                </mat-select>
               </div> -->
-            <md-card-actions style="text-align: right;">
-              <button md-button disabled="{{isLoading}}" (click)="removeItem(product)">Remove</button>
-            </md-card-actions>
-          </md-card>
+            <mat-card-actions style="text-align: right;">
+              <button mat-button disabled="{{isLoading}}" (click)="removeItem(product)">Remove</button>
+            </mat-card-actions>
+          </mat-card>
         </div>
 
       </div>
@@ -102,7 +102,7 @@
       </div>
     </div>
     <!-- <div style="text-align: center">
-      <button md-raised-button color="primary"  (click)="deleteCart()">Clear Cart</button>
+      <button mat-raised-button color="primary"  (click)="deleteCart()">Clear Cart</button>
     </div> -->
   </div>
   <div class="" *ngIf="!cart">
@@ -111,9 +111,9 @@
     </div>
   </div>
 </div>
-<div md-dialog-actions *ngIf="cart">
+<div mat-dialog-actions *ngIf="cart">
   <div style="text-align: right; width: 100%;">
-    <button md-button (click)="deleteCart()"  disabled="{{isLoading}}">Clear Cart</button>
-    <button md-raised-button color="primary" (click)="checkout()" disabled="{{isLoading}}"  [md-dialog-close]="true">Checkout</button>
+    <button mat-button (click)="deleteCart()"  disabled="{{isLoading}}">Clear Cart</button>
+    <button mat-raised-button color="primary" (click)="checkout()" disabled="{{isLoading}}"  [matDialogClose]="true">Checkout</button>
   </div>
 </div>
