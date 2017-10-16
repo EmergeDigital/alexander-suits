@@ -27,8 +27,10 @@ import {NgModule} from '@angular/core';
 import {OwlModule} from 'ng2-owl-carousel';
 import {ClipboardModule} from 'ngx-clipboard';
 import {ToastyModule} from 'ng2-toasty';
+import { SwiperModule } from 'angular2-useful-swiper';
 import {AuthHttp, AuthConfig} from 'angular2-jwt';
 import 'hammerjs';
+import {Ng2PageScrollModule} from 'ng2-page-scroll';
 
 import {TabsService} from "./services/tabs.service";
 import {DataService} from "./services/data.service";
@@ -86,7 +88,6 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         tokenGetter: (() => localStorage.getItem('access_token'))
     }), http, options);
 }
-
 
 @NgModule({
     declarations: [
@@ -158,6 +159,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         OwlModule,
         AngularFontAwesomeModule,
         ClipboardModule,
+        SwiperModule,
+        Ng2PageScrollModule,
         NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyAm3PebcIYpXrXY5k7xA5_9JWnqIjWKlU4'})
     ],
     entryComponents: [

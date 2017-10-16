@@ -207,6 +207,10 @@
   version "2.53.42"
   resolved "https://registry.yarnpkg.com/@types/selenium-webdriver/-/selenium-webdriver-2.53.42.tgz#74cb77fb6052edaff2a8984ddafd88d419f25cac"
 
+"@types/swiper@^3.4.4":
+  version "3.4.4"
+  resolved "https://registry.yarnpkg.com/@types/swiper/-/swiper-3.4.4.tgz#70ea3215ff336dcb6043596419e0a6c73b5567ea"
+
 abbrev@1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.0.tgz#d0554c2256636e2f56e7c2e5ad183f859428d81f"
@@ -296,6 +300,12 @@ angular-font-awesome@^2.0.3:
 angular2-jwt@^0.2.3:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/angular2-jwt/-/angular2-jwt-0.2.3.tgz#54efdda3ceedba85f6a37b165f22ac22b8adf021"
+
+angular2-useful-swiper@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/angular2-useful-swiper/-/angular2-useful-swiper-5.0.0.tgz#cf4281b01dda71ee1c9795a33e222732cdb1c0d5"
+  dependencies:
+    "@types/swiper" "^3.4.4"
 
 ansi-escapes@^2.0.0:
   version "2.0.0"
@@ -3397,6 +3407,10 @@ ng2-owl-carousel@^0.1.15:
     jquery ">= 2.2.0"
     owl.carousel "^2.2.0"
 
+ng2-page-scroll@^4.0.0-beta.11:
+  version "4.0.0-beta.11"
+  resolved "https://registry.yarnpkg.com/ng2-page-scroll/-/ng2-page-scroll-4.0.0-beta.11.tgz#9f78da80d44f368e1f4e4dd770136c60d77facfe"
+
 ng2-toasty@^4.0.3:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/ng2-toasty/-/ng2-toasty-4.0.3.tgz#ea78ef8d18757d41ebaba11bd9f90a543f58fd7a"
@@ -5130,6 +5144,10 @@ svgo@^0.7.0:
     mkdirp "~0.5.1"
     sax "~1.2.1"
     whet.extend "~0.9.9"
+
+swiper@3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/swiper/-/swiper-3.3.1.tgz#ae5cc5a1ae3abe0e98a175e6d7eb0370cd07ce88"
 
 symbol-observable@^1.0.1:
   version "1.0.4"

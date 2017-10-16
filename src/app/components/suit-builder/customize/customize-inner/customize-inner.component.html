@@ -1,9 +1,9 @@
 <!-- <app-coming-soon pageTitle="Customize"></app-coming-soon> -->
 <div class="container animated fadeIn" style="padding-top: 60px; padding-bottom: 60px;">
   <div class="customize-top">
-    <h1>Suit Customizer</h1>
+    <h1 id="tabTitle">Suit Customizer</h1>
   </div>
-  <div class="stepper-box" [ngClass]="{active: steps[0].display === 'block'|| completed0===true}">
+  <div class="stepper-box" [ngClass]="{active: steps[0].display === 'block'|| completed0===true}" id="stepper1">
     <button md-button (click)="changeStep('0')"><div class="circle">1</div>Collar</button>
   </div>
   <div class="stepper-inner">
@@ -40,7 +40,7 @@
       </div>
     </div>
   </div>
-  <div class="stepper-box" [ngClass]="{active: steps[1].display === 'block'}">
+  <div class="stepper-box" [ngClass]="{active: steps[1].display === 'block'}" id="stepper2">
     <button md-button (click)="changeStep('1')"><div class="circle">2</div>Pockets</button>
   </div>
   <div class="stepper-inner">
@@ -77,7 +77,7 @@
       </div>
     </div>
   </div>
-  <div class="stepper-box" [ngClass]="{active: steps[2].display === 'block'}">
+  <div class="stepper-box" [ngClass]="{active: steps[2].display === 'block'}" id="stepper3">
     <button md-button (click)="changeStep('2')"><div class="circle">3</div>Buttons</button>
   </div>
   <div class="stepper-inner">
@@ -115,7 +115,7 @@
       </div>
     </div>
   </div>
-  <div class="stepper-box" [ngClass]="{active: steps[3].display === 'block'}">
+  <div class="stepper-box" [ngClass]="{active: steps[3].display === 'block'}" id="stepper4">
     <button md-button (click)="changeStep('3')"><div class="circle">4</div>Tongue</button>
   </div>
   <div class="stepper-inner">
@@ -153,7 +153,7 @@
       </div>
     </div>
   </div>
-  <div class="stepper-box" [ngClass]="{active: steps[4].display === 'block'}">
+  <div class="stepper-box" [ngClass]="{active: steps[4].display === 'block'}" id="stepper5">
     <button md-button (click)="changeStep('4')"><div class="circle">5</div>Vents</button>
   </div>
   <div class="stepper-inner">
@@ -190,7 +190,7 @@
       </div>
     </div>
   </div>
-  <div class="stepper-box" [ngClass]="{active: steps[5].display === 'block'}">
+  <div class="stepper-box" [ngClass]="{active: steps[5].display === 'block'}" id="stepper6">
     <button md-button (click)="changeStep('5')"><div class="circle">6</div>Pants</button>
   </div>
   <div class="stepper-inner no-border">

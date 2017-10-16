@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core';
+import { DOCUMENT} from '@angular/common';
+import { PageScrollConfig, PageScrollService, PageScrollInstance } from 'ng2-page-scroll';
 import {TabsService} from '../../../../services/tabs.service';
 
 import 'rxjs/add/operator/toPromise';
@@ -58,7 +60,7 @@ export class CustomizeInnerComponent implements OnInit {
   selectedTongue: any = {"name": "1", "desc": "Tongue facing integrated", "url": "assets/suit-builder/tongue/tongue-v1.png"};
   addPants: boolean = true;
 
-  constructor(private service: TabsService) {
+  constructor(private service: TabsService, private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any) {
     this.steps = [];
     this.stepsLength = 6;
     this.steps.push({display: "block"});
@@ -103,10 +105,17 @@ export class CustomizeInnerComponent implements OnInit {
     }
 
     this.steps[s].display = 'block';
+    let pageScrollInstance: PageScrollInstance = PageScrollInstance.simpleInstance(this.document, '#stepper'+s);
+    this.pageScrollService.start(pageScrollInstance);
   }
 
   completeSuit() {
-      this.service.changeTab("contrast");
+      let pageScrollInstance: PageScrollInstance = PageScrollInstance.newInstance({document: this.document, scrollTarget: '#tabTitle', pageScrollDuration: 0.3});
+      this.pageScrollService.start(pageScrollInstance);
+      setTimeout(()=> {
+        this.service.changeTab("extras");
+      }, 0.32)
+      // this.service.changeTab("extras");
   }
 
 
