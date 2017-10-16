@@ -22,3 +22,26 @@
   padding:20px;
   text-align: center;
 }
+
+.steps-i {
+  text-align: left;
+  padding: 10px;
+}
+
+.cb-container {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.as-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.as-radio-button {
+  margin: 5px;
+}
+
+.as-selected-value {
+  margin: 15px 0;
+}

@@ -1,5 +1,5 @@
 
-<div class="container animated fadeIn" style="padding-top: 60px; padding-bottom: 60px;">
+<div class="container animated fadeIn" style="padding-top: 60px; padding-bottom: 60px;"  *tdLoading="'overlayStarSyntax'; mode:'indeterminate'; type:'circle'; strategy:'overlay'; color:'primary'">
   <div class="measurements-top">
     <h1>Measurements</h1>
     <br />
@@ -161,8 +161,20 @@
         </div>
         <div class="stepper-inner">
           <div class="contents animated zoomIn" [ngStyle]="steps[2]">
+              <div style="text-align: left;">
+                <h3>Upload a photo</h3>
+                <p>Take a picture of yourself and select it below.</p>
+                <td-file-upload accept=".jpg, .png, .jpeg" defaultColor="primary" activeColor="warn" cancelColor="primary" #singleFileUpload
+                (select)="selectEvent($event)" (cancel)="cancelEvent()"  [(disabled)]="uploading" >
+                  <mat-icon>file_upload</mat-icon><span>1 file selected</span>
+                  <ng-template td-file-input-label>
+                    <mat-icon>attach_file</mat-icon><span>Choose a file...</span>
+                  </ng-template>
+                </td-file-upload>
+              </div>
             <div class="step-buttons">
-              <button mat-raised-button color="primary" (click)="checkout()">Done</button>
+              <br>
+              <button mat-raised-button color="primary" (click)="next()">Done</button>
             </div>
           </div>
         </div>

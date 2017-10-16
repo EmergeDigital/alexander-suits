@@ -2,6 +2,9 @@ import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core'
 import { DOCUMENT} from '@angular/common';
 import { PageScrollConfig, PageScrollService, PageScrollInstance } from 'ng2-page-scroll';
 import {TabsService} from '../../../../services/tabs.service';
+import {DataService} from '../../../../services/data.service';
+import { TdLoadingService } from '@covalent/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-measurements-inner',
@@ -44,7 +47,8 @@ export class MeasurementsInnerComponent implements OnInit {
       {img: "assets/measurements/7-Compact-Athletic-Chest.png", id: 6, title: "Compact, Athletic Chest", desc: "welcome to the world of aesthetics"},
     ];
 
-    constructor(private service: TabsService, private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any) {
+    constructor(private service: TabsService, private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any, 
+                public router: Router, public data: DataService, private _loadingService: TdLoadingService) {
       this.steps = [];
       this.stepsLength = 3;
       this.steps.push({display: "block"});
@@ -60,6 +64,47 @@ export class MeasurementsInnerComponent implements OnInit {
     }
 
     ngOnInit() {
+    }
+
+    uploadImg: any = {};
+    uploadMsg: string = '';
+    uploading: boolean = false;
+    imageUploaded: string = '';
+    canAddChips: boolean = false;
+ 
+    selectEvent(file: File): void {
+      this.uploadImg = file;
+      this.uploadMsg = "File selected";
+    }
+
+    cancelEvent(): void {
+      this.uploadImg = {};
+      this.uploadMsg = '';
+    }
+ 
+    next() {
+      this._loadingService.register('overlayStarSyntax');
+      // console.log(this.uploadImg);
+      if(this.uploadMsg === "File selected") {
+        this.uploading = true;
+        // this.fileUploading = "Uploading now, please wait.";
+        this.data.uploadImage(this.uploadImg).then(response=>{
+          // console.log(response);
+          //Store this image
+          this.imageUploaded = response;
+          this.uploading = false;
+          this.uploadMsg = '';
+          this.uploadImg = {};
+          // this.fileUploading = "";
+          this.checkout();
+        }).catch(ex => {
+          alert("An error occurred, please try again");
+          this._loadingService.resolve('overlayStarSyntax');
+          console.log(ex);
+        });
+      } else {
+        this.checkout();
+      }
     }
 
     confirmBodyType() {
@@ -81,7 +126,9 @@ export class MeasurementsInnerComponent implements OnInit {
     }
 
     checkout() {
-        console.log("completed");
+      this._loadingService.resolve('overlayStarSyntax');
+      this.router.navigate(['/checkout']);
+      // console.log("completed");
     }
 
 }

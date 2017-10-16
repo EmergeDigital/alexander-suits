@@ -34,6 +34,10 @@ import {Ng2PageScrollModule} from 'ng2-page-scroll';
 import {MATERIAL_COMPATIBILITY_MODE} from '@angular/material';
 
 
+import { CovalentFileModule } from '@covalent/core';
+import { CovalentLoadingModule } from '@covalent/core';
+
+
 import {TabsService} from "./services/tabs.service";
 import {DataService} from "./services/data.service";
 import {AuthService} from "./services/auth.service";
@@ -139,6 +143,9 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         BrowserAnimationsModule,
         FormsModule,
         HttpModule,
+        Ng2PageScrollModule,
+        CovalentFileModule,
+        CovalentLoadingModule,
         AppRoutingModule,
         ToastyModule.forRoot(),
         MatButtonModule,
@@ -162,7 +169,6 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         AngularFontAwesomeModule,
         ClipboardModule,
         SwiperModule,
-        Ng2PageScrollModule,
         NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyAm3PebcIYpXrXY5k7xA5_9JWnqIjWKlU4'})
     ],
     entryComponents: [

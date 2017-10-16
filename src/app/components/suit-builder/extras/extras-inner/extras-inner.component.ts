@@ -14,6 +14,13 @@ export class ExtrasInnerComponent implements OnInit {
   stepsLength: number;
   steps: any[];
   completed0: boolean;
+  selectedOption: string = "";
+  options: string[] = [
+    "None",
+    "Tuxedo",
+    "Undercollar",
+    "Tweed"
+  ];
 
   config: SwiperOptions = {
       pagination: '.swiper-pagination',
@@ -27,7 +34,7 @@ export class ExtrasInnerComponent implements OnInit {
   constructor(private service: TabsService, private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any) {
 
     this.steps = [];
-    this.stepsLength = 6;
+    this.stepsLength = 5;
     this.steps.push({display: "block"});
     for(let i = 1; i < this.stepsLength; i++) {
       this.steps.push({display: "none"});
@@ -37,6 +44,7 @@ export class ExtrasInnerComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.selectedOption = this.options[0];
   }
 
   changeStep(s){
