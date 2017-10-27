@@ -2,6 +2,7 @@ import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core'
 import { DOCUMENT} from '@angular/common';
 import { PageScrollConfig, PageScrollService, PageScrollInstance } from 'ng2-page-scroll';
 import {TabsService} from '../../../../services/tabs.service';
+import {SuitService} from "./../../../../services/customizers/suit.service";
 
 import 'rxjs/add/operator/toPromise';
 // import 'rxjs/add/operator/map';
@@ -52,21 +53,39 @@ export class CustomizeInnerComponent implements OnInit {
     {"name": "2", "desc": "Tongue facing detached", "url": "assets/suit-builder/tongue/tongue-v2.png"},
     {"name": "3", "desc": "Tongue facing with tongue", "url": "assets/suit-builder/tongue/tongue-v3.png"},
   ];
-  selectedCollar: any = {"name": "1", "url": "assets/suit-builder/collars/collar-v1.png"};
-  selectedPant: any = {"name": "1", "url": "assets/suit-builder/pants/pants-v1.png"};
-  selectedVent: any = {"name": "1", "url": "assets/suit-builder/vents/vents-v1.png"};
-  selectedPocket: any = {"name": "1", "url": "assets/suit-builder/pockets/pocket-v1.png"};
-  selectedButtons: any = {"name": "1", "desc": "Fake button holes", "url": "assets/suit-builder/buttons/buttons-v1.png"};
-  selectedTongue: any = {"name": "1", "desc": "Tongue facing integrated", "url": "assets/suit-builder/tongue/tongue-v1.png"};
+  selectedCollar: any = {};
+  selectedPant: any = {};
+  selectedVent: any = {};
+  selectedPocket: any = {};
+  selectedButtons: any = {};
+  selectedTongue: any = {};
   addPants: boolean = true;
+  loading: boolean = true;
 
-  constructor(private service: TabsService, private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any) {
+  constructor(private service: TabsService, private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any,
+              public suitService: SuitService) {
     this.steps = [];
     this.stepsLength = 6;
     this.steps.push({display: "block"});
     for(let i = 1; i < this.stepsLength; i++) {
       this.steps.push({display: "none"});
     }
+
+    this.loading = true;
+    // console.log(suitService.suit);
+    this.selectedCollar = this.suitService.suit.collar;
+    this.selectedVent = this.suitService.suit.vents;
+    this.selectedPocket = this.suitService.suit.pockets;
+    this.selectedButtons = this.suitService.suit.buttons;
+    this.selectedTongue = this.suitService.suit.tongue;
+    if(this.suitService.suit.pants === null) {
+      this.addPants = false;
+    } else {
+      this.addPants = true;
+    }
+    setTimeout(()=> {
+      this.loading = false;
+    }, 1);
 
     this.completed0 = false;
   }
@@ -76,26 +95,39 @@ export class CustomizeInnerComponent implements OnInit {
 
   selectCollar(collar) {
     this.selectedCollar = collar;
+    this.suitService.suit.collar = collar;
   }
 
   selectPants(pant) {
     this.selectedPant = pant;
+    this.suitService.suit.pants = pant;
   }
 
   selectVent(vent) {
     this.selectedVent = vent;
+    this.suitService.suit.vents = vent;
   }
 
   selectPocket(pocket) {
     this.selectedPocket = pocket;
+    this.suitService.suit.pockets = pocket;
   }
 
   selectButtons(button) {
     this.selectedButtons = button;
+    this.suitService.suit.buttons = button;
   }
 
   selectTongue(tongue) {
     this.selectedTongue = tongue;
+    this.suitService.suit.tongue = tongue;
+  }
+
+  changedPants(){
+    console.log(this.addPants);
+    if(this.addPants === false) {
+      this.suitService.suit.pants = null;
+    }
   }
 
 

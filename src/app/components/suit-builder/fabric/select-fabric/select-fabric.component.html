@@ -1,16 +1,25 @@
 <div class="container-fluid fabric-top animated fadeIn">
   <h2>Choose the colour for your suit</h2>
-  <div class="row centered">
-    <div class="fabric-items" *ngFor="let item of items;">
-      <div class="col-lg-2 col-md-3 col-sm-6">
-        <div class="fabric-block">
-          <div class="fabric-square-outer">
-            <div class="fabric-square" [ngStyle]="{'background-color': item.color}">
-
+  <div *ngIf="!loading">
+    <div class="row centered" *ngIf="products">
+      <div class="fabric-items" *ngFor="let product of products;">
+        <div class="col-lg-2 col-md-3 col-sm-6" *ngIf="product.image_urls.length > 0">
+          <div class="fabric-block">
+            <div class="fabric-square-outer">
+              <button mat-button (click)="selectProduct(product)"><div class="fabric-square">
+                <img src="{{product.image_urls[0]}}" style="width: 100%; height: 100%;">
+              </div></button>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="centered" *ngIf="errorMsg">
+      <br><br><h5>{{errorMsg}}</h5>
+    </div>
+  </div>
+
+  <div class="loading" *ngIf="loading">
+    <mat-spinner></mat-spinner>
   </div>
 </div>

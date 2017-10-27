@@ -43,6 +43,7 @@ import {DataService} from "./services/data.service";
 import {AuthService} from "./services/auth.service";
 import {SessionService} from "./services/session.service";
 import {FunctionsService} from "./services/functions.service";
+import {SuitService} from "./services/customizers/suit.service";
 
 /*============================================================================
  Route Imports
@@ -174,7 +175,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     entryComponents: [
         DialogContentCartDialog
     ],
-    providers: [TabsService, DataService, SessionService, FunctionsService, AuthService,
+    providers: [TabsService, DataService, SessionService, FunctionsService, AuthService, SuitService,
         {provide: MATERIAL_COMPATIBILITY_MODE, useValue: true},
         {
             provide: AuthHttp,

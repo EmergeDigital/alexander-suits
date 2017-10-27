@@ -135,6 +135,25 @@ export class DataService {
         });
     }
 
+    _getProducts(options): Promise<Product[]> {
+      return new Promise((resolve, reject) => {
+              // console.log(localStorage.getItem('access_token'));
+              // console.log(localStorage.getItem('id_token'));
+              // console.log(localStorage.getItem('expires_at'));
+        this.http.get(this.API_URL + "/api/products/all", {params: options}).toPromise().then(products => {
+            const got_products = products.json();
+            const temp_arr = [];
+            for (const product of got_products) {
+                temp_arr.push(new Product(product));
+            }
+            // console.log("Logging products", temp_arr);
+            resolve(temp_arr);
+        }).catch(ex => {
+            console.log("Something went wrong fetching the products.", ex);
+        });
+      });
+  }
+
 
     /* ==============  CARTS  ============== */
 

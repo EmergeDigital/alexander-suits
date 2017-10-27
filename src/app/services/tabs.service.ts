@@ -4,6 +4,8 @@ import {Injectable, EventEmitter} from '@angular/core';
 export class TabsService {
 
   tabs: any[];
+  public selectType: boolean = true;
+  public selectFabric: boolean = false;
 
   tabs_event: EventEmitter<any[]> = new EventEmitter();
   constructor() {

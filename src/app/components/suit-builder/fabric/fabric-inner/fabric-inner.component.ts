@@ -12,26 +12,26 @@ export class FabricInnerComponent implements OnInit {
   selectType: boolean;
 
   constructor(private service: TabsService) {
-    this.selectType = true;
-    this.selectFabric = false;
+    this.selectType = service.selectType;
+    this.selectFabric = service.selectFabric;
   }
 
   ngOnInit() {
   }
 
   nextSection() {
-    if(this.selectType){
-      this.selectType = false;
-      this.selectFabric = true;
+    if(this.service.selectType){
+      this.service.selectType = false;
+      this.service.selectFabric = true;
     } else {
       this.service.changeTab("customize");
     }
   }
 
   prevSection() {
-    if(this.selectFabric){
-      this.selectType = true;
-      this.selectFabric = false;
+    if(this.service.selectFabric){
+      this.service.selectType = true;
+      this.service.selectFabric = false;
     }
   }
 
