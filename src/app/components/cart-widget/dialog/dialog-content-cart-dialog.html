@@ -56,11 +56,13 @@
         <div class="col-sm-6 col-xl-4"  *ngFor="let product of cart.products" style="margin-bottom: 15px;">
           <mat-card class="example-card">
             <mat-card-header style="text-align: left;">
-              <div mat-card-avatar style="background-image: url('assets/red.jpg'); background-size: cover;"></div>
+              <div *ngIf="!product.image_urls?.length > 0" mat-card-avatar style="background-image: url('assets/red.jpg'); background-size: cover;" class="fabric-block"></div>
+              <div *ngIf="product.image_urls?.length > 0" mat-card-avatar [ngStyle]="getBg(product)" class="fabric-block"></div>
               <mat-card-title>{{product.name}}</mat-card-title>
               <mat-card-subtitle>{{product.description}}</mat-card-subtitle>
             </mat-card-header>
-            <img mat-card-image src="assets/casual-suit.png" alt="Suit" class="product-img">
+            <img mat-card-image src="{{getImage(product)}}" alt="Product" class="product-img">
+          
             <mat-card-content style="padding-top: 20px;">
               <!-- <p>
                 R{{product.price}}
@@ -70,15 +72,17 @@
               </p> -->
               <div class="row">
                 <div class="col-6">
-                  <mat-select placeholder="Amount"  disabled="{{isLoading}}" [(ngModel)]="product.count" (change)="onChange(product)">
-                    <mat-option *ngFor="let number of numbers" [value]="number">
-                      {{ number }}
-                    </mat-option>
-                  </mat-select>
+                  <mat-form-field class="s-full-width">
+                    <mat-select placeholder="Amount"  disabled="{{isLoading}}" [(ngModel)]="product.count" (change)="onChange(product)">
+                      <mat-option *ngFor="let number of numbers" [value]="number">
+                        {{ number }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
                 </div>
                 <div class="col-6">
                   <mat-form-field class="s-full-width">
-                    <input matInput placeholder="Subtotal" value="" disabled="true" [ngModel]="product.price*product.count | number:'1.2-2'" (ngModelChange)="product.price=$event" name="price" style="padding-top: 8px;">
+                    <input matInput placeholder="Subtotal" value="" disabled="true" [ngModel]="product.price*product.count | number:'1.2-2'" (ngModelChange)="product.price=$event" name="price">
                   </mat-form-field>
                 </div>
               </div>
