@@ -11,7 +11,7 @@ export class FabricInnerComponent implements OnInit {
   selectFabric: boolean;
   selectType: boolean;
 
-  constructor(private service: TabsService) {
+  constructor(public service: TabsService) {
     this.selectType = service.selectType;
     this.selectFabric = service.selectFabric;
   }

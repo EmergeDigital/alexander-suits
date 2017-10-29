@@ -72,7 +72,7 @@ export class CustomizeInnerComponent implements OnInit {
     }
 
     this.loading = true;
-    // console.log(suitService.suit);
+    console.log(suitService.suit);
     this.selectedCollar = this.suitService.suit.collar;
     this.selectedVent = this.suitService.suit.vents;
     this.selectedPocket = this.suitService.suit.pockets;
@@ -81,6 +81,7 @@ export class CustomizeInnerComponent implements OnInit {
     if(this.suitService.suit.pants === null) {
       this.addPants = false;
     } else {
+      this.selectedPant = this.suitService.suit.pants;
       this.addPants = true;
     }
     setTimeout(()=> {

@@ -2,7 +2,7 @@
 
 <!-- <app-coming-soon pageTitle="Customize"></app-coming-soon> -->
 <div class="container animated fadeIn" style="padding-top: 60px; padding-bottom: 60px;">
-  <div class="extras-top">
+  <div class="extras-top" *ngIf="!loading">
     <h1 id="tabTitle">Extras</h1>
     <br />
     <div class="stepper-box" [ngClass]="{active: steps[0].display === 'block'|| completed0===true}" id="stepper1">
@@ -13,8 +13,8 @@
         <div class="steps-i">
           <h3>Extras for your suit</h3>
           <p>Get a full suit with all the matching parts for any and all occasions</p><br>
-          <div class="cb-container"><mat-checkbox class="as-margin" [(ngModel)]="addWC" color="primary">Add Waistcoat - <b>R234.00</b></mat-checkbox></div>
-          <div class="cb-container"><mat-checkbox class="as-margin" [(ngModel)]="addCoat" color="primary">Add Coat - <b>R999.32</b></mat-checkbox></div>          
+          <div class="cb-container"><mat-checkbox class="as-margin" [(ngModel)]="addWC" (change)="addedWC()" color="primary">Add Waistcoat - <b>R{{wcPrice | number:'1.2-2'}}</b></mat-checkbox></div>
+          <div class="cb-container"><mat-checkbox class="as-margin" [(ngModel)]="addCoat" (change)="addedCoat()" color="primary">Add Coat - <b>R{{coatPrice | number:'1.2-2'}}</b></mat-checkbox></div>          
           
         </div>
         <div class="step-buttons">
@@ -63,7 +63,7 @@
           <h3>Mock-up garment</h3>
           <p>To ensure your garment fits perfectly, we recommend ordering a mock-up garment from us to ensure your suit will be fitting exactly as you want it</p><br>
           <div class="cb-container">
-              <mat-checkbox class="as-margin" [(ngModel)]="addCoat" color="primary" >Add Mock-up Garments - <b>R867.00</b></mat-checkbox>
+              <mat-checkbox class="as-margin" [(ngModel)]="mockup" color="primary" (change)="addMockup()">Add Mock-up Garments - <b>R{{mockupPrice | number:'1.2-2'}}</b></mat-checkbox>
           </div>          
         </div>
         <div class="step-buttons">
@@ -81,7 +81,7 @@
           <h3>Quick Review</h3>
           <p>Before continuing with your measurements, please see your current subtotal for your custom suit:</p>
           <br>
-          <b>R12222.00</b><br><br>
+          <b>R{{subtotal | number:'1.2-2'}}</b><br><br>
         </div>
         <div class="step-buttons">
           <button mat-raised-button color="primary" (click)="completeExtras()">Next Step</button>

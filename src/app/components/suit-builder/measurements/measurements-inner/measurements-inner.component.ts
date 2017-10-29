@@ -5,6 +5,7 @@ import {TabsService} from '../../../../services/tabs.service';
 import {DataService} from '../../../../services/data.service';
 import { TdLoadingService } from '@covalent/core';
 import { Router } from '@angular/router';
+import {SuitService} from "./../../../../services/customizers/suit.service";
 
 @Component({
   selector: 'app-measurements-inner',
@@ -20,6 +21,10 @@ export class MeasurementsInnerComponent implements OnInit {
     stepperHidden: boolean = true;
     hasJacket: boolean = true;
     hasTrousers: boolean = true;
+
+
+    @ViewChild('basicContainer')
+    public basicContainer: ElementRef;
 
     config: SwiperOptions = {
         pagination: '.swiper-pagination',
@@ -48,10 +53,15 @@ export class MeasurementsInnerComponent implements OnInit {
     ];
 
     constructor(private service: TabsService, private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any, 
-                public router: Router, public data: DataService, private _loadingService: TdLoadingService) {
+                public router: Router, public data: DataService, private _loadingService: TdLoadingService, public suitService: SuitService) {
       this.steps = [];
       this.stepsLength = 3;
       this.steps.push({display: "block"});
+      if(suitService.suit.pants === null) {
+        this.hasTrousers = false;
+      } else {
+        this.hasTrousers = true;
+      }
       for(let i = 1; i < this.stepsLength; i++) {
         this.steps.push({display: "none"});
       }
@@ -112,7 +122,7 @@ export class MeasurementsInnerComponent implements OnInit {
       setTimeout(()=> {
         let pageScrollInstance: PageScrollInstance = PageScrollInstance.simpleInstance(this.document, '#stepper1');
         this.pageScrollService.start(pageScrollInstance);        
-      }, 0.1)
+      }, 100)
     }
 
     changeStep(s){
@@ -121,14 +131,36 @@ export class MeasurementsInnerComponent implements OnInit {
       }
 
       this.steps[s].display = 'block';
-      let pageScrollInstance: PageScrollInstance = PageScrollInstance.simpleInstance(this.document, '#stepper'+s);
-      this.pageScrollService.start(pageScrollInstance);
+      setTimeout(()=> {
+        // let pageScrollInstance: PageScrollInstance = PageScrollInstance.newInstance({document: this.document, scrollTarget: '#stepper'+s, scrollingViews: [this.container.nativeElement]});
+        // this.pageScrollService.start(pageScrollInstance);
+
+        const pageScrollInstance: PageScrollInstance = PageScrollInstance.newInstance({
+          document: this.document,
+          scrollTarget: '#stepper' + s,
+          scrollingViews: [this.basicContainer.nativeElement]
+        });
+        this.pageScrollService.start(pageScrollInstance);
+        console.log("scrolling to " + s);
+        // let pageScrollInstance: PageScrollInstance = PageScrollInstance.simpleInstance(this.document, '#stepper'+s);
+        // this.pageScrollService.start(pageScrollInstance);   
+      }, 1000)
     }
 
     checkout() {
       this._loadingService.resolve('overlayStarSyntax');
       this.router.navigate(['/checkout']);
       // console.log("completed");
+    }
+
+    oversizeText(){
+      if(this.measurements.chest > 135 || this.measurements.waist > 121) {
+        return "An oversize charge of 10% (R" + this.suitService.product.price *0.1 + ") needs to be added";
+      } else if(this.measurements.chest > 128 || this.measurements.waist > 112){
+        return "An oversize charge of 6% (R" + this.suitService.product.price *0.06 + ") needs to be added";
+      } else {
+        return "";
+      }
     }
 
 }

@@ -3443,9 +3443,9 @@ ng2-owl-carousel@^0.1.15:
     jquery ">= 2.2.0"
     owl.carousel "^2.2.0"
 
-ng2-page-scroll@^4.0.0-beta.11:
-  version "4.0.0-beta.11"
-  resolved "https://registry.yarnpkg.com/ng2-page-scroll/-/ng2-page-scroll-4.0.0-beta.11.tgz#9f78da80d44f368e1f4e4dd770136c60d77facfe"
+ng2-page-scroll@^4.0.0-beta.12:
+  version "4.0.0-beta.12"
+  resolved "https://registry.yarnpkg.com/ng2-page-scroll/-/ng2-page-scroll-4.0.0-beta.12.tgz#26b4e71ef9ad0859f1fa4e5e8d6ce7c75b73c6f7"
 
 ng2-toasty@^4.0.3:
   version "4.0.3"

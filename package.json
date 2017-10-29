@@ -44,7 +44,7 @@
     "jquery": "^3.2.1",
     "ng2-animate-on-scroll": "^1.0.3",
     "ng2-owl-carousel": "^0.1.15",
-    "ng2-page-scroll": "^4.0.0-beta.11",
+    "ng2-page-scroll": "^4.0.0-beta.12",
     "ng2-toasty": "^4.0.3",
     "ngx-bootstrap": "^1.8.1",
     "ngx-clipboard": "^8.0.4",

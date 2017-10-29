@@ -1,5 +1,5 @@
 
-<div class="container animated fadeIn" style="padding-top: 60px; padding-bottom: 60px;"  *tdLoading="'overlayStarSyntax'; mode:'indeterminate'; type:'circle'; strategy:'overlay'; color:'primary'">
+<div #basicContainer id="basicContainer" class="container animated fadeIn" style="padding-top: 60px; padding-bottom: 60px;"  *tdLoading="'overlayStarSyntax'; mode:'indeterminate'; type:'circle'; strategy:'overlay'; color:'primary'">
   <div class="measurements-top">
     <h1>Measurements</h1>
     <br />
@@ -48,36 +48,38 @@
             <div class="measurements-form">
               <form class="s-form">
                 <mat-form-field class="s-full-width">
-                  <input matInput placeholder="Height (cm)" value="" [(ngModel)]="measurements.height" name="height">
+                  <input matInput placeholder="Height (cm)" value="" [(ngModel)]="measurements.height" name="height" type="number">
                   <mat-icon matSuffix class="hoverIcon" (click)="test('height')">info</mat-icon>
                 </mat-form-field>
                 <mat-form-field class="s-full-width">
-                  <input matInput placeholder="Chest (cm)" value="" [(ngModel)]="measurements.chest" name="chest">
+                  <input matInput placeholder="Chest (cm)" value="" [(ngModel)]="measurements.chest" name="chest" type="number">
                   <mat-icon matSuffix class="hoverIcon" (click)="test('chest')">info</mat-icon>
+                  <mat-hint align="start"><strong>{{oversizeText()}}</strong></mat-hint>
                 </mat-form-field>
                 <mat-form-field class="s-full-width">
-                  <input matInput placeholder="1/2 Back (cm)" value=""  [(ngModel)]="measurements.halfback" name="halfback">
+                  <input matInput placeholder="1/2 Back (cm)" value=""  [(ngModel)]="measurements.halfback" name="halfback" type="number">
                   <mat-icon matSuffix class="hoverIcon" (click)="test('halfback')">info</mat-icon>
                 </mat-form-field>
                 <mat-form-field class="s-full-width">
-                  <input matInput placeholder="Biceps (cm)" value="" [(ngModel)]="measurements.biceps" name="biceps">
+                  <input matInput placeholder="Biceps (cm)" value="" [(ngModel)]="measurements.biceps" name="biceps" type="number">
                   <mat-icon matSuffix class="hoverIcon" (click)="test('biceps')">info</mat-icon>
                 </mat-form-field>
                 <mat-form-field class="s-full-width">
-                  <input matInput placeholder="Stopmach (cm)" value="" [(ngModel)]="measurements.stomach" name="stomach">
+                  <input matInput placeholder="Stopmach (cm)" value="" [(ngModel)]="measurements.stomach" name="stomach" type="number">
                   <mat-icon matSuffix class="hoverIcon" (click)="test('stomach')">info</mat-icon>
                 </mat-form-field>
                 <mat-form-field class="s-full-width">
-                  <input matInput placeholder="Seat (cm)" value="" [(ngModel)]="measurements.seat" name="seat">
+                  <input matInput placeholder="Seat (cm)" value="" [(ngModel)]="measurements.seat" name="seat" type="number">
                   <mat-icon matSuffix class="hoverIcon" (click)="test('seat')">info</mat-icon>
                 </mat-form-field>
                 <mat-form-field class="s-full-width">
-                  <input matInput placeholder="Thigh (cm)" value="" [(ngModel)]="measurements.thigh" name="thigh">
+                  <input matInput placeholder="Thigh (cm)" value="" [(ngModel)]="measurements.thigh" name="thigh" type="number">
                   <mat-icon matSuffix class="hoverIcon" (click)="test('thigh')">info</mat-icon>
                 </mat-form-field>
               </form>
             </div>
             <div class="step-buttons">
+              {{oversizeText()}}<br><br>
               <button mat-raised-button color="primary" (click)="changeStep('1')">Next</button>
             </div>
           </div>
@@ -93,11 +95,11 @@
               <div class="measurements-form">
                 <form class="s-form">
                   <mat-form-field class="s-full-width">
-                    <input matInput placeholder="Height (cm)" value="" [(ngModel)]="measurements.height" name="height">
+                    <input matInput placeholder="Backlength (cm)" value="" [(ngModel)]="measurements.backlength" name="bl" type="number">
                     <mat-icon matSuffix class="hoverIcon" (click)="test('height')">info</mat-icon>
                   </mat-form-field>
                   <mat-form-field class="s-full-width">
-                    <input matInput placeholder="Chest (cm)" value="" [(ngModel)]="measurements.chest" name="chest">
+                    <input matInput placeholder="1/2 Waist (cm)" value="" [(ngModel)]="measurements.halfwaist" name="halfwaist" type="number">
                     <mat-icon matSuffix class="hoverIcon" (click)="test('chest')">info</mat-icon>
                   </mat-form-field>
                 </form>
@@ -115,11 +117,12 @@
                 <img class="swiper-img" src="assets/measurements/Trousers-02.png" />
                   <form class="s-form">
                     <mat-form-field class="s-full-width">
-                      <input matInput placeholder="Height (cm)" value="" [(ngModel)]="measurements.height" name="height">
+                      <input matInput placeholder="Waist (cm)" value="" [(ngModel)]="measurements.waist" name="waist" type="number">
                       <mat-icon matSuffix class="hoverIcon" (click)="test('height')">info</mat-icon>
+                      <mat-hint align="start"><strong>{{oversizeText()}}</strong></mat-hint>
                     </mat-form-field>
                     <mat-form-field class="s-full-width">
-                      <input matInput placeholder="Chest (cm)" value="" [(ngModel)]="measurements.chest" name="chest">
+                      <input matInput placeholder="Outside Seamline (cm)" value="" [(ngModel)]="measurements.outside_seamline" name="os" type="number">
                       <mat-icon matSuffix class="hoverIcon" (click)="test('chest')">info</mat-icon>
                     </mat-form-field>
 
@@ -133,15 +136,15 @@
               <div class="measurements-form">
                 <form class="s-form">
                   <mat-form-field class="s-full-width">
-                    <input matInput placeholder="Height (cm)" value="" [(ngModel)]="measurements.height" name="height">
+                    <input matInput placeholder="Waist (cm)" value="" [(ngModel)]="measurements.waist" name="waist" type="number">
                     <mat-icon matSuffix class="hoverIcon" (click)="test('height')">info</mat-icon>
                   </mat-form-field>
                   <mat-form-field class="s-full-width">
-                    <input matInput placeholder="Chest (cm)" value="" [(ngModel)]="measurements.chest" name="chest">
+                    <input matInput placeholder="Inside Seamline (cm)" value="" [(ngModel)]="measurements.inside_seamline" name="is" type="number">
                     <mat-icon matSuffix class="hoverIcon" (click)="test('chest')">info</mat-icon>
                   </mat-form-field>
                   <mat-form-field class="s-full-width">
-                    <input matInput placeholder="Chest (cm)" value="" [(ngModel)]="measurements.chest" name="chest">
+                    <input matInput placeholder="Outside Seamline (cm)" value="" [(ngModel)]="measurements.outside_seamline2" name="os2" type="number">
                     <mat-icon matSuffix class="hoverIcon" (click)="test('chest')">info</mat-icon>
                   </mat-form-field>
 
@@ -152,6 +155,7 @@
               <h4>You don't need any additional measurements for your order, proceed to the next step</h4>
             </div>
             <div class="step-buttons">
+              {{oversizeText()}}<br><br>
               <button mat-raised-button color="primary" (click)="changeStep('2')">Next</button>
             </div>
           </div>

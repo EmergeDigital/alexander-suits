@@ -140,11 +140,11 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ],
     imports: [
         ScrollStoreModule,
+        Ng2PageScrollModule,
         BrowserModule,
         BrowserAnimationsModule,
         FormsModule,
         HttpModule,
-        Ng2PageScrollModule,
         CovalentFileModule,
         CovalentLoadingModule,
         AppRoutingModule,

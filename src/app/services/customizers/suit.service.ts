@@ -4,7 +4,7 @@ import {Injectable, EventEmitter} from '@angular/core';
 export class SuitService {
 
   public collection: string = '';
-  public product: any;
+  public product: any = null;
   _collectionChanged: EventEmitter<string> = new EventEmitter();
   public suit: any = {
     collar: {"name": "1", "url": "assets/suit-builder/collars/collar-v1.png"},
@@ -18,7 +18,8 @@ export class SuitService {
     buttonHoles: {"name": 0, "value": "Default", "color": "Default"},
     contrastPackage: {"name": "0", "value": "None", "color": null},
     mockup: false,
-    oversize: false
+    oversize: false,
+    supersize: false
   };
 
   constructor() { }

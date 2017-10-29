@@ -35,18 +35,19 @@ export class TabsComponent implements OnInit {
   }
 
   changeOnlyPage(page){
-    let pages = this.pages;
-    for (let p in pages){
-      if(pages[p].name == page){
-        pages[p].isSelected = true;
-        pages[p].isVisited = true;
-      } else {
-        pages[p].isSelected = false;
-        pages[p].isVisited = false;
-      }
-    }
-    pages = this.pages;
-    this.service.changedTab(pages);
+    // let pages = this.pages;
+    // for (let p in pages){
+    //   if(pages[p].name == page){
+    //     pages[p].isSelected = true;
+    //     pages[p].isVisited = true;
+    //   } else {
+    //     pages[p].isSelected = false;
+    //     pages[p].isVisited = false;
+    //   }
+    // }
+    // pages = this.pages;
+    this.service.changeTab(page);
+    this.pages = this.service.getTabs();
   }
 
 

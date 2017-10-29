@@ -6,6 +6,11 @@
   text-align: center;
 }
 
+#basicContainer {
+  overflow: auto;
+  position: relative;
+}
+
 .hoverIcon{
   &:hover {
     cursor: pointer;

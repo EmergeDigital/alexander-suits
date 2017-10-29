@@ -1,4 +1,5 @@
 import {Injectable, EventEmitter} from '@angular/core';
+import {SuitService} from "./customizers/suit.service";
 
 @Injectable()
 export class TabsService {
@@ -8,7 +9,7 @@ export class TabsService {
   public selectFabric: boolean = false;
 
   tabs_event: EventEmitter<any[]> = new EventEmitter();
-  constructor() {
+  constructor(public suitService: SuitService) {
     this.tabs = [
       {
         name: "fabric",
@@ -48,16 +49,20 @@ export class TabsService {
 
   changeTab(tab){
     let tabs = this.tabs;
-    for (let t in tabs){
-      if(tabs[t].name == tab){
-        tabs[t].isSelected = true;
-        tabs[t].isVisited = true;
-      } else {
-        tabs[t].isSelected = false;
-        tabs[t].isVisited = false;
+    if(tab !== 'fabric' && this.suitService.product === null){
+      //Need to select a product
+    } else {
+      for (let t in tabs){
+        if(tabs[t].name == tab){
+          tabs[t].isSelected = true;
+          tabs[t].isVisited = true;
+        } else {
+          tabs[t].isSelected = false;
+          tabs[t].isVisited = false;
+        }
       }
+      this.tabs = tabs;
     }
-    this.tabs = tabs;
   }
 
 }
