@@ -37,19 +37,19 @@ export class MeasurementsInnerComponent implements OnInit {
     };
 
     body_types: any[] = [
-      {img: "assets/measurements/1-slender.png", id: 0, title: "Slender", desc: "blah blah youre skinny etc"},
+      {img: "assets/measurements/1-slender.png", id: 0, title: "Slender", desc: "Skinny figure with small waist"},
 
-      {img: "assets/measurements/2-Slender-with-slight-belly.png", id: 1, title: "Slender with slight belly", desc: "blah blah youre skinny fat"},
+      {img: "assets/measurements/2-Slender-with-slight-belly.png", id: 1, title: "Slender with slight belly", desc: "Skinny figure with a bit of fat around the edges"},
 
-      {img: "assets/measurements/3-Slender-Athletic.png", id: 2, title: "Slender, Athletic", desc: "still skinny but not as bad"},
+      {img: "assets/measurements/3-Slender-Athletic.png", id: 2, title: "Slender, Athletic", desc: "Althetic figure with small amount of muscle mass"},
 
-      {img: "assets/measurements/4-Rounder-Figure.png", id: 3, title: "Rounder Figure", desc: "blubbery boi"},
+      {img: "assets/measurements/4-Rounder-Figure.png", id: 3, title: "Rounder Figure", desc: "Rectangular body figure"},
 
-      {img: "assets/measurements/5-Rounder-Figure-with-large-stomach.png", id: 4, title: "Rounder Figure with large stomach", desc: "blah blah youre fat etc"},
+      {img: "assets/measurements/5-Rounder-Figure-with-large-stomach.png", id: 4, title: "Rounder Figure with large stomach", desc: "Large body mass with protruding stomach"},
 
-      {img: "assets/measurements/6-Compact-with-Stomach.png", id: 5, title: "Compact with Stomach", desc: "getting stonk but still kinda fat"},
+      {img: "assets/measurements/6-Compact-with-Stomach.png", id: 5, title: "Compact with Stomach", desc: "A muscular, strong figure with higher body fat"},
 
-      {img: "assets/measurements/7-Compact-Athletic-Chest.png", id: 6, title: "Compact, Athletic Chest", desc: "welcome to the world of aesthetics"},
+      {img: "assets/measurements/7-Compact-Athletic-Chest.png", id: 6, title: "Compact, Athletic Chest", desc: "A muscular, strong figure with low body fat"},
     ];
 
     constructor(private service: TabsService, private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any, 
