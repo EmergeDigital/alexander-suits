@@ -3,3 +3,12 @@
   padding-top: 10px;
   padding-bottom: 100px;
 }
+.loading {
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  .mat-spinner {
+      margin: 0 auto;
+  }
+}
