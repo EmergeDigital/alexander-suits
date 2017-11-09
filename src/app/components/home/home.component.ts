@@ -16,23 +16,28 @@ export class HomeComponent implements OnInit {
         this.testimonials = [
           {
             name: "Jim Johnson",
-            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum magna at mauris dignissim consectetur."
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum magna at mauris dignissim consectetur.",
+            title: "Chief Person"
           },
           {
             name: "Hawthorn Williams",
-            text: "I would buy a suit every day of the week"
+            text: "I would buy a suit every day of the week",
+            title: "Chief Person"
           },
           {
             name: "José Luis",
-            text: "Que? No hablo Anglais"
+            text: "Que? No hablo Anglais",
+            title: "Chief Person"
           },
           {
             name: "Quagmire Peter",
-            text: "You can never go wrong"
+            text: "You can never go wrong",
+            title: "Chief Person"
           },
           {
             name: "Lorem Ipsum",
-            text: "This is placeholder text"
+            text: "This is placeholder text",
+            title: "Chief Person"
           }
         ];
         this.testimonialOptions = {
@@ -47,7 +52,7 @@ export class HomeComponent implements OnInit {
               items: 1
             },
             1000 : {
-              items: 3
+              items: 1
             }
           }
         };

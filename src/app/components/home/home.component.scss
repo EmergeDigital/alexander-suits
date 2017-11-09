@@ -176,8 +176,46 @@
   }
 }
 
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+  background: #830024 !important;
+}
+
 .item-outer{
   padding: 5px;
+}
+
+.testimonial-item {
+  text-align: center;
+  padding: 20px 0px 20px 0px;
+
+  h4 {
+    padding-top: 20px;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+
+  h6 {
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+}
+
+.testimonial-text {
+  font-size: 16px;
+}
+
+.testimonial-text::before {
+  content: "\F10D";
+  font-family: FontAwesome;
+  padding-right: 10px;
+  color: #830024;
+}
+
+.testimonial-text::after {
+  content: "\F10E";
+  font-family: FontAwesome;
+  padding-left: 10px;
+  color: #830024;
 }
 
 .testimonials {

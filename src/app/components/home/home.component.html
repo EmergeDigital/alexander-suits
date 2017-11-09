@@ -154,14 +154,21 @@
   <!-- TODO: fix for mobile -->
    <div class="testimonials">
      <div class="container">
-       <h1>What our clients say</h1><br />
+       <h1>What our clients say</h1><br><br> 
        <owl-carousel
           [options]="testimonialOptions"
           [items]="testimonials"
           [carouselClasses]="['owl-theme', 'sliding']">
           <div class="item" *ngFor="let t of testimonials;">
             <div class="item-outer">
-              <mat-card class="t-card">
+              <div class="testimonial-item">
+                <p class="testimonial-text">
+                  {{t.text}}
+                </p>
+                <h4>{{t.name}}</h4>
+                <h6>{{t.title}}</h6>
+              </div>
+              <!-- <mat-card class="t-card">
                <mat-card-header>
                  <mat-card-title>{{t.name}}</mat-card-title>
                  <mat-card-subtitle>says:</mat-card-subtitle>
@@ -171,10 +178,10 @@
                   {{t.text}}
                  </p>
                </mat-card-content>
-              </mat-card>
+              </mat-card> -->
             </div>
           </div>
-        </owl-carousel>
+        </owl-carousel><br> 
      </div>
    </div>
 
