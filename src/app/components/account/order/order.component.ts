@@ -68,10 +68,10 @@ export class OrderComponent implements OnInit {
  }
 
  getImage(product) {
-   if(!!product.image_urls && product.image_urls.length > 1) {
-     if(this.isValidUrl(product.image_urls[1])) {
-       console.log(product.image_urls[1]);
-       return product.image_urls[1];
+   if(!!product.image_urls && product.image_urls.length > 2) {
+     if(this.isValidUrl(product.image_urls[2])) {
+       console.log(product.image_urls[2]);
+       return product.image_urls[2];
      }
    }
    return 'assets/casual-suit.png';

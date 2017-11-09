@@ -24,6 +24,7 @@ export class ExtrasInnerComponent implements OnInit {
   coatPrice: number = 0;
   wcPrice: number = 0;
   subtotal: number = 0;
+  comments: string = '';
   options: string[] = [
     "None",
     "Tuxedo",

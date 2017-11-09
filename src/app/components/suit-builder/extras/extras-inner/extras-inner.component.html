@@ -82,6 +82,11 @@
           <p>Before continuing with your measurements, please see your current subtotal for your custom suit:</p>
           <br>
           <b>R{{subtotal | number:'1.2-2'}}</b><br><br>
+          <form class="s-form">
+            <mat-form-field class="s-full-width">
+              <input matInput placeholder="Order Comments" value="" [(ngModel)]="comments" name="comments">
+            </mat-form-field>
+          </form>
         </div>
         <div class="step-buttons">
           <button mat-raised-button color="primary" (click)="completeExtras()">Next Step</button>
