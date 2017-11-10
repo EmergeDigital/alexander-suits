@@ -31,4 +31,12 @@ export class SessionService {
     return JSON.parse(localStorage.getItem('current_transaction'));
   }
 
+  storeMeasurements(measurements) {
+    localStorage.setItem('measurements', JSON.stringify(measurements));
+  }
+
+  fetchMeasurements() {
+    return JSON.parse(localStorage.getItem('measurements'));
+  }
+
 }

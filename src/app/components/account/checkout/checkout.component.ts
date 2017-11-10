@@ -8,6 +8,7 @@ import {Cart} from "../../../models/cart";
 import {User} from "../../../models/user";
 import {MatDialog} from '@angular/material';
 import {ToastyService, ToastyConfig, ToastOptions, ToastData} from 'ng2-toasty';
+import {MeasurementsService} from "../../../services/customizers/measurements.service";
 
 @Component({
   selector: 'app-checkout-main',
@@ -33,7 +34,8 @@ export class CheckoutMainComponent implements OnInit {
   delivery_instructions: string;
   instructions: string;
 
-  constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig, public data: DataService, public auth: AuthService, public router: Router, public session: SessionService) {
+  constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig, public data: DataService, public auth: AuthService, 
+    public router: Router, public session: SessionService, public measurementsService: MeasurementsService) {
 
     this.steps = [];
     this.completedSteps = [];
@@ -260,31 +262,39 @@ export class CheckoutMainComponent implements OnInit {
       }
 
       userObj = {
-        name: user.fullname
-        //measurements go here
+        name: user.fullname,
+        measurements: this.measurementsService.measurements
       };
 
-      let cart_data = {
-        user_data: userObj,
-        address_data: addressObj,
-        delivery_data: deliveryObj,
-        contact_number: user.contact_mobile,
-        contact_email: user.email
-      };
-      this.data.checkout(cart_data).then(order=>{
-        console.log(order);
-        this.session.storeOrder(order);
-        if(!!order) {
-          this.data.deleteCart().then((response)=>{
-            if(response === "success") {
-              this.cart = null;
-            }
-            this.updateSuccess("Order created");
-            this.router.navigate(['/payment']);
-            //Navigate to next page
-          })
-        }
+      let current_user = user;
+      current_user.measurements = this.measurementsService.measurements;
+
+      this.data.setUser(current_user).then(result => {
+        let cart_data = {
+          user_data: userObj,
+          address_data: addressObj,
+          delivery_data: deliveryObj,
+          contact_number: user.contact_mobile,
+          contact_email: user.email
+        };
+        this.data.checkout(cart_data).then(order=>{
+          console.log(order);
+          this.session.storeOrder(order);
+          if(!!order) {
+            this.data.deleteCart().then((response)=>{
+              if(response === "success") {
+                this.cart = null;
+              }
+              this.updateSuccess("Order created");
+              this.router.navigate(['/payment']);
+              //Navigate to next page
+            })
+          }
+        })
+      }).catch(ex => {
+        this.toastError("There was an error", ex);
       })
+
     }
   }
 

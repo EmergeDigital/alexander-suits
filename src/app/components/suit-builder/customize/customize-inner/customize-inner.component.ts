@@ -76,7 +76,7 @@ export class CustomizeInnerComponent implements OnInit {
     this.selectedCollar = this.suitService.suit.collar;
     this.selectedVent = this.suitService.suit.vents;
     this.selectedPocket = this.suitService.suit.pockets;
-    this.selectedButtons = this.suitService.suit.buttons;
+    this.selectedButtons = this.suitService.suit.button_holes;
     this.selectedTongue = this.suitService.suit.tongue;
     if(this.suitService.suit.pants === null) {
       this.addPants = false;
@@ -116,7 +116,7 @@ export class CustomizeInnerComponent implements OnInit {
 
   selectButtons(button) {
     this.selectedButtons = button;
-    this.suitService.suit.buttons = button;
+    this.suitService.suit.button_holes = button;
   }
 
   selectTongue(tongue) {

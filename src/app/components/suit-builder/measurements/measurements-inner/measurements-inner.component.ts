@@ -6,6 +6,7 @@ import {DataService} from '../../../../services/data.service';
 import { TdLoadingService } from '@covalent/core';
 import { Router } from '@angular/router';
 import {SuitService} from "./../../../../services/customizers/suit.service";
+import {MeasurementsService} from "./../../../../services/customizers/measurements.service";
 
 @Component({
   selector: 'app-measurements-inner',
@@ -53,7 +54,8 @@ export class MeasurementsInnerComponent implements OnInit {
     ];
 
     constructor(private service: TabsService, private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any, 
-                public router: Router, public data: DataService, private _loadingService: TdLoadingService, public suitService: SuitService) {
+                public router: Router, public data: DataService, private _loadingService: TdLoadingService, public suitService: SuitService,
+                public measurementsService: MeasurementsService) {
       this.steps = [];
       this.stepsLength = 3;
       this.steps.push({display: "block"});
@@ -148,15 +150,30 @@ export class MeasurementsInnerComponent implements OnInit {
     }
 
     checkout() {
-      this._loadingService.resolve('overlayStarSyntax');
-      this.router.navigate(['/checkout']);
+      this._loadingService.register('overlayStarSyntax');
+      //Save user measurements
+      this.measurementsService.storeMeasurements(this.measurements);
+      //Add suit to cart
+      let product = this.suitService.processSuit();
+      console.log(product);
+      // this._loadingService.resolve('overlayStarSyntax')
+      this.data.addToCart([product]).then(result => {
+        console.log(result);
+        this._loadingService.resolve('overlayStarSyntax');
+        this.router.navigate(['/checkout']);
+      }).catch(ex => {
+        alert("There was a problem");
+        this._loadingService.resolve('overlayStarSyntax');
+      })
       // console.log("completed");
     }
 
     oversizeText(){
       if(this.measurements.chest > 135 || this.measurements.waist > 121) {
+        this.suitService.suit.supersize = true;
         return "An oversize charge of 10% (R" + this.suitService.product.price *0.1 + ") needs to be added";
       } else if(this.measurements.chest > 128 || this.measurements.waist > 112){
+        this.suitService.suit.oversize = true;
         return "An oversize charge of 6% (R" + this.suitService.product.price *0.06 + ") needs to be added";
       } else {
         return "";
