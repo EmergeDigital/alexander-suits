@@ -85,7 +85,10 @@ export class OrderComponent implements OnInit {
    "awaiting_payment",
    "payment_pending",
    "pending",
-   "failed"
+   "failed",
+   "Payment Pending",
+   "Awaiting Payment",
+   "awaiting_eft"
  ];
 
  unpaid(status) {

@@ -203,6 +203,34 @@ export class CheckoutMainComponent implements OnInit {
     this.steps[s].display = 'block';
   }
 
+  calcShippingCosts(): any {
+    if(!!this.cart) {
+      if(!!this.current_user) {
+        if(this.useAddress && this.current_user.country !== "South Africa") {
+          return 160 + ".00 (Out of SA)";
+        } else if(!this.useAddress && this.alt_address.country  !== "South Africa") {
+          return 160 + ".00 (Out of SA)";
+        }
+      }
+      let shirtcount = 0;
+      for(const p of this.cart.products) {
+        if(p.category === "Suit") {
+          return 160 + "(Suit)";
+        } else if(p.category === "Shirt") {
+          if(p.count > 1) {
+            return 160 + ".00 (2+ Shirts)";
+          }
+          shirtcount++;
+        }
+      }
+      if(shirtcount > 1) {
+        return 160 + ".00 (2+ Shirts)";
+      }
+      return 75 + ".00"; 
+    }
+    return 0 + ".00 (FREE)";
+  }
+
   checkout() {
     if(this.loadingToast == null) {
       var toastOptions:ToastOptions = {
@@ -233,7 +261,8 @@ export class CheckoutMainComponent implements OnInit {
               addressL2: this.alt_address.address2,
               city: this.alt_address.city,
               province: this.alt_address.province,
-              postal_code: this.alt_address.postal_code
+              postal_code: this.alt_address.postal_code,
+              country: this.alt_address.country
             };
             console.log(addressObj);
           } else {
@@ -243,7 +272,8 @@ export class CheckoutMainComponent implements OnInit {
               addressL2: user.address2,
               city: user.city,
               province: user.province,
-              postal_code: user.postal_code
+              postal_code: user.postal_code,
+              country: user.country
             };
             console.log(addressObj);
           }
@@ -275,7 +305,8 @@ export class CheckoutMainComponent implements OnInit {
           address_data: addressObj,
           delivery_data: deliveryObj,
           contact_number: user.contact_mobile,
-          contact_email: user.email
+          contact_email: user.email,
+          comments: [this.measurementsService.comments]
         };
         this.data.checkout(cart_data).then(order=>{
           console.log(order);

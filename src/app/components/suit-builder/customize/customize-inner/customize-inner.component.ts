@@ -29,9 +29,10 @@ export class CustomizeInnerComponent implements OnInit {
     {"name": "9", "url": "assets/suit-builder/collars/collar-v11.png"},
   ];
   pants: any[] = [
-    {"name": "1", "url": "assets/suit-builder/pants/pants-v1.png"},
-    {"name": "2", "url": "assets/suit-builder/pants/pants-v2.png"},
-    {"name": "3", "url": "assets/suit-builder/pants/pants-v3.png"},
+    {"name": "1", "url": ""},
+    {"name": "2", "url": "assets/suit-builder/pants/pants-v1.png"},
+    {"name": "3", "url": "assets/suit-builder/pants/pants-v2.png"},
+    {"name": "4", "url": "assets/suit-builder/pants/pants-v3.png"},
   ];
   vents: any[] = [
     {"name": "1", "url": "assets/suit-builder/vents/vents-v1.png"},
@@ -65,7 +66,7 @@ export class CustomizeInnerComponent implements OnInit {
   constructor(private service: TabsService, private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any,
               public suitService: SuitService) {
     this.steps = [];
-    this.stepsLength = 6;
+    this.stepsLength = 5;
     this.steps.push({display: "block"});
     for(let i = 1; i < this.stepsLength; i++) {
       this.steps.push({display: "none"});

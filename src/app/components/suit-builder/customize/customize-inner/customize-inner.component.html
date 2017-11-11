@@ -117,7 +117,7 @@
           </div>
         </div>
       </div>
-      <div class="stepper-box" [ngClass]="{active: steps[3].display === 'block'}" id="stepper4">
+      <!-- <div class="stepper-box" [ngClass]="{active: steps[3].display === 'block'}" id="stepper4">
         <button mat-button (click)="changeStep('3')"><div class="circle">4</div>Tongue</button>
       </div>
       <div class="stepper-inner">
@@ -125,7 +125,6 @@
           <div class='row'>
             <div class='col-md-6'>
               <div class="suit-container">
-                <!-- <img src="assets/suit-builder/pocket-base.png" class="suit-base"/> -->
                 <h4>{{selectedTongue.desc}}</h4>
                 <img src="{{selectedTongue.url}}" class="suit-base"/>
               </div>
@@ -154,12 +153,12 @@
             <button mat-raised-button color="primary" (click)="changeStep('4')">Next</button>
           </div>
         </div>
-      </div>
-      <div class="stepper-box" [ngClass]="{active: steps[4].display === 'block'}" id="stepper5">
-        <button mat-button (click)="changeStep('4')"><div class="circle">5</div>Vents</button>
+      </div> -->
+      <div class="stepper-box" [ngClass]="{active: steps[3].display === 'block'}" id="stepper4">
+        <button mat-button (click)="changeStep('3')"><div class="circle">4</div>Vents</button>
       </div>
       <div class="stepper-inner">
-        <div class="contents animated zoomIn" [ngStyle]="steps[4]">
+        <div class="contents animated zoomIn" [ngStyle]="steps[3]">
           <div class='row'>
             <div class='col-md-6'>
               <div class="suit-container">
@@ -188,15 +187,15 @@
             </div>
           </div>
           <div class="step-buttons">
-            <button mat-raised-button color="primary" (click)="changeStep('5')">Next</button>
+            <button mat-raised-button color="primary" (click)="changeStep('4')">Next</button>
           </div>
         </div>
       </div>
-      <div class="stepper-box" [ngClass]="{active: steps[5].display === 'block'}" id="stepper6">
-        <button mat-button (click)="changeStep('5')"><div class="circle">6</div>Pants</button>
+      <div class="stepper-box" [ngClass]="{active: steps[4].display === 'block'}" id="stepper5">
+        <button mat-button (click)="changeStep('4')"><div class="circle">5</div>Pants</button>
       </div>
       <div class="stepper-inner no-border">
-        <div class="contents animated zoomIn" [ngStyle]="steps[5]">
+        <div class="contents animated zoomIn" [ngStyle]="steps[4]">
     
           <div class="add-pants">
             <mat-slide-toggle [(ngModel)]="addPants" color="primary" (change)="changedPants()">Add Matching Pants</mat-slide-toggle>

@@ -4,6 +4,7 @@ import { PageScrollConfig, PageScrollService, PageScrollInstance } from 'ng2-pag
 
 import {TabsService} from '../../../../services/tabs.service';
 import {SuitService} from "./../../../../services/customizers/suit.service";
+import {MeasurementsService} from "./../../../../services/customizers/measurements.service";
 
 @Component({
   selector: 'app-extras-inner',
@@ -19,12 +20,17 @@ export class ExtrasInnerComponent implements OnInit {
   mockup: boolean = false;
   addWC: boolean = false;
   addCoat: boolean = false;
+  addPants: boolean = false;
   loading: boolean = true;
   mockupPrice: number = 0;
   coatPrice: number = 0;
   wcPrice: number = 0;
+  pantsPrice: number = 0;
   subtotal: number = 0;
   comments: string = '';
+  buttons: string;
+  button_stitching: string;
+  contrast_fabric: string;
   options: string[] = [
     "None",
     "Tuxedo",
@@ -42,7 +48,7 @@ export class ExtrasInnerComponent implements OnInit {
   };
 
   constructor(private service: TabsService, private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any,
-              public suitService: SuitService) {
+              public suitService: SuitService, public measurementsService: MeasurementsService) {
 
     this.loading = true;
 
@@ -55,8 +61,20 @@ export class ExtrasInnerComponent implements OnInit {
     this.mockup = this.suitService.suit.mockup;
     this.addWC = this.suitService.suit.waistcoat;
     this.addCoat = this.suitService.suit.coat;
+    this.addPants = this.suitService.suit.extra_pants;
     this.coatPrice = this.suitService.product.price * 0.9;
     this.wcPrice = this.suitService.product.price * 0.5;
+    this.pantsPrice = this.suitService.product.price * 0.18;
+    // this.comments = this.measurementsService.comments;
+    // this.buttons = this.suitService.suit.buttons.value;
+    // this.button_stitching = this.suitService.suit.button_stitching.value;
+    // this.selectedOption = this.suitService.suit.contrast_package.value;
+    // this.contrast_fabric = this.suitService.suit.contrast_package.colour;
+
+    // this.suitService.suit.buttons.value = this.buttons;
+    // this.suitService.suit.button_stitching.value = this.button_stitching;
+    // this.suitService.suit.contrast_package.value = this.selectedOption;
+    // this.suitService.suit.contrast_package.colour = this.contrast_fabric;
     this.calcMockup();
     this.calcPrice();
     setTimeout(()=> {
@@ -84,6 +102,12 @@ export class ExtrasInnerComponent implements OnInit {
     this.calcPrice();
   }
 
+  addedPants() {
+    // alert("YES");
+    this.suitService.suit.extra_pants = this.addPants;
+    this.calcMockup();
+    this.calcPrice();
+  }
   addedCoat() {
     // alert("YES");
     this.suitService.suit.coat = this.addCoat;
@@ -115,6 +139,7 @@ export class ExtrasInnerComponent implements OnInit {
 
   completeExtras() {
       let pageScrollInstance: PageScrollInstance = PageScrollInstance.newInstance({document: this.document, scrollTarget: '#tabTitle', pageScrollDuration: 0.3});
+      // this.measurementsService.comments = this.comments;
       this.pageScrollService.start(pageScrollInstance);
       setTimeout(()=> {
         this.service.changeTab("measurements");
@@ -142,8 +167,13 @@ export class ExtrasInnerComponent implements OnInit {
     if(this.addWC) {
       price += this.wcPrice;
     }
+    
     if(this.addCoat) {
       price += this.coatPrice;
+    }
+    
+    if(this.addPants) {
+      price += this.pantsPrice;
     }
 
     this.subtotal = price;

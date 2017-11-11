@@ -8,6 +8,7 @@ export class MeasurementsService {
 
   public measurements: any = {};
   current_user: any = null;
+  public comments: string = '';
 
   constructor(public auth: AuthService, public data: DataService, public session: SessionService) { 
 
@@ -75,6 +76,7 @@ export class MeasurementsService {
   }
 
   storeMeasurements(measurements) {
+    this.measurements = measurements;
     this.session.storeMeasurements(measurements);
   }
 

@@ -55,11 +55,11 @@ export class PaymentComponent implements OnInit {
     this.data.getOrder(this.current_order.order_string).then(order=>{
       console.log(order);
       this.current_order = order;
-      if(order.status === "payment_processed") {
+      if(order.status === "payment_processed" || order.status === "awaiting_eft") {
         this.completePayment();
       } else if(order.status === "failed") {
         this.paymentFailed(order);
-      } else if(order.status === "payment_pending") {
+      } else if(order.status === "payment_pending" || order.status === "Payment Pending") {
         this.paymentFailed(order);
       } else if(order.status === "awaiting_payment") {
         this.fetchPaymentMethods();

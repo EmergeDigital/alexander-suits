@@ -40,17 +40,20 @@
           <input matInput placeholder="City" value="" [(ngModel)]="current_user.city" name="city">
         </mat-form-field>
         <table class="s-full-width" cellspacing="0"><tr>
-          <td>
+          <td style="width: 50%"><mat-form-field class="s-full-width">
             <mat-select class="s-full-width" placeholder="Province" style="padding-top: 0px;" [(ngModel)]="current_user.province" name="province">
               <mat-option *ngFor="let province of provinces" [value]="province.viewValue">
                 {{ province.viewValue }}
               </mat-option>
-            </mat-select>
+            </mat-select></mat-form-field>
           </td>
-          <td><mat-form-field class="s-full-width" style="padding-top: 4px;">
+          <td style="width: 50%"><mat-form-field class="s-full-width">
             <input matInput placeholder="Postal Code" [(ngModel)]="current_user.postal_code" name="postal_code">
           </mat-form-field></td>
         </tr></table>
+        <mat-form-field class="s-full-width">
+          <input matInput placeholder="Country" value="" [(ngModel)]="current_user.country" name="country">
+        </mat-form-field>
       </form>
       <br /><button mat-raised-button color="primary" (click)="iterateStep('2')">Next Step</button>
     </div>
@@ -69,7 +72,7 @@
       </mat-radio-group>
       <div class="order-selected-value">
         <div *ngIf="shippingMethod===shippingMethods[0]">
-          DHL DELIVERY<br /><br />
+          DHL DELIVERY - R{{calcShippingCosts()}}<br /><br />
           <mat-slide-toggle
             class="slide-margin"
             [color]="primary"
@@ -89,17 +92,21 @@
               <input matInput placeholder="City" value="" [(ngModel)]="alt_address.city" name="altcity">
             </mat-form-field>
             <table class="s-full-width" cellspacing="0"><tr>
-              <td>
+              <!-- <td> -->
+              <td style="width: 50%;"><mat-form-field class="s-full-width">
                 <mat-select class="s-full-width" placeholder="Province" style="padding-top: 0px;" [(ngModel)]="alt_address.province" name="altprovince">
                   <mat-option *ngFor="let province of provinces" [value]="province.viewValue">
                     {{ province.viewValue }}
                   </mat-option>
-                </mat-select>
+                </mat-select></mat-form-field>
               </td>
-              <td><mat-form-field class="s-full-width" style="padding-top: 4px;">
+              <td style="width: 50%;"><mat-form-field class="s-full-width">
                 <input matInput placeholder="Postal Code" [(ngModel)]="alt_address.postal_code" name="altpostal_code">
               </mat-form-field></td>
             </tr></table>
+            <mat-form-field class="s-full-width">
+              <input matInput placeholder="Country" value="" [(ngModel)]="alt_address.country" name="altcountry">
+            </mat-form-field>
           </div>
           <mat-form-field class="s-full-width">
             <textarea matInput placeholder="Additional Delivery Instructions" value="" [(ngModel)]="delivery_instructions" name="deliveryinstructions">{{delivery_instructions}}</textarea>
