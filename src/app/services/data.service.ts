@@ -304,7 +304,7 @@ export class DataService {
             //TODO Create new products array with just id & count to reduce request size
             let body = {
               user_id: this.getCurrentUser(),
-              products: products
+              products
             };
             this.authHttp.post(this.API_URL + "/api/cart/update", body).toPromise().then(cart => {
                 const _cart = cart.json();
@@ -325,23 +325,39 @@ export class DataService {
               this.session.setLocalCart(cart);
             }
 
-            if(!!cart.products) {
-              let _products = cart.products;
+            let body = {
+              products
+            };
 
-              let updated_total = this.functions.updateTotal(_products, products);
-              cart.total = updated_total;
+            this.http.post(this.API_URL + "/api/products/get_info", body).toPromise().then(fetched_products => {
+              let got_products = fetched_products.json();
+              let all_products = [];
 
-              let merged_products = this.functions.mergeProducts(_products, products);
-              cart.products = merged_products;
-            } else {
-              let total = this.functions.countTotal(products);
-              cart.total = total;
-              cart.products = products;
-            }
-
-            this.session.setLocalCart(cart);
-            this._cartUpdated.emit(cart);
-            resolve(cart);
+              for (const product of got_products) {
+                all_products.push(new Product(product));
+              }
+              // console.log(all_products);
+              
+              if(!!cart.products) {
+                let _products = cart.products;
+  
+                let updated_total = this.functions.updateTotal(_products, all_products);
+                cart.total = updated_total;
+  
+                let merged_products = this.functions.mergeProducts(_products, all_products);
+                cart.products = merged_products;
+              } else {
+                let total = this.functions.countTotal(all_products);
+                cart.total = total;
+                cart.products = all_products;
+              }
+  
+              this.session.setLocalCart(cart);
+              this._cartUpdated.emit(cart);
+              resolve(cart);
+            }).catch(ex => {
+              reject("Couldn't fetch product info");
+            });
           }
 
         });

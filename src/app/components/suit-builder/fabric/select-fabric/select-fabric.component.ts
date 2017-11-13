@@ -39,7 +39,7 @@ export class SelectFabricComponent implements OnInit {
     console.log("refreshing");
     this.loading = true;
     this.products = [];
-    this.data._getProducts({collections: collection, category: ["Suit", "Jacket"]}).then(products => {
+    this.data._getProducts({collections: collection, category: ["Suit"]}).then(products => {
       if(products.length > 0) {
         this.products = products;
         console.log(this.products);
