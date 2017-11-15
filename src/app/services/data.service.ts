@@ -320,41 +320,19 @@ export class DataService {
             //update local cart
             let cart = this.session.getLocalCart();
 
-            if(!(!!cart)) {
-              cart = new Cart({user_id: "visitor"});
-              this.session.setLocalCart(cart);
-            }
 
             let body = {
-              products
+              products,
+              _products: cart.products || []
             };
-
-            this.http.post(this.API_URL + "/api/products/get_info", body).toPromise().then(fetched_products => {
-              let got_products = fetched_products.json();
-              let all_products = [];
-
-              for (const product of got_products) {
-                all_products.push(new Product(product));
-              }
-              // console.log(all_products);
-              
-              if(!!cart.products) {
-                let _products = cart.products;
-  
-                let updated_total = this.functions.updateTotal(_products, all_products);
-                cart.total = updated_total;
-  
-                let merged_products = this.functions.mergeProducts(_products, all_products);
-                cart.products = merged_products;
-              } else {
-                let total = this.functions.countTotal(all_products);
-                cart.total = total;
-                cart.products = all_products;
-              }
-  
-              this.session.setLocalCart(cart);
-              this._cartUpdated.emit(cart);
-              resolve(cart);
+            console.log("ADDING TO CART LOCALLY");
+            this.http.post(this.API_URL + "/api/cart/merge", body).toPromise().then(fetched_cart => {
+              const _cart = fetched_cart.json();
+              this.current_cart = _cart;
+              // this.user_loaded.emit(_cart);
+              this.session.setLocalCart(_cart);
+              this._cartUpdated.emit(_cart);
+              resolve(_cart);
             }).catch(ex => {
               reject("Couldn't fetch product info");
             });

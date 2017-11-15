@@ -4,6 +4,7 @@ import {Cart} from "../../../models/cart";
 import {Product} from "../../../models/product";
 import { Router } from '@angular/router';
 import {ToastyService, ToastyConfig, ToastOptions, ToastData} from 'ng2-toasty';
+import { UUID } from 'angular2-uuid';
 
 @Component({
   selector: 'app-dialog-content-cart-dialog',
@@ -34,7 +35,9 @@ export class DialogContentCartDialog implements OnInit {
       numbers.push(i);
     }
     this.numbers = numbers;
-    this.cart = data.cart;
+    // this.cart = data.cart;
+    //process items:
+    this.processCart(data.cart);
     this.dataService = data.dataService;
   }
 
@@ -81,19 +84,24 @@ export class DialogContentCartDialog implements OnInit {
       };
       this.toastyService.wait(toastOptions);
 
-      let subtotal = this.cart.total;
-      for (let product of this.cart.products) {
-        if(product.product_SKU != t.product_SKU) {
-          subtotal -= product.count * product.price;
-        }
-      }
-      let new_subtotal = t.price * t.count;
-      console.log("OLD SUBTOTAL OF PRODUCT " + subtotal);
-      console.log("NEW SUBTOTAL OF PRODUCT " + new_subtotal);
-      let old_count = subtotal / t.price;
-      console.log("OLD COUNT OF PRODUCT " + old_count);
-      let diff = t.count - old_count;
-      this.addCart(t, diff);
+      // let subtotal = this.cart.total;
+      // for (let product of this.cart.products) {
+      //   if(product.uuid != t.uuid) {
+      //     subtotal -= product.count * product.price;
+      //   }
+      // }
+      // let new_subtotal = t.price * t.count;
+      // console.log("OLD SUBTOTAL OF PRODUCT " + subtotal);
+      // console.log("NEW SUBTOTAL OF PRODUCT " + new_subtotal);
+      // let old_count = subtotal / t.price;
+      // console.log("OLD COUNT OF PRODUCT " + old_count);
+      let diff = t.count - t.old_count;
+      let _t = t;
+      delete _t['uuid'];
+      delete _t['old_count'];
+      console.log("ADDING: ",  _t, diff)
+
+      this.addCart(_t, diff);
 
     } else {
       this.pleaseWait();
@@ -112,6 +120,17 @@ export class DialogContentCartDialog implements OnInit {
     this.toastyService.warning(toastOptions);
   }
 
+  processCart(cart) {
+    if(!!cart && !!cart.products && cart.products.length > 0) {
+      for(let p of cart.products) {
+        p.uuid = UUID.UUID();
+        p.old_count = p.count;
+      }
+    }
+    this.cart = cart;
+    console.log("PROCESSED", this.cart);
+  }
+
   addCart(product, count) {
 
       let _product = {
@@ -121,12 +140,18 @@ export class DialogContentCartDialog implements OnInit {
         description: product.description,
         category: product.category,
         extras: product.extras,
+        extra_products: product.extra_products,
         image_urls: product.image_urls,
         count: count
       };
+      delete _product['uuid'];
+      delete _product['old_count'];
+
+      console.log(_product);
+
       this.dataService.addToCart([_product]).then((cart)=>{
         if(!!cart.products && cart.products.length > 0) {
-          this.cart = cart;
+          this.processCart(cart);
         } else {
             this.cart = null;
         }
@@ -172,6 +197,7 @@ export class DialogContentCartDialog implements OnInit {
     };
     this.toastyService.wait(toastOptions);
 
+
     let _product = {
       id: product.product_SKU,
       price: product.price,
@@ -179,13 +205,18 @@ export class DialogContentCartDialog implements OnInit {
       description: product.description,
       category: product.category,
       extras: product.extras,
+      extra_products: product.extra_products,
       image_urls: product.image_urls,
-      count: product.count * -1
+      count: product.old_count * -1
     };
+    delete _product['uuid'];
+    delete _product['old_count'];
+
+    console.log(_product);
 
     this.dataService.addToCart([_product]).then((cart)=>{
       if(!!cart.products && cart.products.length > 0) {
-        this.cart = cart;
+        this.processCart(cart);  
       } else {
           this.cart = null;
       }

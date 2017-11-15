@@ -27,6 +27,7 @@ export class FunctionsService {
     return total_price;
   }
 
+  //DEPRECATED
   mergeProducts (products1, products2) {
 
     let new_products = products1.concat(products2);
