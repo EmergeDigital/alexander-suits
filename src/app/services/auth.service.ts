@@ -20,6 +20,7 @@ export class AuthService {
   _authenticating: EventEmitter<boolean> = new EventEmitter();
   user: any;
   _user: EventEmitter<any> = new EventEmitter();
+  isRefreshing: boolean = false;
 
   constructor(public router: Router) {}
 
@@ -39,6 +40,7 @@ export class AuthService {
         this._authenticated.emit(true);
         resolve(true);
       } else {
+
         this._authenticating.subscribe(authenticating => {
           if(authenticating) {
             this._authenticated.subscribe(authenticated => {
@@ -48,49 +50,90 @@ export class AuthService {
             reject(false);
           }
         });
-        this.handleAuthentication();
+
+        if(!!JSON.parse(localStorage.getItem('expires_at'))){
+          this.refreshAuth();
+        } else {
+          this.handleAuthentication();
+        }
       }
     });
   }
 
   public handleAuthentication(): void {
-    this.auth0.parseHash((err, authResult) => {
-      if(!!authResult) {
-        if (authResult && authResult.accessToken && authResult.idToken) {
-          console.log("HALLO");
-          this._authenticating.emit(true);
-          window.location.hash = '';
-          this.setSession(authResult);
-          this.router.navigate(['/home']);
-          this.getCurrentUser(authResult.accessToken).then((user)=>{
-            this._user.emit(this.user);
-          })
-          // this.auth0.client.userInfo(authResult.accessToken, (err, user) =>{
-          //   //Do something with user information
-          //   this.user = this.getUserID(user);
-          //
-          //   this._user.emit(this.user);
-          //   // console.log(this.getUserID(user));
-          //   // this.data.setUser(this.getUserID(user));
-          // });
+    if(this.isRefreshing === false) {
+      this.auth0.parseHash((err, authResult) => {
+        if(!!authResult) {
+          if (authResult && authResult.accessToken && authResult.idToken) {
+            console.log("HALLO");
+            this._authenticating.emit(true);
+            window.location.hash = '';
+            this.setSession(authResult);
+            if(this.isRefreshing !== true) {
+              this.router.navigate(['/home']);
+            }
+            this.getCurrentUser(authResult.accessToken).then((user)=>{
+              this.isRefreshing = false;
+              this._user.emit(this.user);
+            })
+            // this.auth0.client.userInfo(authResult.accessToken, (err, user) =>{
+            //   //Do something with user information
+            //   this.user = this.getUserID(user);
+            //
+            //   this._user.emit(this.user);
+            //   // console.log(this.getUserID(user));
+            //   // this.data.setUser(this.getUserID(user));
+            // });
+          } else {
+            this.isRefreshing = false;
+            this._authenticating.emit(false);
+            this.router.navigate(['/home']);
+            console.log("There was an error");
+          }
         } else {
+          this.isRefreshing = false;
+          // this._authenticating.emit(false);
+          // this.router.navigate(['/home']);
+          // console.log(err);
+        }
+
+        if(err) {
+          this.isRefreshing = false;
           this._authenticating.emit(false);
           this.router.navigate(['/home']);
-          console.log("There was an error");
+          console.log(err);
+
         }
-      } else {
-        // this._authenticating.emit(false);
-        // this.router.navigate(['/home']);
-        // console.log(err);
-      }
 
+      });
+    }
+  }
+
+  public refreshAuth() {
+    this.isRefreshing = true;
+    this.auth0.renewAuth({        
+      audience: 'alexander-suits',
+      scope: 'openid email name',
+      redirectUri: environment.authCallback,
+    },(err, authResult) => {
+      // console.log("authing");
+      // err if automatic parseHash fails
       if(err) {
-        this._authenticating.emit(false);
-        this.router.navigate(['/home']);
-        console.log(err);
-
+        return false;
       }
-
+      else if (authResult && authResult.accessToken && authResult.idToken) {
+        // console.log("HALLO2");
+        this._authenticating.emit(true);
+        window.location.hash = '';
+        this.setSession(authResult);
+        this.getCurrentUser(authResult.accessToken).then((user)=>{
+          this.isRefreshing = false;
+          this._user.emit(this.user);
+        })
+      } else {
+        // this.isRefreshing = false;
+        return false;
+      }
     });
   }
 
@@ -172,12 +215,16 @@ export class AuthService {
     this.router.navigate(['/']);
     this._authenticated.emit(false);
   }
-
+  global: number = 0;
   public isAuthenticated(): boolean {
     // Check whether the current time is past the
     // access token's expiry time
     const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
     let returnVal = new Date().getTime() < expiresAt;
+    // if(this.global < 1) {
+    //   this.global ++;
+    //   return false;
+    // }
     return returnVal;
   }
 
