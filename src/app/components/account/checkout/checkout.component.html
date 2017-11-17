@@ -1,6 +1,6 @@
 <div class="container animated fadeIn" style="padding-top: 60px; padding-bottom: 100px;">
   <div class="checkout-top">
-    <h1>Checkout</h1>
+    <h1 id="tabTitle">Checkout</h1>
   </div>
   <div class="stepper-box" [ngClass]="{active: steps[0].display === 'block'|| completedSteps[0] === true}">
     <button mat-button (click)="changeStep('0')"><div class="circle">1</div>Finalize Cart</button>
@@ -108,7 +108,7 @@
               <input matInput placeholder="Country" value="" [(ngModel)]="alt_address.country" name="altcountry">
             </mat-form-field>
           </div>
-          <mat-form-field class="s-full-width">
+          <mat-form-field class="s-full-width"> 
             <textarea matInput placeholder="Additional Delivery Instructions" value="" [(ngModel)]="delivery_instructions" name="deliveryinstructions">{{delivery_instructions}}</textarea>
           </mat-form-field>
         </form>

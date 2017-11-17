@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {ScrollStoreModule} from 'scrollstore';
+// import {ScrollStoreModule} from 'scrollstore';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MakeEnglish } from './pipes/makeEnglish.pipe'; // import our pipe here
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
@@ -20,7 +20,7 @@ import {MatSortModule} from '@angular/material';
 import {MatTableModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {Http, Headers, HttpModule, RequestOptions} from '@angular/http';
-import {AngularFontAwesomeModule} from 'angular-font-awesome/angular-font-awesome';
+// import {AngularFontAwesomeModule} from 'angular-font-awesome/angular-font-awesome';
 import {NguiMapModule} from '@ngui/map';
 // import { RouterModule } from '@angular/router';
 import {NgModule} from '@angular/core';
@@ -30,8 +30,9 @@ import {ToastyModule} from 'ng2-toasty';
 import { SwiperModule } from 'angular2-useful-swiper';
 import {AuthHttp, AuthConfig} from 'angular2-jwt';
 import 'hammerjs';
-import {Ng2PageScrollModule} from 'ng2-page-scroll';
-import {MATERIAL_COMPATIBILITY_MODE} from '@angular/material';
+import {NgxPageScrollModule} from 'ngx-page-scroll';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+// import {MATERIAL_COMPATIBILITY_MODE} from '@angular/material';
 
 
 import { CovalentFileModule } from '@covalent/core';
@@ -140,8 +141,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         OrderComponent
     ],
     imports: [
-        ScrollStoreModule,
-        Ng2PageScrollModule,
+        // ScrollStoreModule,
+        NgxPageScrollModule,
         BrowserModule,
         BrowserAnimationsModule,
         FormsModule,
@@ -168,7 +169,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         MatSortModule,
         MatTableModule,
         OwlModule,
-        AngularFontAwesomeModule,
+        ScrollToModule.forRoot(),
+        // AngularFontAwesomeModule,
         ClipboardModule,
         SwiperModule,
         NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyAm3PebcIYpXrXY5k7xA5_9JWnqIjWKlU4'})
@@ -177,7 +179,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         DialogContentCartDialog
     ],
     providers: [TabsService, DataService, SessionService, FunctionsService, AuthService, SuitService, MeasurementsService,
-        {provide: MATERIAL_COMPATIBILITY_MODE, useValue: true},
+        // {provide: MATERIAL_COMPATIBILITY_MODE, useValue: true},
         {
             provide: AuthHttp,
             useFactory: authHttpServiceFactory,

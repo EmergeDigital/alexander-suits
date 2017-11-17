@@ -1,12 +1,14 @@
 import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core';
 import { DOCUMENT} from '@angular/common';
-import { PageScrollConfig, PageScrollService, PageScrollInstance } from 'ng2-page-scroll';
 import {TabsService} from '../../../../services/tabs.service';
 import {DataService} from '../../../../services/data.service';
 import { TdLoadingService } from '@covalent/core';
 import { Router } from '@angular/router';
 import {SuitService} from "./../../../../services/customizers/suit.service";
 import {MeasurementsService} from "./../../../../services/customizers/measurements.service";
+import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scroll-to';
+
+declare var $: any;
 
 @Component({
   selector: 'app-measurements-inner',
@@ -24,8 +26,8 @@ export class MeasurementsInnerComponent implements OnInit {
     hasTrousers: boolean = true;
 
 
-    @ViewChild('basicContainer')
-    public basicContainer: ElementRef;
+    @ViewChild('container')
+    private container: ElementRef;
 
     config: SwiperOptions = {
         pagination: '.swiper-pagination',
@@ -53,9 +55,9 @@ export class MeasurementsInnerComponent implements OnInit {
       {img: "assets/measurements/7-Compact-Athletic-Chest.png", id: 6, title: "Compact, Athletic Chest", desc: "A muscular, strong figure with low body fat"},
     ];
 
-    constructor(private service: TabsService, private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any, 
+    constructor(private service: TabsService,
                 public router: Router, public data: DataService, private _loadingService: TdLoadingService, public suitService: SuitService,
-                public measurementsService: MeasurementsService) {
+                public measurementsService: MeasurementsService, private _scrollToService: ScrollToService) {
       this.steps = [];
       this.stepsLength = 3;
       this.steps.push({display: "block"});
@@ -122,9 +124,15 @@ export class MeasurementsInnerComponent implements OnInit {
     confirmBodyType() {
       this.stepperHidden = false;
       setTimeout(()=> {
-        let pageScrollInstance: PageScrollInstance = PageScrollInstance.simpleInstance(this.document, '#stepper1');
-        this.pageScrollService.start(pageScrollInstance);        
-      }, 100)
+        // $.scrollTo('#stepper1', 1000);
+        // console.log("WAT");
+
+        const config: ScrollToConfigOptions = {
+          target: 'stepper1'
+        };
+
+        this._scrollToService.scrollTo(config);
+      }, 10)
     }
 
     changeStep(s){
@@ -134,19 +142,14 @@ export class MeasurementsInnerComponent implements OnInit {
 
       this.steps[s].display = 'block';
       setTimeout(()=> {
-        // let pageScrollInstance: PageScrollInstance = PageScrollInstance.newInstance({document: this.document, scrollTarget: '#stepper'+s, scrollingViews: [this.container.nativeElement]});
-        // this.pageScrollService.start(pageScrollInstance);
-
-        const pageScrollInstance: PageScrollInstance = PageScrollInstance.newInstance({
-          document: this.document,
-          scrollTarget: '#stepper' + s,
-          scrollingViews: [this.basicContainer.nativeElement]
-        });
-        this.pageScrollService.start(pageScrollInstance);
         console.log("scrolling to " + s);
-        // let pageScrollInstance: PageScrollInstance = PageScrollInstance.simpleInstance(this.document, '#stepper'+s);
-        // this.pageScrollService.start(pageScrollInstance);   
-      }, 1000)
+        
+        const config: ScrollToConfigOptions = {
+          target: 'stepper'+s
+        };
+
+        this._scrollToService.scrollTo(config);
+      }, 10)
     }
 
     checkout() {
@@ -161,6 +164,12 @@ export class MeasurementsInnerComponent implements OnInit {
         console.log(result);
         this._loadingService.resolve('overlayStarSyntax');
         this.router.navigate(['/checkout']);
+        setTimeout(()=>{
+          const config: ScrollToConfigOptions = {
+            target: 'tabTitle'
+          };
+          this._scrollToService.scrollTo(config);
+        },10)
       }).catch(ex => {
         alert("There was a problem");
         this._loadingService.resolve('overlayStarSyntax');

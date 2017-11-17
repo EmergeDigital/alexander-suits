@@ -1,9 +1,9 @@
 @import '../../../styles/colours.scss';
 
 .owl-slide-custom{
-  height: -moz-calc(100vh - (69px + 200px));
-  height: -webkit-calc(100vh - (69px + 200px));
-  height: calc(100vh - (69px + 200px));
+  height: -moz-calc(100vh - (64px + 200px));
+  height: -webkit-calc(100vh - (64px + 200px));
+  height: calc(100vh - (64px + 200px));
   width: 100%;
   background-attachment: center center;
   background-repeat: no-repeat;
@@ -174,10 +174,6 @@
   .col-sm-6 {
     margin-bottom: 10px;
   }
-}
-
-.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
-  background: #830024 !important;
 }
 
 .item-outer{

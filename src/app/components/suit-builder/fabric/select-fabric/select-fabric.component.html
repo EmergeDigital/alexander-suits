@@ -1,5 +1,5 @@
 <div class="container-fluid fabric-top animated fadeIn">
-  <h2>Choose the fabric for your suit</h2>
+  <h2 id="tabTitle">Choose the fabric for your suit</h2>
   <div *ngIf="!loading">
     <div *ngIf="!single_product">
       <div class="row centered" *ngIf="products">
@@ -7,7 +7,7 @@
             <div class="col-lg-2 col-md-3 col-sm-6" *ngIf="product.image_urls.length > 0">
               <div class="fabric-block">
                 <div class="fabric-square-outer">
-                  <button mat-button (click)="single_product = product;"><div class="fabric-square">
+                  <button mat-button (click)="preselectFabric(product)"><div class="fabric-square">
                     <img src="{{product.image_urls[0]}}" style="width: 100%; height: 100%;">
                   </div></button>
                 </div>

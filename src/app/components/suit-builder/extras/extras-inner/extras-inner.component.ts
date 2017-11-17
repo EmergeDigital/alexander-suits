@@ -1,10 +1,11 @@
 import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core';
 import { DOCUMENT} from '@angular/common';
-import { PageScrollConfig, PageScrollService, PageScrollInstance } from 'ng2-page-scroll';
+import { PageScrollConfig, PageScrollService, PageScrollInstance } from 'ngx-page-scroll';
 
 import {TabsService} from '../../../../services/tabs.service';
 import {SuitService} from "./../../../../services/customizers/suit.service";
 import {MeasurementsService} from "./../../../../services/customizers/measurements.service";
+import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scroll-to';
 
 @Component({
   selector: 'app-extras-inner',
@@ -47,7 +48,7 @@ export class ExtrasInnerComponent implements OnInit {
       loop: true
   };
 
-  constructor(private service: TabsService, private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any,
+  constructor(private service: TabsService, private _scrollToService: ScrollToService,
               public suitService: SuitService, public measurementsService: MeasurementsService) {
 
     this.loading = true;
@@ -133,14 +134,23 @@ export class ExtrasInnerComponent implements OnInit {
     }
 
     this.steps[s].display = 'block';
-    let pageScrollInstance: PageScrollInstance = PageScrollInstance.simpleInstance(this.document, '#stepper'+s);
-    this.pageScrollService.start(pageScrollInstance);
+    setTimeout(()=> {
+      console.log("scrolling to " + s);
+      
+      const config: ScrollToConfigOptions = {
+        target: 'stepper'+s
+      };
+
+      this._scrollToService.scrollTo(config);
+    }, 10)
   }
 
   completeExtras() {
-      let pageScrollInstance: PageScrollInstance = PageScrollInstance.newInstance({document: this.document, scrollTarget: '#tabTitle', pageScrollDuration: 0.3});
-      // this.measurementsService.comments = this.comments;
-      this.pageScrollService.start(pageScrollInstance);
+      const config: ScrollToConfigOptions = {
+        target: 'tabTitle'
+      };
+
+      this._scrollToService.scrollTo(config);
       setTimeout(()=> {
         this.service.changeTab("measurements");
       }, 0.32)
