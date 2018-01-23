@@ -22,38 +22,7 @@ export class CartComponent implements OnInit {
 
     this.loadingToast = null;
     this.loadingCart = true;
-
-    // if(auth.isAuthenticated()){
-    //   if(data.hasLoaded()) {
-    //     data.getProducts().then((products)=>{
-    //       this.products = products;
-    //     });
-    //     data.getCart().then((cart)=>{
-    //       if (cart.status === "does_not_exist") {
-    //
-    //       } else {
-    //         this.cart = cart;
-    //       }
-    //     });
-    //   } else {
-    //
-    //     data.user_loaded.subscribe(user => {
-    //       data.getProducts().then((products)=>{
-    //         this.products = products;
-    //       });
-    //       data.getCart().then((cart)=>{
-    //         if (cart.status === "does_not_exist") {
-    //
-    //         } else {
-    //           this.cart = cart;
-    //         }
-    //       });
-    //     });
-    //   }
-    //
-    // } else {
-    //   this.router.navigate(['/']);
-    // }
+    
       data.findCart().then(cart=> {
         if (cart.status === "does_not_exist") {
           console.log("No Cart Detected");
@@ -174,10 +143,7 @@ export class CartComponent implements OnInit {
   createTransaction(){
     this.data.createTransaction("standard_card", "ORD1").then(results=>{
       console.log(results);
-      // let _results = JSON.parse(results);
-      // for(let r of _results) {
-      //   console.log(r);
-      // }
+      
 
     }).catch(ex=>{
       console.log(ex);

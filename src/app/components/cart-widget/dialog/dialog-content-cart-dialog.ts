@@ -21,13 +21,6 @@ export class DialogContentCartDialog implements OnInit {
   isLoading: boolean;
 
 
-  //TODO:
-  //  -  onChange method for count
-  //  -  import data service & replace cart data when updated
-  //  -  clear cart function
-  //  -  checkout button (does nothing for now)
-  //  -  cart total at bottom of products
-
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public router: Router, private toastyService:ToastyService, private toastyConfig: ToastyConfig) {
     this.isLoading = false;
     let numbers = [];
@@ -35,8 +28,7 @@ export class DialogContentCartDialog implements OnInit {
       numbers.push(i);
     }
     this.numbers = numbers;
-    // this.cart = data.cart;
-    //process items:
+    
     this.processCart(data.cart);
     this.dataService = data.dataService;
   }
@@ -51,7 +43,7 @@ export class DialogContentCartDialog implements OnInit {
   getImage(product) {
     if(!!product.image_urls && product.image_urls.length > 2) {
       if(this.isValidUrl(product.image_urls[2])) {
-        // console.log(product.image_urls[2]);
+        
         return product.image_urls[2];
       }
     }
@@ -65,14 +57,7 @@ export class DialogContentCartDialog implements OnInit {
   onChange(t){
     if(this.loadingToast == null) {
       this.isLoading = true;
-    // this.dataService.getCart().then(cart => {
-    //   for(let product of cart.products) {
-    //     if(t.product_SKU == product.product_SKU) {
-    //       let old_could =
-    //       console.log(product.count + " VS " + t.count);
-    //     }
-    //   }
-    // })
+      
       var toastOptions:ToastOptions = {
         title: "Updating Your Cart",
         msg: "Please wait",
@@ -84,31 +69,20 @@ export class DialogContentCartDialog implements OnInit {
       };
       this.toastyService.wait(toastOptions);
 
-      // let subtotal = this.cart.total;
-      // for (let product of this.cart.products) {
-      //   if(product.uuid != t.uuid) {
-      //     subtotal -= product.count * product.price;
-      //   }
-      // }
-      // let new_subtotal = t.price * t.count;
-      // console.log("OLD SUBTOTAL OF PRODUCT " + subtotal);
-      // console.log("NEW SUBTOTAL OF PRODUCT " + new_subtotal);
-      // let old_count = subtotal / t.price;
-      // console.log("OLD COUNT OF PRODUCT " + old_count);
+      
       let diff = t.count - t.old_count;
       let _t = t;
       delete _t['uuid'];
       delete _t['old_count'];
       console.log("ADDING: ",  _t, diff)
 
+      //Fire event to data service
+      //data service compares count of current product, then adds the difference to the cart
       this.addCart(_t, diff);
 
     } else {
       this.pleaseWait();
     }
-    //Fire event to data service:
-    //product id & new count
-    //data service compares count of current product, then adds the difference to the cart
   }
 
   pleaseWait() {

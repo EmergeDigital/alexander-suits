@@ -13,7 +13,7 @@ export class SuitBuilderComponent implements OnInit {
     this.tabs = service.getTabs();
     service.tabs_event.subscribe(
           (new_tabs) => {
-            // console.log(new_tabs);
+            
             this.changeTab(new_tabs);
 
           }
@@ -25,11 +25,7 @@ export class SuitBuilderComponent implements OnInit {
   }
 
   changeTab(new_tabs){
-    // for(let tab of new_tabs){
-    //   if(tab.isSelected === true ){
-    //     this.changeTab(tab.name);
-    //   }
-    // }
+    
     this.tabs = new_tabs;
   }
 

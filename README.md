@@ -2,9 +2,17 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.0.
 
-## Development server
+## Build Instructions for Development
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+For installation, ensure you have node 9.4.0 and nvm 5.6.0 installed
+
+$ npm i -g yarn
+
+$ yarn
+
+$ ng serve
+
+Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 

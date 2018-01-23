@@ -9,48 +9,7 @@
       <h3>Your Cart</h3>
     </div>
     <div style="padding-top: 20px;">
-      <!-- <div class="row">
-        <div class="col-6">
-          <h5 class="prod-title">Product Details</h5>
-        </div>
-        <div class="col-3">
-          <h5>Count</h5>
-        </div>
-        <div class="col-3">
-          <h5>Subtotal</h5>
-        </div>
-      </div> -->
-      <!-- <div style="padding: 10px;" *ngFor="let product of data.cart.products">
-        <div class="mat-card">
-          <div class="row title-padding">
-            <div class="col-6">
-              <div class="product-left">
-                <div class="product-image">
-                    <img class="p-img" src="assets/red.jpg"/>
-                </div>
-                <div class="product-text">
-                  <h6><b>{{product.name}}</b></h6>
-                  <p>{{product.description}}</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-3">
-              <div class="product-center">
-                <mat-select placeholder="Amount" [(ngModel)]="product.count" (change)="onChange(product)">
-                  <mat-option *ngFor="let number of numbers" [value]="number">
-                    {{ number }}
-                  </mat-option>
-                </mat-select>
-              </div>
-            </div>
-            <div class="col-3">
-                <div class="product-right">
-                  R{{product.price}}
-                </div>
-            </div>
-          </div>
-        </div>
-      </div><br /><br /><br /> -->
+      
       <div class="row">
 
         <div class="col-sm-6 col-xl-4"  *ngFor="let product of cart.products" style="margin-bottom: 15px;">
@@ -64,12 +23,7 @@
             <img mat-card-image src="{{getImage(product)}}" alt="Product" class="product-img">
           
             <mat-card-content style="padding-top: 20px;">
-              <!-- <p>
-                R{{product.price}}
-              </p>
-              <p>
-                {{product.count}}
-              </p> -->
+              
               <div class="row">
                 <div class="col-6">
                   <mat-form-field class="s-full-width">
@@ -87,13 +41,7 @@
                 </div>
               </div>
             </mat-card-content>
-              <!-- <div class="text-align: center">
-                <mat-select placeholder="Amount" [(ngModel)]="product.count" (change)="onChange(product)">
-                  <mat-option *ngFor="let number of numbers" [value]="number">
-                    {{ number }}
-                  </mat-option>
-                </mat-select>
-              </div> -->
+            
             <mat-card-actions style="text-align: right;">
               <button mat-button disabled="{{isLoading}}" (click)="removeItem(product)">Remove</button>
             </mat-card-actions>
@@ -105,9 +53,7 @@
         <h4>Total: R{{cart.total | number:'1.2-2'}}</h4>
       </div>
     </div>
-    <!-- <div style="text-align: center">
-      <button mat-raised-button color="primary"  (click)="deleteCart()">Clear Cart</button>
-    </div> -->
+    
   </div>
   <div class="" *ngIf="!cart">
     <div style="padding: 40px; text-align: center;">

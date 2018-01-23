@@ -12,9 +12,7 @@ export class TabsComponent implements OnInit {
   pages: any[];
 
   constructor(private service: TabsService) {
-    // this.page = "fabric";
     this.pages = service.getTabs();
-    // console.log(this.pages);
    }
 
   ngOnInit() {
@@ -35,17 +33,6 @@ export class TabsComponent implements OnInit {
   }
 
   changeOnlyPage(page){
-    // let pages = this.pages;
-    // for (let p in pages){
-    //   if(pages[p].name == page){
-    //     pages[p].isSelected = true;
-    //     pages[p].isVisited = true;
-    //   } else {
-    //     pages[p].isSelected = false;
-    //     pages[p].isVisited = false;
-    //   }
-    // }
-    // pages = this.pages;
     this.service.changeTab(page);
     this.pages = this.service.getTabs();
   }
