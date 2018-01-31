@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-fabric',
+  selector: 'suit-builder-fabric',
   templateUrl: './fabric.component.html',
   styleUrls: ['./fabric.component.scss']
 })
 export class FabricComponent implements OnInit {
+    private isMaterialDisplayed: boolean = true;
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit() {
-  }
+    public ngOnInit(): void {
+
+    }
 
 }

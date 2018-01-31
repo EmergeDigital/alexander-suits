@@ -1,15 +1,16 @@
-<div class="animated fadeIn">
-  <div *ngIf="tabs[0].isSelected"><app-fabric></app-fabric></div>
-  <div *ngIf="tabs[1].isSelected"><app-customize></app-customize></div>
-  <div *ngIf="tabs[2].isSelected"><app-extras></app-extras></div>
-  <div *ngIf="tabs[3].isSelected"><app-measurements></app-measurements></div>
-
-
-  <app-tabs></app-tabs>
-
-
-  <div *ngIf="tabs[0].isSelected"><app-fabric-inner></app-fabric-inner></div>
-  <div *ngIf="tabs[1].isSelected"><app-customize-inner></app-customize-inner></div>
-  <div *ngIf="tabs[2].isSelected"><app-extras-inner></app-extras-inner></div>
-  <div *ngIf="tabs[3].isSelected"><app-measurements-inner></app-measurements-inner></div>
+<div class="row">
+    <div class="col-md-12" style="background-color: #696969; height: 30em;">
+        <!-- Wizard Visual and Banner -->        
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-10" [ngSwitch]="currentWizardStage" style="height: 60em;">
+        <suit-builder-fabric *ngSwitchCase="WizardStage.Fabric"></suit-builder-fabric>
+        <suit-builder-design *ngSwitchCase="WizardStage.Design"></suit-builder-design>
+        <suit-builder-finer-details *ngSwitchCase="WizardStage.FinerDetails"></suit-builder-finer-details>
+        <suit-builder-measurements *ngSwitchCase="WizardStage.Measurements"></suit-builder-measurements>
+    </div>
+    <div class="col-md-2" style="background-color: #C0C0C0; height: 60em;">
+        <!-- Options Chosen Visual -->
+    </div>
 </div>

@@ -1,8 +1,0 @@
-<div class="animated fadeIn" *ngIf="service">
-  <div *ngIf="service.selectType"><app-type></app-type></div>
-  <div *ngIf="service.selectFabric"><app-select-fabric></app-select-fabric></div>
-  <div class="inner-next">
-      <button *ngIf="service.selectFabric" mat-raised-button (click)="prevSection()">Back</button> 
-      <!-- <button mat-raised-button color="primary" (click)="nextSection()">Next</button> -->
-  </div>
-</div>

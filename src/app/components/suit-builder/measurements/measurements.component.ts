@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-measurements',
+  selector: 'suit-builder-measurements',
   templateUrl: './measurements.component.html',
   styleUrls: ['./measurements.component.scss']
 })
 export class MeasurementsComponent implements OnInit {
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit() {
-  }
+    public ngOnInit(): void {
+
+    }
 
 }

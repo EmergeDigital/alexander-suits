@@ -63,18 +63,6 @@ import {PrivacyComponent} from './components/privacy/privacy.component';
 import {TermsAndConditionsComponent} from './components/terms-and-conditions/terms-and-conditions.component';
 import {DisclaimerComponent} from './components/disclaimer/disclaimer.component';
 import {ComingSoonComponent} from './partials/coming-soon/coming-soon.component';
-import {FabricComponent} from './components/suit-builder/fabric/fabric.component';
-import {TypeComponent} from './components/suit-builder/fabric/type/type.component';
-import {TabsComponent} from './components/suit-builder/tabs/tabs.component';
-import {SuitBuilderComponent} from './components/suit-builder/suit-builder.component';
-import {SelectFabricComponent} from './components/suit-builder/fabric/select-fabric/select-fabric.component';
-import {CustomizeComponent} from './components/suit-builder/customize/customize.component';
-import {CustomizeInnerComponent} from './components/suit-builder/customize/customize-inner/customize-inner.component';
-import {FabricInnerComponent} from './components/suit-builder/fabric/fabric-inner/fabric-inner.component';
-import {MeasurementsComponent} from './components/suit-builder/measurements/measurements.component';
-import {MeasurementsInnerComponent} from './components/suit-builder/measurements/measurements-inner/measurements-inner.component';
-import {CheckoutComponent} from './components/suit-builder/checkout/checkout.component';
-import {CheckoutInnerComponent} from './components/suit-builder/checkout/checkout-inner/checkout-inner.component';
 import {CallbackComponent} from './components/callback/callback.component';
 import {NavbarSmComponent} from './partials/navbar-sm/navbar-sm.component';
 import {AccountComponent} from './components/account/account.component';
@@ -88,9 +76,24 @@ import {DialogContentCartDialog} from './components/cart-widget/dialog/dialog-co
 // Duplicates
 import {AccountMeasurementsComponent} from "./components/account/measurements/measurements.component";
 import { PaymentComponent } from './components/payment/payment.component';
-import { ExtrasComponent } from './components/suit-builder/extras/extras.component';
-import { ExtrasInnerComponent } from './components/suit-builder/extras/extras-inner/extras-inner.component';
 import { OrderComponent } from './components/account/order/order.component';
+
+//Suit-Builder --This will be moved to a seperated module (suit-builder.module)
+import { SuitBuilderComponent } from './components/suit-builder/suit-builder.component';
+import { FabricComponent } from './components/suit-builder/fabric/fabric.component';
+import { MaterialComponent } from './components/suit-builder/fabric/material/material.component';
+import { LiningComponent } from './components/suit-builder/fabric/lining/lining.component';
+import { DesignComponent } from './components/suit-builder/design/design.component';
+import { CollarComponent } from './components/suit-builder/design/collar/collar.component';
+import { PocketsComponent } from './components/suit-builder/design/pockets/pockets.component';
+import { VentsComponent } from './components/suit-builder/design/vents/vents.component';
+import { ButtonHolesComponent } from './components/suit-builder/design/button-holes/button-holes.component';
+import { PantPleatsComponent } from './components/suit-builder/design/pant-pleats/pant-pleats.component';
+import { WaistcoatComponent } from './components/suit-builder/design/waistcoat/waistcoat.component';
+import { PackageComponent } from './components/suit-builder/design/package/package.component';
+import { StitchingComponent } from './components/suit-builder/design/stitching/stitching.component';
+import { FinerDetailsComponent } from './components/suit-builder/finer-details/finer-details.component';
+import { MeasurementsComponent } from './components/suit-builder/measurements/measurements.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     return new AuthHttp(new AuthConfig({
@@ -112,18 +115,6 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         TermsAndConditionsComponent,
         DisclaimerComponent,
         ComingSoonComponent,
-        FabricComponent,
-        TypeComponent,
-        TabsComponent,
-        SuitBuilderComponent,
-        SelectFabricComponent,
-        CustomizeComponent,
-        CustomizeInnerComponent,
-        FabricInnerComponent,
-        MeasurementsComponent,
-        MeasurementsInnerComponent,
-        CheckoutComponent,
-        CheckoutInnerComponent,
         CallbackComponent,
         NavbarSmComponent,
         AccountComponent,
@@ -135,10 +126,24 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         DialogContentCartDialog,
         AccountMeasurementsComponent,
         PaymentComponent,
-        ExtrasComponent,
-        ExtrasInnerComponent,
         MakeEnglish,
-        OrderComponent
+        OrderComponent,
+        //Suit-Builder  --This will be moved to a seperated module (suit-builder.module)
+        SuitBuilderComponent,
+        FabricComponent,
+        MaterialComponent,
+        LiningComponent,
+        DesignComponent,
+        CollarComponent,
+        PocketsComponent,
+        VentsComponent,
+        ButtonHolesComponent,
+        PantPleatsComponent,
+        WaistcoatComponent,
+        PackageComponent,
+        StitchingComponent,
+        FinerDetailsComponent,
+        MeasurementsComponent
     ],
     imports: [
         // ScrollStoreModule,

@@ -1,0 +1,10 @@
+<div [ngSwitch]="currentDesignStage">
+    <suit-builder-design-collar *ngSwitchCase="DesignStage.Collar"></suit-builder-design-collar>
+    <suit-builder-design-pockets *ngSwitchCase="DesignStage.Pockets"></suit-builder-design-pockets>
+    <suit-builder-design-vents *ngSwitchCase="DesignStage.Vents"></suit-builder-design-vents>
+    <suit-builder-design-button-holes *ngSwitchCase="DesignStage.ButtonHoles"></suit-builder-design-button-holes>
+    <suit-builder-design-pant-pleats *ngSwitchCase="DesignStage.PantPleats"></suit-builder-design-pant-pleats>
+    <suit-builder-design-waistcoat *ngSwitchCase="DesignStage.Waistcoat"></suit-builder-design-waistcoat>
+    <suit-builder-design-package *ngSwitchCase="DesignStage.Package"></suit-builder-design-package>
+    <suit-builder-design-stitching *ngSwitchCase="DesignStage.Stitching"></suit-builder-design-stitching>
+</div>
