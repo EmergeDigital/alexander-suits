@@ -7,9 +7,9 @@ import { DesignStage } from '../../../models/suit-builder/designStage';
   styleUrls: ['./design.component.scss']
 })
 export class DesignComponent implements OnInit {
-    private DesignStage = DesignStage; //Html Reference
+    DesignStage = DesignStage; //Html Reference
 
-    private currentDesignStage: DesignStage = DesignStage.Collar;
+    currentDesignStage: DesignStage = DesignStage.Collar;
 
     constructor() { }
 

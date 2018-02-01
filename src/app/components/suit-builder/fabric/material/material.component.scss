@@ -1,0 +1,59 @@
+@import '../../../../../styles/colours';
+
+h2 {
+    color: $c-brown-main; 
+    font-weight: 600;
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+p {
+    color: $c-brown-main; 
+    font-weight: 200;
+    font-size: 0.75em;
+    letter-spacing: 0.1em;
+}
+
+.row {
+    margin: 4em;
+}
+
+.colour-filter {
+    margin-top: 1.4em;
+}
+.circle {
+    width: 1em;
+    height: 1em;
+    line-height: 1em;
+    border-radius: 0.5em;
+    border: 1px solid $c-brown-accent;
+    background-color: $c-brown-accent;
+    margin-left: 1em;
+}
+
+.placeholder-circle {
+    width: 20em;
+    height: 20em;
+    border-radius: 10em;
+    border: 1px solid $c-blue-main;
+    background-color: $c-blue-main;
+}
+.left-circle-text {
+    text-align: center;
+    margin: 4em;
+    font-size: 1em
+}
+
+.fabric-block {
+    text-align: center;
+    margin: 2em;
+    font-size: 1em;
+    .fabric-swatch {
+        margin-bottom: 2em;
+    }
+}
+
+.circle-column {
+    margin-right: 6em;
+}
