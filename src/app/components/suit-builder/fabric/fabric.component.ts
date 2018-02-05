@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./fabric.component.scss']
 })
 export class FabricComponent implements OnInit {
-    private isMaterialDisplayed: boolean = true;
+    isMaterialDisplayed: boolean = true;
 
     constructor() { }
 

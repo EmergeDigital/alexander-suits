@@ -1,4 +1,4 @@
-<div class="alex-header unselectable">
+<!-- <div class="alex-header unselectable">
   <div class="container-fluid">
     <div class="row">
         <div class="col-4">
@@ -7,7 +7,6 @@
           </div>
         </div>
         <div class="col-4">
-          <img class="img-responsive alex-logo" src="assets/alex-logo.png" />
         </div>
         <div class="col-4">
           <div class="social-icons">
@@ -20,18 +19,20 @@
         </div>
     </div>
   </div>
-</div>
-<mat-toolbar color="primary" class="unselectable">
+</div> -->
+<mat-toolbar class="alex-header unselectable">
   <!-- TODO: hide on mobile -->
   <div class="toolbar-centered">
 
     <button mat-button routerLink="home">HOME</button>
-    <button mat-button routerLink="about">ABOUT</button>
-    <button mat-button [matMenuTriggerFor]="shopMenu">SHOP</button>
-    <!-- <button mat-button routerLink="accessories">ACCESSORIES</button> -->
+    <button mat-button routerLink="about">ABOUT US</button>
     <button mat-button routerLink="contact">CONTACT US</button>
+    <img class="img-responsive alex-logo" src="assets/alex-logo.png" />    
+    <button mat-button [matMenuTriggerFor]="shopMenu">SHOP <i class="fa fa-caret-down" aria-hidden="true"></i></button>
+    <!-- <button mat-button routerLink="accessories">ACCESSORIES</button> -->
     <button mat-button *ngIf="!isAuthenticated" (click)="login()">LOG IN</button>
     <button mat-button routerLink="account" *ngIf="isAuthenticated">ACCOUNT</button>
+    <app-cart-widget></app-cart-widget> 
   </div>
 
   <!-- <div class="showOnMobile">
@@ -49,7 +50,7 @@
   <!-- <span>Right Aligned Text</span> -->
 </mat-toolbar>
 
-<mat-menu #shopMenu="matMenu">
+<mat-menu class="shop-dropdown" #shopMenu="matMenu" xPosition="after" yPosition="below" [overlapTrigger]="false">
   <button mat-menu-item routerLink="suits"> Suits </button>
   <button mat-menu-item> Shirts </button>
   <button mat-menu-item> Pants </button>

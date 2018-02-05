@@ -5,43 +5,32 @@
   // Every toolbar row uses a flexbox row layout.
   flex: 1 1 auto;
 }
-
 .toolbar-centered {
   flex: 1 1 auto;
   text-align: center;
+  button {
+    margin-right: 6.25em;
+    i {
+      padding-left: 0.625em;
+      padding-bottom: 0.3125em;
+      font-size: 1.5em;
+    }
+  }
 }
-
 .alex-header {
-  height: 200px;
-  color: $c-accent;
+  height: 6.25em;
+  color: $c-brown-main;
   width: 100%;
   text-align: center;
-  padding-top: 20px;
-  padding-bottom: 20px;  
+  padding-top: 1.25em;
+  padding-bottom: 1.25em;  
   background: #fff;
-
-
-
-  .social-icons {
-    button {
-      border: 2px solid $c-accent;
-    }
-    .mat-icon-button{
-      width: 45px;
-      height: 45px;
-      line-height: 18px;
-    }
-  }
 }
-
-
 .alex-logo {
-  max-width: 200px;
+  max-width: 5em;
+  margin-right: 3.125em;
 }
-
-.call-text {
-  padding-top: 10px;
-  .material-icons, span {
-    vertical-align: middle;
-  }
+.shop-dropdown{
+  background-color: $c-brown-accent; 
+  color: #fff;
 }

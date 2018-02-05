@@ -2,11 +2,13 @@
 
 .cart-button {
   // text-align: left;
-  color: $c-grey;
+  color: $c-brown-main;
+  display: inline;
   // text-align: right;
   i {
-    padding: 5px 15px 10px 15px;
-    font-size: 30px;
+    padding-left: 0.625em;
+    padding-bottom: 0.3125em;
+    font-size: 1.5em;
   }
 }
 
