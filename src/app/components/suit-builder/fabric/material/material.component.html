@@ -1,90 +1,99 @@
-<div class="row">
+<div class="row mt-5">
     <div class="col-lg-12 d-flex justify-content-center">
         <h2>Choose a fabric for the suit</h2>
     </div>
     <div class="col-lg-12 d-flex justify-content-center">
-        <p>Use the Filters below to help decide on a fabric</p>
+        <p class="brown-paragraph-text">Use the Filters below to help decide on a fabric</p>
     </div>
 </div>
-<div class="row filter">
+<div class="row filter m-5">
     <div class="col-lg-2">
-        <mat-form-field xPosition="after" yPosition="below">
-            <mat-select placeholder="OCCASSION">
-                <mat-option> Casual </mat-option>
-                <mat-option> Business / Formal </mat-option>
-                <mat-option> Ceremony </mat-option>            
+        <mat-form-field class="dropdown"> 
+            <mat-select placeholder="OCCASSION" disableRipple panelClass="filter-background">
+                <mat-option value="Casual" selected><i class="fa fa-glass"></i> Casual </mat-option>
+                <mat-option value="Business"><i class="fa fa-briefcase"></i>  Business / Formal </mat-option>
+                <mat-option value="Ceremony"><i class="fa fa-users"></i>  Ceremony </mat-option>            
+            </mat-select>
+        </mat-form-field> 
+    </div>
+    <div class="col-lg-2">
+        <mat-form-field>
+            <mat-select placeholder="PATTERN" disableRipple panelClass="filter-background">
+                <mat-option value="Check"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Check </mat-option>
+                <mat-option value="Solid"><i class="fa fa-square" aria-hidden="true"></i> Solid (Plain) </mat-option>
+                <mat-option value="Stripe"><i class="fa fa-align-justify" aria-hidden="true"></i> Stripe </mat-option>  
+                <mat-option value="Pattern"><i class="fa fa-th-large" aria-hidden="true"></i> Subtle / Pattern </mat-option>                                      
             </mat-select>
         </mat-form-field>
     </div>
     <div class="col-lg-2">
-        <mat-form-field xPosition="after" yPosition="below">
-            <mat-select placeholder="PATTERN">
-                <mat-option> Check </mat-option>
-                <mat-option> Solid (Plain) </mat-option>
-                <mat-option> Stripe </mat-option>  
-                <mat-option> Subtle / Pattern </mat-option>                                      
+        <mat-form-field>
+            <mat-select placeholder="FABRIC" disableRipple panelClass="filter-background">
+                <mat-option value="Cotton"> Cotton </mat-option>
+                <mat-option value="Linen"> Linen </mat-option>
+                <mat-option value="Wool"> Wool </mat-option>  
             </mat-select>
         </mat-form-field>
     </div>
-    <div class="col-lg-2">
-        <mat-form-field xPosition="after" yPosition="below">
-            <mat-select placeholder="FABRIC">
-                <mat-option> Cotton </mat-option>
-                <mat-option> Linen </mat-option>
-                <mat-option> Wool </mat-option>  
-            </mat-select>
-        </mat-form-field>
-    </div>
-    <div class="col-lg-4 colour-filter d-flex flex-row-reverse">
+    <div class="col-lg-4 d-flex flex-row-reverse">
         <button class="circle"></button>
         <button class="circle"></button>
         <button class="circle"></button>
         <button class="circle"></button>
         <button class="circle"></button>
         <button class="circle"></button>
-        <p>Colour</p>        
+        <p class="colour-label-text">Colour</p>        
     </div>
     <div class="col-lg-2">
-        <mat-form-field xPosition="after" yPosition="below">
-            <mat-select placeholder="PRICE">
-                <mat-option> High to Low </mat-option>
-                <mat-option> Low to High </mat-option>
+        <mat-form-field>
+            <mat-select placeholder="PRICE" disableRipple panelClass="filter-background">
+                <mat-option value="High to Low "><i class="fa fa-arrow-up" aria-hidden="true"></i> High to Low </mat-option>
+                <mat-option value="Low to High"><i class="fa fa-arrow-down" aria-hidden="true"></i> Low to High </mat-option>
             </mat-select>
         </mat-form-field>
     </div>
 </div>
-<div class="row">
+<div class="row ml-5 mt-5">
     <div class="col-lg-3 circle-column">
         <div class="placeholder-circle"></div>
         <div class="left-circle-text">
-            <h6>You have chosen:</h6>
-            <p>Fabric Name</p>
+            <h4>You have chosen:</h4>
+            <h5>Fabric Name</h5>
             <p>decription OR advise on why to choose this one</p>
             <p>add more info or details here about the chosen item</p> 
         </div>
     </div>
-    <div class="col-lg-2 fabric-block">
-        <img class="img-responsive fabric-swatch" src="../../../../../assets/red.jpg"/>  
-        <br>
-        <p>Fabric Name</p>
-        <p>decription OR advise on why to choose this one</p>
-        <p>R 498</p>
-        <button mat-raised-button>Select</button>  
+    <div class="col-lg-8">
+        <div class="row">
+            <div class="col-lg-3 fabric-block">
+                <img class="img-responsive fabric-swatch" src="../../../../../assets/red.jpg"/>  
+                <br>
+                <h5>Fabric Name</h5>
+                <p>decription OR advise on why to choose this one</p>
+                <p class="pricing">R 498</p>
+                <button mat-raised-button class="select-button">Select</button>  
+            </div>
+            <div class="col-lg-3 fabric-block">
+                <img class="img-responsive fabric-swatch" src="../../../../../assets/red.jpg"/>  
+                <br>
+                <h5>Fabric Name</h5>
+                <p>decription OR advise on why to choose this one</p>
+                <p class="pricing">R 498</p>
+                <button mat-raised-button class="select-button">Select</button>  
+            </div> 
+            <div class="col-lg-3 fabric-block">
+                <img class="img-responsive fabric-swatch" src="../../../../../assets/red.jpg"/>  
+                <br>
+                <h5>Fabric Name</h5>
+                <p>decription OR advise on why to choose this one</p>
+                <p class="pricing">R 498</p>
+                <button mat-raised-button class="select-button">Select</button>  
+            </div>     
+        </div>
     </div>    
-    <div class="col-lg-2 fabric-block">
-        <img class="img-responsive fabric-swatch" src="../../../../../assets/red.jpg"/>  
-        <br>
-        <p>Fabric Name</p>
-        <p>decription OR advise on why to choose this one</p>
-        <p>R 498</p>
-        <button mat-raised-button>Select</button>  
-    </div>   
-    <div class="col-lg-2 fabric-block">
-        <img class="img-responsive fabric-swatch" src="../../../../../assets/red.jpg"/>  
-        <br>
-        <p>Fabric Name</p>
-        <p>decription OR advise on why to choose this one</p>
-        <p>R 498</p>
-        <button mat-raised-button>Select</button>  
-    </div>        
+</div>
+<div class="row m-5">
+    <div class="col-lg-12 d-flex justify-content-end">
+        <button mat-raised-button class="next-button">Next</button>  
+    </div>
 </div>
