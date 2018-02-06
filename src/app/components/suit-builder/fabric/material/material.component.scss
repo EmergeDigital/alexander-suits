@@ -38,6 +38,8 @@ p {
     border-radius: 10em;
     border: 1px solid $c-blue-main;
     background-color: $c-blue-main;
+    background-size: cover !important; 
+    background-repeat: no-repeat !important; 
 }
 .left-circle-text {
     text-align: center;
@@ -56,4 +58,28 @@ p {
 
 .circle-column {
     margin-right: 6em;
+}
+
+.brown {
+    background-color: #E39E6F;
+}
+
+.light-blue {
+    background-color: #73C3F0;
+}
+
+.red {
+    background-color: #EB5757;
+}
+
+.purple {
+    background-color: #61318F;
+}
+
+.blue {
+    background-color: #111373;
+}
+
+.black {
+    background-color: #01021A;
 }

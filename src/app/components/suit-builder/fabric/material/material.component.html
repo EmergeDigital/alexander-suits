@@ -9,23 +9,28 @@
 <div class="row filter">
     <div class="col-lg-2">
         <mat-form-field xPosition="after" yPosition="below">
-            <mat-select placeholder="OCCASSION" [(value)]="selectedOccassionType">
+            <mat-select placeholder="OCCASSION" [(ngModel)]="selectedOccassionType" (ngModelChange)="FilterMaterials()">
                 <mat-option value="">All</mat-option>   
-                <mat-option *ngFor="let occassionType of occassionTypes" [value]="occassionType">{{occassionType}}</mat-option>      
+                <mat-option value="Casual"> Casual </mat-option>      
+                <mat-option value="Business"> Business / Formal </mat-option> 
+                <mat-option value="Ceremony"> Ceremonial </mat-option> 
             </mat-select>
         </mat-form-field>
     </div>
     <div class="col-lg-2">
         <mat-form-field xPosition="after" yPosition="below">
-            <mat-select placeholder="PATTERN" [(value)]="selectedPatternType">
+            <mat-select placeholder="PATTERN" [(ngModel)]="selectedPatternType" (ngModelChange)="FilterMaterials()">
                 <mat-option value="">All</mat-option>   
-                <mat-option *ngFor="let patternType of patternTypes" [value]="patternType">{{patternType}}</mat-option>                                      
+                <mat-option value="Check"> Check </mat-option>    
+                <mat-option value="Plain"> Solid </mat-option>     
+                <mat-option value="Stripe"> Stripe </mat-option>     
+                <mat-option value="Other"> Subtle / Pattern </mat-option>                                       
             </mat-select>
         </mat-form-field>
     </div>
     <div class="col-lg-2">
         <mat-form-field xPosition="after" yPosition="below">
-            <mat-select placeholder="FABRIC" [(value)]="selectedFabricType">
+            <mat-select placeholder="FABRIC" [(ngModel)]="selectedFabricType" (ngModelChange)="FilterMaterials()">
                 <mat-option value="">All</mat-option>   
                 <mat-option *ngFor="let fabricType of fabricTypes" [value]="fabricType">{{fabricType}}</mat-option>       
             </mat-select>
@@ -33,54 +38,46 @@
     </div>
     <div class="col-lg-4 colour-filter d-flex flex-row-reverse">
         <button class="circle"></button>
-        <button class="circle"></button>
-        <button class="circle"></button>
-        <button class="circle"></button>
-        <button class="circle"></button>
-        <button class="circle"></button>
+        <button class="circle black" (click)="selectedColourType = 'Black'"></button>
+        <button class="circle blue" (click)="selectedColourType = 'Blue'"></button>
+        <button class="circle purple" (click)="selectedColourType = 'Purple'"></button>
+        <button class="circle red" (click)="selectedColourType = 'Red'"></button>
+        <button class="circle light-blue" (click)="selectedColourType = 'Light Blue'"></button>
+        <button class="circle brown" (click)="selectedColourType = 'Brown'"></button>
         <p>Colour</p>        
     </div>
     <div class="col-lg-2">
         <mat-form-field xPosition="after" yPosition="below">
-            <mat-select placeholder="PRICE" [(value)]="isPriceHighToLow">
-                <mat-option value="1"> High to Low </mat-option>
-                <mat-option value="0"> Low to High </mat-option>
+            <mat-select placeholder="PRICE" [(ngModel)]="isPriceHighToLow" (ngModelChange)="FilterMaterials()">
+                <mat-option value="true"> High to Low </mat-option>
+                <mat-option value="false"> Low to High </mat-option>
             </mat-select>
         </mat-form-field>
     </div>
 </div>
-<div class="row">
+<div class="row ml-5 mt-5">
     <div class="col-lg-3 circle-column">
-        <div class="placeholder-circle"></div>
-        <div class="left-circle-text">
+        <div class="placeholder-circle" [ngStyle]="{'background': isSelectedMaterial ? 'url(' + selectedMaterial.image_urls[0] + ')' : ''}"></div>
+        <div class="left-circle-text" *ngIf="isSelectedMaterial">
             <h6>You have chosen:</h6>
-            <p>Fabric Name</p>
-            <p>decription OR advise on why to choose this one</p>
+            <p>{{selectedMaterial.name}}</p>
+            <p>{{selectedMaterial.description_long}}</p>
             <p>add more info or details here about the chosen item</p> 
         </div>
     </div>
-    <div class="col-lg-2 fabric-block">
-        <img class="img-responsive fabric-swatch" src="../../../../../assets/red.jpg"/>  
-        <br>
-        <p>Fabric Name</p>
-        <p>decription OR advise on why to choose this one</p>
-        <p>R 498</p>
-        <button mat-raised-button>Select</button>  
-    </div>    
-    <div class="col-lg-2 fabric-block">
-        <img class="img-responsive fabric-swatch" src="../../../../../assets/red.jpg"/>  
-        <br>
-        <p>Fabric Name</p>
-        <p>decription OR advise on why to choose this one</p>
-        <p>R 498</p>
-        <button mat-raised-button>Select</button>  
-    </div>   
-    <div class="col-lg-2 fabric-block">
-        <img class="img-responsive fabric-swatch" src="../../../../../assets/red.jpg"/>  
-        <br>
-        <p>Fabric Name</p>
-        <p>decription OR advise on why to choose this one</p>
-        <p>R 498</p>
-        <button mat-raised-button>Select</button>  
+    <div class="col-lg-8">
+        <div class="row">
+            <div class="col-lg-3 fabric-block" *ngFor="let material of filteredMaterials">
+                <img class="img-responsive fabric-swatch" [src]="material.image_urls[0]"/>  
+                <br>
+                <p>{{material.name}}</p>
+                <p>{{material.description}}</p>
+                <p>R {{material.price}}</p>
+                <button mat-raised-button (click)="SelectMaterial(material)">Select</button>  
+            </div>
+            <div class="col-md-9" *ngIf="filteredMaterials.length === 0">
+                <p>There are currently no fabrics with those filters. Please filter differently.</p>
+            </div>
+        </div>
     </div>        
 </div>
