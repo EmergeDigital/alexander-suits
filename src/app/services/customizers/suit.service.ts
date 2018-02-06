@@ -2,6 +2,13 @@ import {Injectable, EventEmitter} from '@angular/core';
 
 @Injectable()
 export class SuitService {
+  
+  public NextWizardStage: EventEmitter<void> = new EventEmitter<void>();
+  public IsMaterialStage: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+
+
+
 
   public collection: string = '';
   public product: any = null;

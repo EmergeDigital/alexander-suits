@@ -5,8 +5,8 @@
             <div class="col-md-9">
             </div> 
             <div class="col-md-3 banner-image-text">
-                <h1>Made to Measure</h1>  
-                <p>
+                <h1 class="white-text">Made to Measure</h1>  
+                <p class="white-text">
                     Lorem ipsum dolor sit amet,consectetur adipiscing elit. Etiam vestibulum magna at mauris dignissim consectetur. Nunc magna erat, volutpat non elementum ut.
                 </p> 
                 <button>Find Inspiration</button>
@@ -56,10 +56,10 @@
 </div> -->
 <div class="row wizard d-flex justify-content-center">
     <ul>
-        <li class="circle active">1</li>
-        <li class="circle">2</li>
-        <li class="circle">3</li>
-        <li class="circle">4</li>
+        <li class="circle" [ngClass]="{'active' : currentWizardStage === WizardStage.Fabric }">1</li>
+        <li class="circle" [ngClass]="{'active' : currentWizardStage === WizardStage.Design }">2</li>
+        <li class="circle" [ngClass]="{'active' : currentWizardStage === WizardStage.FinerDetails }">3</li>
+        <li class="circle" [ngClass]="{'active' : currentWizardStage === WizardStage.FinerDetails }">4</li>
         <li class="circle">5</li>
     </ul> 
     <ul class="stepper-text">

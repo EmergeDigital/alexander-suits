@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Product } from '../../../../models/product';
 import { DataService } from '../../../../services/data.service';
 import { SuitService } from '../../../../services/customizers/suit.service';
@@ -6,7 +6,8 @@ import { SuitService } from '../../../../services/customizers/suit.service';
 @Component({
   selector: 'suit-builder-fabric-material',
   templateUrl: './material.component.html',
-  styleUrls: ['./material.component.scss']
+  styleUrls: ['./material.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class MaterialComponent implements OnInit {
   private fabricTypes: string[] = [
@@ -37,7 +38,7 @@ export class MaterialComponent implements OnInit {
 
   private filteredMaterials: Product[] = [];
 
-  constructor(public data: DataService, public suitService: SuitService) {
+  constructor(private data: DataService, private suitService: SuitService) {
     this.GetMaterials(suitService.collection);
     suitService._collectionChanged.subscribe(collection => {
       this.GetMaterials(collection);
@@ -88,7 +89,7 @@ export class MaterialComponent implements OnInit {
   }
 
   private Next(): void {
-    
+    this.suitService.IsMaterialStage.emit(false);
   }
 
 }
