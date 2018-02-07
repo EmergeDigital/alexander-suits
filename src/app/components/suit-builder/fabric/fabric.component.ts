@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SuitService } from '../../../services/customizers/suit.service';
+import { SuitBuilderService } from '../suit-builder.service';
+import { FabricStage } from '../../../models/suit-builder/fabricStage';
 
 @Component({
   selector: 'suit-builder-fabric',
@@ -7,12 +8,14 @@ import { SuitService } from '../../../services/customizers/suit.service';
   styleUrls: ['./fabric.component.scss']
 })
 export class FabricComponent implements OnInit {
-  private isMaterialDisplayed: boolean = true;
+  private FabricStage = FabricStage; // Html Reference
 
-  constructor(private suitService: SuitService) { }
+  private currentFabricStage: FabricStage = FabricStage.Material;
+
+  constructor(private suitBuilderService: SuitBuilderService) { }
 
   public ngOnInit(): void {
-    this.suitService.IsMaterialStage.subscribe((isMaterialDisplayed: boolean) => this.isMaterialDisplayed = isMaterialDisplayed);
+    this.suitBuilderService.SetFabricStage.subscribe((fabricStage: FabricStage) => this.currentFabricStage = fabricStage);
   }
 
 }

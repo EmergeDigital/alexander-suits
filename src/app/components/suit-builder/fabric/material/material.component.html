@@ -37,20 +37,20 @@
         </mat-form-field>
     </div>
     <div class="col-lg-4 d-flex flex-row-reverse">
-        <button class="circle"></button>
-        <button class="circle black" (click)="selectedColourType = 'Black'"></button>
-        <button class="circle blue" (click)="selectedColourType = 'Blue'"></button>
-        <button class="circle purple" (click)="selectedColourType = 'Purple'"></button>
-        <button class="circle red" (click)="selectedColourType = 'Red'"></button>
-        <button class="circle light-blue" (click)="selectedColourType = 'Light Blue'"></button>
-        <button class="circle brown" (click)="selectedColourType = 'Brown'"></button>
+        <button class="circle" (click)="selectedColourType = ''; FilterMaterials()"></button>
+        <button class="circle black" (click)="selectedColourType = 'blackColourTypes'; FilterMaterials()"></button>
+        <button class="circle blue" (click)="selectedColourType = 'darkBlueColourTypes'; FilterMaterials()"></button>
+        <button class="circle purple" (click)="selectedColourType = 'purpleColourTypes'; FilterMaterials()"></button>
+        <button class="circle red" (click)="selectedColourType = 'redColourTypes'; FilterMaterials()"></button>
+        <button class="circle light-blue" (click)="selectedColourType = 'lightBlueColourTypes'; FilterMaterials()"></button>
+        <button class="circle brown" (click)="selectedColourType = 'earthColourTypes'; FilterMaterials()"></button>
         <p class="colour-label-text">Colour</p>        
     </div>
     <div class="col-lg-2">
         <mat-form-field>
-            <mat-select placeholder="PRICE" disableRipple panelClass="filter-background" [(ngModel)]="isPriceHighToLow" (ngModelChange)="FilterMaterials()">
-                <mat-option value="true"> <i class="fa fa-arrow-up" aria-hidden="true"></i> High to Low </mat-option>
-                <mat-option value="false"> <i class="fa fa-arrow-down" aria-hidden="true"></i> Low to High </mat-option>
+            <mat-select placeholder="PRICE" disableRipple panelClass="filter-background" [(ngModel)]="selectedPriceSortType" (ngModelChange)="FilterMaterials()">
+                <mat-option value="HighToLow"> <i class="fa fa-arrow-up" aria-hidden="true"></i> High to Low </mat-option>
+                <mat-option value="LowToHigh"> <i class="fa fa-arrow-down" aria-hidden="true"></i> Low to High </mat-option>
             </mat-select>
         </mat-form-field>
     </div>
@@ -76,7 +76,7 @@
                 <button mat-raised-button class="select-button" (click)="SelectMaterial(material)">Select</button>  
             </div>
             <div class="col-md-9" *ngIf="filteredMaterials.length === 0">
-                <p>There are currently no fabrics with those filters. Please filter differently.</p>
+                <p>{{ materials.length > 0 ? "There are currently no fabrics with those filters. Please filter differently." : "There are currently no fabrics." }}</p>
             </div>
         </div>
     </div>        

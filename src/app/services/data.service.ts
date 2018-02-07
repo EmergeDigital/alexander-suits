@@ -13,6 +13,7 @@ import {User} from "../models/user";
 import {Product} from "../models/product";
 import {Cart} from "../models/cart";
 import {Order} from "../models/order";
+import { Lining } from '../models/lining';
 
 @Injectable()
 export class DataService {
@@ -23,6 +24,7 @@ export class DataService {
     current_cart: Cart;
     current_order: Order;
     product_list: Product[];
+    lining_list: Lining[];
     user_id: string;
     user_loaded: EventEmitter<User> = new EventEmitter();
     _cartUpdated: EventEmitter<Cart> = new EventEmitter();
@@ -154,6 +156,28 @@ export class DataService {
       });
   }
 
+  /* ==============  LININGS  ============== */
+
+  getLinings(): Promise<Lining[]> {
+    return new Promise((resolve, reject) => {
+        if (!!this.lining_list) {
+            resolve(this.lining_list);
+        } else {
+            this.http.get(this.API_URL + "/api/linings/all").toPromise().then(data => {
+                const linings = data.json();
+                const temp_arr = [];
+                for (const lining of linings) {
+                    temp_arr.push(new Lining(lining));
+                }
+                this.lining_list = temp_arr;
+                console.log("Logging linings", this.lining_list);
+                resolve(this.lining_list);
+            }).catch(ex => {
+                console.log("Something went wrong fetching the products.", ex);
+            });
+        }
+    });
+}
 
     /* ==============  CARTS  ============== */
 

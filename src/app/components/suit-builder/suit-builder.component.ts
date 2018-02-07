@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SuitBuilderService } from './suit-builder.service';
 import { WizardStage } from '../../models/suit-builder/wizardStage';
-import { SuitService } from '../../services/customizers/suit.service';
 
 @Component({
   templateUrl: './suit-builder.component.html',
@@ -11,13 +11,9 @@ export class SuitBuilderComponent implements OnInit {
 
   private currentWizardStage: WizardStage = WizardStage.Fabric;
 
-  constructor(private suitService: SuitService) { }
+  constructor(private suitBuilderService: SuitBuilderService) { }
 
   public ngOnInit(): void {
-    this.suitService.NextWizardStage.subscribe(() => this.NextWizardStage());
-  }
-
-  private NextWizardStage() {
-    this.currentWizardStage++;
+    this.suitBuilderService.SetWizardStage.subscribe((wizardStage: WizardStage) => this.currentWizardStage = wizardStage);
   }
 }

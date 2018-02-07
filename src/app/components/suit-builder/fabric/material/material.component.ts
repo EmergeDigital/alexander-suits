@@ -2,6 +2,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Product } from '../../../../models/product';
 import { DataService } from '../../../../services/data.service';
 import { SuitService } from '../../../../services/customizers/suit.service';
+import { SuitBuilderService } from '../../suit-builder.service';
+import { FabricStage } from '../../../../models/suit-builder/fabricStage';
 
 @Component({
   selector: 'suit-builder-fabric-material',
@@ -22,6 +24,51 @@ export class MaterialComponent implements OnInit {
     "Transitional / Everyday"
   ];
 
+  private blackColourTypes: string[] = [
+    "Very light grey",
+    "Light Grey",
+    "Medium Grey",
+    "Charcoal Grey",
+    "Black"
+  ];
+
+  private darkBlueColourTypes: string[] = [
+    "Royal Blue",
+    "Cobalt Blue",
+    "Navy Blue",
+    "Dark Navy Blue"
+  ];
+
+  private purpleColourTypes: string[] = [
+    "Aubergine",
+    "Light Purple/Malve",
+    "Purple",
+    "Fuchsia /with pink"
+  ];
+
+  private redColourTypes: string[] = [
+    "Light Pink",
+    "Pink",
+    "Red",
+    "Dark Red",
+    "Burgundy"
+  ];
+
+  private lightBlueColourTypes: string[] = [
+    "Light Blue",
+    "Medium Blue"
+  ];
+
+  private earthColourTypes: string[] = [
+    "White",
+    "Offwhite",
+    "Beige",
+    "Orange",
+    "Burnt Orange",
+    "Light Brown",
+    "Brown"
+  ];
+
   private isLoading: boolean = false;
   private errorMessage: string = "";
 
@@ -30,7 +77,7 @@ export class MaterialComponent implements OnInit {
   private selectedFabricType: string = "";
   private selectedSeasonType: string = "";
   private selectedColourType: string = "";
-  private isPriceHighToLow: boolean = false;
+  private selectedPriceSortType: string = "HighToLow";
 
   private materials: Product[] = [];
   private selectedMaterial: Product = new Product({});
@@ -38,7 +85,7 @@ export class MaterialComponent implements OnInit {
 
   private filteredMaterials: Product[] = [];
 
-  constructor(private data: DataService, private suitService: SuitService) {
+  constructor(private data: DataService, private suitService: SuitService, private suitBuilderService: SuitBuilderService) {
     this.GetMaterials(suitService.collection);
     suitService._collectionChanged.subscribe(collection => {
       this.GetMaterials(collection);
@@ -46,7 +93,6 @@ export class MaterialComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-
   }
 
   private GetMaterials(collection) {
@@ -70,17 +116,17 @@ export class MaterialComponent implements OnInit {
   }
 
   private FilterMaterials(): void {
-    this.filteredMaterials = this.materials.filter(material => {
+    this.filteredMaterials = this.materials.filter((material: Product) => {
       if(this.selectedOccassionType === "" || material.collections.findIndex(collection => collection === this.selectedOccassionType) !== -1)
         if(this.selectedPatternType === "" || material.print === this.selectedPatternType)
           if(this.selectedFabricType === "" || material.fabric_type.indexOf(this.selectedFabricType) !== -1)
-            if(this.selectedColourType === "" || material.primary_colour.indexOf(this.selectedColourType) !== -1)
+            if(this.selectedColourType === "" || this[this.selectedColourType].findIndex(colourType => colourType === material.primary_colour) !== -1)
               return true;
     })
     .sort((a: Product, b: Product) => {
-      return this.isPriceHighToLow ? a.price - b.price : b.price - a.price;
+      return this.selectedPriceSortType === "HighToLow" ?  b.price - a.price : a.price - b.price;
     });
-    console.log(this.isPriceHighToLow);
+    console.log(this.selectedPriceSortType);
   }
 
   private SelectMaterial(material: Product): void {
@@ -89,7 +135,13 @@ export class MaterialComponent implements OnInit {
   }
 
   private Next(): void {
-    this.suitService.IsMaterialStage.emit(false);
+    if(this.isSelectedMaterial) {
+      this.suitBuilderService.product = this.selectedMaterial;
+      this.suitBuilderService.SetFabricStage.emit(FabricStage.Lining);
+    }
+    else {
+      this.errorMessage = "Please Select A Material";
+    }
   }
 
 }

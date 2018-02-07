@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SuitBuilderService } from '../suit-builder.service';
 import { DesignStage } from '../../../models/suit-builder/designStage';
 
 @Component({
@@ -7,14 +8,14 @@ import { DesignStage } from '../../../models/suit-builder/designStage';
   styleUrls: ['./design.component.scss']
 })
 export class DesignComponent implements OnInit {
-    DesignStage = DesignStage; //Html Reference
+    private DesignStage = DesignStage; //Html Reference
 
-    currentDesignStage: DesignStage = DesignStage.Collar;
+    private currentDesignStage: DesignStage = DesignStage.Collar;
 
-    constructor() { }
+    constructor(private suitBuilderService: SuitBuilderService) { }
 
     public ngOnInit(): void {
-
+      this.suitBuilderService.SetDesignStage.subscribe((designStage: DesignStage) => this.currentDesignStage = designStage);
     }
 
 }

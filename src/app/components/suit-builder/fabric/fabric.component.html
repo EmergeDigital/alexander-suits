@@ -1,2 +1,2 @@
-<suit-builder-fabric-material *ngIf="isMaterialDisplayed"></suit-builder-fabric-material>
-<suit-builder-fabric-lining *ngIf="!isMaterialDisplayed"></suit-builder-fabric-lining>
+<suit-builder-fabric-material *ngIf="currentFabricStage === FabricStage.Material"></suit-builder-fabric-material>
+<suit-builder-fabric-lining *ngIf="currentFabricStage === FabricStage.Lining"></suit-builder-fabric-lining>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'suit-builder-design-waistcoat',
+  selector: 'suit-builder-finer-details-waistcoat',
   templateUrl: './waistcoat.component.html',
   styleUrls: ['./waistcoat.component.scss']
 })

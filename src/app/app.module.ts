@@ -45,6 +45,7 @@ import {AuthService} from "./services/auth.service";
 import {SessionService} from "./services/session.service";
 import {FunctionsService} from "./services/functions.service";
 import {SuitService} from "./services/customizers/suit.service";
+import { SuitBuilderService } from './components/suit-builder/suit-builder.service';
 import {MeasurementsService} from "./services/customizers/measurements.service";
 
 /*============================================================================
@@ -87,12 +88,12 @@ import { DesignComponent } from './components/suit-builder/design/design.compone
 import { CollarComponent } from './components/suit-builder/design/collar/collar.component';
 import { PocketsComponent } from './components/suit-builder/design/pockets/pockets.component';
 import { VentsComponent } from './components/suit-builder/design/vents/vents.component';
-import { ButtonHolesComponent } from './components/suit-builder/design/button-holes/button-holes.component';
-import { PantPleatsComponent } from './components/suit-builder/design/pant-pleats/pant-pleats.component';
-import { WaistcoatComponent } from './components/suit-builder/design/waistcoat/waistcoat.component';
-import { PackageComponent } from './components/suit-builder/design/package/package.component';
-import { StitchingComponent } from './components/suit-builder/design/stitching/stitching.component';
+import { PantStylesComponent } from './components/suit-builder/design/pant-styles/pant-styles.component';
+import { AddonsComponent } from './components/suit-builder/design/addons/addons.component';
 import { FinerDetailsComponent } from './components/suit-builder/finer-details/finer-details.component';
+import { ButtonStylesComponent } from './components/suit-builder/finer-details/button-styles/button-styles.component';
+import { WaistcoatComponent } from './components/suit-builder/finer-details/waistcoat/waistcoat.component';
+import { PackageStitchingComponent } from './components/suit-builder/finer-details/package-stitching/package-stitching.component';
 import { MeasurementsComponent } from './components/suit-builder/measurements/measurements.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
@@ -137,12 +138,12 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         CollarComponent,
         PocketsComponent,
         VentsComponent,
-        ButtonHolesComponent,
-        PantPleatsComponent,
-        WaistcoatComponent,
-        PackageComponent,
-        StitchingComponent,
+        PantStylesComponent,
+        AddonsComponent,
         FinerDetailsComponent,
+        ButtonStylesComponent,
+        WaistcoatComponent,
+        PackageStitchingComponent,
         MeasurementsComponent
     ],
     imports: [
@@ -183,7 +184,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     entryComponents: [
         DialogContentCartDialog
     ],
-    providers: [TabsService, DataService, SessionService, FunctionsService, AuthService, SuitService, MeasurementsService,
+    providers: [TabsService, DataService, SessionService, FunctionsService, AuthService, SuitService, SuitBuilderService, MeasurementsService,
         // {provide: MATERIAL_COMPATIBILITY_MODE, useValue: true},
         {
             provide: AuthHttp,
