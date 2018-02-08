@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SuitBuilderService } from '../../suit-builder.service';
+import { WizardStage } from '../../../../models/suit-builder/wizardStage';
+import { FinerDetailsStage } from '../../../../models/suit-builder/finerDetailsStage';
 
 @Component({
   selector: 'suit-builder-finer-details-button-styles',
@@ -7,10 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ButtonStylesComponent implements OnInit {
 
-    constructor() { }
+    constructor(private suitBuilderService: SuitBuilderService) { }
 
     public ngOnInit(): void {
 
     }
 
+    private Previous() {
+      this.suitBuilderService.SetWizardStage.emit(WizardStage.Design);
+    }
+  
+    private Next() {
+      this.suitBuilderService.SetFinerDetailsStage.emit(FinerDetailsStage.PackageStitching);
+    }
 }
