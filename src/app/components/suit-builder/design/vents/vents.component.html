@@ -1,0 +1,83 @@
+<div class="row mt-5 pt-5">
+    <div class="col-lg-12 d-flex justify-content-center">
+        <h2>Choose vents for the jacket</h2>
+    </div>
+    <div class="col-lg-12 d-flex justify-content-center">
+        <p class="brown-paragraph-text">Lorem ipsum dolor sit amet,consectetur.</p>
+    </div>
+</div>
+<div class="row ml-5 mt-5">
+    <div class="col-lg-3">
+        <div class="placeholder-circle-designs" [ngStyle]="{'background': isSelectedLining ? 'url(' + selectedLining.image_urls[0] + ')' : ''}"></div>
+        <div class="left-circle-text" *ngIf="isSelectedLining">
+            <h4>You have chosen:</h4>
+            <h5>{{selectedLining.name}}</h5>
+            <p>{{selectedLining.description_long}}</p>
+            <p>add more info or details here about the chosen item</p> 
+        </div>
+    </div>
+    <div class="col-lg-7">
+        <div class="row mb-4">
+            <div class="col-lg-3 image-circle">
+                <img class="img-responsive option-circle" href="../../../../../assets/suit-builder/collars/collar-v1"/>  
+                <br>
+                <h5>Vents Name</h5>
+                <p>Vents Description</p>
+                <p class="pricing">R 200</p>
+                <button mat-raised-button class="select-button" (click)="SelectLining(lining)">Select</button>  
+            </div>
+            <div class="col-lg-3 image-circle">
+                <img class="img-responsive option-circle" href="../../../../../assets/suit-builder/collars/collar-v1"/>  
+                <br>
+                <h5>Vents Name</h5>
+                <p>Vents Description</p>
+                <p class="pricing">R 200</p>
+                <button mat-raised-button class="select-button" (click)="SelectLining(lining)">Select</button>  
+            </div>
+            <div class="col-lg-3 image-circle">
+                <img class="img-responsive option-circle" href="../../../../../assets/suit-builder/collars/collar-v1"/>  
+                <br>
+                <h5>Vents Name</h5>
+                <p>Vents Description</p>
+                <p class="pricing">R 200</p>
+                <button mat-raised-button class="select-button" (click)="SelectLining(lining)">Select</button>  
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-lg-3 image-circle">
+                <img class="img-responsive option-circle" href="../../../../../assets/suit-builder/collars/collar-v1"/>  
+                <br>
+                <h5>Vents Name</h5>
+                <p>Vents Description</p>
+                <p class="pricing">R 200</p>
+                <button mat-raised-button class="select-button" (click)="SelectLining(lining)">Select</button>  
+            </div>
+            <div class="col-lg-3 image-circle">
+                <img class="img-responsive option-circle" href="../../../../../assets/suit-builder/collars/collar-v1"/>  
+                <br>
+                <h5>Vents Name</h5>
+                <p>Vents Description</p>
+                <p class="pricing">R 200</p>
+                <button mat-raised-button class="select-button" (click)="SelectLining(lining)">Select</button>  
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-lg-5 d-flex justify-content-start">
+                <button mat-raised-button class="back-button" (click)="Previous()">Back</button>  
+            </div>
+            <div class="col-lg-6 d-flex justify-content-end">
+                <button mat-raised-button class="next-button" (click)="Next()">Next</button>  
+            </div>
+        </div>
+    </div>  
+    <div class="col-lg-2">
+        <button class="help-button">i need help choosing</button>
+        <p class="active-link"><i class="fa fa-circle" aria-hidden="true"></i>Jacket Collar Style</p>
+        <p class="chosen-style-text">You chose style x</p>
+        <p class="active-link"><i class="fa fa-circle" aria-hidden="true"></i> Jacket Pockets</p>
+        <p class="chosen-style-text">You chose style x</p>        
+        <p class="active-link"><i class="fa fa-circle-" aria-hidden="true"></i> Jacket Vents</p>
+        <p><i class="fa fa-circle-o" aria-hidden="true"></i> Pants</p>
+        <p><i class="fa fa-circle-o" aria-hidden="true"></i> Add-ons : Pants/Waistcoat</p>        
+    </div>     
+</div>

@@ -1,28 +1,23 @@
 @import '../../../../../styles/colours';
 
-// .row {
-//     margin: 4em;
-// }
-
 .circle {
-    width: 2em;
-    height: 2em;
+    width: 1.5em;
+    height: 1.5em;
     line-height: 2em;
     border-radius: 1em;
-    border: 1px solid $c-brown-accent;
     background-color: $c-brown-accent;
     margin-left: 1em;
 }
 .colour-label-text{
     color: $c-blue-main;
     text-transform: uppercase;
+    font-weight: 400;
 }
 
 .placeholder-circle {
     width: 20em;
     height: 20em;
     border-radius: 10em;
-    border: 1px solid $c-blue-main;
     background-color: $c-blue-main;
     background-size: cover !important; 
     background-repeat: no-repeat !important; 
@@ -46,28 +41,28 @@
     margin-right: 6em;
 }
 
+// Colour filters
 .brown {
-    background-color: #E39E6F;
+    background-color: #E0A279;
 }
-
 .light-blue {
-    background-color: #73C3F0;
+    background-color: #BFCBF2;
 }
-
 .red {
-    background-color: #EB5757;
+    background-color: #DE81B3;
 }
-
 .purple {
-    background-color: #61318F;
+    background-color: #B186DB;
 }
-
 .blue {
-    background-color: #111373;
+    background-color: #464899;
 }
-
 .black {
-    background-color: #01021A;
+    background-color: #333333;
+}
+.white {
+    background-color: #ffffff;
+    border: 0.0825em solid $c-brown-accent;
 }
 
 .filter-background .mat-select-content {
@@ -92,6 +87,7 @@
     display: none;
 }
 .mat-form-field {
+    width: 15em;
     font-size: 0.75em;
     color:  $c-blue-main;
     font-weight: 400;
@@ -103,16 +99,24 @@
 .select-button {
     background-color: $c-blue-main;
     color: white;
-    padding: 0.5em 4em;
+    padding: 0.3em 5em;
     text-transform: uppercase;
-    font-size: 0.75em;
-    letter-spacing: 0.125em;
+    font-size: 0.6em;
     border: none;
 }
 .next-button {
     background-color: $c-brown-accent;
     color: white;
-    padding: 0.5em 4em;
+    padding: 0.3em 5em;
+    text-transform: uppercase;
+    font-size: 0.75em;
+    letter-spacing: 0.125em;
+    border: none;
+}
+.back-button {
+    background-color: $c-grey-lite;
+    color: white;
+    padding: 0.3em 5em;
     text-transform: uppercase;
     font-size: 0.75em;
     letter-spacing: 0.125em;

@@ -1,4 +1,4 @@
-<div class="row mt-5">
+<div class="row mt-5 pt-5">
     <div class="col-lg-12 d-flex justify-content-center">
         <h2>Choose a lining for the jacket</h2>
     </div>
@@ -6,7 +6,7 @@
         <p class="brown-paragraph-text">Use the Filters below to help decide on a fabric</p>
     </div>
 </div>
-<div class="row filter m-5">
+<div class="row filter m-5 pb-5">
     <div class="col-lg-2">
         <mat-form-field class="dropdown">
             <mat-select placeholder="PATTERN" disableRipple panelClass="filter-background" [(ngModel)]="selectedPatternType" (ngModelChange)="FilterLinings()">
@@ -19,7 +19,7 @@
     <div class="col-lg-2"></div>
     <div class="col-lg-2"></div>
     <div class="col-lg-4 d-flex flex-row-reverse">
-        <button class="circle" (click)="selectedColourType = ''; FilterLinings()"></button>
+        <button class="circle white" (click)="selectedColourType = ''; FilterLinings()"></button>
         <button class="circle black" (click)="selectedColourType = 'blackColourTypes'; FilterLinings()"></button>
         <button class="circle blue" (click)="selectedColourType = 'darkBlueColourTypes'; FilterLinings()"></button>
         <button class="circle purple" (click)="selectedColourType = 'purpleColourTypes'; FilterLinings()"></button>
@@ -61,10 +61,13 @@
                 <p>{{ linings.length > 0 ? "There are currently no fabrics with those filters. Please filter differently." : "There are currently no fabrics." }}</p>
             </div>
         </div>
+        <div class="row m-5">
+            <div class="col-lg-6 d-flex justify-content-start">
+                <button mat-raised-button class="back-button" (click)="Previous()">Back</button>  
+            </div>
+            <div class="col-lg-6 d-flex justify-content-end">
+                <button mat-raised-button class="next-button" (click)="Next()">Next</button>  
+            </div>
+        </div>
     </div>        
-</div>
-<div class="row m-5">
-    <div class="col-lg-12 d-flex justify-content-end">
-        <button mat-raised-button class="next-button" (click)="Next()">Next</button>  
-    </div>
 </div>

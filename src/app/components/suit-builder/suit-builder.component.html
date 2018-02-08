@@ -1,6 +1,5 @@
-<div class="row">
-    <div class="col-md-12 banner-image">
-        <!-- Wizard Visual and Banner --> 
+<div class="">
+    <div class="col-lg-12 banner-image">
         <div class="row">
             <div class="col-md-9">
             </div> 
@@ -14,47 +13,13 @@
         </div>            
     </div>
 </div>
-<div class="row">
+<div class="">
     <div class="col-lg-12 header-text">
         <h1>Customise a Suit</h1>
         <h3>Our suits are made to measure</h3>
     </div>
 </div>
-<!-- <div class="row wizard">
-    <div class="col-lg-1"></div>
-    <div class="col-lg-2 d-flex flex-row">
-        <div class="circle active">
-            <p>1</p>
-        </div>
-        <span class="connecting-line"></span>
-    </div>
-    <div class="col-lg-2">
-        <div class="circle">
-            <p>2</p>
-        </div>
-        <span class="connecting-line"></span>
-    </div>
-    <div class="col-lg-2">
-        <div class="circle">
-            <p>3</p>
-        </div>
-        <span class="connecting-line"></span>
-    </div>
-    <div class="col-lg-2">
-        <div class="circle">
-            <p>4</p>
-        </div>
-        <span class="connecting-line"></span>
-    </div>
-    <div class="col-lg-2">
-        <div class="circle">
-            <p>5</p>
-        </div>
-        <span class="connecting-line"></span>
-    </div>
-    <div class="col-lg-1"></div>   
-</div> -->
-<div class="row wizard d-flex justify-content-center">
+<div class="row wizard d-flex justify-content-center mt-5 mb-5 pt-3">
     <ul>
         <li class="circle" [ngClass]="{'active' : currentWizardStage === WizardStage.Fabric }">1</li>
         <li class="circle" [ngClass]="{'active' : currentWizardStage === WizardStage.Design }">2</li>
@@ -70,19 +35,7 @@
         <li>Checkout</li>  
     </ul>  
 </div>
-
-<!-- <div class="row">
-    <div class="col-md-10" [ngSwitch]="currentWizardStage" style="height: 60em;">
-        <suit-builder-fabric *ngSwitchCase="WizardStage.Fabric"></suit-builder-fabric>
-        <suit-builder-design *ngSwitchCase="WizardStage.Design"></suit-builder-design>
-        <suit-builder-finer-details *ngSwitchCase="WizardStage.FinerDetails"></suit-builder-finer-details>
-        <suit-builder-measurements *ngSwitchCase="WizardStage.Measurements"></suit-builder-measurements>
-    </div>
-    <div class="col-md-2" style="background-color: #C0C0C0; height: 60em;">
-    </div>
-</div> -->
-
-<div class="row">
+<div class="mt-5 mb-5">
     <div class="col-lg-12" [ngSwitch]="currentWizardStage">
         <suit-builder-fabric *ngSwitchCase="WizardStage.Fabric"></suit-builder-fabric>
         <suit-builder-design *ngSwitchCase="WizardStage.Design"></suit-builder-design>

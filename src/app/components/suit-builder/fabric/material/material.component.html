@@ -1,4 +1,4 @@
-<div class="row mt-5">
+<div class="row mt-5 pt-5">
     <div class="col-lg-12 d-flex justify-content-center">
         <h2>Choose a fabric for the suit</h2>
     </div>
@@ -6,7 +6,7 @@
         <p class="brown-paragraph-text">Use the Filters below to help decide on a fabric</p>
     </div>
 </div>
-<div class="row filter m-5">
+<div class="row filter m-5 pb-5">
     <div class="col-lg-2">
         <mat-form-field class="dropdown">
             <mat-select placeholder="OCCASSION" disableRipple panelClass="filter-background" [(ngModel)]="selectedOccassionType" (ngModelChange)="FilterMaterials()">
@@ -37,7 +37,8 @@
         </mat-form-field>
     </div>
     <div class="col-lg-4 d-flex flex-row-reverse">
-        <button class="circle" (click)="selectedColourType = ''; FilterMaterials()"></button>
+        <!-- TODO: Add tooltips to display colour name/group -->
+        <button class="circle white" (click)="selectedColourType = ''; FilterMaterials()"></button>
         <button class="circle black" (click)="selectedColourType = 'blackColourTypes'; FilterMaterials()"></button>
         <button class="circle blue" (click)="selectedColourType = 'darkBlueColourTypes'; FilterMaterials()"></button>
         <button class="circle purple" (click)="selectedColourType = 'purpleColourTypes'; FilterMaterials()"></button>
@@ -55,34 +56,36 @@
         </mat-form-field>
     </div>
 </div>
-<div class="row ml-5 mt-5">
+<div class="row ml-5 mt-5"> 
     <div class="col-lg-3 circle-column">
         <div class="placeholder-circle" [ngStyle]="{'background': isSelectedMaterial ? 'url(' + selectedMaterial.image_urls[0] + ')' : ''}"></div>
         <div class="left-circle-text" *ngIf="isSelectedMaterial">
             <h4>You have chosen:</h4>
             <h5>{{selectedMaterial.name}}</h5>
             <p>{{selectedMaterial.description_long}}</p>
-            <p>add more info or details here about the chosen item</p> 
+            <p class="pricing">R {{selectedMaterial.price}}</p>            
         </div>
     </div>
     <div class="col-lg-8">
+        <!-- TODO: limit to show 6 at a time + display default selected value -->
         <div class="row">
             <div class="col-lg-3 fabric-block" *ngFor="let material of filteredMaterials">
                 <img class="img-responsive fabric-swatch" [src]="material.image_urls[0]"/>  
                 <br>
                 <h5>{{material.name}}</h5>
-                <p>{{material.description}}</p>
+                <!-- <p>{{material.description}}</p> -->
                 <p class="pricing">R {{material.price}}</p>
                 <button mat-raised-button class="select-button" (click)="SelectMaterial(material)">Select</button>  
             </div>
+            <!-- TODO: no fabrics design -->
             <div class="col-md-9" *ngIf="filteredMaterials.length === 0">
                 <p>{{ materials.length > 0 ? "There are currently no fabrics with those filters. Please filter differently." : "There are currently no fabrics." }}</p>
             </div>
         </div>
+        <div class="row m-5">
+            <div class="col-lg-12 d-flex justify-content-end">
+                <button mat-raised-button class="next-button" (click)="Next()">Next</button>  
+            </div>
+        </div>
     </div>        
-</div>
-<div class="row m-5">
-    <div class="col-lg-12 d-flex justify-content-end">
-        <button mat-raised-button class="next-button" (click)="Next()">Next</button>  
-    </div>
 </div>
