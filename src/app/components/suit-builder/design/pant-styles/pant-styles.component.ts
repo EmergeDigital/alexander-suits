@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SuitBuilderService } from '../../suit-builder.service';
+import { DesignStage } from '../../../../models/suit-builder/designStage';
 
 @Component({
   selector: 'suit-builder-design-pant-styles',
@@ -7,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PantStylesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private suitBuilderService: SuitBuilderService) { }
 
   public ngOnInit(): void {
 
   }
 
+  private Previous() {
+    this.suitBuilderService.SetDesignStage.emit(DesignStage.Vents);
+  }
+
+  private Next() {
+    this.suitBuilderService.SetDesignStage.emit(DesignStage.Addons);
+  }
 }

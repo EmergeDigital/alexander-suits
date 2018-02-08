@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SuitBuilderService } from '../../suit-builder.service';
+import { DesignStage } from '../../../../models/suit-builder/designStage';
 
 @Component({
   selector: 'suit-builder-design-vents',
@@ -7,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VentsComponent implements OnInit {
 
-    constructor() { }
+  constructor(private suitBuilderService: SuitBuilderService) { }
 
-    public ngOnInit(): void {
+  public ngOnInit(): void {
 
-    }
+  }
 
+  private Previous() {
+    this.suitBuilderService.SetDesignStage.emit(DesignStage.Pockets);
+  }
+
+  private Next() {
+    this.suitBuilderService.SetDesignStage.emit(DesignStage.PantStyles);
+  }
 }
