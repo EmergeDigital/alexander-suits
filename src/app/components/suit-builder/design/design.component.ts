@@ -8,14 +8,14 @@ import { DesignStage } from '../../../models/suit-builder/designStage';
   styleUrls: ['./design.component.scss']
 })
 export class DesignComponent implements OnInit {
-    private DesignStage = DesignStage; //Html Reference
+  private DesignStage = DesignStage; //Html Reference
 
-    private currentDesignStage: DesignStage = DesignStage.Collar;
+  private currentDesignStage: DesignStage = DesignStage.Collar;
 
-    constructor(private suitBuilderService: SuitBuilderService) { }
+  constructor(private suitBuilderService: SuitBuilderService) { }
 
-    public ngOnInit(): void {
-      this.suitBuilderService.SetDesignStage.subscribe((designStage: DesignStage) => this.currentDesignStage = designStage);
-    }
+  public ngOnInit(): void {
+    this.suitBuilderService.SetDesignStage.subscribe((designStage: DesignStage) => this.currentDesignStage = designStage);
+  }
 
 }

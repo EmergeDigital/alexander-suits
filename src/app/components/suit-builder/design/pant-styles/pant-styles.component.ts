@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PantStylesComponent implements OnInit {
 
-    constructor() { }
+  constructor() { }
 
-    public ngOnInit(): void {
+  public ngOnInit(): void {
 
-    }
+  }
 
 }
