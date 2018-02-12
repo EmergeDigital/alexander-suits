@@ -92,9 +92,12 @@ import { PantStylesComponent } from './components/suit-builder/design/pant-style
 import { AddonsComponent } from './components/suit-builder/design/addons/addons.component';
 import { FinerDetailsComponent } from './components/suit-builder/finer-details/finer-details.component';
 import { ButtonStylesComponent } from './components/suit-builder/finer-details/button-styles/button-styles.component';
-import { WaistcoatComponent } from './components/suit-builder/finer-details/waistcoat/waistcoat.component';
 import { PackageStitchingComponent } from './components/suit-builder/finer-details/package-stitching/package-stitching.component';
 import { MeasurementsComponent } from './components/suit-builder/measurements/measurements.component';
+import { BodyTypeComponent } from './components/suit-builder/measurements/body-type/body-type.component';
+import { GeneralMeasurementsComponent } from './components/suit-builder/measurements/general-measurements/general-measurements.component';
+import { FinerMeasurementsComponent } from './components/suit-builder/measurements/finer-measurements/finer-measurements.component';
+import { UploadPhotoComponent } from './components/suit-builder/measurements/upload-photo/upload-photo.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     return new AuthHttp(new AuthConfig({
@@ -142,9 +145,13 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         AddonsComponent,
         FinerDetailsComponent,
         ButtonStylesComponent,
-        WaistcoatComponent,
         PackageStitchingComponent,
-        MeasurementsComponent
+        MeasurementsComponent,
+        BodyTypeComponent,
+        GeneralMeasurementsComponent,
+        FinerMeasurementsComponent,
+        UploadPhotoComponent
+        //Suit-Builder  --This will be moved to a seperated module (suit-builder.module)
     ],
     imports: [
         // ScrollStoreModule,

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SuitBuilderService } from '../suit-builder.service';
+import { MeasurementStage } from '../../../models/suit-builder/measurementsStage';
 
 @Component({
   selector: 'suit-builder-measurements',
@@ -6,11 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./measurements.component.scss']
 })
 export class MeasurementsComponent implements OnInit {
+  private MeasurementStage = MeasurementStage; //Html Reference
 
-    constructor() { }
+  private currentMeasurementStage: MeasurementStage = MeasurementStage.BodyType;
 
-    public ngOnInit(): void {
+  constructor(private suitBuilderService: SuitBuilderService) { }
 
-    }
-
+  public ngOnInit(): void {
+    this.suitBuilderService.SetMeasurementsStage.subscribe((measurementStage: MeasurementStage) => this.currentMeasurementStage = measurementStage);
+  }
 }

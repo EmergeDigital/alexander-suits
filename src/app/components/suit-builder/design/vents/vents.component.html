@@ -8,57 +8,23 @@
 </div>
 <div class="row ml-5 mt-5">
     <div class="col-lg-3">
-        <div class="placeholder-circle-designs" [ngStyle]="{'background': isSelectedLining ? 'url(' + selectedLining.image_urls[0] + ')' : ''}"></div>
-        <div class="left-circle-text" *ngIf="isSelectedLining">
+        <div class="placeholder-circle-designs" [ngStyle]="{'background': isSelectedVent ? 'url(' + selectedVent.url + ')' : ''}"></div>
+        <div class="left-circle-text" *ngIf="isSelectedVent">
             <h4>You have chosen:</h4>
-            <h5>{{selectedLining.name}}</h5>
-            <p>{{selectedLining.description_long}}</p>
+            <h5>{{ selectedVent.name }}</h5>
+            <p>{{ selectedVent.description_long }}</p>
             <p>add more info or details here about the chosen item</p> 
         </div>
     </div>
     <div class="col-lg-7">
-        <div class="row mb-4">
-            <div class="col-lg-3 image-circle">
-                <img class="img-responsive option-circle" href="../../../../../assets/suit-builder/collars/collar-v1"/>  
+        <div class="row">
+            <div class="col-lg-3 image-circle mb-4 mb-4" *ngFor="let vent of ventsMock">
+                <img class="img-responsive option-circle" src="{{ vent.url }}" />
                 <br>
-                <h5>Vents Name</h5>
-                <p>Vents Description</p>
-                <p class="pricing">R 200</p>
-                <button mat-raised-button class="select-button" (click)="SelectLining(lining)">Select</button>  
-            </div>
-            <div class="col-lg-3 image-circle">
-                <img class="img-responsive option-circle" href="../../../../../assets/suit-builder/collars/collar-v1"/>  
-                <br>
-                <h5>Vents Name</h5>
-                <p>Vents Description</p>
-                <p class="pricing">R 200</p>
-                <button mat-raised-button class="select-button" (click)="SelectLining(lining)">Select</button>  
-            </div>
-            <div class="col-lg-3 image-circle">
-                <img class="img-responsive option-circle" href="../../../../../assets/suit-builder/collars/collar-v1"/>  
-                <br>
-                <h5>Vents Name</h5>
-                <p>Vents Description</p>
-                <p class="pricing">R 200</p>
-                <button mat-raised-button class="select-button" (click)="SelectLining(lining)">Select</button>  
-            </div>
-        </div>
-        <div class="row mb-4">
-            <div class="col-lg-3 image-circle">
-                <img class="img-responsive option-circle" href="../../../../../assets/suit-builder/collars/collar-v1"/>  
-                <br>
-                <h5>Vents Name</h5>
-                <p>Vents Description</p>
-                <p class="pricing">R 200</p>
-                <button mat-raised-button class="select-button" (click)="SelectLining(lining)">Select</button>  
-            </div>
-            <div class="col-lg-3 image-circle">
-                <img class="img-responsive option-circle" href="../../../../../assets/suit-builder/collars/collar-v1"/>  
-                <br>
-                <h5>Vents Name</h5>
-                <p>Vents Description</p>
-                <p class="pricing">R 200</p>
-                <button mat-raised-button class="select-button" (click)="SelectLining(lining)">Select</button>  
+                <h5>{{ vent.name }}</h5>
+                <p>{{ vent.desc }}</p>
+                <p class="pricing">R {{ vent.price }}</p>
+                <button mat-raised-button class="select-button" (click)="SelectVent(vent)">Select</button>
             </div>
         </div>
         <div class="row mt-5">
@@ -73,9 +39,9 @@
     <div class="col-lg-2">
         <button class="help-button">i need help choosing</button>
         <p class="active-link"><i class="fa fa-circle" aria-hidden="true"></i>Jacket Collar Style</p>
-        <p class="chosen-style-text">You chose style x</p>
+        <p class="chosen-style-text">You chose style {{ currentSuit.collar.name }}</p>
         <p class="active-link"><i class="fa fa-circle" aria-hidden="true"></i> Jacket Pockets</p>
-        <p class="chosen-style-text">You chose style x</p>        
+        <p class="chosen-style-text">You chose style {{ currentSuit.pockets.name }}</p>        
         <p class="active-link"><i class="fa fa-circle" aria-hidden="true"></i> Jacket Vents</p>
         <p><i class="fa fa-circle-o" aria-hidden="true"></i> Pants</p>
         <p><i class="fa fa-circle-o" aria-hidden="true"></i> Add-ons : Pants/Waistcoat</p>        

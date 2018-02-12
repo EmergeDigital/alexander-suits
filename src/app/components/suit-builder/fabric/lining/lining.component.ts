@@ -78,7 +78,7 @@ export class LiningComponent implements OnInit {
 
   }
 
-  private GetLinings() {
+  private GetLinings(): void {
     console.log("Getting Linings");
     this.isLoading = true;
     this.linings = [];
@@ -115,11 +115,11 @@ export class LiningComponent implements OnInit {
     this.isSelectedLining = true;
   }
 
-  private Previous() {
+  private Previous(): void {
     this.suitBuilderService.SetFabricStage.emit(FabricStage.Material);
   }
 
-  private Next() {
+  private Next(): void {
     if(this.isSelectedLining) {
       this.suitBuilderService.lining = this.selectedLining;
       this.suitBuilderService.SetWizardStage.emit(WizardStage.Design);

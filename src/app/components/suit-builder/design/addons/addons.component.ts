@@ -9,18 +9,26 @@ import { WizardStage } from '../../../../models/suit-builder/wizardStage';
   styleUrls: ['./addons.component.scss']
 })
 export class AddonsComponent implements OnInit {
+  private errorMessage: string = "";
 
-    constructor(private suitBuilderService: SuitBuilderService) { }
+  private isExtraPantsSelected: boolean = false;
+  private isWaisteCoatSelected: boolean = false;
 
-    public ngOnInit(): void {
+  private currentSuit: any = {};
 
-    }
+  constructor(private suitBuilderService: SuitBuilderService) { }
 
-    private Previous() {
-      this.suitBuilderService.SetDesignStage.emit(DesignStage.PantStyles);
-    }
-  
-    private Next() {
-      this.suitBuilderService.SetWizardStage.emit(WizardStage.FinerDetails);
-    }
+  public ngOnInit(): void {
+    this.currentSuit = this.suitBuilderService.suit;
+  }
+
+  private Previous() {
+    this.suitBuilderService.SetDesignStage.emit(DesignStage.PantStyles);
+  }
+
+  private Next() {
+    this.suitBuilderService.suit.extra_pants = this.isExtraPantsSelected;
+    this.suitBuilderService.suit.waistcoat = this.isWaisteCoatSelected;
+    this.suitBuilderService.SetWizardStage.emit(WizardStage.FinerDetails);
+  }
 }

@@ -95,7 +95,7 @@ export class MaterialComponent implements OnInit {
   public ngOnInit(): void {
   }
 
-  private GetMaterials(collection) {
+  private GetMaterials(collection): void {
     console.log("Getting Materials");
     this.isLoading = true;
     this.materials = [];

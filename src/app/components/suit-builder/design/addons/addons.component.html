@@ -13,16 +13,16 @@
         <div class="row mb-4">
             <div class="col-lg-4 image-circle">
                 <h4>Extra Pants</h4>
-                <img class="img-responsive option-circle" href="../../../../../assets/suit-builder/collars/collar-v1"/>  
+                <img class="img-responsive option-circle"/>  
                 <br>
-                <mat-checkbox><h5> Add Extra Pants</h5></mat-checkbox>
+                <mat-checkbox [checked]="isExtraPantsSelected" (change)="isExtraPantsSelected = !isExtraPantsSelected"><h5> Add Extra Pants</h5></mat-checkbox>
                 <p class="pricing">R 200</p>
             </div>
             <div class="col-lg-4 image-circle">
                 <h4>Waistcoat</h4>
-                <img class="img-responsive option-circle" href="../../../../../assets/suit-builder/collars/collar-v1"/>  
+                <img class="img-responsive option-circle"/>  
                 <br>
-                <mat-checkbox><h5> Add Waistcoat</h5></mat-checkbox>
+                <mat-checkbox [checked]="isWaisteCoatSelected" (change)="isWaisteCoatSelected = !isWaisteCoatSelected"><h5> Add Waistcoat</h5></mat-checkbox>
                 <p class="pricing">R 200</p>
             </div>
         </div>
@@ -38,13 +38,15 @@
     <div class="col-lg-2">
         <button class="help-button">i need help choosing</button>
         <p class="active-link"><i class="fa fa-circle" aria-hidden="true"></i>Jacket Collar Style</p>
-        <p class="chosen-style-text">You chose style x</p>
+        <p class="chosen-style-text">You chose style {{ currentSuit.collar.name }}</p>
         <p class="active-link"><i class="fa fa-circle" aria-hidden="true"></i> Jacket Pockets</p>
-        <p class="chosen-style-text">You chose style x</p>        
+        <p class="chosen-style-text">You chose style {{ currentSuit.pockets.name }}</p>        
         <p class="active-link"><i class="fa fa-circle" aria-hidden="true"></i> Jacket Vents</p>
-        <p class="chosen-style-text">You chose style x</p>                
+        <p class="chosen-style-text">You chose style {{ currentSuit.vents.name }}</p>                
         <p class="active-link"><i class="fa fa-circle" aria-hidden="true"></i> Pants</p>
-        <p class="chosen-style-text">You chose style x</p>                
+        <p class="chosen-style-text">You chose style {{ currentSuit.pantPleat.name }}</p>
+        <p class="chosen-style-text">You chose style {{ currentSuit.pantBackPocket.name }}</p>   
+        <p class="chosen-style-text">You chose style {{ currentSuit.pantCuff.name }}</p>            
         <p class="active-link"><i class="fa fa-circle" aria-hidden="true"></i> Add-ons : Pants/Waistcoat</p>        
     </div>     
 </div>
