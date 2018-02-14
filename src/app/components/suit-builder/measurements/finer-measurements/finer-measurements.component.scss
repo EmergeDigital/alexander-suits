@@ -1,0 +1,218 @@
+@import '../../../../../styles/colours';
+
+.placeholder-square-designs {
+    width: 20em;
+    height: 20em;
+    border-radius: 5em;
+    background-color: $c-blue-main;
+    background-size: cover !important; 
+    background-repeat: no-repeat !important; 
+    border: 1px solid $c-brown-accent;
+    padding: 0.5em;
+}
+
+.option-circle {
+    width: 8em;
+    height: 8em;
+    line-height: 2em;
+    border-radius: 4em;    
+    background-color: white;
+    border: 1px solid $c-brown-accent;
+    padding: 0.5em;
+    margin-left: 1em;
+}
+
+.image-circle {
+    text-align: center;
+    margin: 1em;
+    font-size: 1em;
+    .option-circle  {
+        margin-bottom: 2em;
+    }
+}
+
+.active-link {
+    font-weight: 400;
+}
+
+.fa {
+    margin-right: 1em !important;
+}
+
+.help-button{
+    font-family: 'Playfair Display', serif;
+    font-style: italic; 
+    background-color: white;
+    color: red;
+    border: 1px solid red;
+    padding: 1.5em 1.5em; 
+    text-transform: lowercase;
+    font-size: 0.75em;
+    letter-spacing: 0.125em;
+    margin-top: -1em;
+    margin-bottom: 2em;
+}
+
+
+/* forces all inputs, textareas and labels to use border-box sizing*/
+input,
+textarea, label {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+} 
+
+/* default input styling*/
+.o-input {
+    position: relative;
+    margin-top: 1em;
+}
+.o-input__text {
+    font-size: 1.1em;
+    color: $c-brown-accent;
+    padding:  0.625em 0.625em 0.625em 0.3125em;
+    display: block;
+    // width: 20em;
+    border: none;
+    border-bottom: 0.0625em solid $c-brown-accent;
+    &:focus {
+        outline: none;
+    }
+    resize: none;
+}
+.o-input__label {
+    color: $c-brown-accent;
+    font-size: 0.75em;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 0.3125em;
+    top: 0.625em;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+    letter-spacing: 0.0625em;
+}
+/* active state */
+.o-input__text:focus ~ .o-input__label,
+.o-input__text:valid ~ .o-input__label,
+.o-input__textarea:focus ~ .o-input__label,
+.o-input__textarea:valid ~ .o-input__label {
+    top: -1.25em;
+    font-size: 0.75em;
+    color: $c-blue-main;
+}
+/* bottom bar */
+.o-input__bar {
+    position: relative;
+    display: block;
+    width: 13.5em;
+}
+.o-input__bar:before,
+.o-input__bar:after {
+    content: "";
+    height: 0.0625em;
+    width: 0;
+    bottom: 0.0625em;
+    position: absolute;
+    background: $c-blue-main;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+.o-input__bar:before {
+    left: 50%;
+}
+.o-input__bar:after {
+    right: 50%;
+}
+/* active state */
+.o-input__text:focus ~ .o-input__bar:before,
+.o-input__text:focus ~ .o-input__bar:after,
+.o-input__textarea:focus ~ .o-input__bar:before,
+.o-input__textarea:focus ~ .o-input__bar:after {
+    width: 50%;
+}
+
+/* box outline */
+.o-input__text--box {
+    @extend .o-input__text;
+    border:0.0625em solid $c-brown-accent;;
+    border-radius: 0em;
+    padding-left: 1em;
+    &:focus {
+        border: 0.0625em solid $c-blue-main;
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+    }
+}
+.o-input__label--box {
+    @extend .o-input__label;
+    left: 1em;
+    top: 1em;
+}
+.o-input__text--box:focus ~ .o-input__label,
+.o-input__text--box:valid ~ .o-input__label, {
+    top: -0.7em;
+    font-size: 0.75em;
+    font-weight: 500;
+    color: $c-blue-main;
+    background-color: white;
+    padding-left: 0.625em;  
+    padding-right: 0.625em;   
+}
+
+
+///////
+
+.info-icon {
+    width: 2.5em;
+    height: 2.5em;
+    text-align: center;
+    line-height: 2.5em;
+    border-radius: 1.5em;
+    background-color: $c-blue-main;
+    display: inline-block;
+    color: white;
+    position: relative;
+}
+
+.info-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic; 
+    color: $c-blue-main;
+    margin-top: 1em;
+    font-size: 0.75em;
+}
+
+.video-icon {
+    width: 2.5em;
+    height: 2.5em;
+    text-align: center;
+    line-height: 2.5em;
+    border-radius: 1.5em;
+    background-color: #EB5757;
+    display: inline-block;
+    color: white;
+    position: relative;
+}
+.video-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic; 
+    color: #EB5757;
+    margin-top: 1em;   
+    font-size: 0.75em;     
+}
+
+.fa {
+    margin-right: 0px !important;
+}
+
+.chosen-style-text {
+    font-size: 0.75em;
+    color: $c-blue-main;
+    font-style: italic; 
+    margin-left: 2em;
+    margin-top: -1em;
+}

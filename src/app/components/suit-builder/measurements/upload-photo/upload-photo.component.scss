@@ -1,0 +1,17 @@
+@import '../../../../../styles/colours';
+
+.option-square {
+    width: 8em;
+    height: 8em;
+    border-radius: 2em;
+    background-color: $c-brown-light;
+    margin-left: 1em;
+}
+
+.chosen-style-text {
+    font-size: 0.75em;
+    color: $c-blue-main;
+    font-style: italic; 
+    margin-left: 2em;
+    margin-top: -1em;
+}
