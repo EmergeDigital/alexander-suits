@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChildren } from '@angular/core';
 import { SuitBuilderService } from '../../suit-builder.service';
 import { WizardStage } from '../../../../models/suit-builder/wizardStage';
 import { DesignStage } from '../../../../models/suit-builder/designStage';
@@ -8,7 +8,11 @@ import { DesignStage } from '../../../../models/suit-builder/designStage';
   templateUrl: './collar.component.html',
   styleUrls: ['./collar.component.scss']
 })
-export class CollarComponent implements OnInit {
+export class CollarComponent implements OnInit, AfterViewInit {
+  @ViewChildren("MainFocus") MainFocus;
+  
+  private DesignStage = DesignStage;
+
   private collarsMock: any[] = [
     {"name": "1", "desc": "Collar Description", "price": "200", "url": "assets/suit-builder/collars/collar-v1.png"},
     {"name": "2", "desc": "Collar Description", "price": "200", "url": "assets/suit-builder/collars/collar-v2.png"},
@@ -21,15 +25,18 @@ export class CollarComponent implements OnInit {
     {"name": "9", "desc": "Collar Description", "price": "200", "url": "assets/suit-builder/collars/collar-v11.png"},
   ];
 
-  private errorMessage: string = "";
-
   private selectedCollar: any = {};
   private isSelectedCollar: boolean = false;  
 
   constructor(private suitBuilderService: SuitBuilderService) { }
 
   public ngOnInit(): void {
+    this.selectedCollar = this.suitBuilderService.suit.collar;
+    this.isSelectedCollar = this.suitBuilderService.isCollarSelected;
+  }
 
+  public ngAfterViewInit(): void {
+    this.MainFocus.first.nativeElement.focus();
   }
 
   private SelectCollar(collar: any) {
@@ -42,12 +49,8 @@ export class CollarComponent implements OnInit {
   }
 
   private Next(): void {
-    if(this.isSelectedCollar) {
       this.suitBuilderService.suit.collar = this.selectedCollar;
+      this.suitBuilderService.isCollarSelected = this.isSelectedCollar;
       this.suitBuilderService.SetDesignStage.emit(DesignStage.Pockets);
-    }
-    else {
-      this.errorMessage = "Please Select A Collar";
-    }
   }
 }

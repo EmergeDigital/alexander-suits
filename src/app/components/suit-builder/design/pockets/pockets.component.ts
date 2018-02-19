@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChildren } from '@angular/core';
 import { SuitBuilderService } from '../../suit-builder.service';
 import { DesignStage } from '../../../../models/suit-builder/designStage';
 
@@ -7,16 +7,18 @@ import { DesignStage } from '../../../../models/suit-builder/designStage';
   templateUrl: './pockets.component.html',
   styleUrls: ['./pockets.component.scss']
 })
-export class PocketsComponent implements OnInit {  
-  private pocketsMock: any[] = [
-    {"name": "1", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pockets/pocket-v1.png"},
-    {"name": "2", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pockets/pocket-v2.png"},
-    {"name": "3", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pockets/pocket-v3.png"},
-    {"name": "4", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pockets/pocket-v4.png"},
-    {"name": "5", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pockets/pocket-v5.png"},
-  ];
+export class PocketsComponent implements OnInit, AfterViewInit {
+  @ViewChildren("MainFocus") MainFocus;
 
-  private errorMessage: string = "";
+  private DesignStage = DesignStage;
+
+  private pocketsMock: any[] = [
+    { "name": "1", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pockets/pocket-v1.png" },
+    { "name": "2", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pockets/pocket-v2.png" },
+    { "name": "3", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pockets/pocket-v3.png" },
+    { "name": "4", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pockets/pocket-v4.png" },
+    { "name": "5", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pockets/pocket-v5.png" },
+  ];
 
   private selectedPocket: any = {};
   private isSelectedPocket: boolean = false;
@@ -27,6 +29,12 @@ export class PocketsComponent implements OnInit {
 
   public ngOnInit(): void {
     this.currentSuit = this.suitBuilderService.suit;
+    this.selectedPocket = this.suitBuilderService.suit.pockets;
+    this.isSelectedPocket = this.suitBuilderService.isPocketsSelected;
+  }
+
+  public ngAfterViewInit(): void {
+    this.MainFocus.first.nativeElement.focus();
   }
 
   private SelectPocket(pocket: any) {
@@ -39,12 +47,8 @@ export class PocketsComponent implements OnInit {
   }
 
   private Next(): void {
-    if(this.isSelectedPocket) {
-      this.suitBuilderService.suit.pockets = this.selectedPocket;
-      this.suitBuilderService.SetDesignStage.emit(DesignStage.Vents);
-    }
-    else {
-      this.errorMessage = "Please Select A Pocket";
-    }
+    this.suitBuilderService.suit.pockets = this.selectedPocket;
+    this.suitBuilderService.isPocketsSelected = this.isSelectedPocket;
+    this.suitBuilderService.SetDesignStage.emit(DesignStage.Vents);
   }
 }

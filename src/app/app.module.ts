@@ -32,6 +32,7 @@ import {AuthHttp, AuthConfig} from 'angular2-jwt';
 import 'hammerjs';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+import { Ng2ImgToolsModule } from 'ng2-img-tools';
 // import {MATERIAL_COMPATIBILITY_MODE} from '@angular/material';
 
 
@@ -98,6 +99,8 @@ import { BodyTypeComponent } from './components/suit-builder/measurements/body-t
 import { GeneralMeasurementsComponent } from './components/suit-builder/measurements/general-measurements/general-measurements.component';
 import { FinerMeasurementsComponent } from './components/suit-builder/measurements/finer-measurements/finer-measurements.component';
 import { UploadPhotoComponent } from './components/suit-builder/measurements/upload-photo/upload-photo.component';
+import { ExtraDetailsModalComponent } from './components/suit-builder/design/extra-details-modal/extra-details-modal.component';
+import { MockupGarmentModalComponent } from './components/suit-builder/utilities/mockup-garment-modal/mockup-garment-modal.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     return new AuthHttp(new AuthConfig({
@@ -143,7 +146,9 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         VentsComponent,
         PantStylesComponent,
         AddonsComponent,
+        ExtraDetailsModalComponent,
         FinerDetailsComponent,
+        MockupGarmentModalComponent,
         ButtonStylesComponent,
         PackageStitchingComponent,
         MeasurementsComponent,
@@ -183,13 +188,16 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         MatTableModule,
         OwlModule,
         ScrollToModule.forRoot(),
+        Ng2ImgToolsModule,
         // AngularFontAwesomeModule,
         ClipboardModule,
         SwiperModule,
         NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyAm3PebcIYpXrXY5k7xA5_9JWnqIjWKlU4'})
     ],
     entryComponents: [
-        DialogContentCartDialog
+        DialogContentCartDialog,
+        ExtraDetailsModalComponent,
+        MockupGarmentModalComponent,
     ],
     providers: [TabsService, DataService, SessionService, FunctionsService, AuthService, SuitService, SuitBuilderService, MeasurementsService,
         // {provide: MATERIAL_COMPATIBILITY_MODE, useValue: true},
@@ -197,7 +205,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
             provide: AuthHttp,
             useFactory: authHttpServiceFactory,
             deps: [Http, RequestOptions]
-        }],
+        }
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

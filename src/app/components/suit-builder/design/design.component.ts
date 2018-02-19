@@ -15,6 +15,7 @@ export class DesignComponent implements OnInit {
   constructor(private suitBuilderService: SuitBuilderService) { }
 
   public ngOnInit(): void {
+    this.currentDesignStage = this.suitBuilderService.DesignStage;
     this.suitBuilderService.SetDesignStage.subscribe((designStage: DesignStage) => this.currentDesignStage = designStage);
   }
 

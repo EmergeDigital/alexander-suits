@@ -1,6 +1,6 @@
 <div class="row mt-5 pt-5">
     <div class="col-lg-12 d-flex justify-content-center">
-        <h2>Choose your pant styles</h2>
+        <h2 #MainFocus>Choose your pant styles</h2>
     </div>
     <div class="col-lg-12 d-flex justify-content-center">
         <p class="brown-paragraph-text">Lorem ipsum dolor sit amet,consectetur.</p>
@@ -31,11 +31,11 @@
     </div>  
     <div class="col-lg-2">
         <button class="help-button">i need help choosing</button>
-        <p class="active-link"><i class="fa fa-circle" aria-hidden="true"></i>Jacket Collar Style</p>
+        <p class="active-link" (click)="suitBuilderService.SetDesignStage.emit(DesignStage.Collar)"><i class="fa fa-circle" aria-hidden="true"></i>Jacket Collar Style</p>
         <p class="chosen-style-text">You chose style {{ currentSuit.collar.name }}</p>
-        <p class="active-link"><i class="fa fa-circle" aria-hidden="true"></i> Jacket Pockets</p>
+        <p class="active-link" (click)="suitBuilderService.SetDesignStage.emit(DesignStage.Pockets)"><i class="fa fa-circle" aria-hidden="true"></i> Jacket Pockets</p>
         <p class="chosen-style-text">You chose style {{ currentSuit.pockets.name }}</p>        
-        <p class="active-link"><i class="fa fa-circle" aria-hidden="true"></i> Jacket Vents</p>
+        <p class="active-link" (click)="suitBuilderService.SetDesignStage.emit(DesignStage.Vents)"><i class="fa fa-circle" aria-hidden="true"></i> Jacket Vents</p>
         <p class="chosen-style-text">You chose style {{ currentSuit.vents.name }}</p>                
         <p class="active-link"><i class="fa fa-circle" aria-hidden="true"></i> Pants</p>
         <p><i class="fa fa-circle-o" aria-hidden="true"></i> Add-ons : Pants/Waistcoat</p>        

@@ -15,6 +15,7 @@ export class MeasurementsComponent implements OnInit {
   constructor(private suitBuilderService: SuitBuilderService) { }
 
   public ngOnInit(): void {
+    this.currentMeasurementStage = this.suitBuilderService.MeasurementStage;
     this.suitBuilderService.SetMeasurementsStage.subscribe((measurementStage: MeasurementStage) => this.currentMeasurementStage = measurementStage);
   }
 }

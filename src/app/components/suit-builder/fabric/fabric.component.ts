@@ -15,6 +15,7 @@ export class FabricComponent implements OnInit {
   constructor(private suitBuilderService: SuitBuilderService) { }
 
   public ngOnInit(): void {
+    this.currentFabricStage = this.suitBuilderService.FabricStage;
     this.suitBuilderService.SetFabricStage.subscribe((fabricStage: FabricStage) => this.currentFabricStage = fabricStage);
   }
 

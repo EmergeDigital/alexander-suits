@@ -15,6 +15,7 @@ export class FinerDetailsComponent implements OnInit {
   constructor(private suitBuilderService: SuitBuilderService) { }
 
   public ngOnInit(): void {
+    this.currentFinerDetailsStage = this.suitBuilderService.FinerDetailsStage;
     this.suitBuilderService.SetFinerDetailsStage.subscribe((finerDetailsStage: FinerDetailsStage) => this.currentFinerDetailsStage = finerDetailsStage);
   }
 
