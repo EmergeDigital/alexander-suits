@@ -1,117 +1,13 @@
 @import '../../../styles/colours.scss';
 
 .footer {
-  padding-top: 80px;
+  padding-top: 50px;
   padding-bottom: 50px;
-  background: $c-grey !important;
-  border-top: 5px solid $c-main;
-  .form-control {
-    border: 1px solid rgba(255, 255, 255, 255);
-    background: rgba(0,0,0,0);
-    color: #ddd;
-  }
-
-  .btn {
-    background-color: rgba(255, 255, 255, 0.3);;
-    color: white;
-  }
 }
-
-.footer-image {
-  background-image: url('http://placehold.it/550x200');
-  background-size: cover;
-  height: 200px;
-  background-position: center;
-}
-
-.footer-title {
-  font-size: 15px;
-  color: white;
-}
-
-
-.mat-menu-item {
-  color: $c-grey-lite;
-}
-
-.call-us {
-  margin-top: 50px;
-  padding-top: 20px;
-  padding-bottom: 15px;
-  margin-top: 6  0px;
-  margin-bottom: 40px;
-  border-top: 1px solid $c-grey-lite;
-  border-bottom: 1px solid $c-grey-lite;
-  font-size: 20px;
-  color: $c-grey-lite !important;
-  b{
-    color: $c-accent;
-  }
-  button.mat-button {
-    transform: translateY(-5px);
-  }
-}
-
-.footer-logo-box{
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
 .copyright {
-  text-align: center;
-  color: $c-grey-lite;
-
-}
-
-.btn {
-  cursor: pointer;
-}
-.newsletter-button {
-  text-align: left;
-  // .mat-raised-button {
-  //   width: 90%;
-  //   height: 50px;
-  // }
-}
-
-.signup-inner{
-  .mat-button.mat-accent, .mat-icon-button.mat-accent {
-    color: $c-accent;
-  }
-  padding: 5px;
-  border-radius: 2px;
-  border: 2px solid $c-accent;
-
-  input {
-    outline: none;
-    border: none;
-    background: transparent;
-    color: white;
-    width: 100%;
-  }
-  .si-left {
-    margin-left: 2%;
-    display: inline-block;
-    width: 72%;
-    text-align: left;
-  }
-  .si-right {
-    margin-right: 2%;
-    display: inline-block;
-    width: 22%;
-    text-align: right;
-  }
-}
-.f-form {
-  margin: 0 auto;
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
-}
-
-label.mat-input-placeholder.mat-form-field-placeholder.ng-tns-c11-2.mat-empty.mat-form-field-empty.mat-float.mat-form-field-float {
-    color: rgba(255, 255, 255, 0.87) !important;
-}
-.f-full-width {
-  width: 100%;
+  margin-left: 5em;
+  color: $c-brown-accent;
+  margin-left: 5em;
+  letter-spacing: 0.1em;
+  font-size: 0.725em;
 }
