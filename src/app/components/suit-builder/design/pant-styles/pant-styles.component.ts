@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChildren } from '@angular/core';
 import { SuitBuilderService } from '../../suit-builder.service';
 import { DesignStage } from '../../../../models/suit-builder/designStage';
 
@@ -7,7 +7,11 @@ import { DesignStage } from '../../../../models/suit-builder/designStage';
   templateUrl: './pant-styles.component.html',
   styleUrls: ['./pant-styles.component.scss']
 })
-export class PantStylesComponent implements OnInit { 
+export class PantStylesComponent implements OnInit, AfterViewInit {
+  @ViewChildren("MainFocus") MainFocus;
+
+  private DesignStage = DesignStage;
+
   private pantPleatsMock: any[] = [
     {"name": "1", "desc": "Collar Description", "price": "200", "url": "assets/suit-builder/pants/pants-v1.png"},
     {"name": "2", "desc": "Collar Description", "price": "200", "url": "assets/suit-builder/pants/pants-v2.png"},
@@ -43,6 +47,17 @@ export class PantStylesComponent implements OnInit {
 
   public ngOnInit(): void {
     this.currentSuit = this.suitBuilderService.suit;
+    this.selectedPantPleat = this.suitBuilderService.suit.pantPleat;
+    this.selectedPantPocket = this.suitBuilderService.suit.pantBackPocket;
+    this.selectedPantCuff = this.suitBuilderService.suit.pantCuff;
+    
+    this.isSelectedPantPleat = this.suitBuilderService.isPantPleatSelected;
+    this.isSelectedPantPocket = this.suitBuilderService.isPantPocketSelected;
+    this.isSelectedPantCuff = this.suitBuilderService.isPantCuffSelected;
+  }
+
+  public ngAfterViewInit(): void {
+    this.MainFocus.first.nativeElement.focus();
   }
 
   private SelectPantPleat(pantPleat: any) {
@@ -68,6 +83,11 @@ export class PantStylesComponent implements OnInit {
     this.suitBuilderService.suit.pantPleat = this.selectedPantPleat;
     this.suitBuilderService.suit.pantBackPocket = this.selectedPantPocket;
     this.suitBuilderService.suit.pantCuff = this.selectedPantCuff;
+
+    this.suitBuilderService.isPantPleatSelected = this.isSelectedPantPleat;
+    this.suitBuilderService.isPantPocketSelected = this.isSelectedPantPocket;
+    this.suitBuilderService.isPantCuffSelected = this.isSelectedPantCuff;
+    
     this.suitBuilderService.SetDesignStage.emit(DesignStage.Addons);
   }
 }

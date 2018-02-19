@@ -1,0 +1,29 @@
+<div>
+    <h1>Mock-Up Garment</h1>
+    <div class="row">
+        <div class="col">
+            <label>To ensure your garment fits perfectly, we recommend ordering a mock-up garment from us to ensure your suit will
+                be fitting exactly as you want it</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <mat-checkbox [checked]="isMockupGarment" (change)="isMockupGarment = !isMockupGarment">
+                <h5>Add Mock-Up Garment</h5>
+            </mat-checkbox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <mat-form-field>
+                <textarea matInput placeholder="Add Instructions / Comments" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5" [(ngModel)]="mockupGarmentInstructions"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button mat-raised-button style="float:left;" (click)="Cancel()">Cancel</button>
+            <button mat-raised-button style="float:right;" (click)="Next()">Next</button>
+        </div>
+    </div>
+</div>

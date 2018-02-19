@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChildren } from '@angular/core';
 import { SuitBuilderService } from '../../suit-builder.service';
 import { DesignStage } from '../../../../models/suit-builder/designStage';
 
@@ -7,7 +7,11 @@ import { DesignStage } from '../../../../models/suit-builder/designStage';
   templateUrl: './vents.component.html',
   styleUrls: ['./vents.component.scss']
 })
-export class VentsComponent implements OnInit {
+export class VentsComponent implements OnInit, AfterViewInit {
+  @ViewChildren("MainFocus") MainFocus;
+  
+  private DesignStage = DesignStage;
+
   private ventsMock: any[] = [
     {"name": "1", "desc": "Vent Description", "price": "200", "url": "assets/suit-builder/vents/vents-v1.png"},
     {"name": "2", "desc": "Vent Description", "price": "200", "url": "assets/suit-builder/vents/vents-v2.png"},
@@ -24,6 +28,12 @@ export class VentsComponent implements OnInit {
 
   public ngOnInit(): void {
     this.currentSuit = this.suitBuilderService.suit;
+    this.selectedVent = this.suitBuilderService.suit.vents;
+    this.isSelectedVent = this.suitBuilderService.isVentsSelected;
+  }
+
+  public ngAfterViewInit(): void {
+    this.MainFocus.first.nativeElement.focus();
   }
 
   private SelectVent(vent: any) {
@@ -37,6 +47,7 @@ export class VentsComponent implements OnInit {
 
   private Next() {
     this.suitBuilderService.suit.vents = this.selectedVent;
+    this.suitBuilderService.isVentsSelected = this.isSelectedVent;
     this.suitBuilderService.SetDesignStage.emit(DesignStage.PantStyles);
   }
 }

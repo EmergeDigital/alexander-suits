@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChildren } from '@angular/core';
 import { SuitBuilderService } from '../../suit-builder.service';
 import { WizardStage } from '../../../../models/suit-builder/wizardStage';
 import { FabricStage } from '../../../../models/suit-builder/fabricStage';
@@ -10,7 +10,8 @@ import { Lining } from '../../../../models/lining';
   templateUrl: './lining.component.html',
   styleUrls: ['./lining.component.scss']
 })
-export class LiningComponent implements OnInit {
+export class LiningComponent implements OnInit, AfterViewInit {
+  @ViewChildren("MainFocus") MainFocus;
 
   private blackColourTypes: string[] = [
     "Very light grey",
@@ -75,7 +76,12 @@ export class LiningComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    this.selectedLining = this.suitBuilderService.lining;
+    this.isSelectedLining = this.suitBuilderService.isLiningSelected;
+  }
 
+  public ngAfterViewInit(): void {
+    this.MainFocus.first.nativeElement.focus();
   }
 
   private GetLinings(): void {
@@ -88,13 +94,13 @@ export class LiningComponent implements OnInit {
         this.FilterLinings();
       } else {
         this.errorMessage = 'No Linings Found';
-        console.log(this.errorMessage);
+        console.error(this.errorMessage);
       }
       this.isLoading = false;
     }).catch(ex => {
       this.errorMessage = ex + "Please refresh and try again";
       this.isLoading = false;
-      console.log(this.errorMessage);
+      console.error(this.errorMessage);
     });
   }
 
@@ -122,6 +128,7 @@ export class LiningComponent implements OnInit {
   private Next(): void {
     if(this.isSelectedLining) {
       this.suitBuilderService.lining = this.selectedLining;
+      this.suitBuilderService.isLiningSelected = this.isSelectedLining;
       this.suitBuilderService.SetWizardStage.emit(WizardStage.Design);
     } 
     else {

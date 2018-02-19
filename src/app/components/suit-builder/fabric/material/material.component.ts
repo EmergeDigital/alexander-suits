@@ -93,6 +93,8 @@ export class MaterialComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    this.selectedMaterial = this.suitBuilderService.product;
+    this.isSelectedMaterial = this.suitBuilderService.isMaterialSelected;
   }
 
   private GetMaterials(collection): void {
@@ -105,13 +107,13 @@ export class MaterialComponent implements OnInit {
         this.FilterMaterials();
       } else {
         this.errorMessage = 'No Products Found';
-        console.log(this.errorMessage);
+        console.error(this.errorMessage);
       }
       this.isLoading = false;
     }).catch(ex => {
       this.errorMessage = ex + "Please refresh and try again";
       this.isLoading = false;
-      console.log(this.errorMessage);
+      console.error(this.errorMessage);
     });
   }
 
@@ -126,7 +128,6 @@ export class MaterialComponent implements OnInit {
     .sort((a: Product, b: Product) => {
       return this.selectedPriceSortType === "HighToLow" ?  b.price - a.price : a.price - b.price;
     });
-    console.log(this.selectedPriceSortType);
   }
 
   private SelectMaterial(material: Product): void {
@@ -137,6 +138,7 @@ export class MaterialComponent implements OnInit {
   private Next(): void {
     if(this.isSelectedMaterial) {
       this.suitBuilderService.product = this.selectedMaterial;
+      this.suitBuilderService.isMaterialSelected = this.isSelectedMaterial;
       this.suitBuilderService.SetFabricStage.emit(FabricStage.Lining);
     }
     else {
