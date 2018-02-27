@@ -1,0 +1,45 @@
+<div class="">
+    <div class="col-lg-12 banner-image">
+        <div class="row">
+            <div class="col-md-9">
+            </div> 
+            <div class="col-md-3 banner-image-text">
+                <h1 class="white-text">Made to Measure</h1>  
+                <p class="white-text">
+                    Lorem ipsum dolor sit amet,consectetur adipiscing elit. Etiam vestibulum magna at mauris dignissim consectetur. Nunc magna erat, volutpat non elementum ut.
+                </p> 
+                <button>Find Inspiration</button>
+            </div> 
+        </div>            
+    </div>
+</div>
+<div class="">
+    <div class="col-lg-12 header-text">
+        <h1>Customise a Suit</h1>
+        <h3>Our suits are made to measure</h3>
+    </div>
+</div>
+<div class="row wizard d-flex justify-content-center mt-5 mb-5 pt-3">
+    <ul>
+        <li class="circle" [ngClass]="{'active' : currentWizardStage === WizardStage.Fabric }">1</li>
+        <li class="circle" [ngClass]="{'active' : currentWizardStage === WizardStage.Design }">2</li>
+        <li class="circle" [ngClass]="{'active' : currentWizardStage === WizardStage.FinerDetails }">3</li>
+        <li class="circle" [ngClass]="{'active' : currentWizardStage === WizardStage.Measurements }">4</li>
+        <li class="circle" [ngClass]="{'active' : currentWizardStage === WizardStage.Checkout }">5</li>
+    </ul> 
+    <ul class="stepper-text">
+        <li>Choose Fabric</li>
+        <li>Customise Design</li>
+        <li>Finer Details</li>
+        <li>Get Measured</li>
+        <li>Checkout</li>  
+    </ul>  
+</div>
+<div class="mt-5 mb-5">
+    <div class="col-lg-12" [ngSwitch]="currentWizardStage">
+        <jacket-builder-fabric *ngSwitchCase="WizardStage.Fabric"></jacket-builder-fabric>
+        <jacket-builder-design *ngSwitchCase="WizardStage.Design"></jacket-builder-design>
+        <jacket-builder-finer-details *ngSwitchCase="WizardStage.FinerDetails"></jacket-builder-finer-details>
+        <jacket-builder-measurements *ngSwitchCase="WizardStage.Measurements"></jacket-builder-measurements>
+    </div>
+</div>

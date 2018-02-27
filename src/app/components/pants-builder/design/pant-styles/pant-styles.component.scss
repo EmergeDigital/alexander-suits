@@ -1,0 +1,64 @@
+@import '../../../../../styles/colours';
+
+.chosen-style-text {
+    font-size: 0.75em;
+    color: $c-blue-main;
+    font-style: italic; 
+    margin-left: 2em;
+    margin-top: -1em;
+}
+
+.placeholder-circle-designs {
+    width: 15em;
+    height: 15em;
+    border-radius: 10em;
+    background-color: $c-blue-main;
+    background-size: cover !important; 
+    background-repeat: no-repeat !important; 
+    border: 1px solid $c-brown-accent;
+    padding: 0.5em;
+    margin-left: 3em;
+}
+
+.option-circle {
+    width: 8em;
+    height: 8em;
+    line-height: 2em;
+    border-radius: 4em;    
+    background-color: white;
+    border: 1px solid $c-brown-accent;
+    padding: 0.5em;
+    margin-left: 1em;
+}
+
+.image-circle {
+    text-align: center;
+    margin: 1em;
+    font-size: 1em;
+    .option-circle  {
+        margin-bottom: 2em;
+    }
+}
+
+.active-link {
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.fa {
+    margin-right: 1em !important;
+}
+
+.help-button{
+    font-family: 'Playfair Display', serif;
+    font-style: italic; 
+    background-color: white;
+    color: red;
+    border: 1px solid red;
+    padding: 1.5em 1.5em; 
+    text-transform: lowercase;
+    font-size: 0.75em;
+    letter-spacing: 0.125em;
+    margin-top: -1em;
+    margin-bottom: 2em;
+}

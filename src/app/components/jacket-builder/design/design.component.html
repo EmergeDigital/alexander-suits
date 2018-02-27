@@ -1,0 +1,5 @@
+<div [ngSwitch]="currentDesignStage">
+    <jacket-builder-design-collar *ngSwitchCase="DesignStage.Collar"></jacket-builder-design-collar>
+    <jacket-builder-design-pockets *ngSwitchCase="DesignStage.Pockets"></jacket-builder-design-pockets>
+    <jacket-builder-design-vents *ngSwitchCase="DesignStage.Vents"></jacket-builder-design-vents>
+</div>

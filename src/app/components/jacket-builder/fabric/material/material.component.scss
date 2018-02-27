@@ -1,0 +1,124 @@
+@import '../../../../../styles/colours';
+
+.circle {
+    width: 1.5em;
+    height: 1.5em;
+    line-height: 2em;
+    border-radius: 1em;
+    background-color: $c-brown-accent;
+    margin-left: 1em;
+}
+.colour-label-text{
+    color: $c-blue-main;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.placeholder-circle {
+    width: 20em;
+    height: 20em;
+    border-radius: 10em;
+    background-color: $c-blue-main;
+    background-size: cover !important; 
+    background-repeat: no-repeat !important; 
+}
+.left-circle-text {
+    text-align: center;
+    margin: 4em;
+    font-size: 1em
+}
+
+.fabric-block {
+    text-align: center;
+    margin: 2em;
+    font-size: 1em;
+    .fabric-swatch {
+        margin-bottom: 2em;
+    }
+}
+
+.circle-column {
+    margin-right: 6em;
+}
+
+// Colour filters
+.brown {
+    background-color: #E0A279;
+}
+.light-blue {
+    background-color: #BFCBF2;
+}
+.red {
+    background-color: #DE81B3;
+}
+.purple {
+    background-color: #B186DB;
+}
+.blue {
+    background-color: #464899;
+}
+.black {
+    background-color: #333333;
+}
+.white {
+    background-color: #ffffff;
+    border: 0.0825em solid $c-brown-accent;
+}
+
+.filter-background .mat-select-content {
+    background: $c-blue-main;
+}
+  
+.filter-background .mat-option-text {
+    color: #fff;
+    font-weight: 200;
+    font-size: 0.875em;
+}
+
+.mat-form-field-infix {
+    display: none;
+    padding-top: 0.4375em;
+}
+.mat-form-field-wrapper {
+    border: 0.0875em solid $c-blue-main;
+    padding: 1em;
+}
+.mat-form-field-underline {
+    display: none;
+}
+.mat-form-field {
+    width: 15em;
+    font-size: 0.75em;
+    color:  $c-blue-main;
+    font-weight: 400;
+}
+.mat-select-disabled .mat-select-value, .mat-select-arrow {
+    color:  $c-blue-main;    
+}
+
+.select-button {
+    background-color: $c-blue-main;
+    color: white;
+    padding: 0.3em 5em;
+    text-transform: uppercase;
+    font-size: 0.6em;
+    border: none;
+}
+.next-button {
+    background-color: $c-brown-accent;
+    color: white;
+    padding: 0.3em 5em;
+    text-transform: uppercase;
+    font-size: 0.75em;
+    letter-spacing: 0.125em;
+    border: none;
+}
+.back-button {
+    background-color: $c-grey-lite;
+    color: white;
+    padding: 0.3em 5em;
+    text-transform: uppercase;
+    font-size: 0.75em;
+    letter-spacing: 0.125em;
+    border: none;
+}

@@ -10,7 +10,10 @@ import { Lining } from "../../models/lining";
 
 
 @Injectable()
-export class SuitBuilderService {
+export class SuitBuilderService {    
+    public collection: string = '';
+    public _collectionChanged: EventEmitter<string> = new EventEmitter();
+
     private wizardStage: WizardStage = WizardStage.Fabric;
     public get WizardStage(): WizardStage { return this.wizardStage; }
     public SetWizardStage: EventEmitter<WizardStage> = new EventEmitter<WizardStage>();
@@ -135,6 +138,16 @@ export class SuitBuilderService {
             errorMessage = errorMessage + "No Contrast Package Selected. "
         if (!this.isTopStitchSelected)
             errorMessage = errorMessage + "No Top Stitch Selected. "
+
+        return errorMessage;
+    }
+    
+
+    public ValidateMeasurementsStage(): string {
+        let errorMessage: string = "";
+
+        if (!this.isBodyTypeSelected)
+            errorMessage = "No Body Type Selected. "
 
         return errorMessage;
     }

@@ -71,6 +71,8 @@ export class LiningComponent implements OnInit, AfterViewInit {
 
   private filteredLinings: Lining[] = [];
 
+  private carousels: number[] = [];
+
   constructor(private data: DataService, private suitBuilderService: SuitBuilderService) {
     this.GetLinings();
   }
@@ -89,10 +91,12 @@ export class LiningComponent implements OnInit, AfterViewInit {
     this.isLoading = true;
     this.linings = [];
     this.data.getLinings().then(linings => {
-      if(linings.length > 0) {
+      if (linings.length > 0) {
         this.linings = linings;
         this.FilterLinings();
       } else {
+        this.linings = linings;
+        this.FilterLinings();
         this.errorMessage = 'No Linings Found';
         console.error(this.errorMessage);
       }
@@ -106,14 +110,33 @@ export class LiningComponent implements OnInit, AfterViewInit {
 
   private FilterLinings(): void {
     this.filteredLinings = this.linings.filter((lining: Lining) => {
-        if(this.selectedPatternType === "" || lining.print === this.selectedPatternType)
-            if(this.selectedColourType === "" || this[this.selectedColourType].findIndex(colourType => colourType === lining.primary_colour) !== -1)
-              return true;
+      if (this.selectedPatternType === "" || lining.print === this.selectedPatternType)
+        if (this.selectedColourType === "" || this[this.selectedColourType].findIndex(colourType => colourType === lining.primary_colour) !== -1)
+          return true;
     })
-    .sort((a: Lining, b: Lining) => {
-      return this.selectedPriceSortType === "HighToLow" ?  b.price - a.price : a.price - b.price;
-    });
-    console.log(this.selectedPriceSortType);
+      .sort((a: Lining, b: Lining) => {
+        return this.selectedPriceSortType === "HighToLow" ? b.price - a.price : a.price - b.price;
+      });
+
+    this.BuildCarouselList();
+  }
+
+  private BuildCarouselList(): void {
+    var length: number = 0;
+    var ret: number[] = [];
+
+    if (this.filteredLinings.length === 0 || this.filteredLinings.length <= 6) {
+      ret.push(1);
+      this.carousels = ret;
+    }
+    else {
+      length = Math.ceil(this.filteredLinings.length / 6);
+
+      for (var i = 1; i < length; i++) {
+        ret.push(i);
+      }
+      this.carousels = ret;
+    }
   }
 
   private SelectLining(lining: Lining): void {
@@ -126,11 +149,11 @@ export class LiningComponent implements OnInit, AfterViewInit {
   }
 
   private Next(): void {
-    if(this.isSelectedLining) {
+    if (this.isSelectedLining) {
       this.suitBuilderService.lining = this.selectedLining;
       this.suitBuilderService.isLiningSelected = this.isSelectedLining;
       this.suitBuilderService.SetWizardStage.emit(WizardStage.Design);
-    } 
+    }
     else {
       this.errorMessage = "Please Select A Lining";
     }
