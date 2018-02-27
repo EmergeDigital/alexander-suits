@@ -1,0 +1,99 @@
+<div class="row mt-5 pt-5">
+    <div class="col-lg-12 d-flex justify-content-center">
+        <h2 #MainFocus>Choose shirt styles</h2>
+    </div>
+    <div class="col-lg-12 d-flex justify-content-center">
+        <p class="brown-paragraph-text">Lorem ipsum dolor sit amet,consectetur.</p>
+    </div>
+</div>
+<div class="row ml-5 mt-5">
+    <div class="col-lg-3">
+        <div class="placeholder-circle-designs" [ngStyle]="{'background': isSelectedFront ? 'url(' + selectedFront.url + ')' : ''}"></div>
+        <div class="left-circle-text" *ngIf="isSelectedFront">
+            <h4>You have chosen:</h4>
+            <h5>{{selectedFront.name}}</h5>
+            <p>{{selectedFront.description_long}}</p>
+            <p>add more info or details here about the chosen item</p> 
+        </div>
+    </div>
+    <div class="col-lg-7">
+        <h4>Choose Front</h4>
+        <div class="row">
+            <div class="col-lg-3 image-circle mb-4" *ngFor="let front of frontsMock">
+                <img class="img-responsive option-circle" src="{{ front.url }}" />
+                <br>
+                <h5>{{ front.name }}</h5>
+                <p>{{ front.desc }}</p>
+                <p class="pricing">R {{ front.price }}</p>
+                <button mat-raised-button class="select-button" (click)="SelectFront(front)">Select</button>
+            </div>
+        </div>
+    </div>  
+    <div class="col-lg-2">
+        <button class="help-button">i need help choosing</button>
+        <p class="active-link" (click)="shirtBuilderService.SetDesignStage.emit(DesignStage.Collar)"><i class="fa fa-circle" aria-hidden="true"></i>Collar Style</p>
+        <p class="chosen-style-text">You chose style {{ currentSuit.collar.name }}</p>
+        <p class="active-link" (click)="shirtBuilderService.SetDesignStage.emit(DesignStage.Sleeve)"><i class="fa fa-circle" aria-hidden="true"></i> Sleeve & Cuff Style</p>
+        <p class="chosen-style-text">You chose style {{ currentSuit.sleeve.name }}</p>
+        <p class="chosen-style-text">You chose style {{ currentSuit.cuff.name }}</p>
+        <p class="active-link" (click)="shirtBuilderService.SetDesignStage.emit(DesignStage.Shirt)"><i class="fa fa-circle" aria-hidden="true"></i> Shirt Style</p>     
+    </div>     
+</div>
+<hr>
+<div class="row ml-5 mt-5">
+    <div class="col-lg-3">
+        <div class="placeholder-circle-designs" [ngStyle]="{'background': isSelectedBack ? 'url(' + selectedBack.url + ')' : ''}"></div>
+        <div class="left-circle-text" *ngIf="isSelectedBack">
+            <h4>You have chosen:</h4>
+            <h5>{{selectedBack.name}}</h5>
+            <p>{{selectedBack.description_long}}</p>
+            <p>add more info or details here about the chosen item</p> 
+        </div>
+    </div>
+    <div class="col-lg-7">
+        <h4>Back</h4>
+        <div class="row">
+            <div class="col-lg-3 image-circle mb-4" *ngFor="let back of backsMock">
+                <img class="img-responsive option-circle" src="{{ back.url }}" />
+                <br>
+                <h5>{{ back.name }}</h5>
+                <p>{{ back.desc }}</p>
+                <p class="pricing">R {{ back.price }}</p>
+                <button mat-raised-button class="select-button" (click)="SelectBack(back)">Select</button>
+            </div>
+        </div>
+    </div>  
+</div>
+<hr>
+<div class="row ml-5 mt-5">
+    <div class="col-lg-3">
+        <div class="placeholder-circle-designs" [ngStyle]="{'background': isSelectedBreastPocket ? 'url(' + selectedBreastPocket.url + ')' : ''}"></div>
+        <div class="left-circle-text" *ngIf="isSelectedBreastPocket">
+            <h4>You have chosen:</h4>
+            <h5>{{selectedBreastPocket.name}}</h5>
+            <p>{{selectedBreastPocket.description_long}}</p>
+            <p>add more info or details here about the chosen item</p> 
+        </div>
+    </div>
+    <div class="col-lg-7">
+        <h4>Breast Pocket</h4>
+        <div class="row">
+            <div class="col-lg-3 image-circle mb-4" *ngFor="let breastPocket of breastPocketsMock">
+                <img class="img-responsive option-circle" src="{{ breastPocket.url }}" />
+                <br>
+                <h5>{{ breastPocket.name }}</h5>
+                <p>{{ breastPocket.desc }}</p>
+                <p class="pricing">R {{ breastPocket.price }}</p>
+                <button mat-raised-button class="select-button" (click)="SelectBreastPocket(breastPocket)">Select</button>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-lg-5 d-flex justify-content-start">
+                <button mat-raised-button class="back-button" (click)="Previous()">Back</button>  
+            </div>
+            <div class="col-lg-6 d-flex justify-content-end">
+                <button mat-raised-button class="next-button" (click)="Next()">Next</button>  
+            </div>
+        </div>
+    </div>  
+</div>

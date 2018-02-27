@@ -7,11 +7,13 @@ import { HomeComponent } from './components/home/home.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
 import { SuitsComponent } from './components/suits/suits.component';
-import { AccessoriesComponent } from './components/accessories/accessories.component';
 import { PrivacyComponent } from './components/privacy/privacy.component';
 import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
 import { DisclaimerComponent } from './components/disclaimer/disclaimer.component';
 import { SuitBuilderComponent } from './components/suit-builder/suit-builder.component';
+import { ShirtBuilderComponent } from './components/shirt-builder/shirt-builder.component';
+import { JacketBuilderComponent } from './components/jacket-builder/jacket-builder.component';
+import { PantsBuilderComponent } from './components/pants-builder/pants-builder.component';
 import { CallbackComponent } from './components/callback/callback.component';
 import { AccountComponent } from './components/account/account.component';
 import { OrdersComponent } from './components/account/orders/orders.component';
@@ -46,8 +48,16 @@ const routes: Routes = [
         component: SuitBuilderComponent
     },
     {
-        path: 'accessories',
-        component: AccessoriesComponent
+        path: 'shirts',
+        component: ShirtBuilderComponent
+    },
+    {
+        path: 'jackets',
+        component: JacketBuilderComponent
+    },
+    {
+        path: 'pants',
+        component: PantsBuilderComponent
     },
     {
         path: 'privacy',

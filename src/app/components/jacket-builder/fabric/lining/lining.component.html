@@ -1,0 +1,87 @@
+<div class="row mt-5 pt-5">
+    <div class="col-lg-12 d-flex justify-content-center">
+        <h2 #MainFocus>Choose a lining for the jacket</h2>
+    </div>
+    <div class="col-lg-12 d-flex justify-content-center">
+        <p class="brown-paragraph-text">Use the Filters below to help decide on a fabric</p>
+    </div>
+</div>
+<div class="row filter m-5 pb-5">
+    <div class="col-lg-2">
+        <mat-form-field class="dropdown">
+            <mat-select placeholder="PATTERN" disableRipple panelClass="filter-background" [(ngModel)]="selectedPatternType" (ngModelChange)="FilterLinings()">
+                <mat-option value="">All</mat-option>
+                <mat-option value="Plain">
+                    <i class="fa fa-square" aria-hidden="true"></i> Solid (Plain) </mat-option>
+                <mat-option value="Other">
+                    <i class="fa fa-th-large" aria-hidden="true"></i> Subtle / Pattern </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="col-lg-2"></div>
+    <div class="col-lg-2"></div>
+    <div class="col-lg-4 d-flex flex-row-reverse">
+        <button class="circle white" (click)="selectedColourType = ''; FilterLinings()"></button>
+        <button class="circle black" (click)="selectedColourType = 'blackColourTypes'; FilterLinings()"></button>
+        <button class="circle blue" (click)="selectedColourType = 'darkBlueColourTypes'; FilterLinings()"></button>
+        <button class="circle purple" (click)="selectedColourType = 'purpleColourTypes'; FilterLinings()"></button>
+        <button class="circle red" (click)="selectedColourType = 'redColourTypes'; FilterLinings()"></button>
+        <button class="circle light-blue" (click)="selectedColourType = 'lightBlueColourTypes'; FilterLinings()"></button>
+        <button class="circle brown" (click)="selectedColourType = 'earthColourTypes'; FilterLinings()"></button>
+        <p class="colour-label-text">Colour</p>
+    </div>
+    <div class="col-lg-2">
+        <mat-form-field>
+            <mat-select placeholder="PRICE" disableRipple panelClass="filter-background" [(ngModel)]="selectedPriceSortType" (ngModelChange)="FilterLinings()">
+                <mat-option value="HighToLow">
+                    <i class="fa fa-arrow-up" aria-hidden="true"></i> High to Low </mat-option>
+                <mat-option value="LowToHigh">
+                    <i class="fa fa-arrow-down" aria-hidden="true"></i> Low to High </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</div>
+<div class="row ml-5 mt-5">
+    <div class="col-lg-3 circle-column">
+        <div class="placeholder-circle" [ngStyle]="{'background': isSelectedLining ? 'url(' + selectedLining.image_urls[0] + ')' : ''}"></div>
+        <div class="left-circle-text" *ngIf="isSelectedLining">
+            <h4>You have chosen:</h4>
+            <h5>{{selectedLining.name}}</h5>
+            <p>{{selectedLining.description_long}}</p>
+            <p>add more info or details here about the chosen item</p>
+        </div>
+    </div>
+    <div class="col-lg-8">
+        <div class="row">
+            <owl-carousel style="width: 100% !important;" [options]="{
+                            items: 1,
+                            dots: true,
+                            navigation: true,
+                            autoplay: false,
+                            loop: false}" [carouselClasses]="['owl-theme', 'sliding']" [items]="carousels">
+                <div class="item" *ngFor="let carousel of carousels">
+                    <div class="col-lg-3 fabric-block" *ngFor="let material of filteredLinings.slice(((carousel-1) * 6), (carousel * 6))">
+                        <img class="img-responsive fabric-swatch" [src]="lining.image_urls[0]" />
+                        <br>
+                        <h5>{{lining.name}}</h5>
+                        <p>{{lining.description}}</p>
+                        <p class="pricing">R {{lining.price}}</p>
+                        <button mat-raised-button class="select-button" (click)="SelectLining(lining)">Select</button>
+                    </div>
+                </div>
+            </owl-carousel>
+            <div class="col-md-9" *ngIf="filteredLinings.length === 0">
+                <p>{{ linings.length > 0 ? "There are currently no fabrics with those filters. Please filter differently." :
+                    "There are currently no fabrics." }}</p>
+            </div>
+        </div>
+        <div class="row m-5">
+            <div class="col-lg-6 d-flex justify-content-start">
+                <button mat-raised-button class="back-button" (click)="Previous()">Back</button>
+            </div>
+            <div class="col-lg-6 d-flex justify-content-end">
+                <button mat-raised-button class="next-button" (click)="Next()">Next</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,4 @@
+<div [ngSwitch]="currentFinerDetailsStage">
+    <shirt-builder-finer-details-button-styles *ngSwitchCase="FinerDetailsStage.ButtonStyles"></shirt-builder-finer-details-button-styles>
+    <shirt-builder-finer-details-package-stitching *ngSwitchCase="FinerDetailsStage.PackageStitching"></shirt-builder-finer-details-package-stitching>
+</div>

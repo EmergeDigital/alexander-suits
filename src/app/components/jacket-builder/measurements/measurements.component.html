@@ -1,0 +1,6 @@
+<div [ngSwitch]="currentMeasurementStage">
+    <jacket-builder-measurements-body-type *ngSwitchCase="MeasurementStage.BodyType"></jacket-builder-measurements-body-type>
+    <jacket-builder-measurements-general-measurements *ngSwitchCase="MeasurementStage.GeneralMeasurements"></jacket-builder-measurements-general-measurements>
+    <jacket-builder-measurements-finer-measurements *ngSwitchCase="MeasurementStage.FinerMeasurements"></jacket-builder-measurements-finer-measurements>
+    <jacket-builder-measurements-upload-photo *ngSwitchCase="MeasurementStage.UploadPhoto"></jacket-builder-measurements-upload-photo>
+</div>

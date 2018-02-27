@@ -18,6 +18,8 @@ export class UploadPhotoComponent implements OnInit, AfterViewInit {
 
   private uploadedImages: any = { front: "", left: "", right: "", back: "" };
 
+  private errorMessage: string = "";
+
   public uploading: boolean = false;
 
   public currentSuit: any = {};
@@ -75,16 +77,19 @@ export class UploadPhotoComponent implements OnInit, AfterViewInit {
   }
 
   private Next(): void {
-    this.suitBuilderService.suit.uploadedImages = this.uploadedImages;    
-    this.data.addToCart([this.suitBuilderService.BuildProduct()]).then(result => {
-      console.log(result);
-      this._loadingService.resolve('overlayStarSyntax');
-      //this.router.navigate(['/checkout']); Consider this
-    }).catch(ex => {
-      alert("There was a problem");
-      this._loadingService.resolve('overlayStarSyntax');
-    });
-
-    this.suitBuilderService.SetWizardStage.emit(WizardStage.Checkout);
+    this.suitBuilderService.suit.uploadedImages = this.uploadedImages;
+    
+    this.errorMessage = this.suitBuilderService.ValidateMeasurementsStage();
+    
+    if(this.errorMessage === "") {
+      this.data.addToCart([this.suitBuilderService.BuildProduct()]).then(result => {
+        console.log(result);
+        this._loadingService.resolve('overlayStarSyntax');  
+        this.suitBuilderService.SetWizardStage.emit(WizardStage.Checkout);
+      }).catch(ex => {
+        alert("There was a problem");
+        this._loadingService.resolve('overlayStarSyntax');
+      });
+    }
   }
 }

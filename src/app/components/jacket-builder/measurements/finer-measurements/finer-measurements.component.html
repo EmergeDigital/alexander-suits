@@ -1,0 +1,176 @@
+<div class="row mt-5 pt-5">
+    <div class="col-lg-12 d-flex justify-content-center">
+        <h2 #MainFocus>Enter your Measurements</h2>
+    </div>
+    <div class="col-lg-12 d-flex justify-content-center">
+        <p class="brown-paragraph-text">Lorem ipsum dolor sit amet,consectetur.</p>
+    </div>
+</div>
+<div class="row ml-5 mt-5">
+    <div class="col-lg-3">
+        <div class="placeholder-square-designs"></div>
+    </div>
+    <div class="col-lg-7">
+        <h4 class="ml-5">Enter in your jacket measurements</h4>                            
+        <div class="row d-flex align-items-end">
+            <div class="col-lg-4 ml-5">
+                <div class="o-input">      
+                    <input class="o-input__text--box" type="text" [(ngModel)]="finerMeasurements.jacketBackLength" required>
+                    <span class="o-input__bar"></span>
+                    <label class="o-input__label--box">BACKLENGTH (CM)</label>
+                </div>
+            </div>
+            <div class="col-lg-2 ml-4 d-flex flex-row align-items-center">
+                <button class="info-icon"><i class="fa fa-info" aria-hidden="true"></i></button>
+                <p class="info-text ml-3">info</p>
+            </div>
+            <div class="col-lg-3 ml-4 d-flex flex-row align-items-center">
+                <button class="video-icon"><i class="fa fa-play" aria-hidden="true"></i></button>
+                <p class="video-text ml-3">watch video</p>
+            </div>         
+        </div>
+        <div class="row d-flex align-items-end">
+            <div class="col-lg-4 ml-5">
+                <div class="o-input">      
+                    <input class="o-input__text--box" type="text" [(ngModel)]="finerMeasurements.jacketWaist" required>
+                    <span class="o-input__bar"></span>
+                    <label class="o-input__label--box">1/2 WAIST (CM)</label>
+                </div>
+            </div>
+            <div class="col-lg-2 ml-4 d-flex flex-row align-items-center">
+                <button class="info-icon"><i class="fa fa-info" aria-hidden="true"></i></button>
+                <p class="info-text ml-3">info</p>
+            </div>
+            <div class="col-lg-3 ml-4 d-flex flex-row align-items-center">
+                <button class="video-icon"><i class="fa fa-play" aria-hidden="true"></i></button>
+                <p class="video-text ml-3">watch video</p>
+            </div>         
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <p class="active-link" (click)="jacketBuilderService.SetMeasurementsStage.emit(MeasurementStage.BodyType)"><i class="fa fa-circle" aria-hidden="true"></i> Body Type</p>
+            <p class="chosen-style-text">You chose {{ currentSuit.bodyType.name }}</p>            
+        <p class="active-link" (click)="jacketBuilderService.SetMeasurementsStage.emit(MeasurementStage.GeneralMeasurements)"><i class="fa fa-circle" aria-hidden="true"></i> Basic Measurements</p>
+            <p class="chosen-style-text">Height: {{ currentSuit.generalMeasurements.height }}</p>            
+            <p class="chosen-style-text">Chest: {{ currentSuit.generalMeasurements.chest }}</p>            
+            <p class="chosen-style-text">1/2 Back: {{ currentSuit.generalMeasurements.back }}</p>            
+            <p class="chosen-style-text">Biceps: {{ currentSuit.generalMeasurements.biceps }}</p>            
+            <p class="chosen-style-text">Stomach: {{ currentSuit.generalMeasurements.stomach }}</p>            
+            <p class="chosen-style-text">Seat: {{ currentSuit.generalMeasurements.seat }}</p>            
+            <p class="chosen-style-text">Thigh: {{ currentSuit.generalMeasurements.thigh }}</p>                    
+        <p class="active-link"><i class="fa fa-circle" aria-hidden="true"></i> Extra Measurements</p>
+        <p><i class="fa fa-circle-o" aria-hidden="true"></i> Upload Photo</p>        
+    </div>
+</div> 
+<hr>
+<div class="row ml-5 mt-5">
+    <div class="col-lg-3">
+        <div class="placeholder-square-designs"></div>
+    </div>
+    <div class="col-lg-7">
+        <h4 class="ml-5">Enter in your trouser measurements</h4>  
+        <p class="ml-5">Without any trousers on while wearing a pair of shoes, do the following measurements</p>                  
+        <div class="row d-flex align-items-end">
+            <div class="col-lg-4 ml-5">
+                <div class="o-input">      
+                    <input class="o-input__text--box" type="text" [(ngModel)]="finerMeasurements.withoutTrouserWaist" required>
+                    <span class="o-input__bar"></span>
+                    <label class="o-input__label--box">WAIST (CM)</label>
+                </div>
+            </div>
+            <div class="col-lg-2 ml-4 d-flex flex-row align-items-center">
+                <button class="info-icon"><i class="fa fa-info" aria-hidden="true"></i></button>
+                <p class="info-text ml-3">info</p>
+            </div>
+            <div class="col-lg-3 ml-4 d-flex flex-row align-items-center">
+                <button class="video-icon"><i class="fa fa-play" aria-hidden="true"></i></button>
+                <p class="video-text ml-3">watch video</p>
+            </div>         
+        </div>
+        <div class="row d-flex align-items-end">
+            <div class="col-lg-4 ml-5">
+                <div class="o-input">      
+                    <input class="o-input__text--box" type="text" [(ngModel)]="finerMeasurements.withoutTrouserOutsideSeam" required>
+                    <span class="o-input__bar"></span>
+                    <label class="o-input__label--box">OUTSIDE SEAM (CM)</label>
+                </div>
+            </div>
+            <div class="col-lg-2 ml-4 d-flex flex-row align-items-center">
+                <button class="info-icon"><i class="fa fa-info" aria-hidden="true"></i></button>
+                <p class="info-text ml-3">info</p>
+            </div>
+            <div class="col-lg-3 ml-4 d-flex flex-row align-items-center">
+                <button class="video-icon"><i class="fa fa-play" aria-hidden="true"></i></button>
+                <p class="video-text ml-3">watch video</p>
+            </div>         
+        </div>
+    </div>
+</div>
+<div class="row ml-5 mt-5">
+    <div class="col-lg-3">
+        <div class="placeholder-square-designs"></div>
+    </div>
+    <div class="col-lg-7">
+        <p class="ml-5">With a pair of well fitting trousers on, do the following measurements</p>                          
+        <div class="row d-flex align-items-end"> 
+            <div class="col-lg-4 ml-5">
+                <div class="o-input">      
+                    <input class="o-input__text--box" type="text" [(ngModel)]="finerMeasurements.trouserWaist" required>
+                    <span class="o-input__bar"></span>
+                    <label class="o-input__label--box">WAIST (CM)</label>
+                </div>
+            </div>
+            <div class="col-lg-2 ml-4 d-flex flex-row align-items-center">
+                <button class="info-icon"><i class="fa fa-info" aria-hidden="true"></i></button>
+                <p class="info-text ml-3">info</p>
+            </div>
+            <div class="col-lg-3 ml-4 d-flex flex-row align-items-center">
+                <button class="video-icon"><i class="fa fa-play" aria-hidden="true"></i></button>
+                <p class="video-text ml-3">watch video</p>
+            </div>         
+        </div>
+        <div class="row d-flex align-items-end">
+            <div class="col-lg-4 ml-5">
+                <div class="o-input">      
+                    <input class="o-input__text--box" type="text" [(ngModel)]="finerMeasurements.trouserInsideSeam" required>
+                    <span class="o-input__bar"></span>
+                    <label class="o-input__label--box">INSIDE SEAM (CM)</label>
+                </div>
+            </div>
+            <div class="col-lg-2 ml-4 d-flex flex-row align-items-center">
+                <button class="info-icon"><i class="fa fa-info" aria-hidden="true"></i></button>
+                <p class="info-text ml-3">info</p>
+            </div>
+            <div class="col-lg-3 ml-4 d-flex flex-row align-items-center">
+                <button class="video-icon"><i class="fa fa-play" aria-hidden="true"></i></button>
+                <p class="video-text ml-3">watch video</p>
+            </div>         
+        </div>
+        <div class="row d-flex align-items-end">
+            <div class="col-lg-4 ml-5">
+                <div class="o-input">      
+                    <input class="o-input__text--box" type="text" [(ngModel)]="finerMeasurements.trouserOutsideSeam" required>
+                    <span class="o-input__bar"></span>
+                    <label class="o-input__label--box">OUTSIDE SEAM (CM)</label>
+                </div>
+            </div>
+            <div class="col-lg-2 ml-4 d-flex flex-row align-items-center">
+                <button class="info-icon"><i class="fa fa-info" aria-hidden="true"></i></button>
+                <p class="info-text ml-3">info</p>
+            </div>
+            <div class="col-lg-3 ml-4 d-flex flex-row align-items-center">
+                <button class="video-icon"><i class="fa fa-play" aria-hidden="true"></i></button>
+                <p class="video-text ml-3">watch video</p>
+            </div>         
+        </div>
+        <div class="row mt-5">
+            <div class="col-lg-5 d-flex justify-content-start">
+                <button mat-raised-button class="back-button" (click)="Previous()">Back</button>
+            </div>
+            <div class="col-lg-6 d-flex justify-content-end">
+                <button mat-raised-button class="next-button" (click)="Next()">Next</button>
+            </div>
+        </div>
+    </div>
+</div>
+
