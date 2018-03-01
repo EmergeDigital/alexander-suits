@@ -70,13 +70,13 @@
         <div class="placeholder-circle" [ngStyle]="{'background': isSelectedMaterial ? 'url(' + selectedMaterial.image_urls[0] + ')' : ''}"></div>
         <div class="left-circle-text" *ngIf="isSelectedMaterial">
             <h4>You have chosen:</h4>
-            <h5>{{selectedMaterial.name}}</h5>
+            <h5>{{selectedMaterial.name}}</h5>          
             <p>{{selectedMaterial.description_long}}</p>
             <p class="pricing">R {{selectedMaterial.price}}</p>
         </div>
     </div>
     <div class="col-lg-8">
-        <div class="row">
+        <div class="row d-flex align-items-start">
             <owl-carousel style="width: 100% !important;" [options]="{
                     items: 1,
                     dots: true,
@@ -88,7 +88,7 @@
                         <img class="img-responsive fabric-swatch" [src]="material.image_urls[0]" />
                         <br>
                         <h5>{{material.name}}</h5>
-                        <p>{{material.description}}</p>
+                        <!-- <p>{{material.description}}</p> -->
                         <p class="pricing">R {{material.price}}</p>
                         <button mat-raised-button class="select-button" (click)="SelectMaterial(material)">Select</button>
                     </div>

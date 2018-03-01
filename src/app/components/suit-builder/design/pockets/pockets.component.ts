@@ -13,11 +13,11 @@ export class PocketsComponent implements OnInit, AfterViewInit {
   private DesignStage = DesignStage;
 
   private pocketsMock: any[] = [
-    { "name": "1", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pockets/pocket-v1.png" },
-    { "name": "2", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pockets/pocket-v2.png" },
-    { "name": "3", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pockets/pocket-v3.png" },
-    { "name": "4", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pockets/pocket-v4.png" },
-    { "name": "5", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pockets/pocket-v5.png" },
+    { "name": "NAME", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pockets/pocket-v1.png" },
+    { "name": "NAME", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pockets/pocket-v2.png" },
+    { "name": "NAME", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pockets/pocket-v3.png" },
+    { "name": "NAME", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pockets/pocket-v4.png" },
+    { "name": "NAME", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pockets/pocket-v5.png" },
   ];
 
   private selectedPocket: any = {};

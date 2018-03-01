@@ -13,21 +13,21 @@ export class PantStylesComponent implements OnInit, AfterViewInit {
   private DesignStage = DesignStage;
 
   private pantPleatsMock: any[] = [
-    {"name": "1", "desc": "Collar Description", "price": "200", "url": "assets/suit-builder/pants/pants-v1.png"},
-    {"name": "2", "desc": "Collar Description", "price": "200", "url": "assets/suit-builder/pants/pants-v2.png"},
-    {"name": "3", "desc": "Collar Description", "price": "200", "url": "assets/suit-builder/pants/pants-v3.png"},
+    {"name": "NAME", "desc": "Pleat Description", "price": "200", "url": "assets/suit-builder/pants/pants-v1.png"},
+    {"name": "NAME", "desc": "Pleat Description", "price": "200", "url": "assets/suit-builder/pants/pants-v2.png"},
+    {"name": "NAME", "desc": "Pleat Description", "price": "200", "url": "assets/suit-builder/pants/pants-v3.png"},
   ];
 
   private pantPocketsMock: any[] = [
-    {"name": "1", "desc": "Collar Description", "price": "200", "url": "assets/suit-builder/pants/pants-v1.png"},
-    {"name": "2", "desc": "Collar Description", "price": "200", "url": "assets/suit-builder/pants/pants-v2.png"},
-    {"name": "3", "desc": "Collar Description", "price": "200", "url": "assets/suit-builder/pants/pants-v3.png"},
+    {"name": "NAME", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pants/pants-v1.png"},
+    {"name": "NAME", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pants/pants-v2.png"},
+    {"name": "NAME", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pants/pants-v3.png"},
   ];
 
   private pantCuffsMock: any[] = [
-    {"name": "1", "desc": "Collar Description", "price": "200", "url": "assets/suit-builder/pants/pants-v1.png"},
-    {"name": "2", "desc": "Collar Description", "price": "200", "url": "assets/suit-builder/pants/pants-v2.png"},
-    {"name": "3", "desc": "Collar Description", "price": "200", "url": "assets/suit-builder/pants/pants-v3.png"},
+    {"name": "NAME", "desc": "Cuff Description", "price": "200", "url": "assets/suit-builder/pants/pants-v1.png"},
+    {"name": "NAME", "desc": "Cuff Description", "price": "200", "url": "assets/suit-builder/pants/pants-v2.png"},
+    {"name": "NAME", "desc": "Cuff Description", "price": "200", "url": "assets/suit-builder/pants/pants-v3.png"},
   ];
 
   private errorMessage: string = "";

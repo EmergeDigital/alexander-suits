@@ -50,8 +50,8 @@ export class AddonsComponent implements OnInit, AfterViewInit {
     if (this.errorMessage === "") {
       if (this.suitBuilderService.isFinerDetailsShown === false) {
         let ExtraDetailsModal = this.dialog.open(ExtraDetailsModalComponent, {
-          height: '400px',
-          width: '600px',
+          height: '600px',
+          width: '500px',
         });
 
         ExtraDetailsModal.afterClosed().subscribe(result => {
@@ -65,8 +65,8 @@ export class AddonsComponent implements OnInit, AfterViewInit {
             this.suitBuilderService.isFinerDetailsAccepted = false;
 
             let MockupGarmentModal = this.dialog.open(MockupGarmentModalComponent, {
-              height: '400px',
-              width: '600px',
+              height: '600px',
+              width: '500px',
             });
 
             MockupGarmentModal.afterClosed().subscribe(result => {

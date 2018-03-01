@@ -13,8 +13,8 @@ export class VentsComponent implements OnInit, AfterViewInit {
   private DesignStage = DesignStage;
 
   private ventsMock: any[] = [
-    {"name": "1", "desc": "Vent Description", "price": "200", "url": "assets/suit-builder/vents/vents-v1.png"},
-    {"name": "2", "desc": "Vent Description", "price": "200", "url": "assets/suit-builder/vents/vents-v2.png"},
+    {"name": "NAME", "desc": "Vent Description", "price": "200", "url": "assets/suit-builder/vents/vents-v1.png"},
+    {"name": "NAME", "desc": "Vent Description", "price": "200", "url": "assets/suit-builder/vents/vents-v2.png"},
   ];
 
   private errorMessage: string = "";
