@@ -123,7 +123,7 @@ export class DialogContentCartDialog implements OnInit {
 
       console.log(_product);
 
-      this.dataService.addToCart([_product]).then((cart)=>{
+      this.dataService.UpdateCart([_product]).then((cart)=>{
         if(!!cart.products && cart.products.length > 0) {
           this.processCart(cart);
         } else {
@@ -188,7 +188,7 @@ export class DialogContentCartDialog implements OnInit {
 
     console.log(_product);
 
-    this.dataService.addToCart([_product]).then((cart)=>{
+    this.dataService.UpdateCart([_product]).then((cart)=>{
       if(!!cart.products && cart.products.length > 0) {
         this.processCart(cart);  
       } else {

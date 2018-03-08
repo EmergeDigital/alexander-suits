@@ -151,6 +151,14 @@ import { GeneralMeasurementsComponent as PantsGeneralMeasurementsComponent } fro
 import { FinerMeasurementsComponent as PantsFinerMeasurementsComponent } from './components/pants-builder/measurements/finer-measurements/finer-measurements.component';
 import { UploadPhotoComponent as PantsUploadPhotoComponent } from './components/pants-builder/measurements/upload-photo/upload-photo.component';
 
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { FinalizeCartComponent } from './components/checkout/finalize-cart/finalize-cart.component';
+import { DetailsComponent } from './components/checkout/details/details.component';
+import { DeliveryMethodComponent } from './components/checkout/delivery-method/delivery-method.component';
+import { CompleteOrderComponent } from './components/checkout/complete-order/complete-order.component';
+import { PaymentMethodComponent } from './components/checkout/payment-method/payment-method.component';
+import { CheckoutService } from './services/checkout.service';
+
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     return new AuthHttp(new AuthConfig({
         tokenGetter: (() => localStorage.getItem('access_token'))
@@ -254,6 +262,12 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         PantsFinerMeasurementsComponent,
         PantsUploadPhotoComponent,
         //Pants-Builder  --This will be moved to a seperated module (pants-builder.module)
+        CheckoutComponent,
+        FinalizeCartComponent,
+        DetailsComponent,
+        DeliveryMethodComponent,
+        CompleteOrderComponent,
+        PaymentMethodComponent       
     ],
     imports: [
         // ScrollStoreModule,
@@ -296,7 +310,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         ExtraDetailsModalComponent,
         MockupGarmentModalComponent,
     ],
-    providers: [DataService, SessionService, FunctionsService, AuthService, SuitBuilderService, ShirtBuilderService, JacketBuilderService, PantsBuilderService, MeasurementsService,
+    providers: [DataService, SessionService, FunctionsService, AuthService, SuitBuilderService, ShirtBuilderService, JacketBuilderService, PantsBuilderService, MeasurementsService, CheckoutService,
         // {provide: MATERIAL_COMPATIBILITY_MODE, useValue: true},
         {
             provide: AuthHttp,

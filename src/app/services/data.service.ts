@@ -262,7 +262,7 @@ export class DataService {
           //   local_cart: local_cart
           // };
           // console.log(params);
-          this.addToCart(local_cart.products).then(cart=>{
+          this.UpdateCart(local_cart.products).then(cart=>{
             this.session.setLocalCart(null);
             resolve(cart);
           })
@@ -321,7 +321,7 @@ export class DataService {
         });
     }
 
-    addToCart(products): Promise<Cart> {
+    UpdateCart(products): Promise<Cart> {
         return new Promise((resolve, reject) => {
           this._cartUpdating.emit(true);
           if(this.auth.isAuthenticated()) {

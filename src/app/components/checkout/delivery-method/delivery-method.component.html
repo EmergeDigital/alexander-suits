@@ -1,0 +1,154 @@
+<div class="row mt-5 pt-5">
+    <div class="col-lg-12 d-flex justify-content-center">
+        <h2 #MainFocus>SELECT DELIVERY METHOD</h2>
+    </div>
+    <div class="col-lg-12 d-flex justify-content-center">
+        <p class="brown-paragraph-text">Lorem ipsum dolor sit amet,consectetur.</p>
+    </div>
+</div>
+<div class="row ml-5 mt-5">
+    <div class="col-lg-10">
+        <div class="row d-flex align-items-end">
+            <div class="col-lg-4 ml-5">
+                <label>
+                    <input type="radio" name="deliveryMethod" [checked]="selectedDeliveryMethod == 'DHL Delivery'" (change)="selectedDeliveryMethod = 'DHL Delivery'"
+                    /> DHL Delivery R160
+                </label>
+            </div>
+        </div>
+        <div *ngIf="selectedDeliveryMethod == 'DHL Delivery'">
+            <div class="row d-flex align-items-end">
+                <div class="col-lg-4 ml-5">
+                    <label>
+                        <input type="checkbox" [checked]="isDHLDeliveryToDifferentAddress" (change)="isDHLDeliveryToDifferentAddress = !isDHLDeliveryToDifferentAddress"
+                        /> Deliver To Different Address
+                    </label>
+                </div>
+            </div>
+
+            <div *ngIf="isDHLDeliveryToDifferentAddress">
+                <div class="row d-flex align-items-end">
+                    <div class="col-lg-4 ml-5">
+                        <div class="o-input">
+                            <input class="o-input__text--box" type="text" [(ngModel)]="addressDetails.address">
+                            <span class="o-input__bar"></span>
+                            <label class="o-input__label--box">ADDRESS LINE 1</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-flex align-items-end">
+                    <div class="col-lg-4 ml-5">
+                        <div class="o-input">
+                            <input class="o-input__text--box" type="text" [(ngModel)]="addressDetails.address2">
+                            <span class="o-input__bar"></span>
+                            <label class="o-input__label--box">ADDRESS LINE 2</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-flex align-items-end">
+                    <div class="col-lg-4 ml-5">
+                        <div class="o-input">
+                            <input class="o-input__text--box" type="text" [(ngModel)]="addressDetails.city">
+                            <span class="o-input__bar"></span>
+                            <label class="o-input__label--box">CITY</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-flex align-items-end">
+                    <div class="col-lg-4 ml-5">
+                        <div class="o-input">
+                            <input class="o-input__text--box" type="text" [(ngModel)]="addressDetails.province">
+                            <span class="o-input__bar"></span>
+                            <label class="o-input__label--box">PROVINCE</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-flex align-items-end">
+                    <div class="col-lg-4 ml-5">
+                        <div class="o-input">
+                            <input class="o-input__text--box" type="text" [(ngModel)]="addressDetails.postal_code">
+                            <span class="o-input__bar"></span>
+                            <label class="o-input__label--box">POSTAL CODE</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-flex align-items-end">
+                    <div class="col-lg-4 ml-5">
+                        <div class="o-input">
+                            <input class="o-input__text--box" type="text" [(ngModel)]="addressDetails.country">
+                            <span class="o-input__bar"></span>
+                            <label class="o-input__label--box">COUNTRY</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row d-flex align-items-end">
+                <div class="col-lg-4 ml-5">
+                    <div class="o-input">
+                        <textarea class="o-input__text--box" [(ngModel)]="addressDetails.additionalDeliveryInformation"></textarea>
+                        <span class="o-input__bar"></span>
+                        <label class="o-input__label--box">Additional Delivery Information</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row d-flex align-items-end">
+            <div class="col-lg-4 ml-5">
+                <label>
+                    <input type="radio" name="deliveryMethod" [checked]="selectedDeliveryMethod == 'Pickup From Us'" (change)="selectedDeliveryMethod = 'Pickup From Us'"
+                    />Pickup From Us
+                </label>
+            </div>
+        </div>
+        <div *ngIf="selectedDeliveryMethod == 'Pickup From Us'">
+            <div class="row d-flex align-items-end">
+                <div class="col-lg-4 ml-5">
+                    <label>We will contact you when your order is completed and you can fetch it from us!</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row d-flex align-items-end">
+            <div class="col-lg-4 ml-5">
+                <label>
+                    <input type="radio" name="deliveryMethod" [checked]="selectedDeliveryMethod == 'Other'" (change)="selectedDeliveryMethod = 'Other'"
+                    />Other
+                </label>
+            </div>
+        </div>
+        <div *ngIf="selectedDeliveryMethod == 'Other'">
+            <div class="row d-flex align-items-end">
+                <div class="col-lg-4 ml-5">
+                    <div class="o-input">
+                        <textarea class="o-input__text--box" [(ngModel)]="addressDetails.instructions"></textarea>
+                        <span class="o-input__bar"></span>
+                        <label class="o-input__label--box">Instructions</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-5">
+            <div class="col-lg-5 d-flex justify-content-start">
+                <button mat-raised-button class="back-button" (click)="Previous()">Back</button>
+            </div>
+            <div class="col-lg-6 d-flex justify-content-end">
+                <button mat-raised-button class="next-button" (click)="Next()">Next</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <p class="active-link">
+            <i class="fa fa-circle" aria-hidden="true"></i> Finalize your cart </p>
+        <p>
+            <i class="fa fa-circle-o" aria-hidden="true"></i> Add your details </p>
+        <p>
+            <i class="fa fa-circle-o" aria-hidden="true"></i> Delivery </p>
+        <p>
+            <i class="fa fa-circle-o" aria-hidden="true"></i> Complete Order </p>
+        <p>
+            <i class="fa fa-circle-o" aria-hidden="true"></i> Payment </p>
+    </div>
+</div>

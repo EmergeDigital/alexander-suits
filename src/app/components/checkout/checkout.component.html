@@ -1,0 +1,7 @@
+<div [ngSwitch]="currentCheckoutStage">
+    <checkout-finalize-cart *ngSwitchCase="CheckoutStage.FinalizeCart"></checkout-finalize-cart>
+    <checkout-details *ngSwitchCase="CheckoutStage.Details"></checkout-details>
+    <checkout-delivery-method *ngSwitchCase="CheckoutStage.DeliveryMethod"></checkout-delivery-method>
+    <checkout-complete-order *ngSwitchCase="CheckoutStage.CompleteOrder"></checkout-complete-order>
+    <checkout-payment-method *ngSwitchCase="CheckoutStage.PaymentMethod"></checkout-payment-method>
+</div>

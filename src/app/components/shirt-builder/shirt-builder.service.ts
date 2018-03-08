@@ -3,7 +3,6 @@ import { WizardStage } from "../../models/shirt-builder/wizardStage";
 import { DesignStage } from "../../models/shirt-builder/designStage";
 import { FinerDetailsStage } from "../../models/shirt-builder/finerDetailsStage";
 import { MeasurementStage } from "../../models/shirt-builder/measurementsStage";
-import { CheckoutStage } from "../../models/shirt-builder/checkoutStage";
 import { Product } from "../../models/product";
 import { Lining } from "../../models/lining";
 
@@ -28,10 +27,6 @@ export class ShirtBuilderService {
     private measurementsStage: MeasurementStage = MeasurementStage.BodyType;
     public get MeasurementStage(): MeasurementStage { return this.measurementsStage; }
     public SetMeasurementsStage: EventEmitter<MeasurementStage> = new EventEmitter<MeasurementStage>();
-
-    private checkoutStage: CheckoutStage = CheckoutStage.FinalizeCart;
-    public get CheckoutStage(): CheckoutStage { return this.checkoutStage; }
-    public SetCheckoutStage: EventEmitter<CheckoutStage> = new EventEmitter<CheckoutStage>();
 
     public product: Product = new Product({});
     public suit: any = {
@@ -77,7 +72,6 @@ export class ShirtBuilderService {
         this.SetDesignStage.subscribe((designStage: DesignStage) => this.designStage = designStage);
         this.SetFinerDetailsStage.subscribe((finerDetailsStage: FinerDetailsStage) => this.finerDetailsStage = finerDetailsStage);
         this.SetMeasurementsStage.subscribe((measurementStage: MeasurementStage) => this.measurementsStage = measurementStage);
-        this.SetCheckoutStage.subscribe((checkoutStage: CheckoutStage) => this.checkoutStage = checkoutStage);
     }
 
     public ValidateDesignStage(): string {

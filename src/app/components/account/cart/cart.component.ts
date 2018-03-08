@@ -70,7 +70,7 @@ export class CartComponent implements OnInit {
         image_urls: product.image_urls,
         count: 1
       };
-      this.data.addToCart([_product]).then((cart)=>{
+      this.data.UpdateCart([_product]).then((cart)=>{
         this.cart = cart;
         this.updateSuccess("Cart has been updated");
       })

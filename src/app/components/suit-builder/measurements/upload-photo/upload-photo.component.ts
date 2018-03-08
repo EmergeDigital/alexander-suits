@@ -82,7 +82,7 @@ export class UploadPhotoComponent implements OnInit, AfterViewInit {
     this.errorMessage = this.suitBuilderService.ValidateMeasurementsStage();
     
     if(this.errorMessage === "") {
-      this.data.addToCart([this.suitBuilderService.BuildProduct()]).then(result => {
+      this.data.UpdateCart([this.suitBuilderService.BuildProduct()]).then(result => {
         console.log(result);
         this._loadingService.resolve('overlayStarSyntax');  
         this.suitBuilderService.SetWizardStage.emit(WizardStage.Checkout);

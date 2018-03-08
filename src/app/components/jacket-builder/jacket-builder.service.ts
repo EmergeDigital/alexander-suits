@@ -4,7 +4,6 @@ import { DesignStage } from "../../models/jacket-builder/designStage";
 import { FabricStage } from "../../models/jacket-builder/fabricStage";
 import { FinerDetailsStage } from "../../models/jacket-builder/finerDetailsStage";
 import { MeasurementStage } from "../../models/jacket-builder/measurementsStage";
-import { CheckoutStage } from "../../models/jacket-builder/checkoutStage";
 import { Product } from "../../models/product";
 import { Lining } from "../../models/lining";
 
@@ -33,10 +32,6 @@ export class JacketBuilderService {
     private measurementsStage: MeasurementStage = MeasurementStage.BodyType;
     public get MeasurementStage(): MeasurementStage { return this.measurementsStage; }
     public SetMeasurementsStage: EventEmitter<MeasurementStage> = new EventEmitter<MeasurementStage>();
-
-    private checkoutStage: CheckoutStage = CheckoutStage.FinalizeCart;
-    public get CheckoutStage(): CheckoutStage { return this.checkoutStage; }
-    public SetCheckoutStage: EventEmitter<CheckoutStage> = new EventEmitter<CheckoutStage>();
 
     public product: Product = new Product({});
     public lining: Lining = new Lining({});
@@ -93,7 +88,6 @@ export class JacketBuilderService {
         this.SetDesignStage.subscribe((designStage: DesignStage) => this.designStage = designStage);
         this.SetFinerDetailsStage.subscribe((finerDetailsStage: FinerDetailsStage) => this.finerDetailsStage = finerDetailsStage);
         this.SetMeasurementsStage.subscribe((measurementStage: MeasurementStage) => this.measurementsStage = measurementStage);
-        this.SetCheckoutStage.subscribe((checkoutStage: CheckoutStage) => this.checkoutStage = checkoutStage);
     }
 
     public ValidateDesignStage(): string {

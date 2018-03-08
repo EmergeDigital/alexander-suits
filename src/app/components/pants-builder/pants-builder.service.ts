@@ -1,7 +1,6 @@
 import { Injectable, EventEmitter } from "@angular/core";
 import { WizardStage } from "../../models/pants-builder/wizardStage";
 import { MeasurementStage } from "../../models/pants-builder/measurementsStage";
-import { CheckoutStage } from "../../models/pants-builder/checkoutStage";
 import { Product } from "../../models/product";
 import { Lining } from "../../models/lining";
 
@@ -19,9 +18,6 @@ export class PantsBuilderService {
     public get MeasurementStage(): MeasurementStage { return this.measurementsStage; }
     public SetMeasurementsStage: EventEmitter<MeasurementStage> = new EventEmitter<MeasurementStage>();
 
-    private checkoutStage: CheckoutStage = CheckoutStage.FinalizeCart;
-    public get CheckoutStage(): CheckoutStage { return this.checkoutStage; }
-    public SetCheckoutStage: EventEmitter<CheckoutStage> = new EventEmitter<CheckoutStage>();
 
     public product: Product = new Product({});
     public lining: Lining = new Lining({});
@@ -71,7 +67,6 @@ export class PantsBuilderService {
     constructor() {
         this.SetWizardStage.subscribe((wizardStage: WizardStage) => this.wizardStage = wizardStage);
         this.SetMeasurementsStage.subscribe((measurementStage: MeasurementStage) => this.measurementsStage = measurementStage);
-        this.SetCheckoutStage.subscribe((checkoutStage: CheckoutStage) => this.checkoutStage = checkoutStage);
     }
 
     public ValidateDesignStage(): string {
