@@ -96,7 +96,7 @@ export class MaterialComponent implements OnInit {
     console.log("Getting Materials");
     this.isLoading = true;
     this.materials = [];
-    this.data.getProducts().then(materials => { //{collections: collection, category: ["Suit"]}
+    this.data._getProducts({category: ["Shirt"]}).then(materials => {
       if (materials.length > 0) {
         this.materials = materials;
         this.FilterMaterials();
