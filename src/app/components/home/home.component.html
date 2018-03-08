@@ -7,7 +7,7 @@
             <p class="white-text">
               we need friendly text to go here it should be around 20 - 30 words minimum in order to have the correct structure
             </p> 
-            <button>Create Custom Suit</button>
+            <button (click)="OpenSuits()">Create Custom Suit</button>
         </div> 
     </div>            
 </div>
@@ -157,10 +157,10 @@
         <p class="white-text mx-5 px-5 description-sm">Arrange a meeting to get your suit personally tailored</p>
         <div class="row">
           <div class="col-md-6">
-            <button><i class="fa fa-phone" aria-hidden="true"></i> give us a call</button>            
+              <button (click)="Call()" (mouseenter)="cell = '(+27) 011 492 3360'"  (mouseleave) ="cell = 'give us a call'"><i class="fa fa-phone" aria-hidden="true"></i> {{cell}}</button>              
           </div>
           <div class="col-md-6">
-            <button><i class="fa fa-envelope" aria-hidden="true"></i> send us an email</button>                        
+              <button (click)="Email()" (mouseenter)="email = 'info@alexandersuits.com'"  (mouseleave) ="email = 'send us an email'"><i class="fa fa-envelope" aria-hidden="true"></i> {{email}}</button>               
           </div>
         </div>
       </div>
@@ -170,7 +170,7 @@
             online</p>
         <div class="row">
           <div class="col-lg-12">
-            <button>get started <i class="fa fa-arrow-right" aria-hidden="true"></i></button>                        
+            <button (click)="OpenSuits()">get started <i class="fa fa-arrow-right" aria-hidden="true"></i></button>                        
           </div>
         </div>
       </div>

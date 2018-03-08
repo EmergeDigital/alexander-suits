@@ -9,12 +9,10 @@ import { ToastyService, ToastyConfig, ToastOptions, ToastData } from 'ng2-toasty
     styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-    private address: string = "";
     private email: string = "send us an email";
     private cell: string = "give us a call";
 
     constructor(private toastyService: ToastyService, private toastyConfig: ToastyConfig, public data: DataService) {
-        this.address = "Alexander Suits (Pty) Ltd., 2nd Floor Tattersalls Building, Albert Street, Johannesburg";
     }
 
     public ngOnInit(): void {
