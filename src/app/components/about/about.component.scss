@@ -26,3 +26,73 @@
 .about-us {
   background-color: $c-blue-main;
 }
+.arrange-meeting {
+    h1 {
+      font-size: 2em;
+    }
+    background-color: $c-brown-accent;
+    padding: 4em;
+    text-align: center;
+    button {
+      background-color: $c-blue-main;
+      color: white;
+      padding: 1.25em 3.75em;
+      margin-top: 2em;
+      text-transform: lowercase;
+      font-size: 0.75em;
+      letter-spacing: 0.125em;
+      border: none;
+      .fa {
+        padding-right: 1.5em;
+      }
+    }
+  }
+  .ready-begin {
+    @extend .arrange-meeting;
+    background-color: $c-brown-main;
+    .fa {
+      padding-right: 0em !important;
+      padding-left:  1.5em;
+    }  
+  }
+
+// Mobile View
+@media (min-width: 320px) and (max-width: 480px) {
+    .banner-image-1 {
+        background-size: cover;
+        height: 100%;
+        overflow: hidden;
+    }
+    .padding-left-sm {
+        padding-left: 3em !important;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    .testimonial {
+        padding: 0em !important;
+        margin: 0em !important;
+        font-size: 0.75em !important;
+    }
+    .description-sm {
+        padding: 0em !important;
+        margin: 0em !important;
+    }
+    .arrange-meeting button {
+        padding: 1.25em 2.75em !important;
+        width: 100%;
+    }
+}
+
+// Tablet View
+@media (min-width: 768px) and (max-width: 1024px) {
+    .banner-image-1 {
+        background-size: cover;
+        height: 100%;
+        overflow: hidden;
+    }
+    h1 {
+        font-size: 2em;
+    }
+}
+  
