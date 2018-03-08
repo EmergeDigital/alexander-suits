@@ -48,6 +48,7 @@
             <h4>You have chosen:</h4>
             <h5>{{selectedLining.name}}</h5>
             <p>{{selectedLining.description_long}}</p>
+            <p>R {{selectedLining.price}</p>            
             <p>add more info or details here about the chosen item</p>
         </div>
     </div>
@@ -64,7 +65,7 @@
                         <img class="img-responsive fabric-swatch" [src]="lining.image_urls[0]" />
                         <br>
                         <h5>{{lining.name}}</h5>
-                        <p>{{lining.description}}</p>
+                        <!-- <p>{{lining.description}}</p> -->
                         <p class="pricing">R {{lining.price}}</p>
                         <button mat-raised-button class="select-button" (click)="SelectLining(lining)">Select</button>
                     </div>

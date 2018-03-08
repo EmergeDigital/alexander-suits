@@ -15,6 +15,9 @@
     background-color: $c-blue-main;
     background-size: cover !important; 
     background-repeat: no-repeat !important; 
+    border: 1px solid $c-brown-accent;
+    padding: 0.5em;
+    margin-left: 3em;    
 }
 
 .option-circle {
@@ -22,7 +25,7 @@
     height: 8em;
     line-height: 2em;
     border-radius: 4em;
-    background-color: $c-brown-light;
+    border: 1px solid $c-brown-light;
     margin-left: 1em;
 }
 
