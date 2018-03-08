@@ -118,7 +118,7 @@ textarea, label {
     color: $c-brown-accent;
     padding:  0.625em 0.625em 0.625em 0.3125em;
     display: block;
-    width: 28em;
+    width: 30em;
     border: none;
     border-bottom: 0.0625em solid $c-brown-accent;
     &:focus {
@@ -220,6 +220,7 @@ textarea, label {
   border-radius: 0% !important;
   margin-top: 1.3em;
   margin-bottom: 3em;
+  width: 100%;
 }
 
 // Mobile View
@@ -244,7 +245,7 @@ textarea, label {
       width: 100%;
   }
   .o-input__text--box {
-      width: 20em !important;
+      width: 16em !important;
   }
   .signup-button {
       width: 100% !important;
@@ -253,5 +254,18 @@ textarea, label {
   }
   .contact-form {
     margin: 3em;
+  }
+}
+
+
+// Tablet View
+@media (min-width: 768px) and (max-width: 1024px) {
+  .banner-image-1 {
+      background-size: cover;
+      height: 100%;
+      overflow: hidden;
+  }
+  h1 {
+      font-size: 2em;
   }
 }
