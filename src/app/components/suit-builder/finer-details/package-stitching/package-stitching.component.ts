@@ -79,8 +79,7 @@ export class PackageStitchingComponent implements OnInit, AfterViewInit {
     if (this.errorMessage === "") {
       if (!this.suitBuilderService.isMockupGarmentShown) {
         let MockupGarmentModal = this.dialog.open(MockupGarmentModalComponent, {
-          height: '400px',
-          width: '600px',
+          height: '60%',
         });
 
         MockupGarmentModal.afterClosed().subscribe(result => {

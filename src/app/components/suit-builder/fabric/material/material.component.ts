@@ -35,7 +35,9 @@ export class MaterialComponent implements OnInit {
     "Royal Blue",
     "Cobalt Blue",
     "Navy Blue",
-    "Dark Navy Blue"
+    "Dark Navy Blue",
+    "Light Blue",
+    "Medium Blue"
   ];
 
   private purpleColourTypes: string[] = [

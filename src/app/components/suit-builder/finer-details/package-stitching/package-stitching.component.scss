@@ -10,15 +10,16 @@
 }
 
 .placeholder-circle-designs {
-    width: 15em;
-    height: 15em;
+    width: 18em;
+    height: 18em;
     border-radius: 10em;
     background-color: $c-blue-main;
-    background-size: cover !important; 
+    background-size: 70% !important; 
+    background-position: center !important;
     background-repeat: no-repeat !important; 
     border: 1px solid $c-brown-accent;
     padding: 0.5em;
-    margin-left: 3em; 
+    margin-left: 1em;
 }
 
 .option-circle {
@@ -77,13 +78,13 @@
     background-color: #BFCBF2;
 }
 .red {
-    background-color: #DE81B3;
+    background-color: #932435;
 }
 .purple {
     background-color: #B186DB;
 }
 .blue {
-    background-color: #464899;
+    background-color: #00007F;
 }
 .black {
     background-color: #333333;
@@ -91,4 +92,18 @@
 .white {
     background-color: #ffffff;
     border: 0.0825em solid $c-brown-accent;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .hide-mobile {
+        visibility: hidden;
+        display: none;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .hide-mobile {
+        visibility: hidden;
+        display: none;
+    }
 }

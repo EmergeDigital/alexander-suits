@@ -6,8 +6,8 @@
         <p class="brown-paragraph-text">Use the Filters below to help decide on a fabric</p>
     </div>
 </div>
-<div class="row filter m-5 pb-5">
-    <div class="col-lg-2">
+<div class="row filter mt-md-5 m-xl-5 pb-5">
+    <div class="col-md-2 col-sm-12">
         <mat-form-field class="dropdown">
             <mat-select placeholder="OCCASSION" disableRipple panelClass="filter-background" [(ngModel)]="selectedOccassionType" (ngModelChange)="FilterMaterials()">
                 <mat-option value="">All</mat-option>
@@ -20,7 +20,7 @@
             </mat-select>
         </mat-form-field>
     </div>
-    <div class="col-lg-2">
+    <div class="col-md-2 col-sm-12">
         <mat-form-field>
             <mat-select placeholder="PATTERN" disableRipple panelClass="filter-background" [(ngModel)]="selectedPatternType" (ngModelChange)="FilterMaterials()">
                 <mat-option value="">All</mat-option>
@@ -35,7 +35,7 @@
             </mat-select>
         </mat-form-field>
     </div>
-    <div class="col-lg-2">
+    <div class="col-md-2 col-sm-12">
         <mat-form-field>
             <mat-select placeholder="FABRIC" disableRipple panelClass="filter-background" [(ngModel)]="selectedFabricType" (ngModelChange)="FilterMaterials()">
                 <mat-option value="">All</mat-option>
@@ -43,18 +43,22 @@
             </mat-select>
         </mat-form-field>
     </div>
-    <div class="col-lg-4 d-flex flex-row-reverse">
-        <!-- TODO: Add tooltips to display colour name/group -->
-        <button class="circle white" (click)="selectedColourType = ''; FilterMaterials()"></button>
-        <button class="circle black" (click)="selectedColourType = 'blackColourTypes'; FilterMaterials()"></button>
-        <button class="circle blue" (click)="selectedColourType = 'darkBlueColourTypes'; FilterMaterials()"></button>
-        <button class="circle purple" (click)="selectedColourType = 'purpleColourTypes'; FilterMaterials()"></button>
-        <button class="circle red" (click)="selectedColourType = 'redColourTypes'; FilterMaterials()"></button>
-        <button class="circle light-blue" (click)="selectedColourType = 'lightBlueColourTypes'; FilterMaterials()"></button>
-        <button class="circle brown" (click)="selectedColourType = 'earthColourTypes'; FilterMaterials()"></button>
+    <div class="col-md-4 col-sm-12 d-flex flex-row-reverse pt-3">
+        <span matTooltip="All Colours" matTooltipPosition="above">
+            <button class="circle white" (click)="selectedColourType = ''; FilterMaterials()"></button>
+        </span>
+        <span matTooltip="Black" matTooltipPosition="above">
+            <button class="circle black" (click)="selectedColourType = 'blackColourTypes'; FilterMaterials()"></button>
+        </span>
+        <span matTooltip="Blue" matTooltipPosition="above">
+            <button class="circle blue" (click)="selectedColourType = 'darkBlueColourTypes'; FilterMaterials()"></button>
+        </span>
+        <span matTooltip="Brown" matTooltipPosition="above">
+            <button class="circle brown" (click)="selectedColourType = 'earthColourTypes'; FilterMaterials()"></button>
+        </span>
         <p class="colour-label-text">Colour</p>
     </div>
-    <div class="col-lg-2">
+    <div class="col-md-2 col-sm-12">
         <mat-form-field>
             <mat-select placeholder="PRICE" disableRipple panelClass="filter-background" [(ngModel)]="selectedPriceSortType" (ngModelChange)="FilterMaterials()">
                 <mat-option value="HighToLow">
@@ -65,26 +69,29 @@
         </mat-form-field>
     </div>
 </div>
-<div class="row ml-5 mt-5">
-    <div class="col-lg-3 circle-column">
-        <div class="placeholder-circle" [ngStyle]="{'background': isSelectedMaterial ? 'url(' + selectedMaterial.image_urls[0] + ')' : ''}"></div>
-        <div class="left-circle-text" *ngIf="isSelectedMaterial">
-            <h4>You have chosen:</h4>
-            <h5>{{selectedMaterial.name}}</h5>          
-            <p>{{selectedMaterial.description_long}}</p>
-            <p class="pricing">R {{selectedMaterial.price}}</p>
-        </div>
+<div class="row ml-xl-5 ml-md-5 mt-5">
+    <div class="col-xl-3 col-md-12 circle-column">
+        <div class="row d-flex justify-content-center">
+            <div class="placeholder-circle" [ngStyle]="{'background': isSelectedMaterial ? 'url(' + selectedMaterial.image_urls[0] + ')' : ''}"></div>
+            <div class="left-circle-text" *ngIf="isSelectedMaterial">
+                <h4>You have chosen:</h4>
+                <h5>{{selectedMaterial.name}}</h5>          
+                <p>{{selectedMaterial.description_long}}</p>
+                <p class="pricing">R {{selectedMaterial.price}}</p>
+            </div>
+        </div>        
     </div>
-    <div class="col-lg-8">
+    <div class="col-xl-8 col-md-12 mt-md-2">
         <div class="row d-flex align-items-start">
             <owl-carousel style="width: 100% !important;" [options]="{
                     items: 1,
                     dots: true,
                     navigation: true,
                     autoplay: false,
-                    loop: false}" [carouselClasses]="['owl-theme', 'sliding']" [items]="carousels">
+                    loop: false,
+                nav: true}" [carouselClasses]="['owl-theme', 'sliding']" [items]="carousels">
                 <div class="item" *ngFor="let carousel of carousels">
-                    <div class="col-lg-3 fabric-block" *ngFor="let material of filteredMaterials.slice(((carousel-1) * 6), (carousel * 6))">
+                    <div class="col-lg-3 col-md-3 col-sm-3 fabric-block align-self-start" *ngFor="let material of filteredMaterials.slice(((carousel-1) * 6), (carousel * 6))">
                         <img class="img-responsive fabric-swatch" [src]="material.image_urls[0]" />
                         <br>
                         <h5>{{material.name}}</h5>

@@ -1,9 +1,9 @@
 <div class="details-modal">
-    <h1 class="mt-3">Mock-Up Garment</h1>
-    <div class="row mt-3">
+    <h1 class="mt-5">Mock-Up Garment</h1>
+    <div class="row mt-5">
         <div class="col">
-            <h3>To ensure your garment fits perfectly, we recommend ordering a mock-up garment from us to ensure your suit will
-                be fitting exactly as you want it</h3>
+                <em><h3 class="modal-subheading">To ensure your garment fits perfectly, we recommend ordering a mock-up garment from us to ensure your suit will
+                be fitting exactly as you want it</h3></em>
         </div>
     </div>
     <div class="row mt-3">
@@ -13,14 +13,14 @@
             </mat-checkbox>
         </div>
     </div>
-    <div class="row mt-3">
+    <div class="row m-md-5">
         <div class="col">
             <mat-form-field>
                 <textarea matInput placeholder="Add Instructions / Comments" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5" [(ngModel)]="mockupGarmentInstructions"></textarea>
             </mat-form-field>
         </div>
     </div>
-    <div class="row mt-5">
+    <div class="row m-md-5 px-lg-5 mt-5">
         <div class="col">
             <button mat-raised-button style="float:left;" (click)="Cancel()" class="no-button">Cancel</button>
             <button mat-raised-button style="float:right;" (click)="Next()" class="yes-button">Next</button>

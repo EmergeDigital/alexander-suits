@@ -88,3 +88,29 @@
         text-align: center;        
     }
 }
+
+
+// Mobile View
+@media (min-width: 320px) and (max-width: 480px) {
+    .banner-image {
+        background-size: cover;
+        height: 100%;
+        overflow: hidden;
+    }
+    h1 {
+        font-size: 2em;
+    }
+  }
+
+  // Tablet View
+@media (min-width: 768px) and (max-width: 1024px) {
+    .banner-image {
+        background-size: cover;
+        height: 100%;
+        overflow: hidden;
+    }
+    h1 {
+        font-size: 2em;
+    }
+  }
+  

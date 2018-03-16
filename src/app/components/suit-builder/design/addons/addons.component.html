@@ -11,14 +11,14 @@
     </div>
     <div class="col-lg-7">
         <div class="row mb-4">
-            <div class="col-lg-4 image-circle">
+            <div class="col-lg-4 col-md-4 col-sm-4 image-circle">
                 <h4>Extra Pants</h4>
                 <img class="img-responsive option-circle"/>  
                 <br>
                 <mat-checkbox [checked]="isExtraPantsSelected" (change)="isExtraPantsSelected = !isExtraPantsSelected"><h5> Add Extra Pants</h5></mat-checkbox>
                 <p class="pricing">R 200</p>
             </div>
-            <div class="col-lg-4 image-circle">
+            <div class="col-lg-4 col-md-4 col-sm-4 image-circle">
                 <h4>Waistcoat</h4>
                 <img class="img-responsive option-circle"/>  
                 <br>
@@ -35,7 +35,7 @@
             </div>
         </div>
     </div>  
-    <div class="col-lg-2">
+    <div class="col-lg-2 hide-mobile">
         <button class="help-button">i need help choosing</button>
         <p class="active-link" (click)="suitBuilderService.SetDesignStage.emit(DesignStage.Collar)"><i class="fa fa-circle" aria-hidden="true"></i>Jacket Collar Style</p>
         <p class="chosen-style-text">You chose style {{ currentSuit.collar.name }}</p>

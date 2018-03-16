@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MakeEnglish } from './pipes/makeEnglish.pipe'; // import our pipe here
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material';
+import { MatTooltipModule } from '@angular/material/tooltip'
 import { MatIconModule } from '@angular/material';
 import { MatMenuModule } from '@angular/material';
 import { MatCardModule } from '@angular/material';
@@ -283,6 +284,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         MatButtonModule,
         MatCheckboxModule,
         MatToolbarModule,
+        MatTooltipModule,
         MatIconModule,
         MatMenuModule,
         MatCardModule,
