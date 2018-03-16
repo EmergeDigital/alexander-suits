@@ -60,6 +60,33 @@ export class PantStylesComponent implements OnInit, AfterViewInit {
     this.MainFocus.first.nativeElement.focus();
   }
 
+  private GetPantPocketBackgroundSelected(): string {
+    var ret = "";
+
+    if (this.isSelectedPantPleat)
+      ret = 'url(' + this.selectedPantPleat.url + '),';
+
+    if (this.isSelectedPantPocket)
+      ret = ret + ' url(' + this.selectedPantPocket.url + '),';
+      
+    return ret + ' url("assets/suit-builder/pants-base.png")';
+  }
+
+  private GetPantCuffBackgroundSelected(): string {
+    var ret = "";
+
+    if (this.isSelectedPantPleat)
+      ret = 'url(' + this.selectedPantPleat.url + '),';
+
+    if (this.isSelectedPantPocket)
+      ret = ret + ' url(' + this.selectedPantPocket.url + '),';
+
+      if (this.isSelectedPantPocket)
+        ret = ret + ' url(' + this.selectedPantCuff.url + '),';
+      
+    return ret + ' url("assets/suit-builder/pants-base.png")';
+  }
+
   private SelectPantPleat(pantPleat: any) {
     this.selectedPantPleat = pantPleat;
     this.isSelectedPantPleat = true;

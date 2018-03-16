@@ -9,11 +9,11 @@
 <div class="row ml-lg-5 ml-md-5 mt-5">
     <div class="col-lg-3 col-md-12">
         <div class="row d-flex justify-content-center">
-            <div class="placeholder-circle-designs" [ngStyle]="{'background': isSelectedPantPleat ? 'url(' + selectedPantPleat.url + ')' : ''}"></div>
+            <div class="placeholder-circle-designs" [ngStyle]="{'background': isSelectedPantPleat ? 'url(' + selectedPantPleat.url + '), url(assets/suit-builder/pants-base.png)' : 'url(assets/suit-builder/pants-base.png)'}"></div>
             <div class="left-circle-text" *ngIf="isSelectedPantPleat">
                 <h4>You have chosen:</h4>
                 <h5>{{ selectedPantPleat.name }}</h5>
-                <p>{{ selectedPantPleat.description_long }}</p>            
+                <p>{{ selectedPantPleat.desc }}</p>            
             </div>
         </div>
     </div>
@@ -46,7 +46,7 @@
 <div class="row ml-lg-5 ml-md-5 mt-5">
     <div class="col-lg-3 col-md-12">
         <div class="row d-flex justify-content-center">
-            <div class="placeholder-circle-designs" [ngStyle]="{'background': isSelectedPantPocket ? 'url(' + selectedPantPocket.url + ')' : ''}"></div>
+            <div class="placeholder-circle-designs" [ngStyle]="{'background': GetPantPocketBackgroundSelected()}"></div>
             <div class="left-circle-text" *ngIf="isSelectedPantPocket">
                 <h4>You have chosen:</h4>
                 <h5>{{ selectedPantPocket.name }}</h5>
@@ -72,7 +72,7 @@
 <div class="row ml-lg-5 ml-md-5 mt-5">
     <div class="col-lg-3 col-md-12">
         <div class="row d-flex justify-content-center">
-            <div class="placeholder-circle-designs" [ngStyle]="{'background': isSelectedPantCuff ? 'url(' + selectedPantCuff.url + ')' : ''}"></div>
+            <div class="placeholder-circle-designs" [ngStyle]="{'background': GetPantCuffBackgroundSelected()}"></div>
             <div class="left-circle-text" *ngIf="isSelectedPantCuff">
                 <h4>You have chosen:</h4>
                 <h5>{{ selectedPantCuff.name }}</h5>
