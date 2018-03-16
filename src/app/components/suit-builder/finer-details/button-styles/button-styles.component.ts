@@ -14,18 +14,18 @@ export class ButtonStylesComponent implements OnInit, AfterViewInit {
   private FinerDetailsStage = FinerDetailsStage;
 
   private buttonHolesMock: any[] = [
-    { "name": "NAME", "desc": "Fake button holes", "price": "200", "url": "assets/suit-builder/buttons/buttons-v1.png" },
-    { "name": "NAME", "desc": "Working button holes", "price": "200", "url": "assets/suit-builder/buttons/buttons-v2.png" },
+    { "name": "Faking", "desc": "A faking button holes style.", "url": "assets/suit-builder/buttons/buttons-v1.png" },
+    { "name": "Working", "desc": "A working button holes style.", "url": "assets/suit-builder/buttons/buttons-v2.png" },
   ];
   
   private boutonneriesMock: any[] = [
-    { "name": "NAME", "desc": "Description", "price": "200", "url": "assets/suit-builder/buttons/buttons-v1.png" },
-    { "name": "NAME", "desc": "Description", "price": "200", "url": "assets/suit-builder/buttons/buttons-v2.png" },
+    { "name": "Faking", "desc": "A faking button hole in the lapel style.", "url": "" },
+    { "name": "Working", "desc": "A working button hole in the lapel style.", "url": "" },
   ];
   
   private lastButtonSleevesMock: any[] = [
-    { "name": "NAME", "desc": "Description", "price": "200", "url": "assets/suit-builder/buttons/buttons-v1.png" },
-    { "name": "NAME", "desc": "Description", "price": "200", "url": "assets/suit-builder/buttons/buttons-v2.png" },
+    { "name": "Faking", "desc": "A faking button hole in the cuff style.", "url": "" },
+    { "name": "Working", "desc": "A working button hole in the cuff style.", "url": "" },
   ];
 
   private errorMessage: string = "";

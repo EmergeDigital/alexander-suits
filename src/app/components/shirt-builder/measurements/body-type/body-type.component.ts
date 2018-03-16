@@ -14,9 +14,9 @@ export class BodyTypeComponent implements OnInit, AfterViewInit {
   private MeasurementStage = MeasurementStage;
 
   private bodyTypesMock: any[] = [
-    {"name": "1", "desc": "Collar Description", "price": "200", "url": "assets/shirt-builder/pants/pants-v1.png"},
-    {"name": "2", "desc": "Collar Description", "price": "200", "url": "assets/shirt-builder/pants/pants-v2.png"},
-    {"name": "3", "desc": "Collar Description", "price": "200", "url": "assets/shirt-builder/pants/pants-v3.png"},
+    {"name": "1", "desc": "Collar Description", "url": "assets/shirt-builder/pants/pants-v1.png"},
+    {"name": "2", "desc": "Collar Description", "url": "assets/shirt-builder/pants/pants-v2.png"},
+    {"name": "3", "desc": "Collar Description", "url": "assets/shirt-builder/pants/pants-v3.png"},
   ];
   
   private selectedBodyType: any = {};

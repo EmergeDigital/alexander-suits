@@ -25,7 +25,7 @@ export class UploadPhotoComponent implements OnInit, AfterViewInit {
   public currentSuit: any = {};
 
   constructor(private suitBuilderService: SuitBuilderService, private ng2ImgToolsService: Ng2ImgToolsService,
-              private data: DataService, private _loadingService: TdLoadingService) { }
+    private data: DataService, private _loadingService: TdLoadingService) { }
 
   public ngOnInit(): void {
     this.currentSuit = this.suitBuilderService.suit;
@@ -55,16 +55,15 @@ export class UploadPhotoComponent implements OnInit, AfterViewInit {
   private FileUploadSelect(file: File, imageToUpdate: string): void {
     this._loadingService.register('overlayStarSyntax');
     this.ng2ImgToolsService.resizeExactCrop([file], 180, 180).subscribe(result => {
-        console.info(result);
-        this.data.uploadImage(result).then(response => {
-          this.uploadedImages[imageToUpdate] = response;
-          this._loadingService.resolve('overlayStarSyntax');
-          console.info(response);
-        });
-    }, error => {
-        this.FileUploadCancel(imageToUpdate);
-        //this.error("Thumbnail Creation Failed", "Please try select your image again");
+      console.info(result);
+      this.data.uploadImage(result).then(response => {
+        this.uploadedImages[imageToUpdate] = response;
         this._loadingService.resolve('overlayStarSyntax');
+      });
+    }, error => {
+      this.FileUploadCancel(imageToUpdate);
+      //this.error("Thumbnail Creation Failed", "Please try select your image again");
+      this._loadingService.resolve('overlayStarSyntax');
     });
   }
 
@@ -78,13 +77,14 @@ export class UploadPhotoComponent implements OnInit, AfterViewInit {
 
   private Next(): void {
     this.suitBuilderService.suit.uploadedImages = this.uploadedImages;
-    
+
     this.errorMessage = this.suitBuilderService.ValidateMeasurementsStage();
-    
-    if(this.errorMessage === "") {
-      this.data.UpdateCart([this.suitBuilderService.BuildProduct()]).then(result => {
+
+    if (this.errorMessage === "") {
+      console.log(this.suitBuilderService.BuildProduct());
+      this.data.UpdateCart([this.suitBuilderService.BuildProduct()], this.suitBuilderService.CalculateTotalPrice()).then(result => {
         console.log(result);
-        this._loadingService.resolve('overlayStarSyntax');  
+        this._loadingService.resolve('overlayStarSyntax');
         this.suitBuilderService.SetWizardStage.emit(WizardStage.Checkout);
       }).catch(ex => {
         alert("There was a problem");

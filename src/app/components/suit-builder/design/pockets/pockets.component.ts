@@ -13,11 +13,11 @@ export class PocketsComponent implements OnInit, AfterViewInit {
   private DesignStage = DesignStage;
 
   private pocketsMock: any[] = [
-    { "name": "NAME", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pockets/pocket-v1.png" },
-    { "name": "NAME", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pockets/pocket-v2.png" },
-    { "name": "NAME", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pockets/pocket-v3.png" },
-    { "name": "NAME", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pockets/pocket-v4.png" },
-    { "name": "NAME", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pockets/pocket-v5.png" },
+    { "name": "Straight", "desc": "A straight flap pocket style.", "url": "assets/suit-builder/pockets/pocket-v4.png" },
+    { "name": "Straight", "desc": "A straight flap pocket with ticket pocket style.", "url": "assets/suit-builder/pockets/pocket-v5.png" },
+    { "name": "Patch", "desc": "A straight patch pocket style.", "url": "assets/suit-builder/pockets/pocket-v1.png" },
+    { "name": "Slanted", "desc": "A slanted flap pocket style.", "url": "assets/suit-builder/pockets/pocket-v2.png" },
+    { "name": "Slanted", "desc": "A slanted flap pocket with ticket pocket style.", "url": "assets/suit-builder/pockets/pocket-v3.png" },
   ];
 
   private selectedPocket: any = {};

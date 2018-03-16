@@ -16,18 +16,18 @@ export class ShirtComponent implements OnInit, AfterViewInit {
     private DesignStage = DesignStage;
 
     private frontsMock: any[] = [
-        { "name": "1", "desc": "Fake button holes", "price": "200", "url": "assets/shirt-builder/buttons/buttons-v1.png" },
-        { "name": "2", "desc": "Working button holes", "price": "200", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
+        { "name": "1", "desc": "Fake button holes", "url": "assets/shirt-builder/buttons/buttons-v1.png" },
+        { "name": "2", "desc": "Working button holes","url": "assets/shirt-builder/buttons/buttons-v2.png" },
     ];
 
     private backsMock: any[] = [
-        { "name": "1", "desc": "Fake button holes", "price": "200", "url": "assets/shirt-builder/buttons/buttons-v1.png" },
-        { "name": "2", "desc": "Working button holes", "price": "200", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
+        { "name": "1", "desc": "Fake button holes", "url": "assets/shirt-builder/buttons/buttons-v1.png" },
+        { "name": "2", "desc": "Working button holes", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
     ];
 
     private breastPocketsMock: any[] = [
-        { "name": "1", "desc": "Fake button holes", "price": "200", "url": "assets/shirt-builder/buttons/buttons-v1.png" },
-        { "name": "2", "desc": "Working button holes", "price": "200", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
+        { "name": "1", "desc": "Fake button holes", "url": "assets/shirt-builder/buttons/buttons-v1.png" },
+        { "name": "2", "desc": "Working button holes", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
     ];
 
     private errorMessage: string = "";

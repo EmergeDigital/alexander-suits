@@ -10,41 +10,61 @@
     <div class="col-lg-10 col-md-12">
         <div class="row ml-5 pl-5">
             <div class="col-lg-2 col-md-2 col-sm-3 m-4 image-circle">
-                <img class="img-responsive option-square" src="{uploadedImages.front}" />
+                <img *ngIf="uploadedImages.front !== ''" class="img-responsive option-square" src="{{uploadedImages.front}}" />
+                <img *ngIf="uploadedImages.front === ''" class="img-responsive option-square" />
                 <br>
                 <h4 class="mt-4 mb-4 ml-2">Front Facing</h4>
+                <!-- TODO: Fix Style -->
                 <td-file-upload accept=".jpg, .png, .jpeg" defaultColor="primary" activeColor="warn" cancelColor="primary" #singleFileUpload
-                (select)="FrontImageSelect($event)" (cancel)="FileUploadCancel('front')"  [(disabled)]="uploading" >
-                  <mat-icon>file_upload</mat-icon><span>File selected</span>
-                  <ng-template td-file-input-label class="select-button">
+                (select)="FrontImageSelect($event)" (cancel)="FileUploadCancel('front')"  [(disabled)]="uploading"> 
+                  <span>File selected</span>
+                  <ng-template td-file-input-label>
                       <span>Upload</span>
                   </ng-template>
                 </td-file-upload>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-3 m-4">
-                <img class="img-responsive option-square" src="{uploadedImages.left}" />
+                <img *ngIf="uploadedImages.left !== ''" class="img-responsive option-square" src="{{uploadedImages.left}}" />
+                <img *ngIf="uploadedImages.left === ''" class="img-responsive option-square" />
                 <br>
                 <h4 class="mt-4 mb-4 ml-2">Left Facing</h4>
+                <!-- TODO: Fix Style -->
                 <td-file-upload accept=".jpg, .png, .jpeg" defaultColor="primary" activeColor="warn" cancelColor="primary" #singleFileUpload
-                (select)="LeftImageSelect($event)" (cancel)="FileUploadCancel('left')"  [(disabled)]="uploading" >
-                  <mat-icon>file_upload</mat-icon><span>File Selected</span>
-                  <ng-template td-file-input-label class="select-button">
+                (select)="LeftImageSelect($event)" (cancel)="FileUploadCancel('left')"  [(disabled)]="uploading">
+                  <span>File Selected</span>
+                  <ng-template td-file-input-label>
                     <span>Upload</span>
                   </ng-template>
                 </td-file-upload>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-3 m-4">
-                <img class="img-responsive option-square" />
+                <img *ngIf="uploadedImages.right !== ''" class="img-responsive option-square" src="{{uploadedImages.right}}" />
+                <img *ngIf="uploadedImages.right === ''" class="img-responsive option-square" />
                 <br>
                 <h4 class="mt-4 mb-4 ml-2">Right Facing</h4>
-                <button mat-raised-button class="select-button" (click)="SelectPantPleat(pantPleat)">Upload</button>
+                <!-- TODO: Fix Style -->
+                <td-file-upload accept=".jpg, .png, .jpeg" defaultColor="primary" activeColor="warn" cancelColor="primary" #singleFileUpload
+                (select)="RightImageSelect($event)" (cancel)="FileUploadCancel('right')"  [(disabled)]="uploading"> 
+                  <span>File selected</span>
+                  <ng-template td-file-input-label>
+                      <span>Upload</span>
+                  </ng-template>
+                </td-file-upload>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-3 m-4">
-                <img class="img-responsive option-square" />
+                <img *ngIf="uploadedImages.back !== ''" class="img-responsive option-square" src="{{uploadedImages.back}}" />
+                <img *ngIf="uploadedImages.back === ''" class="img-responsive option-square" />
                 <br>
                 <h4 class="mt-4 mb-4 ml-2">Back Facing</h4>
-                <button mat-raised-button class="select-button" (click)="SelectPantPleat(pantPleat)">Upload</button>
-            </div>            
+                <!-- TODO: Fix Style -->
+                <td-file-upload accept=".jpg, .png, .jpeg" defaultColor="primary" activeColor="warn" cancelColor="primary" #singleFileUpload
+                (select)="BackImageSelect($event)" (cancel)="FileUploadCancel('back')"  [(disabled)]="uploading"> 
+                  <span>File selected</span>
+                  <ng-template td-file-input-label>
+                      <span>Upload</span>
+                  </ng-template>
+                </td-file-upload>
+            </div>         
         </div>
         <div class="row mt-5 ml-5 mr-md-5">
             <div class="col-lg-5 d-flex justify-content-start">

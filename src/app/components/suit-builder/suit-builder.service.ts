@@ -9,7 +9,7 @@ import { Lining } from "../../models/lining";
 
 
 @Injectable()
-export class SuitBuilderService {    
+export class SuitBuilderService {
     public collection: string = '';
     public _collectionChanged: EventEmitter<string> = new EventEmitter();
 
@@ -32,7 +32,7 @@ export class SuitBuilderService {
     private measurementsStage: MeasurementStage = MeasurementStage.BodyType;
     public get MeasurementStage(): MeasurementStage { return this.measurementsStage; }
     public SetMeasurementsStage: EventEmitter<MeasurementStage> = new EventEmitter<MeasurementStage>();
-    
+
     public product: Product = new Product({});
     public lining: Lining = new Lining({});
     public suit: any = {
@@ -58,18 +58,8 @@ export class SuitBuilderService {
         finerMeasurements: { jacketBackLength: 0, jacketWaist: 0, withoutTrouserWaist: 0, withoutTrouserOutsideSeam: 0, trouserWaist: 0, trouserInsideSeam: 0, trouserOutsideSeam: 0 },
         uploadedImages: { front: "", left: "", right: "", back: "" },
         mockupGarment: { isMockupGarment: false, instructions: "" },
-
-
-        //TODO: Check if these fields are neccessary
-        // button_hole_colour: {"name": 0, "value": "Default", "color": "Default"},
-        buttons: { "name": "0", "value": "Default", "color": "Default" },
-        // buttons_comment: "",
-        button_stitching: { "name": "0", "value": "Default", "color": "Default" },
-        contrast_package: { "name": "0", "value": "None", "color": "Default" },
-        // contrast_fabric: {"name": "0", "value": "Default", "color": "Default"},
         oversize: false,
         supersize: false
-        //TODO: Check if these fields are neccessary
     };
 
     public isMaterialSelected: boolean = false;
@@ -135,7 +125,7 @@ export class SuitBuilderService {
 
         return errorMessage;
     }
-    
+
 
     public ValidateMeasurementsStage(): string {
         let errorMessage: string = "";
@@ -150,6 +140,43 @@ export class SuitBuilderService {
         this.suit.linings = this.lining;
         this.product.extras = this.suit;
         return this.product;
+    }
+
+    public CalculateMockupPrice(): number {
+        var mockupPrice = 750;
+
+        if (this.suit.waistcoat) {
+            mockupPrice += 750 * 0.18;
+        }
+
+        if (this.suit.coat) {
+            mockupPrice += 750 * 0.8;
+        }
+
+        return mockupPrice;
+    }
+
+    public CalculateTotalPrice(): number {
+        var total: number = 0;
+        total = this.product.price;
+
+        if (this.suit.mockupGarment.isMockupGarment)
+            total += this.CalculateMockupPrice()
+
+        if (this.suit.oversize)
+            total += this.product.price * 0.06;
+        else if (this.suit.supersize)
+            total += this.product.price * 0.1;
+
+        if (this.suit.waistcoat)
+            total += this.product.price * 0.5;
+
+        if (this.suit.coat)
+            total = this.product.price * 0.9;
+        if (this.suit.extra_pants)
+            total = this.product.price * 0.18;
+
+        return total;
     }
 
     public ResetProduct() {

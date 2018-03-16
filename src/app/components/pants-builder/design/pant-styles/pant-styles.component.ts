@@ -11,21 +11,21 @@ export class PantStylesComponent implements OnInit, AfterViewInit {
   @ViewChildren("MainFocus") MainFocus;
 
   private pantPleatsMock: any[] = [
-    {"name": "1", "desc": "Collar Description", "price": "200", "url": "assets/pants-builder/pants/pants-v1.png"},
-    {"name": "2", "desc": "Collar Description", "price": "200", "url": "assets/pants-builder/pants/pants-v2.png"},
-    {"name": "3", "desc": "Collar Description", "price": "200", "url": "assets/pants-builder/pants/pants-v3.png"},
+    {"name": "1", "desc": "Collar Description", "url": "assets/pants-builder/pants/pants-v1.png"},
+    {"name": "2", "desc": "Collar Description", "url": "assets/pants-builder/pants/pants-v2.png"},
+    {"name": "3", "desc": "Collar Description", "url": "assets/pants-builder/pants/pants-v3.png"},
   ];
 
   private pantPocketsMock: any[] = [
-    {"name": "1", "desc": "Collar Description", "price": "200", "url": "assets/pants-builder/pants/pants-v1.png"},
-    {"name": "2", "desc": "Collar Description", "price": "200", "url": "assets/pants-builder/pants/pants-v2.png"},
-    {"name": "3", "desc": "Collar Description", "price": "200", "url": "assets/pants-builder/pants/pants-v3.png"},
+    {"name": "1", "desc": "Collar Description", "url": "assets/pants-builder/pants/pants-v1.png"},
+    {"name": "2", "desc": "Collar Description", "url": "assets/pants-builder/pants/pants-v2.png"},
+    {"name": "3", "desc": "Collar Description", "url": "assets/pants-builder/pants/pants-v3.png"},
   ];
 
   private pantCuffsMock: any[] = [
-    {"name": "1", "desc": "Collar Description", "price": "200", "url": "assets/pants-builder/pants/pants-v1.png"},
-    {"name": "2", "desc": "Collar Description", "price": "200", "url": "assets/pants-builder/pants/pants-v2.png"},
-    {"name": "3", "desc": "Collar Description", "price": "200", "url": "assets/pants-builder/pants/pants-v3.png"},
+    {"name": "1", "desc": "Collar Description", "url": "assets/pants-builder/pants/pants-v1.png"},
+    {"name": "2", "desc": "Collar Description", "url": "assets/pants-builder/pants/pants-v2.png"},
+    {"name": "3", "desc": "Collar Description", "url": "assets/pants-builder/pants/pants-v3.png"},
   ];
 
   private errorMessage: string = "";

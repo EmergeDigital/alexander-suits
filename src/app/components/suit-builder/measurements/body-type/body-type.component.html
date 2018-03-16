@@ -13,8 +13,7 @@
             <div class="left-circle-text" *ngIf="isSelectedBodyType">
                 <h4>You have chosen:</h4>
                 <h5>{{ selectedBodyType.name }}</h5>
-                <p>{{ selectedBodyType.description_long }}</p>
-                <p>add more info or details here about the chosen item</p> 
+                <p>{{ selectedBodyType.desc }}</p>
             </div>
         </div>
     </div>
@@ -25,7 +24,6 @@
                 <br>
                 <h5>{{ bodyType.name }}</h5>
                 <p>{{ bodyType.desc }}</p>
-                <p class="pricing">R {{ bodyType.price }}</p>
                 <button mat-raised-button class="select-button" (click)="SelectBodyType(bodyType)">Select</button>
             </div>
         </div>

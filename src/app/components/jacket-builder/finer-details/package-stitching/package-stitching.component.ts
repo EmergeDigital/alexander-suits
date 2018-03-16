@@ -15,13 +15,13 @@ export class PackageStitchingComponent implements OnInit, AfterViewInit {
   private FinerDetailsStage = FinerDetailsStage;
 
   private contrastPackagesMock: any[] = [
-    { "name": "1", "desc": "Fake button holes", "price": "200", "url": "assets/jacket-builder/buttons/buttons-v1.png" },
-    { "name": "2", "desc": "Working button holes", "price": "200", "url": "assets/jacket-builder/buttons/buttons-v2.png" },
+    { "name": "1", "desc": "Fake button holes", "url": "assets/jacket-builder/buttons/buttons-v1.png" },
+    { "name": "2", "desc": "Working button holes", "url": "assets/jacket-builder/buttons/buttons-v2.png" },
   ];
 
   private topStitchsMock: any[] = [
-    { "name": "1", "desc": "Fake button holes", "price": "200", "url": "assets/jacket-builder/buttons/buttons-v1.png" },
-    { "name": "2", "desc": "Working button holes", "price": "200", "url": "assets/jacket-builder/buttons/buttons-v2.png" },
+    { "name": "1", "desc": "Fake button holes", "url": "assets/jacket-builder/buttons/buttons-v1.png" },
+    { "name": "2", "desc": "Working button holes", "url": "assets/jacket-builder/buttons/buttons-v2.png" },
   ];
 
   private errorMessage: string = "";

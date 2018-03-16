@@ -16,13 +16,13 @@ export class PackageStitchingComponent implements OnInit, AfterViewInit {
   private FinerDetailsStage = FinerDetailsStage;
 
   private contrastPackagesMock: any[] = [
-    { "name": "NAME", "desc": "Description", "price": "200", "url": "assets/suit-builder/buttons/buttons-v1.png" },
-    { "name": "NAME", "desc": "Description", "price": "200", "url": "assets/suit-builder/buttons/buttons-v2.png" },
+    { "name": "Basic", "desc": "A basic contrast package.", "url": "" },
+    { "name": "Alx", "desc": "A alx constrast package.", "url": "" },
   ];
 
   private topStitchsMock: any[] = [
-    { "name": "NAME", "desc": "Description", "price": "200", "url": "assets/suit-builder/buttons/buttons-v1.png" },
-    { "name": "NAME", "desc": "Description", "price": "200", "url": "assets/suit-builder/buttons/buttons-v2.png" },
+    { "name": "None", "desc": "A no top stitch style.", "url": "" },
+    { "name": "Single", "desc": "A single top stitch style.", "url": "" },
   ];
 
   private errorMessage: string = "";
