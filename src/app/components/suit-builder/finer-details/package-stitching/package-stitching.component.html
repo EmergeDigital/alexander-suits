@@ -12,20 +12,18 @@
         <div class="left-circle-text" *ngIf="isSelectedConstrastPackage">
             <h4>You have chosen:</h4>
             <h5>{{selectedConstrastPackage.name}}</h5>
-            <p>{{selectedConstrastPackage.description_long}}</p>
-            <p class="pricing">R {{ selectedConstrastPackage.price }}</p>            
-            <p>add more info or details here about the chosen item</p> 
+            <p>{{selectedConstrastPackage.desc}}</p>   
         </div>
     </div>
     <div class="col-lg-7">
         <h4>Contrast Package</h4>
         <div class="row">
             <div class="col-lg-3 image-circle mb-4" *ngFor="let contrastPackage of contrastPackagesMock">
-                <img class="img-responsive option-circle" src="{{ contrastPackage.url }}" />
+                <img class="img-responsive option-circle" src="{{ contrastPackage.url }}" *ngIf="contrastPackage.url !== ''"/>
+                <img class="img-responsive option-circle" *ngIf="contrastPackage.url === ''"/>
                 <br>
                 <h5>{{ contrastPackage.name }}</h5>
                 <p>{{ contrastPackage.desc }}</p>
-                <p class="pricing">R {{ contrastPackage.price }}</p>
                 <button mat-raised-button class="select-button" (click)="SelectContrastPackage(contrastPackage)">Select</button>
             </div>
         </div>
@@ -46,9 +44,9 @@
     </div>  
     <div class="col-lg-2">
         <p class="active-link" (click)="suitBuilderService.SetFinerDetailsStage.emit(FinerDetailsStage.ButtonStyles)"><i class="fa fa-circle" aria-hidden="true"></i> Buttons</p>
-        <p class="chosen-style-text">You chose style {{currentSuit.buttonHole}}</p>
-        <p class="chosen-style-text">You chose style {{currentSuit.boutonnerie}}</p>
-        <p class="chosen-style-text">You chose style {{currentSuit.lastButtonSleeve}}</p>
+        <p class="chosen-style-text">You chose style {{currentSuit.buttonHole.name}}</p>
+        <p class="chosen-style-text">You chose style {{currentSuit.boutonnerie.name}}</p>
+        <p class="chosen-style-text">You chose style {{currentSuit.lastButtonSleeve.name}}</p>
         <p class="active-link"><i class="fa fa-circle" aria-hidden="true"></i> Custom Packages </p>       
     </div>     
 </div>
@@ -65,20 +63,18 @@
         <div class="left-circle-text" *ngIf="isSelectedTopStitch">
             <h4>You have chosen:</h4>
             <h5>{{selectedTopStitch.name}}</h5>
-            <p>{{selectedTopStitch.description_long}}</p>
-            <p class="pricing">R {{ selectedTopStitch.price }}</p>            
-            <p>add more info or details here about the chosen item</p> 
+            <p>{{selectedTopStitch.desc}}</p>        
         </div>
     </div>
     <div class="col-lg-7">
         <h4>Top Stitch</h4>
         <div class="row">
             <div class="col-lg-3 image-circle mb-4" *ngFor="let topStitch of topStitchsMock">
-                <img class="img-responsive option-circle" src="{{ topStitch.url }}" />
+                <img class="img-responsive option-circle" src="{{ topStitch.url }}" *ngIf="topStitch.url !== ''"/>
+                <img class="img-responsive option-circle" *ngIf="topStitch.url === ''"/>
                 <br>
                 <h5>{{ topStitch.name }}</h5>
                 <p>{{ topStitch.desc }}</p>
-                <p class="pricing">R {{ topStitch.price }}</p>
                 <button mat-raised-button class="select-button" (click)="SelectTopStitch(topStitch)">Select</button>
             </div>
         </div>

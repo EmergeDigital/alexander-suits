@@ -14,15 +14,15 @@ export class CollarComponent implements OnInit, AfterViewInit {
   private DesignStage = DesignStage;
 
   private collarsMock: any[] = [
-    {"name": "1", "desc": "Collar Description", "price": "200", "url": "assets/shirt-builder/collars/collar-v1.png"},
-    {"name": "2", "desc": "Collar Description", "price": "200", "url": "assets/shirt-builder/collars/collar-v2.png"},
-    {"name": "3", "desc": "Collar Description", "price": "200", "url": "assets/shirt-builder/collars/collar-v3.png"},
-    {"name": "4", "desc": "Collar Description", "price": "200", "url": "assets/shirt-builder/collars/collar-v4.png"},
-    {"name": "5", "desc": "Collar Description", "price": "200", "url": "assets/shirt-builder/collars/collar-v5.png"},
-    {"name": "6", "desc": "Collar Description", "price": "200", "url": "assets/shirt-builder/collars/collar-v6.png"},
-    {"name": "7", "desc": "Collar Description", "price": "200", "url": "assets/shirt-builder/collars/collar-v7.png"},
-    {"name": "8", "desc": "Collar Description", "price": "200", "url": "assets/shirt-builder/collars/collar-v8.png"},
-    {"name": "9", "desc": "Collar Description", "price": "200", "url": "assets/shirt-builder/collars/collar-v11.png"},
+    {"name": "Normal", "desc": "A normal lapel collar with a 1 button single breasted style.", "url": "assets/suit-builder/collars/collar-v1.png"},
+    {"name": "Normal", "desc": "A normal lapel collar with a 2 button single breasted style.", "url": "assets/suit-builder/collars/collar-v3.png"},
+    {"name": "Normal", "desc": "A normal lapel collar with a 3 button single breasted style", "url": "assets/suit-builder/collars/collar-v7.png"},
+    {"name": "Normal Medium Width", "desc": "A normal medium width lapel collar with a 2 button single breasted style.", "url": "assets/suit-builder/collars/collar-v4.png"},
+    {"name": "Scarf", "desc": "A scarf lapel collar with a 1 button single breasted style.", "url": "assets/suit-builder/collars/collar-v2.png"},
+    {"name": "Scarf", "desc": "A scarf lapel collar with a 2 button single breasted style.", "url": "assets/suit-builder/collars/collar-v6.png"},
+    {"name": "Rising", "desc": "A rising lapel collar with a 1 button single breasted style.", "url": "assets/suit-builder/collars/collar-v11.png"},
+    {"name": "Rising", "desc": "A rising lapel collar with a 2 button single breasted style.", "url": "assets/suit-builder/collars/collar-v5.png"},
+    {"name": "Rising", "desc": "A rising lapel collar with a 2 button double breasted style.", "url": "assets/suit-builder/collars/collar-v8.png"},
   ];
 
   private selectedCollar: any = {};

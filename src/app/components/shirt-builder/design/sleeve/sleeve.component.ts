@@ -14,15 +14,15 @@ export class SleeveComponent implements OnInit, AfterViewInit {
   private DesignStage = DesignStage;
 
   private sleevesMock: any[] = [
-    { "name": "Long", "desc": "Long", "price": "200", "url": "assets/shirt-builder/buttons/buttons-v1.png" },
-    { "name": "Short", "desc": "Short", "price": "200", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
+    { "name": "Long", "desc": "Long", "url": "assets/shirt-builder/buttons/buttons-v1.png" },
+    { "name": "Short", "desc": "Short", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
   ];
   
   private cuffsMock: any[] = [
-    { "name": "1", "desc": "Fake button holes", "price": "200", "url": "assets/shirt-builder/buttons/buttons-v1.png" },
-    { "name": "2", "desc": "Working button holes", "price": "200", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
-    { "name": "3", "desc": "Working button holes", "price": "200", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
-    { "name": "4", "desc": "Working button holes", "price": "200", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
+    { "name": "1", "desc": "Fake button holes","url": "assets/shirt-builder/buttons/buttons-v1.png" },
+    { "name": "2", "desc": "Working button holes", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
+    { "name": "3", "desc": "Working button holes", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
+    { "name": "4", "desc": "Working button holes", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
   ];
 
   private errorMessage: string = "";

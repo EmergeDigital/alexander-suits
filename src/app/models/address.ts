@@ -5,6 +5,7 @@ export class Address {
     province: string;
     postal_code: string;
     country: string;
+    instructions: string;
   
     constructor(init: any) {
         for (const key in init) {

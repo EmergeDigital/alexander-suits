@@ -12,20 +12,18 @@
         <div class="left-circle-text" *ngIf="isSelectedPantPleat">
             <h4>You have chosen:</h4>
             <h5>{{ selectedPantPleat.name }}</h5>
-            <p>{{ selectedPantPleat.description_long }}</p>            
-            <p class="pricing">R {{ selectedPantPleat.price }}</p>                        
-            <p>add more info or details here about the chosen item</p> 
+            <p>{{ selectedPantPleat.desc }}</p>                             
         </div>
     </div>
     <div class="col-lg-7">
         <h4>Choose Pant Pleats</h4>        
         <div class="row">
             <div class="col-lg-3 image-circle mb-4" *ngFor="let pantPleat of pantPleatsMock">
-                <img class="img-responsive option-circle" src="{{ pantPleat.url }}" />
+                <img class="img-responsive option-circle" src="{{ pantPleat.url }}" *ngIf="pantPleat.url !== ''"/>
+                <img class="img-responsive option-circle" *ngIf="pantPleat.url === ''"/>
                 <br>
                 <h5>{{ pantPleat.name }}</h5>
                 <p>{{ pantPleat.desc }}</p>
-                <p class="pricing">R {{ pantPleat.price }}</p>
                 <button mat-raised-button class="select-button" (click)="SelectPantPleat(pantPleat)">Select</button>
             </div>
         </div>
@@ -49,20 +47,18 @@
         <div class="left-circle-text" *ngIf="isSelectedPantPocket">
             <h4>You have chosen:</h4>
             <h5>{{ selectedPantPocket.name }}</h5>
-            <p>{{ selectedPantPocket.description_long }}</p>
-            <p class="pricing">R {{ selectedPantPocket.price }}</p>            
-            <p>add more info or details here about the chosen item</p> 
+            <p>{{ selectedPantPocket.desc }}</p>          
         </div>
     </div>
     <div class="col-lg-7">
         <h4>Choose Pant Back Pockets</h4>
         <div class="row">
             <div class="col-lg-3 image-circle mb-4" *ngFor="let pantPocket of pantPocketsMock">
-                <img class="img-responsive option-circle" src="{{ pantPocket.url }}" />
+                <img class="img-responsive option-circle" src="{{ pantPocket.url }}" *ngIf="pantPocket.url !== ''"/>
+                <img class="img-responsive option-circle" *ngIf="pantPocket.url === ''"/>
                 <br>
                 <h5>{{ pantPocket.name }}</h5>
                 <p>{{ pantPocket.desc }}</p>
-                <p class="pricing">R {{ pantPocket.price }}</p>
                 <button mat-raised-button class="select-button" (click)="SelectPantPocket(pantPocket)">Select</button>
             </div>
         </div>
@@ -75,20 +71,18 @@
         <div class="left-circle-text" *ngIf="isSelectedPantCuff">
             <h4>You have chosen:</h4>
             <h5>{{ selectedPantCuff.name }}</h5>
-            <p>{{ selectedPantCuff.description_long }}</p>
-            <p class="pricing">R {{ selectedPantCuff.prcie }}</p>            
-            <p>add more info or details here about the chosen item</p> 
+            <p>{{ selectedPantCuff.desc }}</p>          
         </div>
     </div>
     <div class="col-lg-7">
         <h4>Choose Pant Cuffs</h4>
         <div class="row">
             <div class="col-lg-3 image-circle mb-4" *ngFor="let pantCuff of pantCuffsMock">
-                <img class="img-responsive option-circle" src="{{ pantCuff.url }}" />
+                <img class="img-responsive option-circle" src="{{ pantCuff.url }}" *ngIf="pantCuff.url !== ''"/>
+                <img class="img-responsive option-circle" *ngIf="pantCuff.url === ''"/>
                 <br>
                 <h5>{{ pantCuff.name }}</h5>
                 <p>{{ pantCuff.desc }}</p>
-                <p class="pricing">R {{ pantCuff.price }}</p>
                 <button mat-raised-button class="select-button" (click)="SelectPantCuff(pantCuff)">Select</button>
             </div>
         </div>

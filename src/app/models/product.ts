@@ -5,6 +5,7 @@ export class Product {
     category: string;
     price: number;
     extras: any;
+    count: number = 1;
     customisation: any;
     image_urls: string[];
     product_SKU: string;
@@ -32,4 +33,3 @@ export class Product {
         }
     }
 }
-    

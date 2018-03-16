@@ -13,21 +13,21 @@ export class PantStylesComponent implements OnInit, AfterViewInit {
   private DesignStage = DesignStage;
 
   private pantPleatsMock: any[] = [
-    {"name": "NAME", "desc": "Pleat Description", "price": "200", "url": "assets/suit-builder/pants/pants-v1.png"},
-    {"name": "NAME", "desc": "Pleat Description", "price": "200", "url": "assets/suit-builder/pants/pants-v2.png"},
-    {"name": "NAME", "desc": "Pleat Description", "price": "200", "url": "assets/suit-builder/pants/pants-v3.png"},
+    {"name": "Flat", "desc": "A flat front style.", "url": ""},
+    {"name": "Dart", "desc": "A single darted front style. ", "url": "assets/suit-builder/pants/pants-v1.png"},
+    {"name": "Single", "desc": "A single pleated front style", "url": "assets/suit-builder/pants/pants-v3.png"},
+    {"name": "Double", "desc": "A double pleated front style", "url": "assets/suit-builder/pants/pants-v2.png"},
   ];
 
   private pantPocketsMock: any[] = [
-    {"name": "NAME", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pants/pants-v1.png"},
-    {"name": "NAME", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pants/pants-v2.png"},
-    {"name": "NAME", "desc": "Pocket Description", "price": "200", "url": "assets/suit-builder/pants/pants-v3.png"},
+    {"name": "None", "desc": "A no pocket style.", "url": ""},
+    {"name": "One", "desc": "A one pocket style.", "url": ""},
+    {"name": "Two", "desc": "A two pockets style.", "url": ""},
   ];
 
   private pantCuffsMock: any[] = [
-    {"name": "NAME", "desc": "Cuff Description", "price": "200", "url": "assets/suit-builder/pants/pants-v1.png"},
-    {"name": "NAME", "desc": "Cuff Description", "price": "200", "url": "assets/suit-builder/pants/pants-v2.png"},
-    {"name": "NAME", "desc": "Cuff Description", "price": "200", "url": "assets/suit-builder/pants/pants-v3.png"},
+    {"name": "None", "desc": "A seem cuff without turnups style.", "url": ""},
+    {"name": "Turnups", "desc": "A seem cuff with turnups style.", "url": ""},
   ];
 
   private errorMessage: string = "";

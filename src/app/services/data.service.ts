@@ -321,7 +321,7 @@ export class DataService {
         });
     }
 
-    UpdateCart(products): Promise<Cart> {
+    UpdateCart(products, total: number = 0): Promise<Cart> {
         return new Promise((resolve, reject) => {
           this._cartUpdating.emit(true);
           if(this.auth.isAuthenticated()) {

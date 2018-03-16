@@ -8,7 +8,7 @@ import { MatIconModule } from '@angular/material';
 import { MatMenuModule } from '@angular/material';
 import { MatCardModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
-import { MatSnackBarModule } from '@angular/material';
+import { MatSnackBarModule } from '@angular/material';import {MatTooltipModule} from '@angular/material/tooltip';
 import { MatSidenavModule } from '@angular/material';
 import { MatGridListModule } from '@angular/material';
 import { MatProgressSpinnerModule } from '@angular/material';
@@ -121,8 +121,8 @@ import { UploadPhotoComponent as ShirtUploadPhotoComponent } from './components/
 import { ExtraDetailsModalComponent as ShirtExtraDetailsModalComponent } from './components/shirt-builder/design/extra-details-modal/extra-details-modal.component';
 
 //Jacket-Builder --This will be moved to a seperated module (jacket-builder.module)
-import { JacketBuilderComponent} from './components/jacket-builder/jacket-builder.component';
-import { FabricComponent as JacketFabricComponent} from './components/jacket-builder/fabric/fabric.component';
+import { JacketBuilderComponent } from './components/jacket-builder/jacket-builder.component';
+import { FabricComponent as JacketFabricComponent } from './components/jacket-builder/fabric/fabric.component';
 import { MaterialComponent as JacketMaterialComponent } from './components/jacket-builder/fabric/material/material.component';
 import { LiningComponent as JacketLiningComponent } from './components/jacket-builder/fabric/lining/lining.component';
 import { DesignComponent as JacketDesignComponent } from './components/jacket-builder/design/design.component';
@@ -267,7 +267,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         DetailsComponent,
         DeliveryMethodComponent,
         CompleteOrderComponent,
-        PaymentMethodComponent       
+        PaymentMethodComponent
     ],
     imports: [
         // ScrollStoreModule,

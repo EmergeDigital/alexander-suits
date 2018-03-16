@@ -12,6 +12,8 @@ export class CheckoutService {
     public user: User = new User({});
     public isUpdateUserRequired: boolean = false;
     public optionalAddressDetails: Address = new Address({});
+    public selectedDeliveryMethod: string = "DHL Delivery";
+    public isDHLDeliveryToDifferentAddress: boolean = false;
 
     constructor() {
         this.SetCheckoutStage.subscribe((checkoutStage: CheckoutStage) => this.checkoutStage = checkoutStage);

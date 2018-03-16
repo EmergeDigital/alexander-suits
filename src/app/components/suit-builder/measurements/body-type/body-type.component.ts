@@ -14,12 +14,13 @@ export class BodyTypeComponent implements OnInit, AfterViewInit {
   private MeasurementStage = MeasurementStage;
 
   private bodyTypesMock: any[] = [
-    {"name": "BODY TYPE", "desc": "Description", "price": "200", "url": ""},
-    {"name": "BODY TYPE", "desc": "Description", "price": "200", "url": ""},
-    {"name": "BODY TYPE", "desc": "Description", "price": "200", "url": ""},
-    {"name": "BODY TYPE", "desc": "Description", "price": "200", "url": ""},
-    {"name": "BODY TYPE", "desc": "Description", "price": "200", "url": ""},
-    {"name": "BODY TYPE", "desc": "Description", "price": "200", "url": ""},
+    {"name": "Slender", "desc": "Skinny figure with small waist.", "url": "assets/measurements/1-slender.png"},
+    {"name": "Slender, Slight Belly", "desc": "Skinny figure with a bit of fat around the edges.", "url": "assets/measurements/2-Slender-with-slight-belly.png"},
+    {"name": "Slender, Athletic", "desc": "Skinny figure with a bit of muscle around the edges.", "url": "assets/measurements/3-Slender-Athletic.png"},
+    {"name": "Rounder", "desc": "Rectangular figure with round waist.", "url": "assets/measurements/4-Rounder-Figure.png"},
+    {"name": "Rounder, Large Stomach", "desc": "Rectangular figure with a protruding stomach.", "url": "assets/measurements/5-Rounder-Figure-with-large-stomach.png"},
+    {"name": "Compact, Slight Belly", "desc": "Muscular figure with higher body fat.", "url": "assets/measurements/6-Compact-with-Stomach.png"},
+    {"name": "Compact, Athletic Chest", "desc": "Muscular figure with lower body fat.", "url": "assets/measurements/7-Compact-Athletic-Chest.png"},
   ];
   
   private selectedBodyType: any = {};
