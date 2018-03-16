@@ -9,7 +9,7 @@
 <div class="row ml-lg-5 ml-md-5 mt-5">
     <div class="col-lg-3 col-md-12">
         <div class="row d-flex justify-content-center">
-            <div class="placeholder-circle-designs" [ngStyle]="{'background': isSelectedPocket ? 'url(' + selectedPocket.url + ')' : ''}"></div>
+            <div class="placeholder-circle-designs" [ngStyle]="{'background': GetBackgroundSelected()}"></div>
             <div class="left-circle-text" *ngIf="isSelectedPocket">
                 <h4>You have chosen:</h4>
                 <h5>{{ selectedPocket.name }}</h5>

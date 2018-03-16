@@ -37,6 +37,18 @@ export class PocketsComponent implements OnInit, AfterViewInit {
     this.MainFocus.first.nativeElement.focus();
   }
 
+  private GetBackgroundSelected(): string {
+    var ret = "";
+
+    if (this.suitBuilderService.isCollarSelected)
+      ret = 'url(' + this.currentSuit.collar.url + '),';
+
+    if (this.isSelectedPocket)
+      ret = ret + ' url(' + this.selectedPocket.url + '),';
+      
+    return ret + ' url("assets/suit-builder/suit-base.png")';
+  }
+
   private SelectPocket(pocket: any) {
     this.selectedPocket = pocket;
     this.isSelectedPocket = true;

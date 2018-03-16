@@ -9,7 +9,7 @@
 <div class="row ml-lg-5 ml-md-5 mt-5">
     <div class="col-lg-3 col-md-12">
         <div class="row d-flex justify-content-center">
-            <div class="placeholder-circle-designs" [ngStyle]="{'background': isSelectedVent ? 'url(' + selectedVent.url + ')' : ''}"></div>
+            <div class="placeholder-circle-designs" [ngStyle]="{'background': isSelectedVent ? 'url(' + selectedVent.url + '), url(assets/suit-builder/vents-base.png)' : 'url(assets/suit-builder/vents-base.png)'}"></div>
             <div class="left-circle-text" *ngIf="isSelectedVent">
                 <h4>You have chosen:</h4>
                 <h5>{{ selectedVent.name }}</h5>
