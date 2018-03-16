@@ -16,7 +16,7 @@
                 </label>
             </div>
         </div>
-        <div *ngIf="selectedDeliveryMethod == 'DHL Delivery'">
+        <div class="ml-5" *ngIf="selectedDeliveryMethod == 'DHL Delivery'">
             <div class="row d-flex align-items-end">
                 <div class="col-lg-4 ml-5">
                     <label>
@@ -26,7 +26,7 @@
                 </div>
             </div>
 
-            <div *ngIf="isDHLDeliveryToDifferentAddress">
+            <div class="ml-5" *ngIf="isDHLDeliveryToDifferentAddress">
                 <div class="row d-flex align-items-end">
                     <div class="col-lg-4 ml-5">
                         <div class="o-input">
@@ -94,15 +94,15 @@
             </div>
         </div>
 
-        <div class="row d-flex align-items-end">
+        <div class="row mt-3 d-flex align-items-end">
             <div class="col-lg-4 ml-5">
                 <label>
                     <input type="radio" name="deliveryMethod" [checked]="selectedDeliveryMethod == 'Pickup From Us'" (change)="selectedDeliveryMethod = 'Pickup From Us'"
-                    />Pickup From Us
+                    /> Pickup From Us
                 </label>
             </div>
         </div>
-        <div *ngIf="selectedDeliveryMethod == 'Pickup From Us'">
+        <div class="ml-5" *ngIf="selectedDeliveryMethod == 'Pickup From Us'">
             <div class="row d-flex align-items-end">
                 <div class="col-lg-4 ml-5">
                     <label>We will contact you when your order is completed and you can fetch it from us!</label>
@@ -110,15 +110,15 @@
             </div>
         </div>
 
-        <div class="row d-flex align-items-end">
+        <div class="row mt-3 d-flex align-items-end">
             <div class="col-lg-4 ml-5">
                 <label>
                     <input type="radio" name="deliveryMethod" [checked]="selectedDeliveryMethod == 'Other'" (change)="selectedDeliveryMethod = 'Other'"
-                    />Other
+                    /> Other
                 </label>
             </div>
         </div>
-        <div *ngIf="selectedDeliveryMethod == 'Other'">
+        <div class="ml-5" *ngIf="selectedDeliveryMethod == 'Other'">
             <div class="row d-flex align-items-end">
                 <div class="col-lg-4 ml-5">
                     <div class="o-input">
@@ -130,7 +130,7 @@
             </div>
         </div>
         
-        <div class="row mt-5">
+        <div class="row mt-5 mr-md-5">
             <div class="col-lg-5 d-flex justify-content-start">
                 <button mat-raised-button class="back-button" (click)="Previous()">Back</button>
             </div>
@@ -139,11 +139,11 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-2">
+    <div class="col-lg-2  hide-mobile">
         <p class="active-link">
             <i class="fa fa-circle" aria-hidden="true"></i> Finalize your cart </p>
         <p>
-            <i class="fa fa-circle-o" aria-hidden="true"></i> Add your details </p>
+            <i class="fa fa-circle" aria-hidden="true"></i> Add your details </p>
         <p>
             <i class="fa fa-circle-o" aria-hidden="true"></i> Delivery </p>
         <p>

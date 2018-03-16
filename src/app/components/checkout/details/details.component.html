@@ -7,21 +7,19 @@
     </div>
 </div>
 <div class="row ml-5 mt-5">
-    <div class="col-lg-3">
-        <div class="placeholder-rectangle-designs"></div>
-    </div>
-    <div class="col-lg-7">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-7 col-md-12">
         <div class="row d-flex align-items-end">
-            <div class="col-lg-4 ml-5">
+            <div class="col-lg-8 col-md-8 col-md-8 ml-5">
                 <div class="o-input">
-                    <input class="o-input__text--box" type="text" [(ngModel)]="user.fullName" (change)="isUpdateUserRequired = true" required>
+                    <input class="o-input__text--box" type="text" [(ngModel)]="user.fullname" (change)="isUpdateUserRequired = true" required>
                     <span class="o-input__bar"></span>
                     <label class="o-input__label--box">FULL NAME</label>
                 </div>
             </div>
         </div>
         <div class="row d-flex align-items-end">
-            <div class="col-lg-4 ml-5">
+            <div class="col-lg-8 col-md-8 col-md-8 ml-5">
                 <div class="o-input">
                     <input class="o-input__text--box" type="text" [(ngModel)]="user.email" (change)="isUpdateUserRequired = true" required>
                     <span class="o-input__bar"></span>
@@ -30,7 +28,7 @@
             </div>
         </div>
         <div class="row d-flex align-items-end">
-            <div class="col-lg-4 ml-5">
+            <div class="col-lg-8 col-md-8 col-md-8 ml-5">
                 <div class="o-input">
                     <input class="o-input__text--box" type="text" [(ngModel)]="user.contact_mobile" (change)="isUpdateUserRequired = true" required>
                     <span class="o-input__bar"></span>
@@ -39,7 +37,7 @@
             </div>
         </div>
         <div class="row d-flex align-items-end">
-            <div class="col-lg-4 ml-5">
+            <div class="col-lg-8 col-md-8 col-md-8 ml-5">
                 <div class="o-input">
                     <input class="o-input__text--box" type="text" [(ngModel)]="user.address" (change)="isUpdateUserRequired = true" required>
                     <span class="o-input__bar"></span>
@@ -48,7 +46,7 @@
             </div>
         </div>
         <div class="row d-flex align-items-end">
-            <div class="col-lg-4 ml-5">
+            <div class="col-lg-8 col-md-8 col-md-8 ml-5">
                 <div class="o-input">
                     <input class="o-input__text--box" type="text" [(ngModel)]="user.address2" (change)="isUpdateUserRequired = true" required>
                     <span class="o-input__bar"></span>
@@ -57,7 +55,7 @@
             </div>
         </div>
         <div class="row d-flex align-items-end">
-            <div class="col-lg-4 ml-5">
+            <div class="col-lg-8 col-md-8 col-md-8 ml-5">
                 <div class="o-input">
                     <input class="o-input__text--box" type="text" [(ngModel)]="user.city" (change)="isUpdateUserRequired = true" required>
                     <span class="o-input__bar"></span>
@@ -66,7 +64,7 @@
             </div>
         </div>
         <div class="row d-flex align-items-end">
-            <div class="col-lg-4 ml-5">
+            <div class="col-lg-8 col-md-8 col-md-8 ml-5">
                 <div class="o-input">
                     <input class="o-input__text--box" type="text" [(ngModel)]="user.province" (change)="isUpdateUserRequired = true" required>
                     <span class="o-input__bar"></span>
@@ -75,7 +73,7 @@
             </div>
         </div>
         <div class="row d-flex align-items-end">
-            <div class="col-lg-4 ml-5">
+            <div class="col-lg-8 col-md-8 col-md-8 ml-5">
                 <div class="o-input">
                     <input class="o-input__text--box" type="text" [(ngModel)]="user.postal_code" (change)="isUpdateUserRequired = true" required>
                     <span class="o-input__bar"></span>
@@ -84,7 +82,7 @@
             </div>
         </div>
         <div class="row d-flex align-items-end">
-            <div class="col-lg-4 ml-5">
+            <div class="col-lg-8 col-md-8 col-md-8 ml-5">
                 <div class="o-input">
                     <input class="o-input__text--box" type="text" [(ngModel)]="user.country" (change)="isUpdateUserRequired = true" required>
                     <span class="o-input__bar"></span>
@@ -92,7 +90,7 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-5">
+        <div class="row mt-5 mr-md-5">
             <div class="col-lg-5 d-flex justify-content-start">
                 <button mat-raised-button class="back-button" (click)="Previous()">Back</button>
             </div>
@@ -101,7 +99,7 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-2">
+    <div class="col-lg-2 hide-mobile">
         <p class="active-link"><i class="fa fa-circle" aria-hidden="true"></i> Finalize your cart </p>
         <p><i class="fa fa-circle-o" aria-hidden="true"></i> Add your details </p>
         <p><i class="fa fa-circle-o" aria-hidden="true"></i> Delivery </p>

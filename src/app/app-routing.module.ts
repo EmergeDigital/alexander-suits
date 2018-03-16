@@ -22,6 +22,7 @@ import { CartComponent } from './components/account/cart/cart.component';
 import { CheckoutMainComponent } from './components/account/checkout/checkout.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { OrderComponent } from './components/account/order/order.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 
 const routes: Routes = [
@@ -101,7 +102,7 @@ const routes: Routes = [
     },
     {
         path: 'checkout',
-        component: CheckoutMainComponent
+        component: CheckoutComponent
     },
     {
         path: 'payment',

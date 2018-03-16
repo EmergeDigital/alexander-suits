@@ -73,7 +73,7 @@ textarea, label {
     color: $c-brown-accent;
     padding:  0.625em 0.625em 0.625em 0.3125em;
     display: block;
-    // width: 20em;
+    width: 100%;
     border: none;
     border-bottom: 0.0625em solid $c-brown-accent;
     &:focus {
@@ -216,4 +216,40 @@ textarea, label {
     font-style: italic; 
     margin-left: 2em;
     margin-top: -1em;
+}
+
+.next-button {
+    background-color: $c-brown-accent;
+    color: white;
+    padding: 0.3em 5em;
+    text-transform: uppercase;
+    font-size: 0.75em;
+    letter-spacing: 0.125em;
+    border: none;
+}
+.back-button {
+    background-color: $c-grey-lite;
+    color: white;
+    padding: 0.3em 5em;
+    text-transform: uppercase;
+    font-size: 0.75em;
+    letter-spacing: 0.125em;
+    border: none;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .hide-mobile {
+        visibility: hidden;
+        display: none !important;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .hide-mobile {
+        visibility: hidden;
+        display: none !important;
+    }
+    .hide-info-mobile {
+        visibility: hidden;
+        display: none !important;
+    }
 }
