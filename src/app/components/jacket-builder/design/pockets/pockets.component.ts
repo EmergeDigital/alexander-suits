@@ -10,9 +10,9 @@ import { DesignStage } from '../../../../models/jacket-builder/designStage';
 export class PocketsComponent implements OnInit, AfterViewInit {
   @ViewChildren("MainFocus") MainFocus;
 
-  private DesignStage = DesignStage;
+  public DesignStage = DesignStage;
 
-  private pocketsMock: any[] = [
+  public pocketsMock: any[] = [
     { "name": "1", "desc": "Pocket Description", "url": "assets/jacket-builder/pockets/pocket-v1.png" },
     { "name": "2", "desc": "Pocket Description", "url": "assets/jacket-builder/pockets/pocket-v2.png" },
     { "name": "3", "desc": "Pocket Description", "url": "assets/jacket-builder/pockets/pocket-v3.png" },
@@ -20,12 +20,12 @@ export class PocketsComponent implements OnInit, AfterViewInit {
     { "name": "5", "desc": "Pocket Description", "url": "assets/jacket-builder/pockets/pocket-v5.png" },
   ];
 
-  private selectedPocket: any = {};
-  private isSelectedPocket: boolean = false;
+  public selectedPocket: any = {};
+  public isSelectedPocket: boolean = false;
 
-  private currentSuit: any = {};
+  public currentSuit: any = {};
 
-  constructor(private jacketBuilderService: JacketBuilderService) { }
+  constructor(public jacketBuilderService: JacketBuilderService) { }
 
   public ngOnInit(): void {
     this.currentSuit = this.jacketBuilderService.suit;
@@ -37,16 +37,16 @@ export class PocketsComponent implements OnInit, AfterViewInit {
     this.MainFocus.first.nativeElement.focus();
   }
 
-  private SelectPocket(pocket: any) {
+  public SelectPocket(pocket: any) {
     this.selectedPocket = pocket;
     this.isSelectedPocket = true;
   }
 
-  private Previous(): void {
+  public Previous(): void {
     this.jacketBuilderService.SetDesignStage.emit(DesignStage.Collar);
   }
 
-  private Next(): void {
+  public Next(): void {
     this.jacketBuilderService.suit.pockets = this.selectedPocket;
     this.jacketBuilderService.isPocketsSelected = this.isSelectedPocket;
     this.jacketBuilderService.SetDesignStage.emit(DesignStage.Vents);

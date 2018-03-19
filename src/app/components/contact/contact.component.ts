@@ -9,26 +9,26 @@ import { ToastyService, ToastyConfig, ToastOptions, ToastData } from 'ng2-toasty
     styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-    private email: string = "send us an email";
-    private cell: string = "give us a call";
+    public email: string = "send us an email";
+    public cell: string = "give us a call";
 
-    constructor(private toastyService: ToastyService, private toastyConfig: ToastyConfig, public data: DataService) {
+    constructor(public toastyService: ToastyService, public toastyConfig: ToastyConfig, public data: DataService) {
     }
 
     public ngOnInit(): void {
     }
 
-    private Call(): void {
+    public Call(): void {
         if (/Android|iPhone/i.test(window.navigator.userAgent))
             window.open("tel:+27114923360", "_blank");
     }
 
-    private Email(): void {
+    public Email(): void {
         if (/Android|iPhone/i.test(window.navigator.userAgent))
             window.open("mailto:info@alexandersuits.com", "_blank");
     }
 
-    private OpenLocation(): void {
+    public OpenLocation(): void {
         window.open("https://maps.google.com/?q=Alexander Suits (Pty) Ltd., 2nd Floor Tattersalls Building, Albert Street, Johannesburg", "_blank");
     }
 

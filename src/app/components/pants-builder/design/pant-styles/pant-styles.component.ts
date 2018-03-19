@@ -10,38 +10,38 @@ import { WizardStage } from '../../../../models/pants-builder/wizardStage';
 export class PantStylesComponent implements OnInit, AfterViewInit {
   @ViewChildren("MainFocus") MainFocus;
 
-  private pantPleatsMock: any[] = [
+  public pantPleatsMock: any[] = [
     {"name": "1", "desc": "Collar Description", "url": "assets/pants-builder/pants/pants-v1.png"},
     {"name": "2", "desc": "Collar Description", "url": "assets/pants-builder/pants/pants-v2.png"},
     {"name": "3", "desc": "Collar Description", "url": "assets/pants-builder/pants/pants-v3.png"},
   ];
 
-  private pantPocketsMock: any[] = [
+  public pantPocketsMock: any[] = [
     {"name": "1", "desc": "Collar Description", "url": "assets/pants-builder/pants/pants-v1.png"},
     {"name": "2", "desc": "Collar Description", "url": "assets/pants-builder/pants/pants-v2.png"},
     {"name": "3", "desc": "Collar Description", "url": "assets/pants-builder/pants/pants-v3.png"},
   ];
 
-  private pantCuffsMock: any[] = [
+  public pantCuffsMock: any[] = [
     {"name": "1", "desc": "Collar Description", "url": "assets/pants-builder/pants/pants-v1.png"},
     {"name": "2", "desc": "Collar Description", "url": "assets/pants-builder/pants/pants-v2.png"},
     {"name": "3", "desc": "Collar Description", "url": "assets/pants-builder/pants/pants-v3.png"},
   ];
 
-  private errorMessage: string = "";
+  public errorMessage: string = "";
 
-  private selectedPantPleat: any = {};
-  private isSelectedPantPleat: boolean = false;
+  public selectedPantPleat: any = {};
+  public isSelectedPantPleat: boolean = false;
   
-  private selectedPantPocket: any = {};
-  private isSelectedPantPocket: boolean = false;
+  public selectedPantPocket: any = {};
+  public isSelectedPantPocket: boolean = false;
   
-  private selectedPantCuff: any = {};
-  private isSelectedPantCuff: boolean = false;
+  public selectedPantCuff: any = {};
+  public isSelectedPantCuff: boolean = false;
 
-  private currentSuit: any = {};
+  public currentSuit: any = {};
 
-  constructor(private pantsBuilderService: PantsBuilderService) { }
+  constructor(public pantsBuilderService: PantsBuilderService) { }
 
   public ngOnInit(): void {
     this.currentSuit = this.pantsBuilderService.suit;
@@ -58,26 +58,26 @@ export class PantStylesComponent implements OnInit, AfterViewInit {
     this.MainFocus.first.nativeElement.focus();
   }
 
-  private SelectPantPleat(pantPleat: any) {
+  public SelectPantPleat(pantPleat: any) {
     this.selectedPantPleat = pantPleat;
     this.isSelectedPantPleat = true;
   }
 
-  private SelectPantPocket(pantPocket: any) {
+  public SelectPantPocket(pantPocket: any) {
     this.selectedPantPocket = pantPocket;
     this.isSelectedPantPocket = true;
   }
 
-  private SelectPantCuff(pantCuff: any) {
+  public SelectPantCuff(pantCuff: any) {
     this.selectedPantCuff = pantCuff;
     this.isSelectedPantCuff = true;
   }
 
-  private Previous() {
+  public Previous() {
     this.pantsBuilderService.SetWizardStage.emit(WizardStage.Fabric);
   }
 
-  private Next() {
+  public Next() {
     this.pantsBuilderService.suit.pantPleat = this.selectedPantPleat;
     this.pantsBuilderService.suit.pantBackPocket = this.selectedPantPocket;
     this.pantsBuilderService.suit.pantCuff = this.selectedPantCuff;

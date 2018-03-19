@@ -13,17 +13,17 @@ import { Cart } from '../../../models/cart';
 })
 export class PaymentMethodComponent implements OnInit {
 
-    private current_user: User;
-    private cart: Cart = new Cart({});
+    public current_user: User;
+    public cart: Cart = new Cart({});
 
-    constructor(private checkoutService: CheckoutService, private data: DataService, private router: Router) { }
+    constructor(public checkoutService: CheckoutService, public data: DataService, public router: Router) { }
 
     public ngOnInit(): void {
         this.data.getCart().then((cart: Cart) => this.cart = cart);
         this.LoadUser();
     }
 
-    private LoadUser(): void {
+    public LoadUser(): void {
         if (this.data.hasLoaded()) {
             let id = this.data.getCurrentUser;
             this.data.getUser(id).then((user) => {
@@ -37,11 +37,11 @@ export class PaymentMethodComponent implements OnInit {
         }
     }
 
-    private Previous(): void {
+    public Previous(): void {
         this.checkoutService.SetCheckoutStage.emit(CheckoutStage.CompleteOrder)
     }
 
-    private Complete(paymentMethod: string): void {
+    public Complete(paymentMethod: string): void {
         let addressObj = {};
         let deliveryObj = {};
         let userObj = {};

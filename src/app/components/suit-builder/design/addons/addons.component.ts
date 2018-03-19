@@ -17,16 +17,16 @@ import { MockupGarmentModalComponent } from '../../utilities/mockup-garment-moda
 export class AddonsComponent implements OnInit, AfterViewInit {
   @ViewChildren("MainFocus") MainFocus;
 
-  private DesignStage = DesignStage;
+  public DesignStage = DesignStage;
 
-  private errorMessage: string = "";
+  public errorMessage: string = "";
 
-  private isExtraPantsSelected: boolean = false;
-  private isWaisteCoatSelected: boolean = false;
+  public isExtraPantsSelected: boolean = false;
+  public isWaisteCoatSelected: boolean = false;
 
-  private currentSuit: any = {};
+  public currentSuit: any = {};
 
-  constructor(private suitBuilderService: SuitBuilderService, private dialog: MatDialog) { }
+  constructor(public suitBuilderService: SuitBuilderService, public dialog: MatDialog) { }
 
   public ngOnInit(): void {
     this.currentSuit = this.suitBuilderService.suit;
@@ -38,11 +38,11 @@ export class AddonsComponent implements OnInit, AfterViewInit {
     this.MainFocus.first.nativeElement.focus();
   }
 
-  private Previous() {
+  public Previous() {
     this.suitBuilderService.SetDesignStage.emit(DesignStage.PantStyles);
   }
 
-  private Next() {
+  public Next() {
     this.suitBuilderService.suit.extra_pants = this.isExtraPantsSelected;
     this.suitBuilderService.suit.waistcoat = this.isWaisteCoatSelected;
 

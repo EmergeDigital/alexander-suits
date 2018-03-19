@@ -13,31 +13,31 @@ import { MatDialog } from '@angular/material';
 export class PackageStitchingComponent implements OnInit, AfterViewInit {
   @ViewChildren("MainFocus") MainFocus;
 
-  private FinerDetailsStage = FinerDetailsStage;
+  public FinerDetailsStage = FinerDetailsStage;
 
-  private contrastPackagesMock: any[] = [
+  public contrastPackagesMock: any[] = [
     { "name": "Basic", "desc": "A basic contrast package.", "url": "" },
     { "name": "Alx", "desc": "A alx constrast package.", "url": "" },
   ];
 
-  private topStitchsMock: any[] = [
+  public topStitchsMock: any[] = [
     { "name": "None", "desc": "A no top stitch style.", "url": "" },
     { "name": "Single", "desc": "A single top stitch style.", "url": "" },
   ];
 
-  private errorMessage: string = "";
+  public errorMessage: string = "";
 
-  private selectedConstrastPackage: any = {};
-  private isSelectedConstrastPackage: boolean = false;
+  public selectedConstrastPackage: any = {};
+  public isSelectedConstrastPackage: boolean = false;
 
-  private selectedTopStitch: any = {};
-  private isSelectedTopStitch: boolean = false;
+  public selectedTopStitch: any = {};
+  public isSelectedTopStitch: boolean = false;
 
-  private selectedContrastPackageColour: string = "";
+  public selectedContrastPackageColour: string = "";
 
-  private currentSuit: any = {};
+  public currentSuit: any = {};
 
-  constructor(private suitBuilderService: SuitBuilderService, private dialog: MatDialog) { }
+  constructor(public suitBuilderService: SuitBuilderService, public dialog: MatDialog) { }
 
   public ngOnInit(): void {
     this.currentSuit = this.suitBuilderService.suit;
@@ -53,21 +53,21 @@ export class PackageStitchingComponent implements OnInit, AfterViewInit {
     this.MainFocus.first.nativeElement.focus();
   }
 
-  private SelectContrastPackage(constrastPackage: any) {
+  public SelectContrastPackage(constrastPackage: any) {
     this.selectedConstrastPackage = constrastPackage;
     this.isSelectedConstrastPackage = true;
   }
 
-  private SelectTopStitch(topStitch: any) {
+  public SelectTopStitch(topStitch: any) {
     this.selectedTopStitch = topStitch;
     this.isSelectedTopStitch = true;
   }
 
-  private Previous() {
+  public Previous() {
     this.suitBuilderService.SetFinerDetailsStage.emit(FinerDetailsStage.ButtonStyles);
   }
 
-  private Next() {
+  public Next() {
     this.suitBuilderService.suit.contrastPackage = this.selectedConstrastPackage;
     this.suitBuilderService.suit.topStitch = this.selectedTopStitch;
     this.suitBuilderService.suit.contrastPackageColour = this.selectedContrastPackageColour;

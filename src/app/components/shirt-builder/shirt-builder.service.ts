@@ -12,19 +12,19 @@ export class ShirtBuilderService {
     public collection: string = '';
     public _collectionChanged: EventEmitter<string> = new EventEmitter();
 
-    private wizardStage: WizardStage = WizardStage.Fabric;
+    public wizardStage: WizardStage = WizardStage.Fabric;
     public get WizardStage(): WizardStage { return this.wizardStage; }
     public SetWizardStage: EventEmitter<WizardStage> = new EventEmitter<WizardStage>();
 
-    private designStage: DesignStage = DesignStage.Collar;
+    public designStage: DesignStage = DesignStage.Collar;
     public get DesignStage(): DesignStage { return this.designStage; }
     public SetDesignStage: EventEmitter<DesignStage> = new EventEmitter<DesignStage>();
 
-    private finerDetailsStage: FinerDetailsStage = FinerDetailsStage.ButtonStyles;
+    public finerDetailsStage: FinerDetailsStage = FinerDetailsStage.ButtonStyles;
     public get FinerDetailsStage(): FinerDetailsStage { return this.finerDetailsStage; }
     public SetFinerDetailsStage: EventEmitter<FinerDetailsStage> = new EventEmitter<FinerDetailsStage>();
 
-    private measurementsStage: MeasurementStage = MeasurementStage.BodyType;
+    public measurementsStage: MeasurementStage = MeasurementStage.BodyType;
     public get MeasurementStage(): MeasurementStage { return this.measurementsStage; }
     public SetMeasurementsStage: EventEmitter<MeasurementStage> = new EventEmitter<MeasurementStage>();
 

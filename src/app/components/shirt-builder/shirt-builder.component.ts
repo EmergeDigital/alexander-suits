@@ -7,11 +7,11 @@ import { WizardStage } from '../../models/shirt-builder/wizardStage';
   styleUrls: ['./shirt-builder.component.scss']
 })
 export class ShirtBuilderComponent implements OnInit {
-  private WizardStage = WizardStage; //Html Reference
+  public WizardStage = WizardStage; //Html Reference
 
-  private currentWizardStage: WizardStage = WizardStage.Fabric;
+  public currentWizardStage: WizardStage = WizardStage.Fabric;
 
-  constructor(private shirtBuilderService: ShirtBuilderService) { }
+  constructor(public shirtBuilderService: ShirtBuilderService) { }
 
   public ngOnInit(): void {
     this.shirtBuilderService.SetWizardStage.subscribe((wizardStage: WizardStage) => this.currentWizardStage = wizardStage);

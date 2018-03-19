@@ -24,7 +24,7 @@ export class PaymentComponent implements OnInit {
   paymentStatus: string;
   paymentSubstring: string;
 
-  constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig, public data: DataService, public auth: AuthService, public router: Router, public session: SessionService) {
+  constructor(public toastyService:ToastyService, public toastyConfig: ToastyConfig, public data: DataService, public auth: AuthService, public router: Router, public session: SessionService) {
     // console.log(session.fetchOrder());
     this.isLoading = true;
     if(auth.isAuthenticated()) {

@@ -11,9 +11,9 @@ import { WizardStage } from '../../../../models/suit-builder/wizardStage';
 export class BodyTypeComponent implements OnInit, AfterViewInit {
   @ViewChildren("MainFocus") MainFocus;
   
-  private MeasurementStage = MeasurementStage;
+  public MeasurementStage = MeasurementStage;
 
-  private bodyTypesMock: any[] = [
+  public bodyTypesMock: any[] = [
     {"name": "Slender", "desc": "Skinny figure with small waist.", "url": "assets/measurements/1-slender.png"},
     {"name": "Slender, Slight Belly", "desc": "Skinny figure with a bit of fat around the edges.", "url": "assets/measurements/2-Slender-with-slight-belly.png"},
     {"name": "Slender, Athletic", "desc": "Skinny figure with a bit of muscle around the edges.", "url": "assets/measurements/3-Slender-Athletic.png"},
@@ -23,12 +23,12 @@ export class BodyTypeComponent implements OnInit, AfterViewInit {
     {"name": "Compact, Athletic Chest", "desc": "Muscular figure with lower body fat.", "url": "assets/measurements/7-Compact-Athletic-Chest.png"},
   ];
   
-  private selectedBodyType: any = {};
-  private isSelectedBodyType: boolean = false;
+  public selectedBodyType: any = {};
+  public isSelectedBodyType: boolean = false;
 
-  private currentSuit: any = {};
+  public currentSuit: any = {};
 
-  constructor(private suitBuilderService: SuitBuilderService) { }
+  constructor(public suitBuilderService: SuitBuilderService) { }
 
   public ngOnInit(): void {
     this.currentSuit = this.suitBuilderService.suit;
@@ -41,16 +41,16 @@ export class BodyTypeComponent implements OnInit, AfterViewInit {
     this.MainFocus.first.nativeElement.focus();
   }
 
-  private SelectBodyType(bodyType: any) {
+  public SelectBodyType(bodyType: any) {
     this.selectedBodyType = bodyType;
     this.isSelectedBodyType = true;
   }
 
-  private Previous(): void {
+  public Previous(): void {
     this.suitBuilderService.SetWizardStage.emit(WizardStage.FinerDetails);
   }
 
-  private Next(): void {
+  public Next(): void {
     this.suitBuilderService.suit.bodyType = this.selectedBodyType;
     
     this.suitBuilderService.isBodyTypeSelected = this.isSelectedBodyType;

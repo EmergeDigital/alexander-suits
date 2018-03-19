@@ -21,7 +21,7 @@ export class DialogContentCartDialog implements OnInit {
   isLoading: boolean;
 
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public router: Router, private toastyService:ToastyService, private toastyConfig: ToastyConfig) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public router: Router, public toastyService:ToastyService, public toastyConfig: ToastyConfig) {
     this.isLoading = false;
     let numbers = [];
     for(let i = 1; i < 21; i++) {

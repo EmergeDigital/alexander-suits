@@ -18,7 +18,7 @@ export class CartComponent implements OnInit {
   loadingToast: any;
   loadingCart: boolean;
 
-  constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig, public data: DataService, public auth: AuthService, public router: Router) {
+  constructor(public toastyService:ToastyService, public toastyConfig: ToastyConfig, public data: DataService, public auth: AuthService, public router: Router) {
 
     this.loadingToast = null;
     this.loadingCart = true;

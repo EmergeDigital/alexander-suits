@@ -8,11 +8,11 @@ import { MeasurementStage } from '../../../models/shirt-builder/measurementsStag
   styleUrls: ['./measurements.component.scss']
 })
 export class MeasurementsComponent implements OnInit {
-  private MeasurementStage = MeasurementStage; //Html Reference
+  public MeasurementStage = MeasurementStage; //Html Reference
 
-  private currentMeasurementStage: MeasurementStage = MeasurementStage.BodyType;
+  public currentMeasurementStage: MeasurementStage = MeasurementStage.BodyType;
 
-  constructor(private shirtBuilderService: ShirtBuilderService) { }
+  constructor(public shirtBuilderService: ShirtBuilderService) { }
 
   public ngOnInit(): void {
     this.currentMeasurementStage = this.shirtBuilderService.MeasurementStage;

@@ -13,21 +13,21 @@ import { MatDialog } from '@angular/material';
 export class VentsComponent implements OnInit, AfterViewInit {
   @ViewChildren("MainFocus") MainFocus;
   
-  private DesignStage = DesignStage;
+  public DesignStage = DesignStage;
 
-  private ventsMock: any[] = [
+  public ventsMock: any[] = [
     {"name": "1", "desc": "Vent Description", "url": "assets/jacket-builder/vents/vents-v1.png"},
     {"name": "2", "desc": "Vent Description", "url": "assets/jacket-builder/vents/vents-v2.png"},
   ];
 
-  private errorMessage: string = "";
+  public errorMessage: string = "";
 
-  private selectedVent: any = {};
-  private isSelectedVent: boolean = false;
+  public selectedVent: any = {};
+  public isSelectedVent: boolean = false;
 
-  private currentSuit: any = {};
+  public currentSuit: any = {};
 
-  constructor(private jacketBuilderService: JacketBuilderService, private dialog: MatDialog) { }
+  constructor(public jacketBuilderService: JacketBuilderService, public dialog: MatDialog) { }
 
   public ngOnInit(): void {
     this.currentSuit = this.jacketBuilderService.suit;
@@ -39,16 +39,16 @@ export class VentsComponent implements OnInit, AfterViewInit {
     this.MainFocus.first.nativeElement.focus();
   }
 
-  private SelectVent(vent: any) {
+  public SelectVent(vent: any) {
     this.selectedVent = vent;
     this.isSelectedVent = true;
   }
 
-  private Previous() {
+  public Previous() {
     this.jacketBuilderService.SetDesignStage.emit(DesignStage.Pockets);
   }
 
-  private Next() {
+  public Next() {
     this.jacketBuilderService.suit.vents = this.selectedVent;
     this.jacketBuilderService.isVentsSelected = this.isSelectedVent;
 

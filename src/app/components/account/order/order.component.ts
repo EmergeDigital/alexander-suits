@@ -14,12 +14,12 @@ import { Router } from '@angular/router';
 export class OrderComponent implements OnInit {
 
     id: string;
-    private sub: any;
+    public sub: any;
     public order: Order;
     public error: string;
     public isLoading: boolean;
 
-    constructor(private route: ActivatedRoute, public auth: AuthService, public data: DataService, public router: Router, public session: SessionService) {}
+    constructor(public route: ActivatedRoute, public auth: AuthService, public data: DataService, public router: Router, public session: SessionService) {}
 
   ngOnInit() {
    this.isLoading = true;

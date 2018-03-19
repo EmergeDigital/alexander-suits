@@ -8,11 +8,11 @@ import { FabricStage } from '../../../models/jacket-builder/fabricStage';
   styleUrls: ['./fabric.component.scss']
 })
 export class FabricComponent implements OnInit {
-  private FabricStage = FabricStage; // Html Reference
+  public FabricStage = FabricStage; // Html Reference
 
-  private currentFabricStage: FabricStage = FabricStage.Material;
+  public currentFabricStage: FabricStage = FabricStage.Material;
 
-  constructor(private jacketBuilderService: JacketBuilderService) { }
+  constructor(public jacketBuilderService: JacketBuilderService) { }
 
   public ngOnInit(): void {
     this.currentFabricStage = this.jacketBuilderService.FabricStage;

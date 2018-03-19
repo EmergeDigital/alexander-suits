@@ -14,18 +14,18 @@ import { TdLoadingService } from '@covalent/core/loading/services/loading.servic
 export class UploadPhotoComponent implements OnInit, AfterViewInit {
   @ViewChildren("MainFocus") MainFocus;
 
-  private MeasurementStage = MeasurementStage;
+  public MeasurementStage = MeasurementStage;
 
-  private uploadedImages: any = { front: "", left: "", right: "", back: "" };
+  public uploadedImages: any = { front: "", left: "", right: "", back: "" };
 
-  private errorMessage: string = "";
+  public errorMessage: string = "";
 
   public uploading: boolean = false;
 
   public currentSuit: any = {};
 
-  constructor(private shirtBuilderService: ShirtBuilderService, private ng2ImgToolsService: Ng2ImgToolsService,
-              private data: DataService, private _loadingService: TdLoadingService) { }
+  constructor(public shirtBuilderService: ShirtBuilderService, public ng2ImgToolsService: Ng2ImgToolsService,
+              public data: DataService, public _loadingService: TdLoadingService) { }
 
   public ngOnInit(): void {
     this.currentSuit = this.shirtBuilderService.suit;
@@ -36,23 +36,23 @@ export class UploadPhotoComponent implements OnInit, AfterViewInit {
     this.MainFocus.first.nativeElement.focus();
   }
 
-  private FrontImageSelect(file: File) {
+  public FrontImageSelect(file: File) {
     this.FileUploadSelect(file, "front");
   }
 
-  private LeftImageSelect(file: File) {
+  public LeftImageSelect(file: File) {
     this.FileUploadSelect(file, "left");
   }
 
-  private RightImageSelect(file: File) {
+  public RightImageSelect(file: File) {
     this.FileUploadSelect(file, "right");
   }
 
-  private BackImageSelect(file: File) {
+  public BackImageSelect(file: File) {
     this.FileUploadSelect(file, "back");
   }
 
-  private FileUploadSelect(file: File, imageToUpdate: string): void {
+  public FileUploadSelect(file: File, imageToUpdate: string): void {
     this._loadingService.register('overlayStarSyntax');
     this.ng2ImgToolsService.resizeExactCrop([file], 180, 180).subscribe(result => {
         console.info(result);
@@ -68,15 +68,15 @@ export class UploadPhotoComponent implements OnInit, AfterViewInit {
     });
   }
 
-  private FileUploadCancel(imageToCancel: string): void {
+  public FileUploadCancel(imageToCancel: string): void {
     this.uploadedImages[imageToCancel] = "";
   }
 
-  private Previous(): void {
+  public Previous(): void {
     this.shirtBuilderService.SetMeasurementsStage.emit(MeasurementStage.FinerMeasurements);
   }
 
-  private Next(): void {
+  public Next(): void {
     this.shirtBuilderService.suit.uploadedImages = this.uploadedImages;
     
     this.errorMessage = this.shirtBuilderService.ValidateMeasurementsStage();

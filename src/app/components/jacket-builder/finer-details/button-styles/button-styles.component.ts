@@ -11,35 +11,35 @@ import { FinerDetailsStage } from '../../../../models/jacket-builder/finerDetail
 export class ButtonStylesComponent implements OnInit, AfterViewInit {
   @ViewChildren("MainFocus") MainFocus;
   
-  private FinerDetailsStage = FinerDetailsStage;
+  public FinerDetailsStage = FinerDetailsStage;
 
-  private buttonHolesMock: any[] = [
+  public buttonHolesMock: any[] = [
     { "name": "1", "desc": "Fake button holes", "url": "assets/jacket-builder/buttons/buttons-v1.png" },
     { "name": "2", "desc": "Working button holes", "url": "assets/jacket-builder/buttons/buttons-v2.png" },
   ];
   
-  private boutonneriesMock: any[] = [
+  public boutonneriesMock: any[] = [
     { "name": "1", "desc": "Fake button holes", "url": "assets/jacket-builder/buttons/buttons-v1.png" },
     { "name": "2", "desc": "Working button holes", "url": "assets/jacket-builder/buttons/buttons-v2.png" },
   ];
   
-  private lastButtonSleevesMock: any[] = [
+  public lastButtonSleevesMock: any[] = [
     { "name": "1", "desc": "Fake button holes", "url": "assets/jacket-builder/buttons/buttons-v1.png" },
     { "name": "2", "desc": "Working button holes", "url": "assets/jacket-builder/buttons/buttons-v2.png" },
   ];
 
-  private errorMessage: string = "";
+  public errorMessage: string = "";
 
-  private selectedButtonHole: any = {};
-  private isSelectedButtonHole: boolean = false;  
+  public selectedButtonHole: any = {};
+  public isSelectedButtonHole: boolean = false;  
 
-  private selectedBoutonnerie: any = {};
-  private isSelectedBoutonnerie: boolean = false;  
+  public selectedBoutonnerie: any = {};
+  public isSelectedBoutonnerie: boolean = false;  
 
-  private selectedLastButtonSleeve: any = {};
-  private isSelectedLastButtonSleeve: boolean = false;  
+  public selectedLastButtonSleeve: any = {};
+  public isSelectedLastButtonSleeve: boolean = false;  
 
-  constructor(private jacketBuilderService: JacketBuilderService) { }
+  constructor(public jacketBuilderService: JacketBuilderService) { }
 
   public ngOnInit(): void {
     this.selectedButtonHole = this.jacketBuilderService.suit.buttonHole;
@@ -55,26 +55,26 @@ export class ButtonStylesComponent implements OnInit, AfterViewInit {
     this.MainFocus.first.nativeElement.focus();
   }
 
-  private SelectButtonHole(buttonHole: any) {
+  public SelectButtonHole(buttonHole: any) {
     this.selectedButtonHole = buttonHole;
     this.isSelectedButtonHole = true;
   }
 
-  private SelectBoutonnerie(boutonnerie: any) {
+  public SelectBoutonnerie(boutonnerie: any) {
     this.selectedBoutonnerie = boutonnerie;
     this.isSelectedBoutonnerie = true;
   }
 
-  private SelectLastButtonSleeve(lastButtonSleeve: any) {
+  public SelectLastButtonSleeve(lastButtonSleeve: any) {
     this.selectedLastButtonSleeve = lastButtonSleeve;
     this.isSelectedLastButtonSleeve = true;
   }
 
-  private Previous(): void {
+  public Previous(): void {
     this.jacketBuilderService.SetWizardStage.emit(WizardStage.Design);
   }
 
-  private Next(): void {
+  public Next(): void {
     this.jacketBuilderService.suit.buttonHole = this.selectedButtonHole;
     this.jacketBuilderService.suit.boutonnerie = this.selectedBoutonnerie;
     this.jacketBuilderService.suit.lastButtonSleeve = this.selectedLastButtonSleeve;

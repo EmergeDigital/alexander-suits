@@ -11,31 +11,31 @@ import { DesignStage } from '../../../../models/shirt-builder/designStage';
 export class SleeveComponent implements OnInit, AfterViewInit {
   @ViewChildren("MainFocus") MainFocus;
   
-  private DesignStage = DesignStage;
+  public DesignStage = DesignStage;
 
-  private sleevesMock: any[] = [
+  public sleevesMock: any[] = [
     { "name": "Long", "desc": "Long", "url": "assets/shirt-builder/buttons/buttons-v1.png" },
     { "name": "Short", "desc": "Short", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
   ];
   
-  private cuffsMock: any[] = [
+  public cuffsMock: any[] = [
     { "name": "1", "desc": "Fake button holes","url": "assets/shirt-builder/buttons/buttons-v1.png" },
     { "name": "2", "desc": "Working button holes", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
     { "name": "3", "desc": "Working button holes", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
     { "name": "4", "desc": "Working button holes", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
   ];
 
-  private errorMessage: string = "";
+  public errorMessage: string = "";
 
-  private selectedSleeve: any = {};
-  private isSelectedSleeve: boolean = false;  
+  public selectedSleeve: any = {};
+  public isSelectedSleeve: boolean = false;  
 
-  private selectedCuff: any = {};
-  private isSelectedCuff: boolean = false;  
+  public selectedCuff: any = {};
+  public isSelectedCuff: boolean = false;  
 
-  private currentSuit: any = {};
+  public currentSuit: any = {};
 
-  constructor(private shirtBuilderService: ShirtBuilderService) { }
+  constructor(public shirtBuilderService: ShirtBuilderService) { }
 
   public ngOnInit(): void {
     this.currentSuit = this.shirtBuilderService.suit;
@@ -51,21 +51,21 @@ export class SleeveComponent implements OnInit, AfterViewInit {
     this.MainFocus.first.nativeElement.focus();
   }
 
-  private SelectSleeve(sleeve: any) {
+  public SelectSleeve(sleeve: any) {
     this.selectedSleeve = sleeve;
     this.isSelectedSleeve = true;
   }
 
-  private SelectCuff(cuff: any) {
+  public SelectCuff(cuff: any) {
     this.selectedCuff = cuff;
     this.isSelectedCuff = true;
   }
 
-  private Previous(): void {
+  public Previous(): void {
     this.shirtBuilderService.SetDesignStage.emit(DesignStage.Collar);
   }
 
-  private Next(): void {
+  public Next(): void {
     this.shirtBuilderService.suit.sleeve = this.selectedSleeve;
     this.shirtBuilderService.suit.cuff = this.selectedCuff;
     

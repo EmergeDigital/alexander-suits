@@ -10,13 +10,13 @@ import { MeasurementStage } from '../../../../models/jacket-builder/measurements
 export class GeneralMeasurementsComponent implements OnInit, AfterViewInit {
   @ViewChildren("MainFocus") MainFocus;
   
-  private MeasurementStage = MeasurementStage;
+  public MeasurementStage = MeasurementStage;
 
-  private generalMeasurements: any = { height: 0, chest: 0, back: 0, biceps: 0, stomach: 0, seat: 0, thigh: 0};
+  public generalMeasurements: any = { height: 0, chest: 0, back: 0, biceps: 0, stomach: 0, seat: 0, thigh: 0};
 
-  private currentSuit: any = {};
+  public currentSuit: any = {};
 
-  constructor(private jacketBuilderService: JacketBuilderService) { }
+  constructor(public jacketBuilderService: JacketBuilderService) { }
 
   public ngOnInit(): void {
     this.currentSuit = this.jacketBuilderService.suit;
@@ -27,11 +27,11 @@ export class GeneralMeasurementsComponent implements OnInit, AfterViewInit {
     this.MainFocus.first.nativeElement.focus();
   }
 
-  private Previous(): void {
+  public Previous(): void {
     this.jacketBuilderService.SetMeasurementsStage.emit(MeasurementStage.BodyType);
   }
 
-  private Next(): void {
+  public Next(): void {
     this.jacketBuilderService.suit.generalMeasurements = this.generalMeasurements;
     this.jacketBuilderService.SetMeasurementsStage.emit(MeasurementStage.FinerMeasurements);
   }

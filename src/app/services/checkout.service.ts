@@ -5,7 +5,7 @@ import { Address } from "../models/address";
 
 @Injectable()
 export class CheckoutService {    
-    private checkoutStage: CheckoutStage = CheckoutStage.FinalizeCart;
+    public checkoutStage: CheckoutStage = CheckoutStage.FinalizeCart;
     public get CheckoutStage(): CheckoutStage { return this.checkoutStage; }
     public SetCheckoutStage: EventEmitter<CheckoutStage> = new EventEmitter<CheckoutStage>();
 

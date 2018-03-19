@@ -8,11 +8,11 @@ import { CheckoutService } from '../../services/checkout.service';
     styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
-    private CheckoutStage = CheckoutStage; // Html Reference
+    public CheckoutStage = CheckoutStage; // Html Reference
   
-    private currentCheckoutStage: CheckoutStage = CheckoutStage.FinalizeCart;
+    public currentCheckoutStage: CheckoutStage = CheckoutStage.FinalizeCart;
 
-    constructor(private checkoutService: CheckoutService) { }
+    constructor(public checkoutService: CheckoutService) { }
 
     public ngOnInit(): void {
         this.checkoutService.SetCheckoutStage.subscribe((checkoutStage: CheckoutStage) => this.currentCheckoutStage = checkoutStage);

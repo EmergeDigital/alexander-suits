@@ -8,11 +8,11 @@ import { FinerDetailsStage } from '../../../models/jacket-builder/finerDetailsSt
   styleUrls: ['./finer-details.component.scss']
 })
 export class FinerDetailsComponent implements OnInit {
-  private FinerDetailsStage = FinerDetailsStage; //Html Reference
+  public FinerDetailsStage = FinerDetailsStage; //Html Reference
 
-  private currentFinerDetailsStage: FinerDetailsStage = FinerDetailsStage.ButtonStyles;
+  public currentFinerDetailsStage: FinerDetailsStage = FinerDetailsStage.ButtonStyles;
 
-  constructor(private jacketBuilderService: JacketBuilderService) { }
+  constructor(public jacketBuilderService: JacketBuilderService) { }
 
   public ngOnInit(): void {
     this.currentFinerDetailsStage = this.jacketBuilderService.FinerDetailsStage;

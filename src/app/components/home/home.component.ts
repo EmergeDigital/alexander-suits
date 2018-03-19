@@ -7,12 +7,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  private testimonials: object[] = [];
-  private testimonialOptions: object = {};
-  private email: string = "send us an email";
-  private cell: string = "give us a call";
+  public testimonials: object[] = [];
+  public testimonialOptions: object = {};
+  public email: string = "send us an email";
+  public cell: string = "give us a call";
 
-  constructor(private router: Router) {
+  constructor(public router: Router) {
     this.testimonials = [
       {
         name: "Jim Johnson",
@@ -61,17 +61,17 @@ export class HomeComponent implements OnInit {
   public ngOnInit(): void {
   }
 
-  private Call(): void {
+  public Call(): void {
     if (/Android|iPhone/i.test(window.navigator.userAgent))
       window.open("tel:+27114923360", "_blank");
   }
 
-  private Email(): void {
+  public Email(): void {
     if (/Android|iPhone/i.test(window.navigator.userAgent))
       window.open("mailto:info@alexandersuits.com", "_blank");
   }
 
-  private OpenSuits(): void {
+  public OpenSuits(): void {
     this.router.navigate(['/suits']);
   }
 }

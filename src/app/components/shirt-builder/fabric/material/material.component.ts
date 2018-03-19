@@ -11,13 +11,13 @@ import { WizardStage } from '../../../../models/suit-builder/wizardStage';
   encapsulation: ViewEncapsulation.None,
 })
 export class MaterialComponent implements OnInit {
-  private fabricTypes: string[] = [
+  public fabricTypes: string[] = [
     "Cotton",
     "Linen",
     "Wool"
   ];
 
-  private blackColourTypes: string[] = [
+  public blackColourTypes: string[] = [
     "Very light grey",
     "Light Grey",
     "Medium Grey",
@@ -25,21 +25,21 @@ export class MaterialComponent implements OnInit {
     "Black"
   ];
 
-  private darkBlueColourTypes: string[] = [
+  public darkBlueColourTypes: string[] = [
     "Royal Blue",
     "Cobalt Blue",
     "Navy Blue",
     "Dark Navy Blue"
   ];
 
-  private purpleColourTypes: string[] = [
+  public purpleColourTypes: string[] = [
     "Aubergine",
     "Light Purple/Malve",
     "Purple",
     "Fuchsia /with pink"
   ];
 
-  private redColourTypes: string[] = [
+  public redColourTypes: string[] = [
     "Light Pink",
     "Pink",
     "Red",
@@ -47,12 +47,12 @@ export class MaterialComponent implements OnInit {
     "Burgundy"
   ];
 
-  private lightBlueColourTypes: string[] = [
+  public lightBlueColourTypes: string[] = [
     "Light Blue",
     "Medium Blue"
   ];
 
-  private earthColourTypes: string[] = [
+  public earthColourTypes: string[] = [
     "White",
     "Offwhite",
     "Beige",
@@ -62,25 +62,25 @@ export class MaterialComponent implements OnInit {
     "Brown"
   ];
 
-  private isLoading: boolean = false;
-  private errorMessage: string = "";
+  public isLoading: boolean = false;
+  public errorMessage: string = "";
 
-  private selectedOccassionType: string = "";
-  private selectedPatternType: string = "";
-  private selectedFabricType: string = "";
-  private selectedSeasonType: string = "";
-  private selectedColourType: string = "";
-  private selectedPriceSortType: string = "HighToLow";
+  public selectedOccassionType: string = "";
+  public selectedPatternType: string = "";
+  public selectedFabricType: string = "";
+  public selectedSeasonType: string = "";
+  public selectedColourType: string = "";
+  public selectedPriceSortType: string = "HighToLow";
 
-  private materials: Product[] = [];
-  private selectedMaterial: Product = new Product({});
-  private isSelectedMaterial: boolean = false;
+  public materials: Product[] = [];
+  public selectedMaterial: Product = new Product({});
+  public isSelectedMaterial: boolean = false;
 
-  private filteredMaterials: Product[] = [];
+  public filteredMaterials: Product[] = [];
 
-  private carousels: number[] = [];
+  public carousels: number[] = [];
 
-  constructor(private data: DataService, private shirtBuilderService: ShirtBuilderService) {
+  constructor(public data: DataService, public shirtBuilderService: ShirtBuilderService) {
     this.GetMaterials(shirtBuilderService.collection);
     shirtBuilderService._collectionChanged.subscribe(collection => {
       this.GetMaterials(collection);
@@ -92,7 +92,7 @@ export class MaterialComponent implements OnInit {
     this.isSelectedMaterial = this.shirtBuilderService.isMaterialSelected;
   }
 
-  private GetMaterials(collection): void {
+  public GetMaterials(collection): void {
     console.log("Getting Materials");
     this.isLoading = true;
     this.materials = [];
@@ -114,7 +114,7 @@ export class MaterialComponent implements OnInit {
     });
   }
 
-  private FilterMaterials(): void {
+  public FilterMaterials(): void {
     this.filteredMaterials = this.materials.filter((material: Product) => {
       if (this.selectedOccassionType === "" || material.collections.findIndex(collection => collection === this.selectedOccassionType) !== -1)
         if (this.selectedPatternType === "" || material.print === this.selectedPatternType)
@@ -129,7 +129,7 @@ export class MaterialComponent implements OnInit {
     this.BuildCarouselList();
   }
 
-  private BuildCarouselList(): void {
+  public BuildCarouselList(): void {
     var length: number = 0;
     var ret: number[] = [];
 
@@ -147,12 +147,12 @@ export class MaterialComponent implements OnInit {
     }
   }
 
-  private SelectMaterial(material: Product): void {
+  public SelectMaterial(material: Product): void {
     this.selectedMaterial = material;
     this.isSelectedMaterial = true;
   }
 
-  private Next(): void {
+  public Next(): void {
     if (this.isSelectedMaterial) {
       this.shirtBuilderService.product = this.selectedMaterial;
       this.shirtBuilderService.isMaterialSelected = this.isSelectedMaterial;

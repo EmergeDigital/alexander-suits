@@ -13,37 +13,37 @@ import { MatDialog } from '@angular/material';
 export class ShirtComponent implements OnInit, AfterViewInit {
     @ViewChildren("MainFocus") MainFocus;
 
-    private DesignStage = DesignStage;
+    public DesignStage = DesignStage;
 
-    private frontsMock: any[] = [
+    public frontsMock: any[] = [
         { "name": "1", "desc": "Fake button holes", "url": "assets/shirt-builder/buttons/buttons-v1.png" },
         { "name": "2", "desc": "Working button holes","url": "assets/shirt-builder/buttons/buttons-v2.png" },
     ];
 
-    private backsMock: any[] = [
+    public backsMock: any[] = [
         { "name": "1", "desc": "Fake button holes", "url": "assets/shirt-builder/buttons/buttons-v1.png" },
         { "name": "2", "desc": "Working button holes", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
     ];
 
-    private breastPocketsMock: any[] = [
+    public breastPocketsMock: any[] = [
         { "name": "1", "desc": "Fake button holes", "url": "assets/shirt-builder/buttons/buttons-v1.png" },
         { "name": "2", "desc": "Working button holes", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
     ];
 
-    private errorMessage: string = "";
+    public errorMessage: string = "";
 
-    private selectedFront: any = {};
-    private isSelectedFront: boolean = false;
+    public selectedFront: any = {};
+    public isSelectedFront: boolean = false;
 
-    private selectedBack: any = {};
-    private isSelectedBack: boolean = false;
+    public selectedBack: any = {};
+    public isSelectedBack: boolean = false;
 
-    private selectedBreastPocket: any = {};
-    private isSelectedBreastPocket: boolean = false;
+    public selectedBreastPocket: any = {};
+    public isSelectedBreastPocket: boolean = false;
 
-    private currentSuit: any = {};
+    public currentSuit: any = {};
 
-    constructor(private shirtBuilderService: ShirtBuilderService, private dialog: MatDialog) { }
+    constructor(public shirtBuilderService: ShirtBuilderService, public dialog: MatDialog) { }
 
     public ngOnInit(): void {
         this.currentSuit = this.shirtBuilderService.suit;
@@ -61,26 +61,26 @@ export class ShirtComponent implements OnInit, AfterViewInit {
         this.MainFocus.first.nativeElement.focus();
     }
 
-    private SelectFront(front: any) {
+    public SelectFront(front: any) {
         this.selectedFront = front;
         this.isSelectedFront = true;
     }
 
-    private SelectBack(back: any) {
+    public SelectBack(back: any) {
         this.selectedBack = back;
         this.isSelectedBack = true;
     }
 
-    private SelectBreastPocket(breastPocket: any) {
+    public SelectBreastPocket(breastPocket: any) {
         this.selectedBreastPocket = breastPocket;
         this.isSelectedBreastPocket = true;
     }
 
-    private Previous(): void {
+    public Previous(): void {
         this.shirtBuilderService.SetDesignStage.emit(DesignStage.Sleeve);
     }
 
-    private Next(): void {
+    public Next(): void {
         this.shirtBuilderService.suit.front = this.selectedFront;
         this.shirtBuilderService.suit.back = this.selectedBack;
         this.shirtBuilderService.suit.breastPocket = this.selectedBreastPocket;
