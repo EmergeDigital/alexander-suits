@@ -32,10 +32,10 @@ export class PantStylesComponent implements OnInit, AfterViewInit {
 
   public selectedPantPleat: any = {};
   public isSelectedPantPleat: boolean = false;
-  
+
   public selectedPantPocket: any = {};
   public isSelectedPantPocket: boolean = false;
-  
+
   public selectedPantCuff: any = {};
   public isSelectedPantCuff: boolean = false;
 
@@ -48,7 +48,7 @@ export class PantStylesComponent implements OnInit, AfterViewInit {
     this.selectedPantPleat = this.pantsBuilderService.suit.pantPleat;
     this.selectedPantPocket = this.pantsBuilderService.suit.pantBackPocket;
     this.selectedPantCuff = this.pantsBuilderService.suit.pantCuff;
-    
+
     this.isSelectedPantPleat = this.pantsBuilderService.isPantPleatSelected;
     this.isSelectedPantPocket = this.pantsBuilderService.isPantPocketSelected;
     this.isSelectedPantCuff = this.pantsBuilderService.isPantCuffSelected;
@@ -85,7 +85,7 @@ export class PantStylesComponent implements OnInit, AfterViewInit {
     this.pantsBuilderService.isPantPleatSelected = this.isSelectedPantPleat;
     this.pantsBuilderService.isPantPocketSelected = this.isSelectedPantPocket;
     this.pantsBuilderService.isPantCuffSelected = this.isSelectedPantCuff;
-    
+
     this.pantsBuilderService.SetWizardStage.emit(WizardStage.Measurements);
   }
 }
