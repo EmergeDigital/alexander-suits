@@ -4,12 +4,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MakeEnglish } from './pipes/makeEnglish.pipe'; // import our pipe here
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material';
-import { MatTooltipModule } from '@angular/material/tooltip'
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material';
 import { MatMenuModule } from '@angular/material';
 import { MatCardModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
-import { MatSnackBarModule } from '@angular/material';import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatSnackBarModule } from '@angular/material';
 import { MatSidenavModule } from '@angular/material';
 import { MatGridListModule } from '@angular/material';
 import { MatProgressSpinnerModule } from '@angular/material';
