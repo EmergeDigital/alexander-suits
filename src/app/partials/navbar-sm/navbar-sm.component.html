@@ -1,10 +1,10 @@
 <button mat-menu-item routerLink="home">HOME</button>
 <button mat-menu-item routerLink="about">ABOUT</button>
 <button mat-menu-item routerLink="suits">SUITS</button>
-<!-- <button mat-menu-item routerLink="shirts">SHIRTS</button>
-<button mat-menu-item routerLink="jackets">Jackets</button>
-<button mat-menu-item routerLink="pants">PANTS</button>
-<button mat-menu-item routerLink="accessories">ACCESSORIES</button> -->
+<button mat-menu-item routerLink="shirts">SHIRTS</button>
+<!-- <button mat-menu-item routerLink="jackets">Jackets</button> -->
+<!-- <button mat-menu-item routerLink="pants">PANTS</button> -->
+<!-- <button mat-menu-item routerLink="accessories">ACCESSORIES</button> -->
 <button mat-menu-item routerLink="contact">CONTACT US</button>
 <button mat-menu-item *ngIf="!isAuthenticated" (click)="login()">LOG IN</button>
 <button mat-menu-item *ngIf="isAuthenticated" routerLink="account">ACCOUNT</button>

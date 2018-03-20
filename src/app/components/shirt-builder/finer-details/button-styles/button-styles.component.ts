@@ -14,13 +14,13 @@ export class ButtonStylesComponent implements OnInit, AfterViewInit {
   private FinerDetailsStage = FinerDetailsStage;
 
   private buttonHolesMock: any[] = [
-    { "name": "1", "desc": "Fake button holes","url": "assets/shirt-builder/buttons/buttons-v1.png" },
-    { "name": "2", "desc": "Working button holes", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
+    { "name": "Standard", "desc": "Our shirts come standard with our off- white shell button.","url": "" },
+    { "name": "Choose Colour", "desc": "Choose colour below", "url": "" },
   ];
   
   private boutonneriesMock: any[] = [
-    { "name": "1", "desc": "Fake button holes", "url": "assets/shirt-builder/buttons/buttons-v1.png" },
-    { "name": "2", "desc": "Working button holes", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
+    { "name": "Standard", "desc": "Our button holes automatically come tone in tone with the fabric.", "url": "" },
+    { "name": "Choose Colour", "desc": "Choose colour below", "url": "" },
   ];
   
   private lastButtonSleevesMock: any[] = [

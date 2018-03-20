@@ -6,59 +6,61 @@
         <p class="brown-paragraph-text">Lorem ipsum dolor sit amet,consectetur.</p>
     </div>
 </div>
-<div class="row ml-5 mt-5">
-    <div class="col-lg-3">
-        <div class="placeholder-circle-designs" [ngStyle]="{'background': isSelectedSleeve ? 'url(' + selectedSleeve.url + ')' : ''}"></div>
-        <div class="left-circle-text" *ngIf="isSelectedSleeve">
-            <h4>You have chosen:</h4>
-            <h5>{{selectedSleeve.name}}</h5>
-            <p>{{selectedSleeve.description_long}}</p>
-            <p>add more info or details here about the chosen item</p> 
+<div class="row ml-lg-5 ml-md-5 mt-5">
+    <div class="col-lg-3 col-md-12">
+        <div class="row d-flex justify-content-center">
+            <div class="placeholder-circle-designs" [ngStyle]="{'background': isSelectedSleeve ? 'url(' + selectedSleeve.url + ')' : ''}"></div>
+            <div class="left-circle-text" *ngIf="isSelectedSleeve">
+                <h4>You have chosen:</h4>
+                <h5>{{selectedSleeve.name}}</h5>
+                <p>{{selectedSleeve.desc}}</p>
+            </div>
         </div>
     </div>
-    <div class="col-lg-7">
+    <div class="col-lg-7 col-md-12">
         <h4>Sleeves</h4>
-        <div class="row">
-            <div class="col-lg-3 image-circle mb-4" *ngFor="let sleeve of sleevesMock">
-                <img class="img-responsive option-circle" src="{{ sleeve.url }}" />
+        <div class="row d-flex align-items-start">
+            <div class="col-lg-3 col-md-3 col-sm-3 image-circle mb-4" *ngFor="let sleeve of sleevesMock">
+                <img class="img-responsive option-circle" />
                 <br>
                 <h5>{{ sleeve.name }}</h5>
-                <p>{{ sleeve.desc }}</p>
+                <!-- <p>{{ sleeve.desc }}</p> -->
                 <button mat-raised-button class="select-button" (click)="SelectSleeve(sleeve)">Select</button>
             </div>
         </div>
     </div>  
-    <div class="col-lg-2">
+    <div class="col-lg-2 hide-mobile">
         <button class="help-button">i need help choosing</button>
         <p class="active-link" (click)="shirtBuilderService.SetDesignStage.emit(DesignStage.Collar)"><i class="fa fa-circle" aria-hidden="true"></i>Collar Style</p>
         <p class="chosen-style-text">You chose style {{ currentSuit.collar.name }}</p>
         <p class="active-link" (click)="shirtBuilderService.SetDesignStage.emit(DesignStage.Sleeve)"><i class="fa fa-circle" aria-hidden="true"></i> Sleeve Style</p>
-        <p class="active-link" (click)="shirtBuilderService.SetDesignStage.emit(DesignStage.Shirt)"><i class="fa fa-circle" aria-hidden="true"></i> Shirt Style</p>
+        <p class="active-link"><i class="fa fa-circle-o" aria-hidden="true"></i> Shirt Style</p>
     </div>     
 </div>
 <hr>
-<div class="row ml-5 mt-5">
-    <div class="col-lg-3">
-        <div class="placeholder-circle-designs" [ngStyle]="{'background': isSelectedCuff ? 'url(' + selectedCuff.url + ')' : ''}"></div>
-        <div class="left-circle-text" *ngIf="isSelectedCuff">
-            <h4>You have chosen:</h4>
-            <h5>{{selectedCuff.name}}</h5>
-            <p>{{selectedCuff.description_long}}</p>
-            <p>add more info or details here about the chosen item</p> 
+<div class="row ml-lg-5 ml-md-5 mt-5">
+    <div class="col-lg-3 col-md-12">
+        <div class="row d-flex justify-content-center">
+            <div class="placeholder-circle-designs" [ngStyle]="{'background': isSelectedCuff ? 'url(' + selectedCuff.url + ')' : ''}"></div>
+            <div class="left-circle-text" *ngIf="isSelectedCuff">
+                <h4>You have chosen:</h4>
+                <h5>{{selectedCuff.name}}</h5>
+                <p>{{selectedCuff.desc}}</p>
+            </div>
         </div>
     </div>
-    <div class="col-lg-7">
+    <div class="col-lg-7 col-md-12">
         <h4>Cuffs</h4>
-        <div class="row">
-            <div class="col-lg-3 image-circle mb-4" *ngFor="let cuff of cuffsMock">
-                <img class="img-responsive option-circle" src="{{ cuff.url }}" />
+        <div class="row d-flex align-items-start">
+            <div class="col-lg-3 col-md-3 col-sm-3 image-circle mb-4" *ngFor="let cuff of cuffsMock">
+                <img class="img-responsive option-circle" />
                 <br>
                 <h5>{{ cuff.name }}</h5>
-                <p>{{ cuff.desc }}</p>
+                <!-- <p>{{ cuff.desc }}</p> -->
                 <button mat-raised-button class="select-button" (click)="SelectCuff(cuff)">Select</button>
             </div>
         </div>
-        <div class="row mt-5">
+        <div class="row mt-5 mr-md-5">
             <div class="col-lg-5 d-flex justify-content-start">
                 <button mat-raised-button class="back-button" (click)="Previous()">Back</button>  
             </div>

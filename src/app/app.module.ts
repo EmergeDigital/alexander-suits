@@ -9,7 +9,7 @@ import { MatIconModule } from '@angular/material';
 import { MatMenuModule } from '@angular/material';
 import { MatCardModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
-import { MatSnackBarModule } from '@angular/material';import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatSnackBarModule } from '@angular/material';
 import { MatSidenavModule } from '@angular/material';
 import { MatGridListModule } from '@angular/material';
 import { MatProgressSpinnerModule } from '@angular/material';
@@ -310,6 +310,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     entryComponents: [
         DialogContentCartDialog,
         ExtraDetailsModalComponent,
+        ShirtExtraDetailsModalComponent,
         MockupGarmentModalComponent,
     ],
     providers: [DataService, SessionService, FunctionsService, AuthService, SuitBuilderService, ShirtBuilderService, JacketBuilderService, PantsBuilderService, MeasurementsService, CheckoutService,

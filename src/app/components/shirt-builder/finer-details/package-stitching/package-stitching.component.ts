@@ -15,8 +15,8 @@ export class PackageStitchingComponent implements OnInit, AfterViewInit {
   private FinerDetailsStage = FinerDetailsStage;
 
   private contrastPackagesMock: any[] = [
-    { "name": "1", "desc": "Fake button holes", "url": "assets/shirt-builder/buttons/buttons-v1.png" },
-    { "name": "2", "desc": "Working button holes", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
+    { "name": "Package 1", "desc": "FComplete Collar and Complete Cuff are made out of a contrast material. A famous example is the banker’s shirt with a white collar and cuff.", "url": "" },
+    { "name": "Package 2", "desc": "Contrast Fabric on the inside of collar and cuff, as well as on gusset and sleeve slit.", "url": "" },
   ];
 
   private topStitchsMock: any[] = [

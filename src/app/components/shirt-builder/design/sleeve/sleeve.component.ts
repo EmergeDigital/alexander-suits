@@ -14,15 +14,15 @@ export class SleeveComponent implements OnInit, AfterViewInit {
   private DesignStage = DesignStage;
 
   private sleevesMock: any[] = [
-    { "name": "Long", "desc": "Long", "url": "assets/shirt-builder/buttons/buttons-v1.png" },
-    { "name": "Short", "desc": "Short", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
+    { "name": "Long", "desc": "Long Sleeve Shirt", "url": "" },
+    { "name": "Short", "desc": "Short Sleeve Shirt", "url": "" },
   ];
   
   private cuffsMock: any[] = [
-    { "name": "1", "desc": "Fake button holes","url": "assets/shirt-builder/buttons/buttons-v1.png" },
-    { "name": "2", "desc": "Working button holes", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
-    { "name": "3", "desc": "Working button holes", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
-    { "name": "4", "desc": "Working button holes", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
+    { "name": "Single Cuff with 2 buttons, angular.", "desc": "The most popular of our cuffs. The 2 longitudinal button setup allows to elegantly adjust the width of the cuff, for example in order to accommodate a wrist watch.","url": "" },
+    { "name": "Single Cuff with 2 buttons, square.", "desc": "Same as MA100 with square finish. A very fashionable finish that is not to found very often.", "url": "" },
+    { "name": "Single Cuff with 1 button, rounded.", "desc": "A beautiful and unpretentious cuff, especially for casual shirts.", "url": "" },
+    { "name": "Double Cuff.", "desc": "Also called French Cuffs. This elegant cuff is twice as long as the normal cuffs (hence the name) and then folded back. It is tied with cufflinks, instead of buttons.", "url": "" },
   ];
 
   private errorMessage: string = "";

@@ -16,18 +16,20 @@ export class ShirtComponent implements OnInit, AfterViewInit {
     private DesignStage = DesignStage;
 
     private frontsMock: any[] = [
-        { "name": "1", "desc": "Fake button holes", "url": "assets/shirt-builder/buttons/buttons-v1.png" },
-        { "name": "2", "desc": "Working button holes","url": "assets/shirt-builder/buttons/buttons-v2.png" },
+        { "name": "Simple button catch.", "desc": "This is a plain front, sleek and elegant. We can recommend it for slimmer figures and slim fit shirts.", "url": "" },
+        { "name": "Button Catch with fold.", "desc": "This finish adds a bit of workmanship flair to the shirt. It is recommended for more compact customers.","url": "" },
+        { "name": "Concealed Button Catch.", "desc": "This finish is made for Tuxedo shirts, specifically. It covers up the buttons to set the scene for the bow tie.","url": "" },
     ];
 
     private backsMock: any[] = [
-        { "name": "1", "desc": "Fake button holes", "url": "assets/shirt-builder/buttons/buttons-v1.png" },
-        { "name": "2", "desc": "Working button holes", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
+        { "name": "Flat Back.", "desc": "Ideal for slender customers with a good balance between shoulders and waist.", "url": "" },
+        { "name": "Flat Back with Darts.", "desc": "This finish takes extra volume out at the back. It is suitable for clients with wide shoulders and slim waist or for clients that have a stomach only, but generally a slim frame.", "url": "" },
+        { "name": "Back with side folds.", "desc": "This style is for compact figures. The two pleats are located on the back shoulder and allow for some extra room when needed. This finish is not available with darts.", "url": "" },
     ];
 
     private breastPocketsMock: any[] = [
-        { "name": "1", "desc": "Fake button holes", "url": "assets/shirt-builder/buttons/buttons-v1.png" },
-        { "name": "2", "desc": "Working button holes", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
+        { "name": "No Breast Pocket.", "desc": "For the clean look on the front side.", "url": "" },
+        { "name": "With breast pocket.", "desc": "Obviously a little support for the customers who like to tuck away their parking tickets or glasses. Please note that -stylewise- pockets are generally not recommended with double cuffs.", "url": "" },
     ];
 
     private errorMessage: string = "";
@@ -94,8 +96,7 @@ export class ShirtComponent implements OnInit, AfterViewInit {
         if (this.errorMessage === "") {
             if (this.shirtBuilderService.isFinerDetailsShown === false) {
                 let ExtraDetailsModal = this.dialog.open(ExtraDetailsModalComponent, {
-                    height: '400px',
-                    width: '600px',
+                    height: '60%',
                 });
 
                 ExtraDetailsModal.afterClosed().subscribe(result => {

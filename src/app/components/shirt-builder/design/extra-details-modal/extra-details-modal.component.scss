@@ -1,0 +1,30 @@
+@import '../../../../../styles/colours';
+
+.details-modal {
+    text-align: center;
+}
+.yes-button {
+    background-color: $c-brown-accent;
+    color: white;
+    padding: 0.3em 5em;
+    text-transform: uppercase;
+    font-size: 0.75em;
+    letter-spacing: 0.125em;
+    border: none;
+}
+.no-button {
+    background-color: $c-grey-lite;
+    color: white;
+    padding: 0.3em 5em;
+    text-transform: uppercase;
+    font-size: 0.75em;
+    letter-spacing: 0.125em;
+    border: none;
+}
+.modal-subheading {
+    font-weight: 400;
+    font-size: 0.75em;
+    line-height: 200%;  
+    color: $c-blue-main;
+    text-transform: lowercase;
+}
