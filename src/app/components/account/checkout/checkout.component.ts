@@ -34,7 +34,7 @@ export class CheckoutMainComponent implements OnInit {
   delivery_instructions: string;
   instructions: string;
 
-  constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig, public data: DataService, public auth: AuthService, 
+  constructor(public toastyService:ToastyService, public toastyConfig: ToastyConfig, public data: DataService, public auth: AuthService, 
     public router: Router, public session: SessionService, public measurementsService: MeasurementsService) {
 
     this.steps = [];

@@ -139,7 +139,7 @@
     </div>
     <div class="col-lg-2 hide-mobile">
         <p class="active-link" (click)="suitBuilderService.SetMeasurementsStage.emit(MeasurementStage.BodyType)"><i class="fa fa-circle" aria-hidden="true"></i> Body Type</p>
-        <p class="chosen-style-text">You chose {{ currentSuit.bodyType.name }}</p>            
+        <p class="chosen-style-text">{{ currentSuit.bodyType && currentSuit.bodyType.name ? "You chose " + currentSuit.bodyType.name : "Please Choose a Body Type" }}</p>         
         <p class="active-link"><i class="fa fa-circle" aria-hidden="true"></i> Basic Measurements</p>
         <p><i class="fa fa-circle-o" aria-hidden="true"></i> Extra Measurements</p>
         <p><i class="fa fa-circle-o" aria-hidden="true"></i> Upload Photo</p>        

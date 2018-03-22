@@ -9,21 +9,21 @@ import { SuitBuilderService } from '../../suit-builder.service';
 })
 export class MockupGarmentModalComponent implements OnInit {
 
-    private isMockupGarment: boolean = false;
-    private mockupGarmentInstructions: string = "";
+    public isMockupGarment: boolean = false;
+    public mockupGarmentInstructions: string = "";
 
-    constructor(private suitBuilderService: SuitBuilderService, private dialogRef: MatDialogRef<MockupGarmentModalComponent>) { }
+    constructor(public suitBuilderService: SuitBuilderService, public dialogRef: MatDialogRef<MockupGarmentModalComponent>) { }
 
     public ngOnInit(): void {
         this.isMockupGarment = this.suitBuilderService.suit.mockupGarment.isMockupGarment;
         this.mockupGarmentInstructions = this.suitBuilderService.suit.mockupGarment.instructions;
     }
 
-    private Cancel(): void {
+    public Cancel(): void {
         this.dialogRef.close()
     }
 
-    private Next(): void {
+    public Next(): void {
         this.suitBuilderService.suit.mockupGarment.isMockupGarment = this.isMockupGarment;
         this.suitBuilderService.suit.mockupGarment.instructions = this.mockupGarmentInstructions;
         this.dialogRef.close();

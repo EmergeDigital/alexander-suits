@@ -10,13 +10,13 @@ import { MeasurementStage } from '../../../../models/pants-builder/measurementsS
 export class FinerMeasurementsComponent implements OnInit, AfterViewInit {
   @ViewChildren("MainFocus") MainFocus;
   
-  private MeasurementStage = MeasurementStage;
+  public MeasurementStage = MeasurementStage;
 
-  private finerMeasurements: any = { jacketBackLength: 0, jacketWaist: 0, withoutTrouserWaist: 0, withoutTrouserOutsideSeam: 0, trouserWaist: 0, trouserInsideSeam: 0, trouserOutsideSeam: 0};
+  public finerMeasurements: any = { jacketBackLength: 0, jacketWaist: 0, withoutTrouserWaist: 0, withoutTrouserOutsideSeam: 0, trouserWaist: 0, trouserInsideSeam: 0, trouserOutsideSeam: 0};
 
-  private currentSuit: any = {};
+  public currentSuit: any = {};
 
-  constructor(private pantsBuilderService: PantsBuilderService) { }
+  constructor(public pantsBuilderService: PantsBuilderService) { }
 
   public ngOnInit(): void {
     this.currentSuit = this.pantsBuilderService.suit;
@@ -27,11 +27,11 @@ export class FinerMeasurementsComponent implements OnInit, AfterViewInit {
     this.MainFocus.first.nativeElement.focus();
   }
 
-  private Previous(): void {
+  public Previous(): void {
     this.pantsBuilderService.SetMeasurementsStage.emit(MeasurementStage.GeneralMeasurements);
   }
 
-  private Next(): void {
+  public Next(): void {
     this.pantsBuilderService.suit.finerMeasurements = this.finerMeasurements;
     this.pantsBuilderService.SetMeasurementsStage.emit(MeasurementStage.UploadPhoto);
   }

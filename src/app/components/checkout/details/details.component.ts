@@ -12,9 +12,9 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class DetailsComponent implements OnInit {
 
-    private user: User = new User({});
+    public user: User = new User({});
 
-    constructor(private dataService: DataService, private checkoutService: CheckoutService, private authService: AuthService) { }
+    constructor(public dataService: DataService, public checkoutService: CheckoutService, public authService: AuthService) { }
 
     public ngOnInit(): void {
         if (this.authService.isAuthenticated() && this.checkoutService.isUpdateUserRequired == false) {
@@ -24,7 +24,7 @@ export class DetailsComponent implements OnInit {
         }
     }
 
-    private LoadUser() {
+    public LoadUser() {
         if (this.dataService.hasLoaded()) {
             this.dataService.getUser(this.dataService.getCurrentUser).then((user) => {
                 this.user = user;
@@ -36,11 +36,11 @@ export class DetailsComponent implements OnInit {
         }
     }
 
-    private Previous(): void {
+    public Previous(): void {
         this.checkoutService.SetCheckoutStage.emit(CheckoutStage.FinalizeCart)
     }
 
-    private Next(): void {
+    public Next(): void {
         this.checkoutService.user = this.user;
         this.checkoutService.SetCheckoutStage.emit(CheckoutStage.DeliveryMethod)
     }

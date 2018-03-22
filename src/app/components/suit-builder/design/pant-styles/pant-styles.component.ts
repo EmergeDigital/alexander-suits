@@ -10,40 +10,40 @@ import { DesignStage } from '../../../../models/suit-builder/designStage';
 export class PantStylesComponent implements OnInit, AfterViewInit {
   @ViewChildren("MainFocus") MainFocus;
 
-  private DesignStage = DesignStage;
+  public DesignStage = DesignStage;
 
-  private pantPleatsMock: any[] = [
+  public pantPleatsMock: any[] = [
     {"name": "Flat", "desc": "A flat front style.", "url": ""},
     {"name": "Dart", "desc": "A single darted front style. ", "url": "assets/suit-builder/pants/pants-v1.png"},
     {"name": "Single", "desc": "A single pleated front style", "url": "assets/suit-builder/pants/pants-v3.png"},
     {"name": "Double", "desc": "A double pleated front style", "url": "assets/suit-builder/pants/pants-v2.png"},
   ];
 
-  private pantPocketsMock: any[] = [
+  public pantPocketsMock: any[] = [
     {"name": "None", "desc": "A no pocket style.", "url": ""},
     {"name": "One", "desc": "A one pocket style.", "url": ""},
     {"name": "Two", "desc": "A two pockets style.", "url": ""},
   ];
 
-  private pantCuffsMock: any[] = [
+  public pantCuffsMock: any[] = [
     {"name": "None", "desc": "A seem cuff without turnups style.", "url": ""},
     {"name": "Turnups", "desc": "A seem cuff with turnups style.", "url": ""},
   ];
 
-  private errorMessage: string = "";
+  public errorMessage: string = "";
 
-  private selectedPantPleat: any = {};
-  private isSelectedPantPleat: boolean = false;
+  public selectedPantPleat: any = {};
+  public isSelectedPantPleat: boolean = false;
   
-  private selectedPantPocket: any = {};
-  private isSelectedPantPocket: boolean = false;
+  public selectedPantPocket: any = {};
+  public isSelectedPantPocket: boolean = false;
   
-  private selectedPantCuff: any = {};
-  private isSelectedPantCuff: boolean = false;
+  public selectedPantCuff: any = {};
+  public isSelectedPantCuff: boolean = false;
 
-  private currentSuit: any = {};
+  public currentSuit: any = {};
 
-  constructor(private suitBuilderService: SuitBuilderService) { }
+  constructor(public suitBuilderService: SuitBuilderService) { }
 
   public ngOnInit(): void {
     this.currentSuit = this.suitBuilderService.suit;
@@ -60,7 +60,7 @@ export class PantStylesComponent implements OnInit, AfterViewInit {
     this.MainFocus.first.nativeElement.focus();
   }
 
-  private GetPantPocketBackgroundSelected(): string {
+  public GetPantPocketBackgroundSelected(): string {
     var ret = "";
 
     if (this.isSelectedPantPleat)
@@ -72,7 +72,7 @@ export class PantStylesComponent implements OnInit, AfterViewInit {
     return ret + ' url("assets/suit-builder/pants-base.png")';
   }
 
-  private GetPantCuffBackgroundSelected(): string {
+  public GetPantCuffBackgroundSelected(): string {
     var ret = "";
 
     if (this.isSelectedPantPleat)
@@ -87,26 +87,26 @@ export class PantStylesComponent implements OnInit, AfterViewInit {
     return ret + ' url("assets/suit-builder/pants-base.png")';
   }
 
-  private SelectPantPleat(pantPleat: any) {
+  public SelectPantPleat(pantPleat: any) {
     this.selectedPantPleat = pantPleat;
     this.isSelectedPantPleat = true;
   }
 
-  private SelectPantPocket(pantPocket: any) {
+  public SelectPantPocket(pantPocket: any) {
     this.selectedPantPocket = pantPocket;
     this.isSelectedPantPocket = true;
   }
 
-  private SelectPantCuff(pantCuff: any) {
+  public SelectPantCuff(pantCuff: any) {
     this.selectedPantCuff = pantCuff;
     this.isSelectedPantCuff = true;
   }
 
-  private Previous() {
+  public Previous() {
     this.suitBuilderService.SetDesignStage.emit(DesignStage.Vents);
   }
 
-  private Next() {
+  public Next() {
     this.suitBuilderService.suit.pantPleat = this.selectedPantPleat;
     this.suitBuilderService.suit.pantBackPocket = this.selectedPantPocket;
     this.suitBuilderService.suit.pantCuff = this.selectedPantCuff;

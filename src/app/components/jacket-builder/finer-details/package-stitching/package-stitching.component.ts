@@ -3,6 +3,7 @@ import { JacketBuilderService } from '../../jacket-builder.service';
 import { FinerDetailsStage } from '../../../../models/jacket-builder/finerDetailsStage';
 import { WizardStage } from '../../../../models/jacket-builder/wizardStage';
 import { MatDialog } from '@angular/material';
+import { ToastOptions, ToastyConfig, ToastyService } from 'ng2-toasty';
 
 @Component({
   selector: 'jacket-builder-finer-details-package-stitching',
@@ -12,31 +13,31 @@ import { MatDialog } from '@angular/material';
 export class PackageStitchingComponent implements OnInit, AfterViewInit {
   @ViewChildren("MainFocus") MainFocus;
 
-  private FinerDetailsStage = FinerDetailsStage;
+  public FinerDetailsStage = FinerDetailsStage;
 
-  private contrastPackagesMock: any[] = [
+  public contrastPackagesMock: any[] = [
     { "name": "1", "desc": "Fake button holes", "url": "assets/jacket-builder/buttons/buttons-v1.png" },
     { "name": "2", "desc": "Working button holes", "url": "assets/jacket-builder/buttons/buttons-v2.png" },
   ];
 
-  private topStitchsMock: any[] = [
+  public topStitchsMock: any[] = [
     { "name": "1", "desc": "Fake button holes", "url": "assets/jacket-builder/buttons/buttons-v1.png" },
     { "name": "2", "desc": "Working button holes", "url": "assets/jacket-builder/buttons/buttons-v2.png" },
   ];
 
-  private errorMessage: string = "";
+  public errorMessage: string = "";
 
-  private selectedConstrastPackage: any = {};
-  private isSelectedConstrastPackage: boolean = false;
+  public selectedConstrastPackage: any = {};
+  public isSelectedConstrastPackage: boolean = false;
 
-  private selectedTopStitch: any = {};
-  private isSelectedTopStitch: boolean = false;
+  public selectedTopStitch: any = {};
+  public isSelectedTopStitch: boolean = false;
 
-  private selectedContrastPackageColour: string = "";
+  public selectedContrastPackageColour: string = "";
 
-  private currentSuit: any = {};
+  public currentSuit: any = {};
 
-  constructor(private jacketBuilderService: JacketBuilderService, private dialog: MatDialog) { }
+  constructor(public jacketBuilderService: JacketBuilderService, public dialog: MatDialog, public toastyService: ToastyService, public toastyConfig: ToastyConfig) { }
 
   public ngOnInit(): void {
     this.currentSuit = this.jacketBuilderService.suit;
@@ -52,21 +53,21 @@ export class PackageStitchingComponent implements OnInit, AfterViewInit {
     this.MainFocus.first.nativeElement.focus();
   }
 
-  private SelectContrastPackage(constrastPackage: any) {
+  public SelectContrastPackage(constrastPackage: any) {
     this.selectedConstrastPackage = constrastPackage;
     this.isSelectedConstrastPackage = true;
   }
 
-  private SelectTopStitch(topStitch: any) {
+  public SelectTopStitch(topStitch: any) {
     this.selectedTopStitch = topStitch;
     this.isSelectedTopStitch = true;
   }
 
-  private Previous() {
+  public Previous() {
     this.jacketBuilderService.SetFinerDetailsStage.emit(FinerDetailsStage.ButtonStyles);
   }
 
-  private Next() {
+  public Next() {
     this.jacketBuilderService.suit.contrastPackage = this.selectedConstrastPackage;
     this.jacketBuilderService.suit.topStitch = this.selectedTopStitch;
     this.jacketBuilderService.suit.contrastPackageColour = this.selectedContrastPackageColour;
@@ -77,6 +78,14 @@ export class PackageStitchingComponent implements OnInit, AfterViewInit {
     this.errorMessage = this.jacketBuilderService.ValidateFinerDetailsStage();
     if (this.errorMessage === "") {
       this.jacketBuilderService.SetWizardStage.emit(WizardStage.Measurements);
+    } else {
+      var toastOptions: ToastOptions = {
+        title: "Error",
+        msg: this.errorMessage
+      };
+
+      this.toastyService.error(toastOptions);
+      console.log();
     }
   }
 }

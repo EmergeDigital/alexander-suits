@@ -12,23 +12,23 @@ import { Product } from '../../../models/product';
 })
 export class FinalizeCartComponent implements OnInit {
 
-  private cart: Cart = new Cart({});
-  private errorMessage: string = "";
+  public cart: Cart = new Cart({});
+  public errorMessage: string = "";
 
-  constructor(private dataService: DataService, private checkoutService: CheckoutService) { }
+  constructor(public dataService: DataService, public checkoutService: CheckoutService) { }
 
   public ngOnInit(): void {
     this.dataService.getCart().then((cart: Cart) => this.cart = cart);
   }
 
-  private RemoveProduct(indexOfProduct: number): void {
+  public RemoveProduct(indexOfProduct: number): void {
     this.cart.products.splice(indexOfProduct);
     this.dataService.UpdateCart(this.cart)
       .then((cart: Cart) => { this.cart = cart; this.errorMessage = ""; })
       .catch((reason) => this.errorMessage = reason);
   }
 
-  private Next(): void {
+  public Next(): void {
     this.checkoutService.SetCheckoutStage.emit(CheckoutStage.Details)
   }
 

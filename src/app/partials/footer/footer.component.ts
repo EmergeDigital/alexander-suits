@@ -18,7 +18,7 @@ export class FooterComponent implements OnInit {
   emailNewsletter: string;
   showNewsletter: boolean;
 
-  constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig, public auth: AuthService) {
+  constructor(public toastyService:ToastyService, public toastyConfig: ToastyConfig, public auth: AuthService) {
       if (this.appTitle === undefined) {
           this.appTitle = 'Unspecified';
       }

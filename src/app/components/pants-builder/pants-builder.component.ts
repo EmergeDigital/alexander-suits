@@ -7,11 +7,11 @@ import { WizardStage } from '../../models/pants-builder/wizardStage';
   styleUrls: ['./pants-builder.component.scss']
 })
 export class PantsBuilderComponent implements OnInit {
-  private WizardStage = WizardStage; //Html Reference
+  public WizardStage = WizardStage; //Html Reference
 
-  private currentWizardStage: WizardStage = WizardStage.Fabric;
+  public currentWizardStage: WizardStage = WizardStage.Fabric;
 
-  constructor(private pantsBuilderService: PantsBuilderService) { }
+  constructor(public pantsBuilderService: PantsBuilderService) { }
 
   public ngOnInit(): void {
     this.pantsBuilderService.SetWizardStage.subscribe((wizardStage: WizardStage) => this.currentWizardStage = wizardStage);

@@ -3,6 +3,7 @@ import { Product } from '../../../../models/product';
 import { DataService } from '../../../../services/data.service';
 import { PantsBuilderService } from '../../pants-builder.service';
 import { WizardStage } from '../../../../models/pants-builder/wizardStage';
+import { ToastOptions, ToastyConfig, ToastyService } from 'ng2-toasty';
 
 @Component({
   selector: 'pants-builder-fabric-material',
@@ -11,19 +12,19 @@ import { WizardStage } from '../../../../models/pants-builder/wizardStage';
   encapsulation: ViewEncapsulation.None,
 })
 export class MaterialComponent implements OnInit {
-  private fabricTypes: string[] = [
+  public fabricTypes: string[] = [
     "Cotton",
     "Linen",
     "Wool"
   ];
 
-  private seasonTypes: string[] = [
+  public seasonTypes: string[] = [
     "Spring / Summer",
     "Autumn / Winter",
     "Transitional / Everyday"
   ];
 
-  private blackColourTypes: string[] = [
+  public blackColourTypes: string[] = [
     "Very light grey",
     "Light Grey",
     "Medium Grey",
@@ -31,21 +32,21 @@ export class MaterialComponent implements OnInit {
     "Black"
   ];
 
-  private darkBlueColourTypes: string[] = [
+  public darkBlueColourTypes: string[] = [
     "Royal Blue",
     "Cobalt Blue",
     "Navy Blue",
     "Dark Navy Blue"
   ];
 
-  private purpleColourTypes: string[] = [
+  public purpleColourTypes: string[] = [
     "Aubergine",
     "Light Purple/Malve",
     "Purple",
     "Fuchsia /with pink"
   ];
 
-  private redColourTypes: string[] = [
+  public redColourTypes: string[] = [
     "Light Pink",
     "Pink",
     "Red",
@@ -53,12 +54,12 @@ export class MaterialComponent implements OnInit {
     "Burgundy"
   ];
 
-  private lightBlueColourTypes: string[] = [
+  public lightBlueColourTypes: string[] = [
     "Light Blue",
     "Medium Blue"
   ];
 
-  private earthColourTypes: string[] = [
+  public earthColourTypes: string[] = [
     "White",
     "Offwhite",
     "Beige",
@@ -68,25 +69,25 @@ export class MaterialComponent implements OnInit {
     "Brown"
   ];
 
-  private isLoading: boolean = false;
-  private errorMessage: string = "";
+  public isLoading: boolean = false;
+  public errorMessage: string = "";
 
-  private selectedOccassionType: string = "";
-  private selectedPatternType: string = "";
-  private selectedFabricType: string = "";
-  private selectedSeasonType: string = "";
-  private selectedColourType: string = "";
-  private selectedPriceSortType: string = "HighToLow";
+  public selectedOccassionType: string = "";
+  public selectedPatternType: string = "";
+  public selectedFabricType: string = "";
+  public selectedSeasonType: string = "";
+  public selectedColourType: string = "";
+  public selectedPriceSortType: string = "HighToLow";
 
-  private materials: Product[] = [];
-  private selectedMaterial: Product = new Product({});
-  private isSelectedMaterial: boolean = false;
+  public materials: Product[] = [];
+  public selectedMaterial: Product = new Product({});
+  public isSelectedMaterial: boolean = false;
 
-  private filteredMaterials: Product[] = [];
+  public filteredMaterials: Product[] = [];
 
-  private carousels: number[] = [];
+  public carousels: number[] = [];
 
-  constructor(private data: DataService, private pantsBuilderService: PantsBuilderService) {
+  constructor(public data: DataService, public pantsBuilderService: PantsBuilderService, public toastyService: ToastyService, public toastyConfig: ToastyConfig) {
     this.GetMaterials(pantsBuilderService.collection);
     pantsBuilderService._collectionChanged.subscribe(collection => {
       this.GetMaterials(collection);
@@ -98,7 +99,7 @@ export class MaterialComponent implements OnInit {
     this.isSelectedMaterial = this.pantsBuilderService.isMaterialSelected;
   }
 
-  private GetMaterials(collection): void {
+  public GetMaterials(collection): void {
     console.log("Getting Materials");
     this.isLoading = true;
     this.materials = [];
@@ -120,7 +121,7 @@ export class MaterialComponent implements OnInit {
     });
   }
 
-  private FilterMaterials(): void {
+  public FilterMaterials(): void {
     this.filteredMaterials = this.materials.filter((material: Product) => {
       if(this.selectedOccassionType === "" || material.collections.findIndex(collection => collection === this.selectedOccassionType) !== -1)
         if(this.selectedPatternType === "" || material.print === this.selectedPatternType)
@@ -135,7 +136,7 @@ export class MaterialComponent implements OnInit {
     this.BuildCarouselList();
 }
 
-private BuildCarouselList(): void {
+public BuildCarouselList(): void {
   var length: number = 0;
   var ret: number[] = [];
 
@@ -153,12 +154,12 @@ private BuildCarouselList(): void {
   }
 }
 
-  private SelectMaterial(material: Product): void {
+  public SelectMaterial(material: Product): void {
     this.selectedMaterial = material;
     this.isSelectedMaterial = true;
   }
 
-  private Next(): void {
+  public Next(): void {
     if(this.isSelectedMaterial) {
       this.pantsBuilderService.product = this.selectedMaterial;
       this.pantsBuilderService.isMaterialSelected = this.isSelectedMaterial;
@@ -166,6 +167,13 @@ private BuildCarouselList(): void {
     }
     else {
       this.errorMessage = "Please Select A Material";
+
+      var toastOptions: ToastOptions = {
+        title: "Error",
+        msg: this.errorMessage
+      };
+
+      this.toastyService.error(toastOptions);
     }
   }
 

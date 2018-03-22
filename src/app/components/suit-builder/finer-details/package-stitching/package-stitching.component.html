@@ -49,9 +49,9 @@
     </div>  
     <div class="col-lg-2 hide-mobile">
         <p class="active-link" (click)="suitBuilderService.SetFinerDetailsStage.emit(FinerDetailsStage.ButtonStyles)"><i class="fa fa-circle" aria-hidden="true"></i> Buttons</p>
-        <p class="chosen-style-text">You chose style {{currentSuit.buttonHole.name}}</p>
-        <p class="chosen-style-text">You chose style {{currentSuit.boutonnerie.name}}</p>
-        <p class="chosen-style-text">You chose style {{currentSuit.lastButtonSleeve.name}}</p>
+        <p class="chosen-style-text">{{ currentSuit.buttonHole && currentSuit.buttonHole.name ? "You chose style " + currentSuit.buttonHole.name : "Please Choose a Style" }}</p>
+        <p class="chosen-style-text">{{ currentSuit.boutonnerie && currentSuit.boutonnerie.name ? "You chose style " + currentSuit.boutonnerie.name : "Please Choose a Style" }}</p>
+        <p class="chosen-style-text">{{ currentSuit.lastButtonSleeve && currentSuit.lastButtonSleeve.name ? "You chose style " + currentSuit.lastButtonSleeve.name : "Please Choose a Style" }}</p>
         <p class="active-link"><i class="fa fa-circle" aria-hidden="true"></i> Custom Packages </p>       
     </div>     
 </div>

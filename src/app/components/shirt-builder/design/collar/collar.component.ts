@@ -11,9 +11,9 @@ import { DesignStage } from '../../../../models/shirt-builder/designStage';
 export class CollarComponent implements OnInit, AfterViewInit {
   @ViewChildren("MainFocus") MainFocus;
   
-  private DesignStage = DesignStage;
+  public DesignStage = DesignStage;
 
-  private collarsMock: any[] = [
+  public collarsMock: any[] = [
     {"name": "Kent collar (Pointed), medium stand.", "desc": "Suitable for customers with a slim neck.nThe closed setup requires a slim tie knot, preferably a Four- In - Hand. Also good tonbe worn without a tie, since the collar stands up nice and straight.", "url": ""},
     {"name": "Kent collar (Pointed) low stand (39mm).", "desc": "Suitable for a more compact neck. As with its brother, the KR100, the pointed collar can play out its strength when wearing the shirt without a tie or when the tie knot is reasonably small. Please don’T make a Windsor knot, as it would lift up the edges.", "url": ""},
     {"name": "Kent Collar (Pointed), high Stand.", "desc": "The 4,5cm stand is good for a long neck. The long collar allows for a very nice look, especially on sports blazers. We advise to wear this collar with collar stiffeners in order to maintain the shape. Ideal for customers with a large physique.", "url": ""},
@@ -26,10 +26,10 @@ export class CollarComponent implements OnInit, AfterViewInit {
     {"name": "Small Button Down Collar.", "desc": "A small surface, modern-type button down collar that is very popular. It looks very smart..", "url": ""},
   ];
 
-  private selectedCollar: any = {};
-  private isSelectedCollar: boolean = false;  
+  public selectedCollar: any = {};
+  public isSelectedCollar: boolean = false;  
 
-  constructor(private shirtBuilderService: ShirtBuilderService) { }
+  constructor(public shirtBuilderService: ShirtBuilderService) { }
 
   public ngOnInit(): void {
     this.selectedCollar = this.shirtBuilderService.suit.collar;
@@ -40,16 +40,16 @@ export class CollarComponent implements OnInit, AfterViewInit {
     this.MainFocus.first.nativeElement.focus();
   }
 
-  private SelectCollar(collar: any) {
+  public SelectCollar(collar: any) {
     this.selectedCollar = collar;
     this.isSelectedCollar = true;
   }
 
-  private Previous(): void {
+  public Previous(): void {
     this.shirtBuilderService.SetWizardStage.emit(WizardStage.Fabric);
   }
 
-  private Next(): void {
+  public Next(): void {
       this.shirtBuilderService.suit.collar = this.selectedCollar;
       this.shirtBuilderService.isCollarSelected = this.isSelectedCollar;
       this.shirtBuilderService.SetDesignStage.emit(DesignStage.Sleeve);

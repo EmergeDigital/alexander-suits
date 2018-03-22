@@ -20,7 +20,7 @@ export class CartWidgetComponent implements OnInit {
   loadingToast: any;
   loadingCart: boolean;
 
-  constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig, public data: DataService, public auth: AuthService, public router: Router, public dialog: MatDialog) {
+  constructor(public toastyService:ToastyService, public toastyConfig: ToastyConfig, public data: DataService, public auth: AuthService, public router: Router, public dialog: MatDialog) {
 
     this.loadingToast = null;
     this.loadingCart = true;

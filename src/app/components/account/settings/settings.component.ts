@@ -18,7 +18,7 @@ export class SettingsComponent implements OnInit {
   current_province: any;
   loadingToast: any;
 
-  constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig, public data: DataService, public auth: AuthService, public router: Router) {
+  constructor(public toastyService:ToastyService, public toastyConfig: ToastyConfig, public data: DataService, public auth: AuthService, public router: Router) {
     this.isLoading = true;
     this.toastyConfig.theme = 'material';
     this.provinces = [

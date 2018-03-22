@@ -21,7 +21,7 @@ export class AppComponent {
   loadingToast: any;
 
 
-  constructor(public auth: AuthService, public data: DataService, private toastyService:ToastyService, private toastyConfig: ToastyConfig, public router: Router) {
+  constructor(public auth: AuthService, public data: DataService, public toastyService:ToastyService, public toastyConfig: ToastyConfig, public router: Router) {
 
         // auth._authenticating.subscribe(authenticating => {
         //   if(authenticating) {

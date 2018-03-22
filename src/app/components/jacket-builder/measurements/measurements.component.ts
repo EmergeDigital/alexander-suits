@@ -8,11 +8,11 @@ import { MeasurementStage } from '../../../models/jacket-builder/measurementsSta
   styleUrls: ['./measurements.component.scss']
 })
 export class MeasurementsComponent implements OnInit {
-  private MeasurementStage = MeasurementStage; //Html Reference
+  public MeasurementStage = MeasurementStage; //Html Reference
 
-  private currentMeasurementStage: MeasurementStage = MeasurementStage.BodyType;
+  public currentMeasurementStage: MeasurementStage = MeasurementStage.BodyType;
 
-  constructor(private jacketBuilderService: JacketBuilderService) { }
+  constructor(public jacketBuilderService: JacketBuilderService) { }
 
   public ngOnInit(): void {
     this.currentMeasurementStage = this.jacketBuilderService.MeasurementStage;

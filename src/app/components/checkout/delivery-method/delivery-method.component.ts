@@ -10,11 +10,11 @@ import { Address } from '../../../models/address';
 })
 export class DeliveryMethodComponent implements OnInit {
 
-    private selectedDeliveryMethod: string = "DHL Delivery";
-    private addressDetails: Address = new Address({});
-    private isDHLDeliveryToDifferentAddress: boolean = false;
+    public selectedDeliveryMethod: string = "DHL Delivery";
+    public addressDetails: Address = new Address({});
+    public isDHLDeliveryToDifferentAddress: boolean = false;
 
-    constructor(private checkoutService: CheckoutService) { }
+    constructor(public checkoutService: CheckoutService) { }
 
     public ngOnInit(): void {
         this.addressDetails = this.checkoutService.optionalAddressDetails;
@@ -22,11 +22,11 @@ export class DeliveryMethodComponent implements OnInit {
         this.isDHLDeliveryToDifferentAddress = this.checkoutService.isDHLDeliveryToDifferentAddress;
     }
 
-    private Previous(): void {
+    public Previous(): void {
         this.checkoutService.SetCheckoutStage.emit(CheckoutStage.Details)
     }
 
-    private Next(): void {
+    public Next(): void {
         this.checkoutService.optionalAddressDetails = this.addressDetails;
         this.checkoutService.selectedDeliveryMethod = this.selectedDeliveryMethod;
         this.checkoutService.isDHLDeliveryToDifferentAddress = this.isDHLDeliveryToDifferentAddress;

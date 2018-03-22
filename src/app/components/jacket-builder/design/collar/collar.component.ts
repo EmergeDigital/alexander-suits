@@ -11,9 +11,9 @@ import { DesignStage } from '../../../../models/jacket-builder/designStage';
 export class CollarComponent implements OnInit, AfterViewInit {
   @ViewChildren("MainFocus") MainFocus;
   
-  private DesignStage = DesignStage;
+  public DesignStage = DesignStage;
 
-  private collarsMock: any[] = [
+  public collarsMock: any[] = [
     {"name": "Normal", "desc": "A normal lapel collar with a 1 button single breasted style.", "url": "assets/suit-builder/collars/collar-v1.png"},
     {"name": "Normal", "desc": "A normal lapel collar with a 2 button single breasted style.", "url": "assets/suit-builder/collars/collar-v3.png"},
     {"name": "Normal", "desc": "A normal lapel collar with a 3 button single breasted style", "url": "assets/suit-builder/collars/collar-v7.png"},
@@ -25,10 +25,10 @@ export class CollarComponent implements OnInit, AfterViewInit {
     {"name": "Rising", "desc": "A rising lapel collar with a 2 button double breasted style.", "url": "assets/suit-builder/collars/collar-v8.png"},
   ];
 
-  private selectedCollar: any = {};
-  private isSelectedCollar: boolean = false;  
+  public selectedCollar: any = {};
+  public isSelectedCollar: boolean = false;  
 
-  constructor(private jacketBuilderService: JacketBuilderService) { }
+  constructor(public jacketBuilderService: JacketBuilderService) { }
 
   public ngOnInit(): void {
     this.selectedCollar = this.jacketBuilderService.suit.collar;
@@ -39,16 +39,16 @@ export class CollarComponent implements OnInit, AfterViewInit {
     this.MainFocus.first.nativeElement.focus();
   }
 
-  private SelectCollar(collar: any) {
+  public SelectCollar(collar: any) {
     this.selectedCollar = collar;
     this.isSelectedCollar = true;
   }
 
-  private Previous(): void {
+  public Previous(): void {
     this.jacketBuilderService.SetWizardStage.emit(WizardStage.Fabric);
   }
 
-  private Next(): void {
+  public Next(): void {
       this.jacketBuilderService.suit.collar = this.selectedCollar;
       this.jacketBuilderService.isCollarSelected = this.isSelectedCollar;
       this.jacketBuilderService.SetDesignStage.emit(DesignStage.Pockets);

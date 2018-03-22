@@ -4,6 +4,7 @@ import { WizardStage } from '../../../../models/jacket-builder/wizardStage';
 import { FabricStage } from '../../../../models/jacket-builder/fabricStage';
 import { DataService } from '../../../../services/data.service';
 import { Lining } from '../../../../models/lining';
+import { ToastOptions, ToastyConfig, ToastyService } from 'ng2-toasty';
 
 @Component({
   selector: 'jacket-builder-fabric-lining',
@@ -13,7 +14,7 @@ import { Lining } from '../../../../models/lining';
 export class LiningComponent implements OnInit, AfterViewInit {
   @ViewChildren("MainFocus") MainFocus;
 
-  private blackColourTypes: string[] = [
+  public blackColourTypes: string[] = [
     "Very light grey",
     "Light Grey",
     "Medium Grey",
@@ -21,7 +22,7 @@ export class LiningComponent implements OnInit, AfterViewInit {
     "Black"
   ];
 
-  private darkBlueColourTypes: string[] = [
+  public darkBlueColourTypes: string[] = [
     "Royal Blue",
     "Cobalt Blue",
     "Navy Blue",
@@ -30,7 +31,7 @@ export class LiningComponent implements OnInit, AfterViewInit {
     "Medium Blue"
   ];
 
-  private purpleColourTypes: string[] = [
+  public purpleColourTypes: string[] = [
     "Aubergine",
     "Light Purple/Malve",
     "Purple",
@@ -42,7 +43,7 @@ export class LiningComponent implements OnInit, AfterViewInit {
     "Burgundy"
   ];
 
-  private redColourTypes: string[] = [
+  public redColourTypes: string[] = [
     "Light Pink",
     "Pink",
     "Red",
@@ -50,12 +51,12 @@ export class LiningComponent implements OnInit, AfterViewInit {
     "Burgundy"
   ];
 
-  private lightBlueColourTypes: string[] = [
+  public lightBlueColourTypes: string[] = [
     "Light Blue",
     "Medium Blue"
   ];
 
-  private earthColourTypes: string[] = [
+  public earthColourTypes: string[] = [
     "White",
     "Offwhite",
     "Beige",
@@ -65,22 +66,22 @@ export class LiningComponent implements OnInit, AfterViewInit {
     "Brown"
   ];
 
-  private isLoading: boolean = false;
-  private errorMessage: string = "";
+  public isLoading: boolean = false;
+  public errorMessage: string = "";
 
-  private selectedPatternType: string = "";
-  private selectedColourType: string = "";
-  private selectedPriceSortType: string = "HighToLow";
+  public selectedPatternType: string = "";
+  public selectedColourType: string = "";
+  public selectedPriceSortType: string = "HighToLow";
 
-  private linings: Lining[] = [];
-  private selectedLining: Lining = new Lining({});
-  private isSelectedLining: boolean = false;
+  public linings: Lining[] = [];
+  public selectedLining: Lining = new Lining({});
+  public isSelectedLining: boolean = false;
 
-  private filteredLinings: Lining[] = [];
+  public filteredLinings: Lining[] = [];
 
-  private carousels: number[] = [];
+  public carousels: number[] = [];
 
-  constructor(private data: DataService, private jacketBuilderService: JacketBuilderService) {
+  constructor(public data: DataService, public jacketBuilderService: JacketBuilderService, public toastyService: ToastyService, public toastyConfig: ToastyConfig) {
     this.GetLinings();
   }
 
@@ -93,7 +94,7 @@ export class LiningComponent implements OnInit, AfterViewInit {
     this.MainFocus.first.nativeElement.focus();
   }
 
-  private GetLinings(): void {
+  public GetLinings(): void {
     console.log("Getting Linings");
     this.isLoading = true;
     this.linings = [];
@@ -115,7 +116,7 @@ export class LiningComponent implements OnInit, AfterViewInit {
     });
   }
 
-  private FilterLinings(): void {
+  public FilterLinings(): void {
     this.filteredLinings = this.linings.filter((lining: Lining) => {
       if (this.selectedPatternType === "" || lining.print === this.selectedPatternType)
         if (this.selectedColourType === "" || this[this.selectedColourType].findIndex(colourType => colourType === lining.primary_colour) !== -1)
@@ -128,7 +129,7 @@ export class LiningComponent implements OnInit, AfterViewInit {
     this.BuildCarouselList();
   }
 
-  private BuildCarouselList(): void {
+  public BuildCarouselList(): void {
     var length: number = 0;
     var ret: number[] = [];
 
@@ -146,16 +147,16 @@ export class LiningComponent implements OnInit, AfterViewInit {
     }
   }
 
-  private SelectLining(lining: Lining): void {
+  public SelectLining(lining: Lining): void {
     this.selectedLining = lining;
     this.isSelectedLining = true;
   }
 
-  private Previous(): void {
+  public Previous(): void {
     this.jacketBuilderService.SetFabricStage.emit(FabricStage.Material);
   }
 
-  private Next(): void {
+  public Next(): void {
     if (this.isSelectedLining) {
       this.jacketBuilderService.lining = this.selectedLining;
       this.jacketBuilderService.isLiningSelected = this.isSelectedLining;
@@ -163,6 +164,13 @@ export class LiningComponent implements OnInit, AfterViewInit {
     }
     else {
       this.errorMessage = "Please Select A Lining";
+
+      var toastOptions: ToastOptions = {
+        title: "Error",
+        msg: this.errorMessage
+      };
+
+      this.toastyService.error(toastOptions);
     }
   }
 }

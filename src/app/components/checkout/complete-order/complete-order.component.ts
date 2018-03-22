@@ -9,16 +9,16 @@ import { CheckoutStage } from '../../../models/checkoutStage';
 })
 export class CompleteOrderComponent implements OnInit {
 
-    constructor(private checkoutService: CheckoutService) { }
+    constructor(public checkoutService: CheckoutService) { }
 
     public ngOnInit(): void {
     }
 
-    private Previous(): void {
+    public Previous(): void {
         this.checkoutService.SetCheckoutStage.emit(CheckoutStage.DeliveryMethod)
     }
 
-    private Next(): void {
+    public Next(): void {
         this.checkoutService.SetCheckoutStage.emit(CheckoutStage.PaymentMethod)
     }
 }

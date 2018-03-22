@@ -13,17 +13,17 @@ import { Cart } from '../../../models/cart';
 })
 export class PaymentMethodComponent implements OnInit {
 
-    private current_user: User;
-    private cart: Cart = new Cart({});
+    public current_user: User;
+    public cart: Cart = new Cart({});
 
-    constructor(private checkoutService: CheckoutService, private data: DataService, private router: Router) { }
+    constructor(public checkoutService: CheckoutService, public data: DataService, public router: Router) { }
 
     public ngOnInit(): void {
         this.data.getCart().then((cart: Cart) => this.cart = cart);
         this.LoadUser();
     }
 
-    private LoadUser(): void {
+    public LoadUser(): void {
         if (this.data.hasLoaded()) {
             let id = this.data.getCurrentUser;
             this.data.getUser(id).then((user) => {
@@ -37,11 +37,11 @@ export class PaymentMethodComponent implements OnInit {
         }
     }
 
-    private Previous(): void {
+    public Previous(): void {
         this.checkoutService.SetCheckoutStage.emit(CheckoutStage.CompleteOrder)
     }
 
-    private Complete(paymentMethod: string): void {
+    public Complete(paymentMethod: string): void {
         let addressObj = {};
         let deliveryObj = {};
         let userObj = {};
@@ -89,29 +89,31 @@ export class PaymentMethodComponent implements OnInit {
                 break;
         }
 
-        userObj = {
-            name: user.fullname,
-            measurements: { generalMeasurements: this.cart.products[0].extras.generalMeasurements, finerMeasurements: this.cart.products[0].extras.finerMeasurements }
-        };
-
         let current_user = user;
-        current_user.measurements = { generalMeasurements: this.cart.products[0].extras.generalMeasurements, finerMeasurements: this.cart.products[0].extras.finerMeasurements };
 
-        this.data.setUser(current_user).then(result => {
-            let cart_data = {
-                user_data: userObj,
-                address_data: addressObj,
-                delivery_data: deliveryObj,
-                contact_number: user.contact_mobile,
-                contact_email: user.email,
+        try {
+            userObj = {
+                name: user.fullname,
+                measurements: { generalMeasurements: this.cart.products[0].extras.generalMeasurements, finerMeasurements: this.cart.products[0].extras.finerMeasurements }
             };
-            this.data.checkout(cart_data).then(order => {
-                this.data.deleteCart().then((response) => {
-                    this.router.navigate(['/home']);
-                });
+            current_user.measurements = { generalMeasurements: this.cart.products[0].extras.generalMeasurements, finerMeasurements: this.cart.products[0].extras.finerMeasurements };    
+        }
+        finally {
+            this.data.setUser(current_user).then(result => {
+                let cart_data = {
+                    user_data: userObj,
+                    address_data: addressObj,
+                    delivery_data: deliveryObj,
+                    contact_number: user.contact_mobile,
+                    contact_email: user.email,
+                };
+                this.data.checkout(cart_data).then(order => {
+                    this.data.deleteCart().then((response) => {
+                        this.router.navigate(['/home']);
+                    });
+                })
+            }).catch(ex => {
             })
-        }).catch(ex => {
-        })
-
+        }
     }
 }
