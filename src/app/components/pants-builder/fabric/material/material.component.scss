@@ -29,6 +29,7 @@
 }
 
 .fabric-block {
+    display: inline-block;
     text-align: center;
     margin: 2em;
     font-size: 1em;
@@ -43,10 +44,10 @@
 
 // Colour filters
 .brown {
-    background-color: #E0A279;
+    background-color: #976853;
 }
 .light-blue {
-    background-color: #BFCBF2;
+    background-color: #3D5B7F;
 }
 .red {
     background-color: #DE81B3;
@@ -55,15 +56,19 @@
     background-color: #B186DB;
 }
 .blue {
-    background-color: #464899;
+    background-color: #00007F;
 }
 .black {
     background-color: #333333;
 }
 .white {
     background-color: #ffffff;
-    border: 0.0825em solid $c-brown-accent;
+    border: 0.0825em solid #333333;
 }
+.burgundy {
+    background-color: #932435;        
+}
+
 
 .filter-background .mat-select-content {
     background: $c-blue-main;
@@ -87,7 +92,7 @@
     display: none;
 }
 .mat-form-field {
-    width: 15em;
+    width: 100%;
     font-size: 0.75em;
     color:  $c-blue-main;
     font-weight: 400;
@@ -122,3 +127,38 @@
     letter-spacing: 0.125em;
     border: none;
 }
+.carousel-hide-md {
+    visibility: hidden;
+    display: none;
+}
+
+// Mobile View
+@media (min-width: 320px) and (max-width: 480px) {
+    .banner-image {
+        background-size: cover;
+        height: 100%;
+        overflow: hidden;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    .circle-column {
+        margin-right: 0px !important;
+    }
+    .owl-carousel .owl-item img {
+        width: 80% !important;
+        display: inline-block;        
+    }
+    .carousel-hide-sm {
+        visibility: hidden;
+        display: none;
+    }
+  }
+
+  // Tablet View
+@media (max-width: 768px) {
+    .fabric-block {
+        margin: 1em;
+    }
+  }
+  

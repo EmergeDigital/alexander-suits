@@ -16,8 +16,8 @@ export class VentsComponent implements OnInit, AfterViewInit {
   private DesignStage = DesignStage;
 
   private ventsMock: any[] = [
-    {"name": "1", "desc": "Vent Description", "url": "assets/jacket-builder/vents/vents-v1.png"},
-    {"name": "2", "desc": "Vent Description", "url": "assets/jacket-builder/vents/vents-v2.png"},
+    {"name": "Centre", "desc": "A centre vent style.", "url": "assets/suit-builder/vents/vents-v1.png"},
+    {"name": "Side", "desc": "A side vent style.", "url": "assets/suit-builder/vents/vents-v2.png"},
   ];
 
   private errorMessage: string = "";
@@ -56,8 +56,7 @@ export class VentsComponent implements OnInit, AfterViewInit {
     if (this.errorMessage === "") {
       if (this.jacketBuilderService.isFinerDetailsShown === false) {
         let ExtraDetailsModal = this.dialog.open(ExtraDetailsModalComponent, {
-          height: '400px',
-          width: '600px',
+          height: '60%',
         });
 
         ExtraDetailsModal.afterClosed().subscribe(result => {

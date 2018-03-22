@@ -25,14 +25,21 @@ export class LiningComponent implements OnInit, AfterViewInit {
     "Royal Blue",
     "Cobalt Blue",
     "Navy Blue",
-    "Dark Navy Blue"
+    "Dark Navy Blue",
+    "Light Blue",
+    "Medium Blue"
   ];
 
   private purpleColourTypes: string[] = [
     "Aubergine",
     "Light Purple/Malve",
     "Purple",
-    "Fuchsia /with pink"
+    "Fuchsia /with pink",
+    "Light Pink",
+    "Pink",
+    "Red",
+    "Dark Red",
+    "Burgundy"
   ];
 
   private redColourTypes: string[] = [

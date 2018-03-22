@@ -11,21 +11,21 @@ export class PantStylesComponent implements OnInit, AfterViewInit {
   @ViewChildren("MainFocus") MainFocus;
 
   private pantPleatsMock: any[] = [
-    {"name": "1", "desc": "Collar Description", "url": "assets/pants-builder/pants/pants-v1.png"},
-    {"name": "2", "desc": "Collar Description", "url": "assets/pants-builder/pants/pants-v2.png"},
-    {"name": "3", "desc": "Collar Description", "url": "assets/pants-builder/pants/pants-v3.png"},
+    {"name": "Flat", "desc": "A flat front style.", "url": ""},
+    {"name": "Dart", "desc": "A single darted front style. ", "url": "assets/suit-builder/pants/pants-v1.png"},
+    {"name": "Single", "desc": "A single pleated front style", "url": "assets/suit-builder/pants/pants-v3.png"},
+    {"name": "Double", "desc": "A double pleated front style", "url": "assets/suit-builder/pants/pants-v2.png"},
   ];
 
   private pantPocketsMock: any[] = [
-    {"name": "1", "desc": "Collar Description", "url": "assets/pants-builder/pants/pants-v1.png"},
-    {"name": "2", "desc": "Collar Description", "url": "assets/pants-builder/pants/pants-v2.png"},
-    {"name": "3", "desc": "Collar Description", "url": "assets/pants-builder/pants/pants-v3.png"},
+    {"name": "None", "desc": "A no pocket style.", "url": ""},
+    {"name": "One", "desc": "A one pocket style.", "url": ""},
+    {"name": "Two", "desc": "A two pockets style.", "url": ""},
   ];
 
   private pantCuffsMock: any[] = [
-    {"name": "1", "desc": "Collar Description", "url": "assets/pants-builder/pants/pants-v1.png"},
-    {"name": "2", "desc": "Collar Description", "url": "assets/pants-builder/pants/pants-v2.png"},
-    {"name": "3", "desc": "Collar Description", "url": "assets/pants-builder/pants/pants-v3.png"},
+    {"name": "None", "desc": "A seem cuff without turnups style.", "url": ""},
+    {"name": "Turnups", "desc": "A seem cuff with turnups style.", "url": ""},
   ];
 
   private errorMessage: string = "";
@@ -56,6 +56,33 @@ export class PantStylesComponent implements OnInit, AfterViewInit {
 
   public ngAfterViewInit(): void {
     this.MainFocus.first.nativeElement.focus();
+  }
+
+  private GetPantPocketBackgroundSelected(): string {
+    var ret = "";
+
+    if (this.isSelectedPantPleat)
+      ret = 'url(' + this.selectedPantPleat.url + '),';
+
+    if (this.isSelectedPantPocket)
+      ret = ret + ' url(' + this.selectedPantPocket.url + '),';
+      
+    return ret + ' url("assets/suit-builder/pants-base.png")';
+  }
+
+  private GetPantCuffBackgroundSelected(): string {
+    var ret = "";
+
+    if (this.isSelectedPantPleat)
+      ret = 'url(' + this.selectedPantPleat.url + '),';
+
+    if (this.isSelectedPantPocket)
+      ret = ret + ' url(' + this.selectedPantPocket.url + '),';
+
+      if (this.isSelectedPantPocket)
+        ret = ret + ' url(' + this.selectedPantCuff.url + '),';
+      
+    return ret + ' url("assets/suit-builder/pants-base.png")';
   }
 
   private SelectPantPleat(pantPleat: any) {

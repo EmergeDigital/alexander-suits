@@ -102,7 +102,7 @@ export class MaterialComponent implements OnInit {
     console.log("Getting Materials");
     this.isLoading = true;
     this.materials = [];
-    this.data._getProducts({category: ["Trousers"]}).then(materials => {
+    this.data._getProducts({category: ["Suit"]}).then(materials => {
       if(materials.length > 0) {
         this.materials = materials;
         this.FilterMaterials();

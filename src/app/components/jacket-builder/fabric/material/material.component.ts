@@ -35,7 +35,9 @@ export class MaterialComponent implements OnInit {
     "Royal Blue",
     "Cobalt Blue",
     "Navy Blue",
-    "Dark Navy Blue"
+    "Dark Navy Blue",
+    "Light Blue",
+    "Medium Blue"
   ];
 
   private purpleColourTypes: string[] = [
@@ -65,7 +67,16 @@ export class MaterialComponent implements OnInit {
     "Orange",
     "Burnt Orange",
     "Light Brown",
-    "Brown"
+    "Brown",
+    "Light Pink",
+    "Pink",
+    "Red",
+    "Dark Red",
+    "Burgundy",
+    "Aubergine",
+    "Light Purple/Malve",
+    "Purple",
+    "Fuchsia /with pink"
   ];
 
   private isLoading: boolean = false;
@@ -102,7 +113,7 @@ export class MaterialComponent implements OnInit {
     console.log("Getting Materials");
     this.isLoading = true;
     this.materials = [];
-    this.data._getProducts({category: ["Trousers"]}).then(materials => { //{collections: collection, category: ["Suit"]}
+    this.data._getProducts({category: ["Jacket"]}).then(materials => { //{collections: collection, category: ["Suit"]}
       if (materials.length > 0) {
         this.materials = materials;
         this.FilterMaterials();
