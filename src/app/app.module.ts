@@ -310,6 +310,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     entryComponents: [
         DialogContentCartDialog,
         ExtraDetailsModalComponent,
+        ShirtExtraDetailsModalComponent,
+        JacketExtraDetailsModalComponent,
         MockupGarmentModalComponent,
     ],
     providers: [DataService, SessionService, FunctionsService, AuthService, SuitBuilderService, ShirtBuilderService, JacketBuilderService, PantsBuilderService, MeasurementsService, CheckoutService,

@@ -3,6 +3,7 @@ import { Product } from '../../../../models/product';
 import { DataService } from '../../../../services/data.service';
 import { JacketBuilderService } from '../../jacket-builder.service';
 import { FabricStage } from '../../../../models/jacket-builder/fabricStage';
+import { ToastOptions, ToastyConfig, ToastyService } from 'ng2-toasty';
 
 @Component({
   selector: 'jacket-builder-fabric-material',
@@ -35,7 +36,9 @@ export class MaterialComponent implements OnInit {
     "Royal Blue",
     "Cobalt Blue",
     "Navy Blue",
-    "Dark Navy Blue"
+    "Dark Navy Blue",
+    "Light Blue",
+    "Medium Blue"
   ];
 
   public purpleColourTypes: string[] = [
@@ -65,7 +68,16 @@ export class MaterialComponent implements OnInit {
     "Orange",
     "Burnt Orange",
     "Light Brown",
-    "Brown"
+    "Brown",
+    "Light Pink",
+    "Pink",
+    "Red",
+    "Dark Red",
+    "Burgundy",
+    "Aubergine",
+    "Light Purple/Malve",
+    "Purple",
+    "Fuchsia /with pink"
   ];
 
   public isLoading: boolean = false;
@@ -86,7 +98,7 @@ export class MaterialComponent implements OnInit {
 
   public carousels: number[] = [];
 
-  constructor(public data: DataService, public jacketBuilderService: JacketBuilderService) {
+  constructor(public data: DataService, public jacketBuilderService: JacketBuilderService, public toastyService: ToastyService, public toastyConfig: ToastyConfig) {
     this.GetMaterials(jacketBuilderService.collection);
     jacketBuilderService._collectionChanged.subscribe(collection => {
       this.GetMaterials(collection);
@@ -102,7 +114,7 @@ export class MaterialComponent implements OnInit {
     console.log("Getting Materials");
     this.isLoading = true;
     this.materials = [];
-    this.data._getProducts({category: ["Trousers"]}).then(materials => { //{collections: collection, category: ["Suit"]}
+    this.data._getProducts({category: ["Jacket"]}).then(materials => { //{collections: collection, category: ["Suit"]}
       if (materials.length > 0) {
         this.materials = materials;
         this.FilterMaterials();
@@ -166,6 +178,13 @@ export class MaterialComponent implements OnInit {
     }
     else {
       this.errorMessage = "Please Select A Material";
+
+      var toastOptions: ToastOptions = {
+        title: "Error",
+        msg: this.errorMessage
+      };
+
+      this.toastyService.error(toastOptions);
     }
   }
 

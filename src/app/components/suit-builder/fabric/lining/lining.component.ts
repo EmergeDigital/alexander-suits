@@ -4,6 +4,7 @@ import { WizardStage } from '../../../../models/suit-builder/wizardStage';
 import { FabricStage } from '../../../../models/suit-builder/fabricStage';
 import { DataService } from '../../../../services/data.service';
 import { Lining } from '../../../../models/lining';
+import { ToastOptions, ToastyConfig, ToastyService } from 'ng2-toasty';
 
 @Component({
   selector: 'suit-builder-fabric-lining',
@@ -80,7 +81,7 @@ export class LiningComponent implements OnInit, AfterViewInit {
 
   public carousels: number[] = [];
 
-  constructor(public data: DataService, public suitBuilderService: SuitBuilderService) {
+  constructor(public data: DataService, public suitBuilderService: SuitBuilderService, public toastyService: ToastyService, public toastyConfig: ToastyConfig) {
     this.GetLinings();
   }
 
@@ -163,6 +164,13 @@ export class LiningComponent implements OnInit, AfterViewInit {
     }
     else {
       this.errorMessage = "Please Select A Lining";
+
+      var toastOptions: ToastOptions = {
+        title: "Error",
+        msg: this.errorMessage
+      };
+
+      this.toastyService.error(toastOptions);
     }
   }
 }

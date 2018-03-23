@@ -89,29 +89,31 @@ export class PaymentMethodComponent implements OnInit {
                 break;
         }
 
-        userObj = {
-            name: user.fullname,
-            measurements: { generalMeasurements: this.cart.products[0].extras.generalMeasurements, finerMeasurements: this.cart.products[0].extras.finerMeasurements }
-        };
-
         let current_user = user;
-        current_user.measurements = { generalMeasurements: this.cart.products[0].extras.generalMeasurements, finerMeasurements: this.cart.products[0].extras.finerMeasurements };
 
-        this.data.setUser(current_user).then(result => {
-            let cart_data = {
-                user_data: userObj,
-                address_data: addressObj,
-                delivery_data: deliveryObj,
-                contact_number: user.contact_mobile,
-                contact_email: user.email,
+        try {
+            userObj = {
+                name: user.fullname,
+                measurements: { generalMeasurements: this.cart.products[0].extras.generalMeasurements, finerMeasurements: this.cart.products[0].extras.finerMeasurements }
             };
-            this.data.checkout(cart_data).then(order => {
-                this.data.deleteCart().then((response) => {
-                    this.router.navigate(['/home']);
-                });
+            current_user.measurements = { generalMeasurements: this.cart.products[0].extras.generalMeasurements, finerMeasurements: this.cart.products[0].extras.finerMeasurements };    
+        }
+        finally {
+            this.data.setUser(current_user).then(result => {
+                let cart_data = {
+                    user_data: userObj,
+                    address_data: addressObj,
+                    delivery_data: deliveryObj,
+                    contact_number: user.contact_mobile,
+                    contact_email: user.email,
+                };
+                this.data.checkout(cart_data).then(order => {
+                    this.data.deleteCart().then((response) => {
+                        this.router.navigate(['/home']);
+                    });
+                })
+            }).catch(ex => {
             })
-        }).catch(ex => {
-        })
-
+        }
     }
 }

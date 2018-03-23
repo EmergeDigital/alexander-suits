@@ -5,6 +5,7 @@ import { WizardStage } from '../../../../models/suit-builder/wizardStage';
 import { Ng2ImgToolsService } from 'ng2-img-tools/dist/src/ng2-img-tools.service';
 import { DataService } from '../../../../services/data.service';
 import { TdLoadingService } from '@covalent/core/loading/services/loading.service';
+import { ToastOptions, ToastyConfig, ToastyService } from 'ng2-toasty';
 
 @Component({
   selector: 'suit-builder-measurements-upload-photo',
@@ -25,7 +26,7 @@ export class UploadPhotoComponent implements OnInit, AfterViewInit {
   public currentSuit: any = {};
 
   constructor(public suitBuilderService: SuitBuilderService, public ng2ImgToolsService: Ng2ImgToolsService,
-    public data: DataService, public _loadingService: TdLoadingService) { }
+    public data: DataService, public _loadingService: TdLoadingService, public toastyService: ToastyService, public toastyConfig: ToastyConfig) { }
 
   public ngOnInit(): void {
     this.currentSuit = this.suitBuilderService.suit;
@@ -90,6 +91,14 @@ export class UploadPhotoComponent implements OnInit, AfterViewInit {
         alert("There was a problem");
         this._loadingService.resolve('overlayStarSyntax');
       });
+    } else {
+      var toastOptions: ToastOptions = {
+        title: "Error",
+        msg: this.errorMessage
+      };
+
+      this.toastyService.error(toastOptions);
+      console.log();
     }
   }
 }

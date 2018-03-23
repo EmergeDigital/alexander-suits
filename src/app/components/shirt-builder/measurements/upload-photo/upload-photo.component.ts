@@ -5,6 +5,7 @@ import { WizardStage } from '../../../../models/shirt-builder/wizardStage';
 import { Ng2ImgToolsService } from 'ng2-img-tools/dist/src/ng2-img-tools.service';
 import { DataService } from '../../../../services/data.service';
 import { TdLoadingService } from '@covalent/core/loading/services/loading.service';
+import { ToastOptions, ToastyService, ToastyConfig } from 'ng2-toasty';
 
 @Component({
   selector: 'shirt-builder-measurements-upload-photo',
@@ -25,7 +26,7 @@ export class UploadPhotoComponent implements OnInit, AfterViewInit {
   public currentSuit: any = {};
 
   constructor(public shirtBuilderService: ShirtBuilderService, public ng2ImgToolsService: Ng2ImgToolsService,
-              public data: DataService, public _loadingService: TdLoadingService) { }
+              public data: DataService, public _loadingService: TdLoadingService, public toastyService: ToastyService, public toastyConfig: ToastyConfig) { }
 
   public ngOnInit(): void {
     this.currentSuit = this.shirtBuilderService.suit;
@@ -78,18 +79,26 @@ export class UploadPhotoComponent implements OnInit, AfterViewInit {
 
   public Next(): void {
     this.shirtBuilderService.suit.uploadedImages = this.uploadedImages;
-    
+
     this.errorMessage = this.shirtBuilderService.ValidateMeasurementsStage();
-    
+
     if(this.errorMessage === "") {
       this.data.UpdateCart([this.shirtBuilderService.BuildProduct()]).then(result => {
         console.log(result);
-        this._loadingService.resolve('overlayStarSyntax');  
+        this._loadingService.resolve('overlayStarSyntax');
         this.shirtBuilderService.SetWizardStage.emit(WizardStage.Checkout);
       }).catch(ex => {
-        alert("There was a problem");
+        alert("Cart Failed to update. Please try again later.");
         this._loadingService.resolve('overlayStarSyntax');
       });
+    } else {
+      var toastOptions: ToastOptions = {
+        title: "Error",
+        msg: this.errorMessage
+      };
+
+      this.toastyService.error(toastOptions);
+      console.log();
     }
   }
 }

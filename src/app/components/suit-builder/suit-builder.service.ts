@@ -204,18 +204,9 @@ export class SuitBuilderService {
             generalMeasurements: { height: 0, chest: 0, back: 0, biceps: 0, stomach: 0, seat: 0, thigh: 0 },
             finerMeasurements: { jacketBackLength: 0, jacketWaist: 0, withoutTrouserWaist: 0, withoutTrouserOutsideSeam: 0, trouserWaist: 0, trouserInsideSeam: 0, trouserOutsideSeam: 0 },
             uploadedImages: { front: "", left: "", right: "", back: "" },
-
-            //TODO: Check if these fields are neccessary
-            // button_hole_colour: {"name": 0, "value": "Default", "color": "Default"},
-            buttons: { "name": "0", "value": "Default", "color": "Default" },
-            // buttons_comment: "",
-            button_stitching: { "name": "0", "value": "Default", "color": "Default" },
-            contrast_package: { "name": "0", "value": "None", "color": "Default" },
-            // contrast_fabric: {"name": "0", "value": "Default", "color": "Default"},
-            mockup: false,
+            mockupGarment: { isMockupGarment: false, instructions: "" },
             oversize: false,
             supersize: false
-            //TODO: Check if these fields are neccessary
         };
     }
 }

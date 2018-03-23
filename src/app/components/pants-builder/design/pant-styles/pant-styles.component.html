@@ -6,21 +6,23 @@
         <p class="brown-paragraph-text">Lorem ipsum dolor sit amet,consectetur.</p>
     </div>
 </div>
-<div class="row ml-5 mt-5">
-    <div class="col-lg-3">
-        <div class="placeholder-circle-designs" [ngStyle]="{'background': isSelectedPantPleat ? 'url(' + selectedPantPleat.url + ')' : ''}"></div>
-        <div class="left-circle-text" *ngIf="isSelectedPantPleat">
-            <h4>You have chosen:</h4>
-            <h5>{{ selectedPantPleat.name }}</h5>
-            <p>{{ selectedPantPleat.description_long }}</p>
-            <p>add more info or details here about the chosen item</p>
+<div class="row ml-lg-5 ml-md-5 mt-5">
+    <div class="col-lg-3 col-md-12">
+        <div class="row d-flex justify-content-center">
+            <div class="placeholder-circle-designs" [ngStyle]="{'background': isSelectedPantPleat ? 'url(' + selectedPantPleat.url + '), url(assets/suit-builder/pants-base.png)' : 'url(assets/suit-builder/pants-base.png)'}"></div>
+            <div class="left-circle-text" *ngIf="isSelectedPantPleat">
+                <h4>You have chosen:</h4>
+                <h5>{{ selectedPantPleat.name }}</h5>
+                <p>{{ selectedPantPleat.desc }}</p>
+            </div>
         </div>
     </div>
-    <div class="col-lg-7">
+    <div class="col-lg-7 col-md-12">
         <h4>Choose Pant Pleats</h4>
-        <div class="row">
-            <div class="col-lg-3 image-circle mb-4" *ngFor="let pantPleat of pantPleatsMock">
-                <img class="img-responsive option-circle" src="{{ pantPleat.url }}" />
+        <div class="row d-flex align-items-start">
+            <div class="col-lg-3 col-md-3 col-sm-3 image-circle mb-4" *ngFor="let pantPleat of pantPleatsMock">
+                <img class="img-responsive option-circle" src="{{ pantPleat.url }}" *ngIf="pantPleat.url !== ''"/>
+                <img class="img-responsive option-circle" *ngIf="pantPleat.url === ''"/>
                 <br>
                 <h5>{{ pantPleat.name }}</h5>
                 <p>{{ pantPleat.desc }}</p>
@@ -28,35 +30,28 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-2">
-        <button class="help-button">i need help choosing</button>
-         <!-- COMMENTED OUT FOR NOW -->
-        <!-- <p class="active-link" (click)="pantsBuilderService.SetDesignStage.emit(DesignStage.Collar)"><i class="fa fa-circle" aria-hidden="true"></i>Jacket Collar Style</p>
-        <p class="chosen-style-text">You chose style {{ currentSuit.collar.name }}</p>
-        <p class="active-link" (click)="pantsBuilderService.SetDesignStage.emit(DesignStage.Pockets)"><i class="fa fa-circle" aria-hidden="true"></i> Jacket Pockets</p>
-        <p class="chosen-style-text">You chose style {{ currentSuit.pockets.name }}</p>
-        <p class="active-link" (click)="pantsBuilderService.SetDesignStage.emit(DesignStage.Vents)"><i class="fa fa-circle" aria-hidden="true"></i> Jacket Vents</p> -->
-        <p class="chosen-style-text">You chose style {{ currentSuit.vents.name }}</p>
+    <div class="col-lg-2 hide-mobile">
         <p class="active-link"><i class="fa fa-circle" aria-hidden="true"></i> Pants</p>
-        <p><i class="fa fa-circle-o" aria-hidden="true"></i> Add-ons : Pants/Waistcoat</p>
     </div>
 </div>
 <hr>
-<div class="row ml-5 mt-5">
-    <div class="col-lg-3">
-        <div class="placeholder-circle-designs" [ngStyle]="{'background': isSelectedPantPocket ? 'url(' + selectedPantPocket.url + ')' : ''}"></div>
-        <div class="left-circle-text" *ngIf="isSelectedPantPocket">
-            <h4>You have chosen:</h4>
-            <h5>{{ selectedPantPocket.name }}</h5>
-            <p>{{ selectedPantPocket.description_long }}</p>
-            <p>add more info or details here about the chosen item</p>
+<div class="row ml-lg-5 ml-md-5 mt-5">
+    <div class="col-lg-3 col-md-12">
+        <div class="row d-flex justify-content-center">
+            <div class="placeholder-circle-designs" [ngStyle]="{'background': GetPantPocketBackgroundSelected()}"></div>
+            <div class="left-circle-text" *ngIf="isSelectedPantPocket">
+                <h4>You have chosen:</h4>
+                <h5>{{ selectedPantPocket.name }}</h5>
+                <p>{{ selectedPantPocket.desc}}</p>
+            </div>
         </div>
     </div>
-    <div class="col-lg-7">
+    <div class="col-lg-7 col-md-12">
         <h4>Choose Pant Back Pockets</h4>
-        <div class="row">
-            <div class="col-lg-3 image-circle mb-4" *ngFor="let pantPocket of pantPocketsMock">
-                <img class="img-responsive option-circle" src="{{ pantPocket.url }}" />
+        <div class="row d-flex align-items-start">
+            <div class="col-lg-3 col-md-3 col-sm-3 image-circle mb-4" *ngFor="let pantPocket of pantPocketsMock">
+                <img class="img-responsive option-circle" src="{{ pantPocket.url }}" *ngIf="pantPocket.url !== ''"/>
+                <img class="img-responsive option-circle" *ngIf="pantPocket.url === ''"/>
                 <br>
                 <h5>{{ pantPocket.name }}</h5>
                 <p>{{ pantPocket.desc }}</p>
@@ -66,28 +61,30 @@
     </div>
 </div>
 <hr>
-<div class="row ml-5 mt-5">
-    <div class="col-lg-3">
-        <div class="placeholder-circle-designs" [ngStyle]="{'background': isSelectedPantCuff ? 'url(' + selectedPantCuff.url + ')' : ''}"></div>
-        <div class="left-circle-text" *ngIf="isSelectedPantCuff">
-            <h4>You have chosen:</h4>
-            <h5>{{ selectedPantCuff.name }}</h5>
-            <p>{{ selectedPantCuff.description_long }}</p>
-            <p>add more info or details here about the chosen item</p>
+<div class="row ml-lg-5 ml-md-5 mt-5">
+    <div class="col-lg-3 col-md-12">
+        <div class="row d-flex justify-content-center">
+            <div class="placeholder-circle-designs" [ngStyle]="{'background': GetPantCuffBackgroundSelected()}"></div>
+            <div class="left-circle-text" *ngIf="isSelectedPantCuff">
+                <h4>You have chosen:</h4>
+                <h5>{{ selectedPantCuff.name }}</h5>
+                <p>{{ selectedPantCuff.desc}}</p>
+            </div>
         </div>
     </div>
-    <div class="col-lg-7">
+    <div class="col-lg-7  col-md-12">
         <h4>Choose Pant Cuffs</h4>
-        <div class="row">
-            <div class="col-lg-3 image-circle mb-4" *ngFor="let pantCuff of pantCuffsMock">
-                <img class="img-responsive option-circle" src="{{ pantCuff.url }}" />
+        <div class="row d-flex align-items-start">
+            <div class="col-lg-3 col-md-3 col-sm-3 image-circle mb-4" *ngFor="let pantCuff of pantCuffsMock">
+                <img class="img-responsive option-circle" src="{{ pantCuff.url }}" *ngIf="pantCuff.url !== ''"/>
+                <img class="img-responsive option-circle" *ngIf="pantCuff.url === ''"/>
                 <br>
                 <h5>{{ pantCuff.name }}</h5>
                 <p>{{ pantCuff.desc }}</p>
                 <button mat-raised-button class="select-button" (click)="SelectPantCuff(pantCuff)">Select</button>
             </div>
         </div>
-        <div class="row mt-5">
+        <div class="row mt-5 mr-md-5">
             <div class="col-lg-5 d-flex justify-content-start">
                 <button mat-raised-button class="back-button" (click)="Previous()">Back</button>
             </div>

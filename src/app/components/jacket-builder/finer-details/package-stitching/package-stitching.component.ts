@@ -3,6 +3,7 @@ import { JacketBuilderService } from '../../jacket-builder.service';
 import { FinerDetailsStage } from '../../../../models/jacket-builder/finerDetailsStage';
 import { WizardStage } from '../../../../models/jacket-builder/wizardStage';
 import { MatDialog } from '@angular/material';
+import { ToastOptions, ToastyConfig, ToastyService } from 'ng2-toasty';
 
 @Component({
   selector: 'jacket-builder-finer-details-package-stitching',
@@ -36,7 +37,7 @@ export class PackageStitchingComponent implements OnInit, AfterViewInit {
 
   public currentSuit: any = {};
 
-  constructor(public jacketBuilderService: JacketBuilderService, public dialog: MatDialog) { }
+  constructor(public jacketBuilderService: JacketBuilderService, public dialog: MatDialog, public toastyService: ToastyService, public toastyConfig: ToastyConfig) { }
 
   public ngOnInit(): void {
     this.currentSuit = this.jacketBuilderService.suit;
@@ -77,6 +78,14 @@ export class PackageStitchingComponent implements OnInit, AfterViewInit {
     this.errorMessage = this.jacketBuilderService.ValidateFinerDetailsStage();
     if (this.errorMessage === "") {
       this.jacketBuilderService.SetWizardStage.emit(WizardStage.Measurements);
+    } else {
+      var toastOptions: ToastOptions = {
+        title: "Error",
+        msg: this.errorMessage
+      };
+
+      this.toastyService.error(toastOptions);
+      console.log();
     }
   }
 }

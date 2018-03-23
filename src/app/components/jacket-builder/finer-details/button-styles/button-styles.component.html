@@ -1,91 +1,98 @@
 <div class="row mt-5 pt-5">
-        <div class="col-lg-12 d-flex justify-content-center">
-            <h2 #MainFocus>Choose button styles</h2>
-        </div>
-        <div class="col-lg-12 d-flex justify-content-center">
-            <p class="brown-paragraph-text">Lorem ipsum dolor sit amet,consectetur.</p>
-        </div>
+    <div class="col-lg-12 d-flex justify-content-center">
+        <h2 #MainFocus>Choose button styles</h2>
     </div>
-    <div class="row ml-5 mt-5">
-        <div class="col-lg-3">
+    <div class="col-lg-12 d-flex justify-content-center">
+        <p class="brown-paragraph-text">Lorem ipsum dolor sit amet,consectetur.</p>
+    </div>
+</div>
+<div class="row ml-lg-5 ml-md-5 mt-5">
+    <div class="col-lg-3 col-md-12">
+        <div class="row d-flex justify-content-center">
             <div class="placeholder-circle-designs" [ngStyle]="{'background': isSelectedButtonHole ? 'url(' + selectedButtonHole.url + ')' : ''}"></div>
             <div class="left-circle-text" *ngIf="isSelectedButtonHole">
                 <h4>You have chosen:</h4>
                 <h5>{{selectedButtonHole.name}}</h5>
-                <p>{{selectedButtonHole.description_long}}</p>
-                <p>add more info or details here about the chosen item</p> 
+                <p>{{selectedButtonHole.desc}}</p>
             </div>
         </div>
-        <div class="col-lg-7">
-            <h4>Choose Button Holes</h4>
-            <div class="row">
-                <div class="col-lg-3 image-circle mb-4" *ngFor="let buttonHole of buttonHolesMock">
-                    <img class="img-responsive option-circle" src="{{ buttonHole.url }}" />
-                    <br>
-                    <h5>{{ buttonHole.name }}</h5>
-                    <p>{{ buttonHole.desc }}</p>
-                    <button mat-raised-button class="select-button" (click)="SelectButtonHole(buttonHole)">Select</button>
-                </div>
-            </div>
-        </div>  
-        <div class="col-lg-2">
-            <p class="active-link"><i class="fa fa-circle" aria-hidden="true"></i> Buttons</p>
-            <p><i class="fa fa-circle-o" aria-hidden="true"></i> Custom Packages </p>       
-        </div>     
     </div>
-    <hr>
-    <div class="row ml-5 mt-5">
-        <div class="col-lg-3">
+    <div class="col-lg-7 col-md-12">
+        <h4>Choose Button Holes</h4>
+        <div class="row d-flex align-items-start">
+            <div class="col-lg-3 col-md-3 col-sm-3 image-circle mb-4" *ngFor="let buttonHole of buttonHolesMock">
+                <img class="img-responsive option-circle" src="{{ buttonHole.url }}" />
+                <br>
+                <h5>{{ buttonHole.name }}</h5>
+                <p>{{ buttonHole.desc }}</p>
+                <button mat-raised-button class="select-button" (click)="SelectButtonHole(buttonHole)">Select</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 hide-mobile">
+        <p class="active-link">
+            <i class="fa fa-circle" aria-hidden="true"></i> Buttons</p>
+        <p>
+            <i class="fa fa-circle-o" aria-hidden="true"></i> Custom Packages </p>
+    </div>
+</div>
+<hr>
+<div class="row ml-lg-5 ml-md-5 mt-5">
+    <div class="col-lg-3 col-md-12">
+        <div class="row d-flex justify-content-center">
             <div class="placeholder-circle-designs" [ngStyle]="{'background': isSelectedBoutonnerie ? 'url(' + selectedBoutonnerie.url + ')' : ''}"></div>
             <div class="left-circle-text" *ngIf="isSelectedBoutonnerie">
                 <h4>You have chosen:</h4>
                 <h5>{{selectedBoutonnerie.name}}</h5>
-                <p>{{selectedBoutonnerie.description_long}}</p>
-                <p>add more info or details here about the chosen item</p> 
+                <p>{{selectedBoutonnerie.desc}}</p>
             </div>
         </div>
-        <div class="col-lg-7">
-            <h4>Boutonnerie</h4>
-            <div class="row">
-                <div class="col-lg-3 image-circle mb-4" *ngFor="let boutonnerie of boutonneriesMock">
-                    <img class="img-responsive option-circle" src="{{ boutonnerie.url }}" />
-                    <br>
-                    <h5>{{ boutonnerie.name }}</h5>
-                    <p>{{ boutonnerie.desc }}</p>
-                    <button mat-raised-button class="select-button" (click)="SelectBoutonnerie(boutonnerie)">Select</button>
-                </div>
-            </div>
-        </div>  
     </div>
-    <hr>
-    <div class="row ml-5 mt-5">
-        <div class="col-lg-3">
+    <div class="col-lg-7 col-md-12">
+        <h4>Boutonnerie</h4>
+        <div class="row d-flex align-items-start">
+            <div class="col-lg-3 col-md-3 col-sm-3 image-circle mb-4" *ngFor="let boutonnerie of boutonneriesMock">
+                <img class="img-responsive option-circle" src="{{ boutonnerie.url }}" *ngIf="boutonnerie.url !== ''" />
+                <img class="img-responsive option-circle" *ngIf="boutonnerie.url === ''" />
+                <br>
+                <h5>{{ boutonnerie.name }}</h5>
+                <p>{{ boutonnerie.desc }}</p>
+                <button mat-raised-button class="select-button" (click)="SelectBoutonnerie(boutonnerie)">Select</button>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="row ml-lg-5 ml-md-5 mt-5">
+    <div class="col-lg-3 col-md-12">
+        <div class="row d-flex justify-content-center">
             <div class="placeholder-circle-designs" [ngStyle]="{'background': isSelectedLastButtonSleeve ? 'url(' + selectedLastButtonSleeve.url + ')' : ''}"></div>
             <div class="left-circle-text" *ngIf="isSelectedLastButtonSleeve">
                 <h4>You have chosen:</h4>
                 <h5>{{selectedLastButtonSleeve.name}}</h5>
-                <p>{{selectedLastButtonSleeve.description_long}}</p>
-                <p>add more info or details here about the chosen item</p> 
+                <p>{{selectedLastButtonSleeve.desc}}</p>
             </div>
         </div>
-        <div class="col-lg-7">
-            <h4>Last Button Sleeve</h4>
-            <div class="row">
-                <div class="col-lg-3 image-circle mb-4" *ngFor="let lastButtonSleeve of lastButtonSleevesMock">
-                    <img class="img-responsive option-circle" src="{{ lastButtonSleeve.url }}" />
-                    <br>
-                    <h5>{{ lastButtonSleeve.name }}</h5>
-                    <p>{{ lastButtonSleeve.desc }}</p>
-                    <button mat-raised-button class="select-button" (click)="SelectLastButtonSleeve(lastButtonSleeve)">Select</button>
-                </div>
-            </div>
-            <div class="row mt-5">
-                <div class="col-lg-5 d-flex justify-content-start">
-                    <button mat-raised-button class="back-button" (click)="Previous()">Back</button>  
-                </div>
-                <div class="col-lg-6 d-flex justify-content-end">
-                    <button mat-raised-button class="next-button" (click)="Next()">Next</button>  
-                </div>
-            </div>
-        </div>  
     </div>
+    <div class="col-lg-7 col-md-12">
+        <h4>Last Button Sleeve</h4>
+        <div class="row d-flex align-items-start">
+            <div class="col-lg-3 col-md-3 col-sm-3 image-circle mb-4" *ngFor="let lastButtonSleeve of lastButtonSleevesMock">
+                <img class="img-responsive option-circle" src="{{ lastButtonSleeve.url }}" *ngIf="lastButtonSleeve.url !== ''" />
+                <img class="img-responsive option-circle" *ngIf="lastButtonSleeve.url === ''" />
+                <br>
+                <h5>{{ lastButtonSleeve.name }}</h5>
+                <p>{{ lastButtonSleeve.desc }}</p>
+                <button mat-raised-button class="select-button" (click)="SelectLastButtonSleeve(lastButtonSleeve)">Select</button>
+            </div>
+        </div>
+        <div class="row mt-5 mr-md-5">
+            <div class="col-lg-5 d-flex justify-content-start">
+                <button mat-raised-button class="back-button" (click)="Previous()">Back</button>
+            </div>
+            <div class="col-lg-6 d-flex justify-content-end">
+                <button mat-raised-button class="next-button" (click)="Next()">Next</button>
+            </div>
+        </div>
+    </div>
+</div>

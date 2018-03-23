@@ -4,6 +4,7 @@ import { FinerDetailsStage } from '../../../../models/suit-builder/finerDetailsS
 import { WizardStage } from '../../../../models/suit-builder/wizardStage';
 import { MockupGarmentModalComponent } from '../../utilities/mockup-garment-modal/mockup-garment-modal.component';
 import { MatDialog } from '@angular/material';
+import { ToastOptions, ToastyConfig, ToastyService } from 'ng2-toasty';
 
 @Component({
   selector: 'suit-builder-finer-details-package-stitching',
@@ -37,7 +38,7 @@ export class PackageStitchingComponent implements OnInit, AfterViewInit {
 
   public currentSuit: any = {};
 
-  constructor(public suitBuilderService: SuitBuilderService, public dialog: MatDialog) { }
+  constructor(public suitBuilderService: SuitBuilderService, public dialog: MatDialog, public toastyService: ToastyService, public toastyConfig: ToastyConfig) { }
 
   public ngOnInit(): void {
     this.currentSuit = this.suitBuilderService.suit;
@@ -89,6 +90,14 @@ export class PackageStitchingComponent implements OnInit, AfterViewInit {
       } else {
         this.suitBuilderService.SetWizardStage.emit(WizardStage.Measurements);
       }
+    } else {
+      var toastOptions: ToastOptions = {
+        title: "Error",
+        msg: this.errorMessage
+      };
+
+      this.toastyService.error(toastOptions);
+      console.log();
     }
   }
 }

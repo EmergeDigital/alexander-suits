@@ -3,6 +3,7 @@ import { Product } from '../../../../models/product';
 import { DataService } from '../../../../services/data.service';
 import { SuitBuilderService } from '../../suit-builder.service';
 import { FabricStage } from '../../../../models/suit-builder/fabricStage';
+import { ToastOptions, ToastyConfig, ToastyService } from 'ng2-toasty';
 
 @Component({
   selector: 'suit-builder-fabric-material',
@@ -88,7 +89,7 @@ export class MaterialComponent implements OnInit {
 
   public carousels: number[] = [];
 
-  constructor(public data: DataService, public suitBuilderService: SuitBuilderService) {
+  constructor(public data: DataService, public suitBuilderService: SuitBuilderService, public toastyService: ToastyService, public toastyConfig: ToastyConfig) {
     this.GetMaterials(suitBuilderService.collection);
     suitBuilderService._collectionChanged.subscribe(collection => {
       this.GetMaterials(collection);
@@ -168,6 +169,13 @@ export class MaterialComponent implements OnInit {
     }
     else {
       this.errorMessage = "Please Select A Material";
+
+      var toastOptions: ToastOptions = {
+        title: "Error",
+        msg: this.errorMessage
+      };
+
+      this.toastyService.error(toastOptions);
     }
   }
 

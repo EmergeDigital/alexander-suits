@@ -13,11 +13,11 @@ export class PocketsComponent implements OnInit, AfterViewInit {
   public DesignStage = DesignStage;
 
   public pocketsMock: any[] = [
-    { "name": "1", "desc": "Pocket Description", "url": "assets/jacket-builder/pockets/pocket-v1.png" },
-    { "name": "2", "desc": "Pocket Description", "url": "assets/jacket-builder/pockets/pocket-v2.png" },
-    { "name": "3", "desc": "Pocket Description", "url": "assets/jacket-builder/pockets/pocket-v3.png" },
-    { "name": "4", "desc": "Pocket Description", "url": "assets/jacket-builder/pockets/pocket-v4.png" },
-    { "name": "5", "desc": "Pocket Description", "url": "assets/jacket-builder/pockets/pocket-v5.png" },
+    { "name": "Straight", "desc": "A straight flap pocket style.", "url": "assets/suit-builder/pockets/pocket-v4.png" },
+    { "name": "Straight", "desc": "A straight flap pocket with ticket pocket style.", "url": "assets/suit-builder/pockets/pocket-v5.png" },
+    { "name": "Patch", "desc": "A straight patch pocket style.", "url": "assets/suit-builder/pockets/pocket-v1.png" },
+    { "name": "Slanted", "desc": "A slanted flap pocket style.", "url": "assets/suit-builder/pockets/pocket-v2.png" },
+    { "name": "Slanted", "desc": "A slanted flap pocket with ticket pocket style.", "url": "assets/suit-builder/pockets/pocket-v3.png" },
   ];
 
   public selectedPocket: any = {};
@@ -35,6 +35,18 @@ export class PocketsComponent implements OnInit, AfterViewInit {
 
   public ngAfterViewInit(): void {
     this.MainFocus.first.nativeElement.focus();
+  }
+
+  public GetBackgroundSelected(): string {
+    var ret = "";
+
+    if (this.jacketBuilderService.isCollarSelected)
+      ret = 'url(' + this.currentSuit.collar.url + '),';
+
+    if (this.isSelectedPocket)
+      ret = ret + ' url(' + this.selectedPocket.url + '),';
+
+    return ret + ' url("assets/suit-builder/suit-base.png")';
   }
 
   public SelectPocket(pocket: any) {

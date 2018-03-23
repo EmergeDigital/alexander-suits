@@ -58,9 +58,7 @@ export class ShirtBuilderService {
     public isBreastPocketSelected: boolean = false;
     public isButtonHoleSelected: boolean = false;
     public isBoutonnerieSelected: boolean = false;
-    public isLastButtonSleeveSelected: boolean = false;
     public isContrastPackageSelected: boolean = false;
-    public isTopStitchSelected: boolean = false;
     public isBodyTypeSelected: boolean = false;
 
     public isFinerDetailsShown: boolean = false;
@@ -100,12 +98,8 @@ export class ShirtBuilderService {
             errorMessage = "No Button Hole Selected. "
         if (!this.isBoutonnerieSelected)
             errorMessage = errorMessage + "No Boutonnerie Selected. "
-        if (!this.isLastButtonSleeveSelected)
-            errorMessage = errorMessage + "No Last Button Sleeve Selected. "
         if (!this.isContrastPackageSelected)
             errorMessage = errorMessage + "No Contrast Package Selected. "
-        if (!this.isTopStitchSelected)
-            errorMessage = errorMessage + "No Top Stitch Selected. "
 
         return errorMessage;
     }

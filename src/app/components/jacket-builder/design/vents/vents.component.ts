@@ -4,6 +4,7 @@ import { DesignStage } from '../../../../models/jacket-builder/designStage';
 import { WizardStage } from '../../../../models/jacket-builder/wizardStage';
 import { ExtraDetailsModalComponent } from '../extra-details-modal/extra-details-modal.component';
 import { MatDialog } from '@angular/material';
+import { ToastOptions, ToastyConfig, ToastyService } from 'ng2-toasty';
 
 @Component({
   selector: 'jacket-builder-design-vents',
@@ -12,12 +13,12 @@ import { MatDialog } from '@angular/material';
 })
 export class VentsComponent implements OnInit, AfterViewInit {
   @ViewChildren("MainFocus") MainFocus;
-  
+
   public DesignStage = DesignStage;
 
   public ventsMock: any[] = [
-    {"name": "1", "desc": "Vent Description", "url": "assets/jacket-builder/vents/vents-v1.png"},
-    {"name": "2", "desc": "Vent Description", "url": "assets/jacket-builder/vents/vents-v2.png"},
+    {"name": "Centre", "desc": "A centre vent style.", "url": "assets/suit-builder/vents/vents-v1.png"},
+    {"name": "Side", "desc": "A side vent style.", "url": "assets/suit-builder/vents/vents-v2.png"},
   ];
 
   public errorMessage: string = "";
@@ -27,7 +28,7 @@ export class VentsComponent implements OnInit, AfterViewInit {
 
   public currentSuit: any = {};
 
-  constructor(public jacketBuilderService: JacketBuilderService, public dialog: MatDialog) { }
+  constructor(public jacketBuilderService: JacketBuilderService, public dialog: MatDialog, public toastyService: ToastyService, public toastyConfig: ToastyConfig) { }
 
   public ngOnInit(): void {
     this.currentSuit = this.jacketBuilderService.suit;
@@ -56,8 +57,7 @@ export class VentsComponent implements OnInit, AfterViewInit {
     if (this.errorMessage === "") {
       if (this.jacketBuilderService.isFinerDetailsShown === false) {
         let ExtraDetailsModal = this.dialog.open(ExtraDetailsModalComponent, {
-          height: '400px',
-          width: '600px',
+          height: '60%',
         });
 
         ExtraDetailsModal.afterClosed().subscribe(result => {
@@ -75,6 +75,14 @@ export class VentsComponent implements OnInit, AfterViewInit {
       } else {
         this.jacketBuilderService.SetWizardStage.emit(WizardStage.Measurements);
       }
+    } else {
+      var toastOptions: ToastOptions = {
+        title: "Error",
+        msg: this.errorMessage
+      };
+
+      this.toastyService.error(toastOptions);
+      console.log();
     }
   }
 }

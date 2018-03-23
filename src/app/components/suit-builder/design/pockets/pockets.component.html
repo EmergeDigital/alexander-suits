@@ -23,7 +23,6 @@
                 <img class="img-responsive option-circle" src="{{ pocket.url }}" />
                 <br>
                 <h5>{{ pocket.name }}</h5>
-                <p>{{ pocket.desc }}</p>
                 <button mat-raised-button class="select-button" (click)="SelectPocket(pocket)">Select</button>
             </div>
         </div>
@@ -39,7 +38,7 @@
     <div class="col-lg-2 hide-mobile">
         <button class="help-button">i need help choosing</button>
         <p class="active-link" (click)="suitBuilderService.SetDesignStage.emit(DesignStage.Collar)"><i class="fa fa-circle" aria-hidden="true"></i>Jacket Collar Style</p>
-        <p class="chosen-style-text">You chose style {{ currentSuit.collar.name }}</p>
+        <p class="chosen-style-text">{{ currentSuit.collar && currentSuit.collar.name ? "You chose style " + currentSuit.collar.name : "Please Choose a Style" }}</p>
         <p class="active-link"><i class="fa fa-circle" aria-hidden="true"></i> Jacket Pockets</p>
         <p><i class="fa fa-circle-o" aria-hidden="true"></i> Jacket Vents</p>
         <p><i class="fa fa-circle-o" aria-hidden="true"></i> Pants</p>

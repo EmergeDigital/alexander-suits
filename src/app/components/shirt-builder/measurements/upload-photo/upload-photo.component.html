@@ -7,39 +7,37 @@
     </div>
 </div>
 <div class="row mt-5">
-    <div class="col-lg-10">
-        <div class="row ml-5 pl-5">
-            <div class="col-lg-2 m-4 image-circle">
+    <div class="col-lg-10 col-md-12">
+        <div class="row ml-lg-5 pl-lg-5">
+            <div class="col-lg-2 col-md-2 col-sm-3 m-4 image-circle">
                 <img *ngIf="uploadedImages.front !== ''" class="img-responsive option-square" src="{{uploadedImages.front}}" />
                 <img *ngIf="uploadedImages.front === ''" class="img-responsive option-square" />
                 <br>
                 <h4 class="mt-4 mb-4 ml-2">Front Facing</h4>
                 <!-- TODO: Fix Style -->
                 <td-file-upload accept=".jpg, .png, .jpeg" defaultColor="primary" activeColor="warn" cancelColor="primary" #singleFileUpload
-                    (select)="FrontImageSelect($event)" (cancel)="FileUploadCancel('front')" [(disabled)]="uploading">
-                    <mat-icon>file_upload</mat-icon>
-                    <span>File selected</span>
-                    <ng-template td-file-input-label class="select-button">
-                        <span>Upload</span>
-                    </ng-template>
+                (select)="FrontImageSelect($event)" (cancel)="FileUploadCancel('front')"  [(disabled)]="uploading"> 
+                  <span>File selected</span>
+                  <ng-template td-file-input-label>
+                      <span>Upload</span>
+                  </ng-template>
                 </td-file-upload>
             </div>
-            <div class="col-lg-2 m-4">
+            <div class="col-lg-2 col-md-2 col-sm-3 m-4">
                 <img *ngIf="uploadedImages.left !== ''" class="img-responsive option-square" src="{{uploadedImages.left}}" />
                 <img *ngIf="uploadedImages.left === ''" class="img-responsive option-square" />
                 <br>
                 <h4 class="mt-4 mb-4 ml-2">Left Facing</h4>
                 <!-- TODO: Fix Style -->
                 <td-file-upload accept=".jpg, .png, .jpeg" defaultColor="primary" activeColor="warn" cancelColor="primary" #singleFileUpload
-                    (select)="LeftImageSelect($event)" (cancel)="FileUploadCancel('left')" [(disabled)]="uploading">
-                    <mat-icon>file_upload</mat-icon>
-                    <span>File Selected</span>
-                    <ng-template td-file-input-label class="select-button">
-                        <span>Upload</span>
-                    </ng-template>
+                (select)="LeftImageSelect($event)" (cancel)="FileUploadCancel('left')"  [(disabled)]="uploading">
+                  <span>File Selected</span>
+                  <ng-template td-file-input-label>
+                    <span>Upload</span>
+                  </ng-template>
                 </td-file-upload>
             </div>
-            <div class="col-lg-2 m-4 image-circle">
+            <div class="col-lg-2 col-md-2 col-sm-3 m-4">
                 <img *ngIf="uploadedImages.right !== ''" class="img-responsive option-square" src="{{uploadedImages.right}}" />
                 <img *ngIf="uploadedImages.right === ''" class="img-responsive option-square" />
                 <br>
@@ -53,7 +51,7 @@
                   </ng-template>
                 </td-file-upload>
             </div>
-            <div class="col-lg-2 m-4 image-circle">
+            <div class="col-lg-2 col-md-2 col-sm-3 m-4">
                 <img *ngIf="uploadedImages.back !== ''" class="img-responsive option-square" src="{{uploadedImages.back}}" />
                 <img *ngIf="uploadedImages.back === ''" class="img-responsive option-square" />
                 <br>
@@ -66,9 +64,9 @@
                       <span>Upload</span>
                   </ng-template>
                 </td-file-upload>
-            </div>   
+            </div>         
         </div>
-        <div class="row mt-5 ml-5">
+        <div class="row mt-5 ml-5 mr-md-5">
             <div class="col-lg-5 d-flex justify-content-start">
                 <button mat-raised-button class="back-button" (click)="Previous()">Back</button>
             </div>
@@ -77,29 +75,25 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-2">
-        <p class="active-link" (click)="shirtBuilderService.SetMeasurementsStage.emit(MeasurementStage.BodyType)">
-            <i class="fa fa-circle" aria-hidden="true"></i> Body Type</p>
-        <p class="chosen-style-text">You chose {{ currentSuit.bodyType.name }}</p>
-        <p class="active-link" (click)="shirtBuilderService.SetMeasurementsStage.emit(MeasurementStage.GeneralMeasurements)">
-            <i class="fa fa-circle" aria-hidden="true"></i> Basic Measurements</p>
-        <p class="chosen-style-text">Height: {{ currentSuit.generalMeasurements.height }}</p>
-        <p class="chosen-style-text">Chest: {{ currentSuit.generalMeasurements.chest }}</p>
-        <p class="chosen-style-text">1/2 Back: {{ currentSuit.generalMeasurements.back }}</p>
-        <p class="chosen-style-text">Biceps: {{ currentSuit.generalMeasurements.biceps }}</p>
-        <p class="chosen-style-text">Stomach: {{ currentSuit.generalMeasurements.stomach }}</p>
-        <p class="chosen-style-text">Seat: {{ currentSuit.generalMeasurements.seat }}</p>
-        <p class="chosen-style-text">Thigh: {{ currentSuit.generalMeasurements.thigh }}</p>
-        <p class="active-link" (click)="shirtBuilderService.SetMeasurementsStage.emit(MeasurementStage.FinerMeasurements)">
-            <i class="fa fa-circle" aria-hidden="true"></i> Extra Measurements</p>
-        <p class="chosen-style-text">Backlength: {{ currentSuit.finerMeasurements.jacketBackLength }}</p>
-        <p class="chosen-style-text">1/2 Waist: {{ currentSuit.finerMeasurements.jacketWaist }}</p>
-        <p class="chosen-style-text">Waist: {{ currentSuit.finerMeasurements.withoutTrouserWaist }}</p>
-        <p class="chosen-style-text">Outside Seamline: {{ currentSuit.finerMeasurements.withoutTrouserOutsideSeam }}</p>
-        <p class="chosen-style-text">Waist: {{ currentSuit.finerMeasurements.trouserWaist }}</p>
-        <p class="chosen-style-text">Inside Seamline: {{ currentSuit.finerMeasurements.trouserInsideSeam }}</p>
-        <p class="chosen-style-text">Outside Seamline {{ currentSuit.finerMeasurements.trouserOutsideSeam }}</p>
-        <p class="active-link">
-            <i class="fa fa-circle" aria-hidden="true"></i> Upload Photo</p>
+    <div class="col-lg-2 hide-mobile">
+        <p class="active-link" (click)="shirtBuilderService.SetMeasurementsStage.emit(MeasurementStage.BodyType)"><i class="fa fa-circle" aria-hidden="true"></i> Body Type</p>
+        <p class="chosen-style-text">{{ currentSuit.bodyType && currentSuit.bodyType.name ? "You chose " + currentSuit.bodyType.name : "Please Choose a Body Type" }}</p> 
+        <p class="active-link" (click)="shirtBuilderService.SetMeasurementsStage.emit(MeasurementStage.GeneralMeasurements)"><i class="fa fa-circle" aria-hidden="true"></i> Basic Measurements</p>
+            <p class="chosen-style-text">Height: {{ currentSuit.generalMeasurements && currentSuit.generalMeasurements.height ? currentSuit.generalMeasurements.height : "Please Choose a Measurement." }}</p>               
+            <p class="chosen-style-text">Chest: {{ currentSuit.generalMeasurements && currentSuit.generalMeasurements.chest ? currentSuit.generalMeasurements.chest : "Please Choose a Measurement." }}</p>            
+            <p class="chosen-style-text">1/2 Back: {{ currentSuit.generalMeasurements && currentSuit.generalMeasurements.back ? currentSuit.generalMeasurements.back : "Please Choose a Measurement." }}</p>            
+            <p class="chosen-style-text">Biceps: {{ currentSuit.generalMeasurements && currentSuit.generalMeasurements.biceps ? currentSuit.generalMeasurements.biceps : "Please Choose a Measurement." }}</p>            
+            <p class="chosen-style-text">Stomach: {{ currentSuit.generalMeasurements && currentSuit.generalMeasurements.stomach ? currentSuit.generalMeasurements.stomach : "Please Choose a Measurement." }}</p>            
+            <p class="chosen-style-text">Seat: {{ currentSuit.generalMeasurements && currentSuit.generalMeasurements.seat ? currentSuit.generalMeasurements.seat : "Please Choose a Measurement." }}</p>            
+            <p class="chosen-style-text">Thigh: {{ currentSuit.generalMeasurements && currentSuit.generalMeasurements.thigh ? currentSuit.generalMeasurements.thigh : "Please Choose a Measurement." }}</p>        
+        <p class="active-link" (click)="suitBuilderService.SetMeasurementsStage.emit(MeasurementStage.FinerMeasurements)"><i class="fa fa-circle" aria-hidden="true"></i> Extra Measurements</p>
+            <p class="chosen-style-text">Backlength: {{ currentSuit.finerMeasurements && currentSuit.finerMeasurements.jacketBackLength ? currentSuit.finerMeasurements.jacketBackLength : "Please Choose a Measurement." }}</p>            
+            <p class="chosen-style-text">1/2 Waist: {{ currentSuit.finerMeasurements && currentSuit.finerMeasurements.jacketWaist ? currentSuit.finerMeasurements.jacketWaist : "Please Choose a Measurement." }}</p>            
+            <p class="chosen-style-text">Waist: {{ currentSuit.finerMeasurements && currentSuit.finerMeasurements.withoutTrouserWaist ? currentSuit.finerMeasurements.withoutTrouserWaist : "Please Choose a Measurement." }}</p>            
+            <p class="chosen-style-text">Outside Seamline: {{ currentSuit.finerMeasurements && currentSuit.finerMeasurements.withoutTrouserOutsideSeam ? currentSuit.finerMeasurements.withoutTrouserOutsideSeam : "Please Choose a Measurement." }}</p>            
+            <p class="chosen-style-text">Waist: {{ currentSuit.finerMeasurements && currentSuit.finerMeasurements.trouserWaist ? currentSuit.finerMeasurements.trouserWaist : "Please Choose a Measurement." }}</p>
+            <p class="chosen-style-text">Inside Seamline: {{ currentSuit.finerMeasurements && currentSuit.finerMeasurements.trouserInsideSeam ? currentSuit.finerMeasurements.trouserInsideSeam : "Please Choose a Measurement." }}</p>            
+            <p class="chosen-style-text">Outside Seamline {{ currentSuit.finerMeasurements && currentSuit.finerMeasurements.trouserOutsideSeam ? currentSuit.finerMeasurements.trouserOutsideSeam : "Please Choose a Measurement." }}</p>  
+        <p class="active-link"><i class="fa fa-circle" aria-hidden="true"></i> Upload Photo</p>        
     </div>
 </div>

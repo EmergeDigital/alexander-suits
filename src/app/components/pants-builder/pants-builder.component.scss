@@ -1,7 +1,7 @@
 @import '../../../styles/colours.scss';
 
 .banner-image {
-    background-image: url("../../../assets/pants-image.png");
+    background-image: url("../../../assets/suit-customiser.png");
     background-repeat: no-repeat;
     background-size: 100%;
     height: 100%;
@@ -88,3 +88,37 @@
         text-align: center;        
     }
 }
+
+
+// Mobile View
+@media (min-width: 320px) and (max-width: 480px) {
+    .banner-image {
+        background-size: cover;
+        height: 100%;
+        overflow: hidden;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    .wizard {
+        visibility: hidden !important;
+        display: none !important;
+    }
+  }
+
+  // Tablet View
+@media (min-width: 768px) and (max-width: 1024px) {
+    .banner-image {
+        background-size: cover;
+        height: 100%;
+        overflow: hidden;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    .wizard {
+        visibility: hidden !important;
+        display: none !important;
+    }
+  }
+  

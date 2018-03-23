@@ -4,6 +4,7 @@ import { WizardStage } from '../../../../models/jacket-builder/wizardStage';
 import { FabricStage } from '../../../../models/jacket-builder/fabricStage';
 import { DataService } from '../../../../services/data.service';
 import { Lining } from '../../../../models/lining';
+import { ToastOptions, ToastyConfig, ToastyService } from 'ng2-toasty';
 
 @Component({
   selector: 'jacket-builder-fabric-lining',
@@ -25,14 +26,21 @@ export class LiningComponent implements OnInit, AfterViewInit {
     "Royal Blue",
     "Cobalt Blue",
     "Navy Blue",
-    "Dark Navy Blue"
+    "Dark Navy Blue",
+    "Light Blue",
+    "Medium Blue"
   ];
 
   public purpleColourTypes: string[] = [
     "Aubergine",
     "Light Purple/Malve",
     "Purple",
-    "Fuchsia /with pink"
+    "Fuchsia /with pink",
+    "Light Pink",
+    "Pink",
+    "Red",
+    "Dark Red",
+    "Burgundy"
   ];
 
   public redColourTypes: string[] = [
@@ -73,7 +81,7 @@ export class LiningComponent implements OnInit, AfterViewInit {
 
   public carousels: number[] = [];
 
-  constructor(public data: DataService, public jacketBuilderService: JacketBuilderService) {
+  constructor(public data: DataService, public jacketBuilderService: JacketBuilderService, public toastyService: ToastyService, public toastyConfig: ToastyConfig) {
     this.GetLinings();
   }
 
@@ -156,6 +164,13 @@ export class LiningComponent implements OnInit, AfterViewInit {
     }
     else {
       this.errorMessage = "Please Select A Lining";
+
+      var toastOptions: ToastOptions = {
+        title: "Error",
+        msg: this.errorMessage
+      };
+
+      this.toastyService.error(toastOptions);
     }
   }
 }

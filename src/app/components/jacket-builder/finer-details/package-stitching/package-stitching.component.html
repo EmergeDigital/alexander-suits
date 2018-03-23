@@ -6,47 +6,52 @@
         <p class="brown-paragraph-text">Lorem ipsum dolor sit amet,consectetur.</p>
     </div>
 </div>
-<div class="row ml-5 mt-5">
-    <div class="col-lg-3">
-        <div class="placeholder-circle-designs" [ngStyle]="{'background': isSelectedConstrastPackage ? 'url(' + selectedConstrastPackage.url + ')' : ''}"></div>
-        <div class="left-circle-text" *ngIf="isSelectedConstrastPackage">
-            <h4>You have chosen:</h4>
-            <h5>{{selectedConstrastPackage.name}}</h5>
-            <p>{{selectedConstrastPackage.description_long}}</p>
-            <p>add more info or details here about the chosen item</p> 
+<div class="row ml-lg-5 ml-md-5 mt-5">
+    <div class="col-lg-3 col-md-12">
+        <div class="row d-flex justify-content-center">
+            <div class="placeholder-circle-designs" [ngStyle]="{'background': isSelectedConstrastPackage ? 'url(' + selectedConstrastPackage.url + ')' : ''}"></div>
+            <div class="left-circle-text" *ngIf="isSelectedConstrastPackage">
+                <h4>You have chosen:</h4>
+                <h5>{{selectedConstrastPackage.name}}</h5>
+                <p>{{selectedConstrastPackage.desc}}</p>
+            </div>
         </div>
     </div>
-    <div class="col-lg-7">
+    <div class="col-lg-7 col-md-12">
         <h4>Contrast Package</h4>
-        <div class="row">
-            <div class="col-lg-3 image-circle mb-4" *ngFor="let contrastPackage of contrastPackagesMock">
-                <img class="img-responsive option-circle" src="{{ contrastPackage.url }}" />
+        <div class="row d-flex align-items-start">
+            <div class="col-lg-3 col-md-3 col-sm-3 image-circle mb-4" *ngFor="let contrastPackage of contrastPackagesMock">
+                <img class="img-responsive option-circle" src="{{ contrastPackage.url }}" *ngIf="contrastPackage.url !== ''"/>
+                <img class="img-responsive option-circle" *ngIf="contrastPackage.url === ''"/>
                 <br>
                 <h5>{{ contrastPackage.name }}</h5>
                 <p>{{ contrastPackage.desc }}</p>
                 <button mat-raised-button class="select-button" (click)="SelectContrastPackage(contrastPackage)">Select</button>
             </div>
         </div>
-        <div class="row mb-4">
+        <div class="row mb-4 mt-5">
             <div class="col">
                 <h4>Choose a colour for the undercollar</h4>   
-                <div class="col-lg-4 d-flex flex-row">
-                    <!-- TODO: Add tooltips to display colour name/group -->
+                <div class="col-md-4 col-sm-12 d-flex flex-row">
                     <p class="colour-label-text">Colour</p>    
-                    <button class="circle purple" (click)="selectedContrastPackageColour = 'purple'"></button>                            
-                    <button class="circle blue" (click)="selectedContrastPackageColour = 'blue'"></button>
-                    <button class="circle brown" (click)="selectedContrastPackageColour = 'brown'"></button>        
-                    <button class="circle red" (click)="selectedContrastPackageColour = 'red'"></button>
-                    <button class="circle black" (click)="selectedContrastPackageColour = 'black'"></button>                    
+                    <span matTooltip="Red" matTooltipPosition="above">
+                        <button class="circle red" (click)="selectedContrastPackageColour = 'red'"></button>
+                    </span>  
+                    <span matTooltip="Blue" matTooltipPosition="above">
+                        <button class="circle blue" (click)="selectedContrastPackageColour = 'blue'"></button>
+                    </span>
+                    <span matTooltip="Brown" matTooltipPosition="above">
+                        <button class="circle brown" (click)="selectedContrastPackageColour = 'brown'"></button>  
+                    </span>                                              
                 </div>                 
             </div>
         </div>
     </div>  
-    <div class="col-lg-2">
-        <p class="active-link" (click)="jacketBuilderService.SetFinerDetailsStage.emit(FinerDetailsStage.ButtonStyles)"><i class="fa fa-circle" aria-hidden="true"></i> Buttons</p>
-        <p class="chosen-style-text">You chose style {{currentSuit.buttonHole}}</p>
-        <p class="chosen-style-text">You chose style {{currentSuit.boutonnerie}}</p>
-        <p class="chosen-style-text">You chose style {{currentSuit.lastButtonSleeve}}</p>
+    <div class="col-lg-2 hide-mobile">
+        <p class="active-link" (click)="suitBuilderService.SetFinerDetailsStage.emit(FinerDetailsStage.ButtonStyles)"><i class="fa fa-circle" aria-hidden="true"></i> Buttons</p>
+        <p class="chosen-style-text">{{ currentSuit.buttonHole && currentSuit.buttonHole.name ? "You chose style " + currentSuit.buttonHole.name : "Please Choose a Style" }}</p>
+        <p class="chosen-style-text">{{ currentSuit.boutonnerie && currentSuit.boutonnerie.name ? "You chose style " + currentSuit.boutonnerie.name : "Please Choose a Style" }}</p>
+        <p class="chosen-style-text">{{ currentSuit.lastButtonSleeve && currentSuit.lastButtonSleeve.name ? "You chose style " + currentSuit.lastButtonSleeve.name : "Please Choose a Style" }}</p>
         <p class="active-link"><i class="fa fa-circle" aria-hidden="true"></i> Custom Packages </p>       
     </div>     
 </div>
@@ -57,28 +62,30 @@
 <div class="col-lg-12 d-flex justify-content-center">
     <p class="brown-paragraph-text">Lorem ipsum dolor sit amet,consectetur.</p>
 </div>
-<div class="row ml-5 mt-5">
-    <div class="col-lg-3">
-        <div class="placeholder-circle-designs" [ngStyle]="{'background': isSelectedTopStitch ? 'url(' + selectedTopStitch.url + ')' : ''}"></div>
-        <div class="left-circle-text" *ngIf="isSelectedTopStitch">
-            <h4>You have chosen:</h4>
-            <h5>{{selectedTopStitch.name}}</h5>
-            <p>{{selectedTopStitch.description_long}}</p>
-            <p>add more info or details here about the chosen item</p> 
+<div class="row ml-lg-5 ml-md-5 mt-5">
+    <div class="col-lg-3 col-md-12">
+        <div class="row d-flex justify-content-center">
+            <div class="placeholder-circle-designs" [ngStyle]="{'background': isSelectedTopStitch ? 'url(' + selectedTopStitch.url + ')' : ''}"></div>
+            <div class="left-circle-text" *ngIf="isSelectedTopStitch">
+                <h4>You have chosen:</h4>
+                <h5>{{selectedTopStitch.name}}</h5>
+                <p>{{selectedTopStitch.desc}}</p>
+            </div>
         </div>
     </div>
-    <div class="col-lg-7">
+    <div class="col-lg-7 col-md-12">
         <h4>Top Stitch</h4>
-        <div class="row">
-            <div class="col-lg-3 image-circle mb-4" *ngFor="let topStitch of topStitchsMock">
-                <img class="img-responsive option-circle" src="{{ topStitch.url }}" />
+        <div class="row d-flex align-items-start">
+            <div class="col-lg-3 col-md-3 col-sm-3 image-circle mb-4" *ngFor="let topStitch of topStitchsMock">
+                <img class="img-responsive option-circle" src="{{ topStitch.url }}" *ngIf="topStitch.url !== ''"/>
+                <img class="img-responsive option-circle" *ngIf="topStitch.url === ''"/>
                 <br>
                 <h5>{{ topStitch.name }}</h5>
                 <p>{{ topStitch.desc }}</p>
                 <button mat-raised-button class="select-button" (click)="SelectTopStitch(topStitch)">Select</button>
             </div>
         </div>
-        <div class="row mt-5">
+        <div class="row mt-5 mr-md-5">
             <div class="col-lg-5 d-flex justify-content-start">
                 <button mat-raised-button class="back-button" (click)="Previous()">Back</button>  
             </div>

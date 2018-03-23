@@ -10,19 +10,19 @@ import { FinerDetailsStage } from '../../../../models/shirt-builder/finerDetails
 })
 export class ButtonStylesComponent implements OnInit, AfterViewInit {
   @ViewChildren("MainFocus") MainFocus;
-  
+
   public FinerDetailsStage = FinerDetailsStage;
 
   public buttonHolesMock: any[] = [
-    { "name": "1", "desc": "Fake button holes","url": "assets/shirt-builder/buttons/buttons-v1.png" },
-    { "name": "2", "desc": "Working button holes", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
+    { "name": "Standard", "desc": "Our shirts come standard with our off- white shell button.","url": "" },
+    { "name": "Choose Colour", "desc": "Choose colour below", "url": "" },
   ];
-  
+
   public boutonneriesMock: any[] = [
-    { "name": "1", "desc": "Fake button holes", "url": "assets/shirt-builder/buttons/buttons-v1.png" },
-    { "name": "2", "desc": "Working button holes", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
+    { "name": "Standard", "desc": "Our button holes automatically come tone in tone with the fabric.", "url": "" },
+    { "name": "Choose Colour", "desc": "Choose colour below", "url": "" },
   ];
-  
+
   public lastButtonSleevesMock: any[] = [
     { "name": "1", "desc": "Fake button holes", "url": "assets/shirt-builder/buttons/buttons-v1.png" },
     { "name": "2", "desc": "Working button holes", "url": "assets/shirt-builder/buttons/buttons-v2.png" },
@@ -31,24 +31,19 @@ export class ButtonStylesComponent implements OnInit, AfterViewInit {
   public errorMessage: string = "";
 
   public selectedButtonHole: any = {};
-  public isSelectedButtonHole: boolean = false;  
+  public isSelectedButtonHole: boolean = false;
 
   public selectedBoutonnerie: any = {};
-  public isSelectedBoutonnerie: boolean = false;  
-
-  public selectedLastButtonSleeve: any = {};
-  public isSelectedLastButtonSleeve: boolean = false;  
+  public isSelectedBoutonnerie: boolean = false;
 
   constructor(public shirtBuilderService: ShirtBuilderService) { }
 
   public ngOnInit(): void {
     this.selectedButtonHole = this.shirtBuilderService.suit.buttonHole;
     this.selectedBoutonnerie = this.shirtBuilderService.suit.boutonnerie;
-    this.selectedLastButtonSleeve = this.shirtBuilderService.suit.lastButtonSleeve;
 
     this.isSelectedButtonHole = this.shirtBuilderService.isButtonHoleSelected;
     this.isSelectedBoutonnerie = this.shirtBuilderService.isBoutonnerieSelected;
-    this.isSelectedLastButtonSleeve = this.shirtBuilderService.isLastButtonSleeveSelected;
   }
 
   public ngAfterViewInit(): void {
@@ -65,11 +60,6 @@ export class ButtonStylesComponent implements OnInit, AfterViewInit {
     this.isSelectedBoutonnerie = true;
   }
 
-  public SelectLastButtonSleeve(lastButtonSleeve: any) {
-    this.selectedLastButtonSleeve = lastButtonSleeve;
-    this.isSelectedLastButtonSleeve = true;
-  }
-
   public Previous(): void {
     this.shirtBuilderService.SetWizardStage.emit(WizardStage.Design);
   }
@@ -77,11 +67,9 @@ export class ButtonStylesComponent implements OnInit, AfterViewInit {
   public Next(): void {
     this.shirtBuilderService.suit.buttonHole = this.selectedButtonHole;
     this.shirtBuilderService.suit.boutonnerie = this.selectedBoutonnerie;
-    this.shirtBuilderService.suit.lastButtonSleeve = this.selectedLastButtonSleeve;
-    
+
     this.shirtBuilderService.isButtonHoleSelected = this.isSelectedButtonHole;
     this.shirtBuilderService.isBoutonnerieSelected = this.isSelectedBoutonnerie;
-    this.shirtBuilderService.isLastButtonSleeveSelected = this.isSelectedLastButtonSleeve;
 
     this.shirtBuilderService.SetFinerDetailsStage.emit(FinerDetailsStage.PackageStitching);
   }

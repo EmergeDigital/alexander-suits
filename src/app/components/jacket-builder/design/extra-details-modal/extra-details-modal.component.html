@@ -1,22 +1,22 @@
-<div>
-    <h1>Finer Details</h1>
-    <div class="row">
+<div class="details-modal">
+    <h1 class="mt-5">Finer Details</h1>
+    <div class="row mt-5">
         <div class="col">
-                <label><strong>Would you like to add extra details to your suit such as:</strong></label>
-                <label>Choosing Buttons</label>
-                <label>Contrast Packages</label>
-                <label>Stitching Types and Colour</label>
+                <em><h3 class="modal-subheading">Would you like to add extra details to your suit such as:</h3></em>
+                <p>Choosing Buttons</p>
+                <p>Contrast Packages</p>
+                <p>Stitching Types and Colour</p>
         </div>
     </div>
-    <div class="row">
+    <div class="row mt-3">
         <div class="col">
-            <label><strong>If you choose not too, the tailor will choose what will be best.</strong></label>
+            <h4><em>If you choose not too, the tailor will choose what will be best.</em></h4>
         </div>
     </div>
-    <div class="row">
+    <div class="row m-md-5 px-lg-5">
         <div class="col">
-            <button mat-raised-button style="float:left;" (click)="SelectNo()">NO THANKS</button>
-            <button mat-raised-button style="float:right;" (click)="SelectYes()">YES!</button>
+            <button mat-raised-button style="float:left;" (click)="SelectNo()" class="no-button">NO</button>
+            <button mat-raised-button style="float:right;" (click)="SelectYes()" class="yes-button">YES</button>
         </div>
     </div>
 </div>
