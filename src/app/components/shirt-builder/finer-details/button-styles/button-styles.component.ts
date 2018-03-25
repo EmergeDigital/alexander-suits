@@ -36,11 +36,14 @@ export class ButtonStylesComponent implements OnInit, AfterViewInit {
   public selectedBoutonnerie: any = {};
   public isSelectedBoutonnerie: boolean = false;
 
+  public selectedContrastPackageColour: string = "";
+
   constructor(public shirtBuilderService: ShirtBuilderService) { }
 
   public ngOnInit(): void {
     this.selectedButtonHole = this.shirtBuilderService.suit.buttonHole;
     this.selectedBoutonnerie = this.shirtBuilderService.suit.boutonnerie;
+    this.selectedContrastPackageColour = this.shirtBuilderService.suit.buttonContrastPackageColour;
 
     this.isSelectedButtonHole = this.shirtBuilderService.isButtonHoleSelected;
     this.isSelectedBoutonnerie = this.shirtBuilderService.isBoutonnerieSelected;
@@ -67,6 +70,7 @@ export class ButtonStylesComponent implements OnInit, AfterViewInit {
   public Next(): void {
     this.shirtBuilderService.suit.buttonHole = this.selectedButtonHole;
     this.shirtBuilderService.suit.boutonnerie = this.selectedBoutonnerie;
+    this.shirtBuilderService.suit.buttonContrastPackageColour = this.selectedContrastPackageColour;
 
     this.shirtBuilderService.isButtonHoleSelected = this.isSelectedButtonHole;
     this.shirtBuilderService.isBoutonnerieSelected = this.isSelectedBoutonnerie;

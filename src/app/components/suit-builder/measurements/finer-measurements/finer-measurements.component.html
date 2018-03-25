@@ -50,9 +50,9 @@
         </div>
     </div>
     <div class="col-lg-2 hide-mobile">
-        <p class="active-link" (click)="shirtBuilderService.SetMeasurementsStage.emit(MeasurementStage.BodyType)"><i class="fa fa-circle" aria-hidden="true"></i> Body Type</p>
+        <p class="active-link" (click)="suitBuilderService.SetMeasurementsStage.emit(MeasurementStage.BodyType)"><i class="fa fa-circle" aria-hidden="true"></i> Body Type</p>
         <p class="chosen-style-text">{{ currentSuit.bodyType && currentSuit.bodyType.name ? "You chose " + currentSuit.bodyType.name : "Please Choose a Body Type" }}</p> 
-        <p class="active-link" (click)="shirtBuilderService.SetMeasurementsStage.emit(MeasurementStage.GeneralMeasurements)"><i class="fa fa-circle" aria-hidden="true"></i> Basic Measurements</p>
+        <p class="active-link" (click)="suitBuilderService.SetMeasurementsStage.emit(MeasurementStage.GeneralMeasurements)"><i class="fa fa-circle" aria-hidden="true"></i> Basic Measurements</p>
             <p class="chosen-style-text">Height: {{ currentSuit.generalMeasurements && currentSuit.generalMeasurements.height ? currentSuit.generalMeasurements.height : "Please Choose a Measurement." }}</p>               
             <p class="chosen-style-text">Chest: {{ currentSuit.generalMeasurements && currentSuit.generalMeasurements.chest ? currentSuit.generalMeasurements.chest : "Please Choose a Measurement." }}</p>            
             <p class="chosen-style-text">1/2 Back: {{ currentSuit.generalMeasurements && currentSuit.generalMeasurements.back ? currentSuit.generalMeasurements.back : "Please Choose a Measurement." }}</p>            

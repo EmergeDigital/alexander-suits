@@ -86,7 +86,7 @@
             <p class="chosen-style-text">Stomach: {{ currentSuit.generalMeasurements && currentSuit.generalMeasurements.stomach ? currentSuit.generalMeasurements.stomach : "Please Choose a Measurement." }}</p>            
             <p class="chosen-style-text">Seat: {{ currentSuit.generalMeasurements && currentSuit.generalMeasurements.seat ? currentSuit.generalMeasurements.seat : "Please Choose a Measurement." }}</p>            
             <p class="chosen-style-text">Thigh: {{ currentSuit.generalMeasurements && currentSuit.generalMeasurements.thigh ? currentSuit.generalMeasurements.thigh : "Please Choose a Measurement." }}</p>        
-        <p class="active-link" (click)="suitBuilderService.SetMeasurementsStage.emit(MeasurementStage.FinerMeasurements)"><i class="fa fa-circle" aria-hidden="true"></i> Extra Measurements</p>
+        <p class="active-link" (click)="shirtBuilderService.SetMeasurementsStage.emit(MeasurementStage.FinerMeasurements)"><i class="fa fa-circle" aria-hidden="true"></i> Extra Measurements</p>
             <p class="chosen-style-text">Backlength: {{ currentSuit.finerMeasurements && currentSuit.finerMeasurements.jacketBackLength ? currentSuit.finerMeasurements.jacketBackLength : "Please Choose a Measurement." }}</p>            
             <p class="chosen-style-text">1/2 Waist: {{ currentSuit.finerMeasurements && currentSuit.finerMeasurements.jacketWaist ? currentSuit.finerMeasurements.jacketWaist : "Please Choose a Measurement." }}</p>            
             <p class="chosen-style-text">Waist: {{ currentSuit.finerMeasurements && currentSuit.finerMeasurements.withoutTrouserWaist ? currentSuit.finerMeasurements.withoutTrouserWaist : "Please Choose a Measurement." }}</p>            

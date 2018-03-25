@@ -41,6 +41,7 @@ export class ShirtBuilderService {
         lastButtonSleeve: {},
         contrastpackage: {},
         topStitch: {},
+        buttonContrastPackageColour: {},
         contrastPackageColour: {},
         bodyType: {},
         generalMeasurements: { height: 0, chest: 0, back: 0, biceps: 0, stomach: 0, seat: 0, thigh: 0 },

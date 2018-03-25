@@ -27,6 +27,10 @@ export class FinerMeasurementsComponent implements OnInit, AfterViewInit {
     this.MainFocus.first.nativeElement.focus();
   }
 
+  public WatchVideo(video: string): void {
+    window.open(video, '_blank');
+  }
+
   public Previous(): void {
     this.shirtBuilderService.SetMeasurementsStage.emit(MeasurementStage.GeneralMeasurements);
   }
